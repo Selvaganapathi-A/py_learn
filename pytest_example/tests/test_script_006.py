@@ -1,4 +1,4 @@
-from learn.pytest_example import script_001, shape_square
+from py_learn.pytest_example import script_001, shape_square
 
 import pytest
 

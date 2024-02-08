@@ -1,7 +1,7 @@
 import sys
 import time
 
-from learn.pytest_example import script_001
+from py_learn.pytest_example import script_001
 
 import pytest
 

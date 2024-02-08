@@ -2,7 +2,7 @@ from typing import override
 
 import math
 
-from learn.pytest_example.shape import Shape
+from py_learn.pytest_example.shape import Shape
 
 
 class Circle(Shape):

@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from learn.unittest_example.sensor import Sensor
+from py_learn.unittest_example.sensor import Sensor
 
 
 class Temperature_Sensor(Protocol):

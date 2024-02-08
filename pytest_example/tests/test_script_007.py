@@ -1,6 +1,6 @@
 from typing import Any, Callable
 
-from learn.pytest_example import fibo
+from py_learn.pytest_example import fibo
 
 import pytest
 

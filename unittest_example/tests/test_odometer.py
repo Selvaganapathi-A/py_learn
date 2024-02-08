@@ -2,7 +2,7 @@ from unittest import mock, TestCase
 
 import secrets
 
-from learn.unittest_example import odometer
+from py_learn.unittest_example import odometer
 """
 
 

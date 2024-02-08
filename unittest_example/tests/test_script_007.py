@@ -2,7 +2,7 @@ from pathlib import Path
 from unittest import TestCase
 from unittest.mock import MagicMock, Mock, patch
 
-from learn.unittest_example import fileio
+from py_learn.unittest_example import fileio
 
 
 class Test_001(TestCase):
@@ -25,7 +25,7 @@ class Test_002(TestCase):
 
 class Test_003(TestCase):
 
-    @patch("learn.unittest_example.fileio.read_numbers_from_file")
+    @patch("py_learn.unittest_example.fileio.read_numbers_from_file")
     def test_sum_numbers(self, mock_function: Mock):
         mock_function.return_value = [900, 800, 1200, 1100]
         self.assertEqual(
@@ -35,7 +35,7 @@ class Test_003(TestCase):
 class Test_004(TestCase):
 
     def test_sum_numbers(self):
-        with patch("learn.unittest_example.fileio.read_numbers_from_file"
+        with patch("py_learn.unittest_example.fileio.read_numbers_from_file"
                    ) as mock_function:
             mock_function.return_value = [900, 800, 1200, 1100]
             self.assertEqual(
@@ -47,7 +47,8 @@ class Test_005(TestCase):
 
     def test_sum_numbers(self):
         #
-        patcher = patch("learn.unittest_example.fileio.read_numbers_from_file")
+        patcher = patch(
+            "py_learn.unittest_example.fileio.read_numbers_from_file")
         #
         mock_function = patcher.start()
         #

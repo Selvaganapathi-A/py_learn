@@ -1,6 +1,6 @@
 from typing import override
 
-from learn.pytest_example.shape import Shape
+from py_learn.pytest_example.shape import Shape
 
 
 class Square(Shape):

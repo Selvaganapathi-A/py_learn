@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from learn.unittest_example.bank import BackAccount, InvalidTransaction
+from py_learn.unittest_example.bank import BackAccount, InvalidTransaction
 
 
 class Test_BankAccount(TestCase):

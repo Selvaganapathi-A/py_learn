@@ -2,9 +2,8 @@ from timeit import timeit
 
 
 from icecream import ic
-from learn.dsa.Linked_List.Single_Linked_List.dsa_linked_list_single import Node
-from learn.dsa.Linked_List.Single_Linked_List.dsa_linked_list_single import Singly_Linked_List
-
+from py_learn.dsa.Linked_List.Single_Linked_List.dsa_linked_list_single import Node
+from py_learn.dsa.Linked_List.Single_Linked_List.dsa_linked_list_single import Singly_Linked_List
 
 def find_middle[T](ll: Singly_Linked_List[T]):
     if ll.head is None or ll.head.next is None:
