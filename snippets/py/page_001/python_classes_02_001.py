@@ -2,6 +2,7 @@ from typing import List
 
 
 class Country(object):
+
     def __init__(self, countryName: str):
         self.cities: List["City"] = []
         self.countryName: str = countryName
@@ -14,6 +15,7 @@ class Country(object):
 
 
 class City(object):
+
     def __init__(self, cityName: str):
         self.people: List["Person"] = []
         self.numPeople: int = 0
@@ -32,6 +34,7 @@ class City(object):
 
 
 class Person(object):
+
     def __init__(self, ID: int):
         self.ID = ID
 

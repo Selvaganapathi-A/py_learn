@@ -4,12 +4,12 @@ import re
 import sys
 
 call(
-    ("cls",),
+    ("cls", ),
     shell=True,
 )
 
 run(
-    ("cls",),
+    ("cls", ),
     shell=True,
 )
 

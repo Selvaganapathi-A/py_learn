@@ -1,5 +1,6 @@
 # descriptors2.py
 class OneDigitNumericValue:
+
     def __init__(self):
         self.value = 0
 
@@ -43,13 +44,11 @@ print(my_third_foo_object.number)
 #         # help(setattr)
 #         setattr(self.cls, self.cls_name, value)
 
-
 # class SomeClass:
 #     fc = ClassLevelDescriptor()
 
 #     def __init__(self, value: None | str = None) -> None:
 #         self.fc = value
-
 
 # if __name__ == "__main__":
 #     i = SomeClass("one")

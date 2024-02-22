@@ -4,9 +4,12 @@ from typing import Protocol, Self
 
 
 class LightState(Protocol):
-    def switch(self, bulb: "LightBulb"): ...
 
-    def show(self): ...
+    def switch(self, bulb: "LightBulb"):
+        ...
+
+    def show(self):
+        ...
 
 
 # ~ ======================================================================== ~ #
@@ -48,6 +51,7 @@ class OnState:
 
 
 class LightBulb:
+
     def __init__(self) -> None:
         self.state: LightState = OffState()
 

@@ -9,8 +9,7 @@ class User:
         return self.__class__.__name__ + " -> " + self.name
 
     @final
-    def security(self):
-        ...
+    def security(self): ...
 
 
 class BasicUser(User):

@@ -2,6 +2,7 @@ from abc import ABCMeta, abstractmethod, abstractstaticmethod
 
 
 class Fruit(metaclass=ABCMeta):
+
     @abstractmethod
     def taste(self, value: str) -> str:
         print("taste of fruit is", value)
@@ -17,6 +18,7 @@ class Fruit(metaclass=ABCMeta):
 
 
 class Tomato(Fruit):
+
     def taste(self, value: str) -> str:
         return super().taste(value)
 
@@ -30,6 +32,7 @@ class Tomato(Fruit):
 
 
 class Apple(Fruit):
+
     def taste(self, value: str = "sweet"):
         return super().taste(value)
 

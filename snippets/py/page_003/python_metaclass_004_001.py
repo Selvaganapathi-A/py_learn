@@ -46,6 +46,7 @@ class StrawBerry(metaclass=Fruit):
 
 
 class BlueBerry(metaclass=Fruit):
+
     def __new__(cls):
         print("Hi")
         return object.__new__(cls)
@@ -58,7 +59,7 @@ if __name__ == "__main__":
     from subprocess import call, check_output, run
 
     run(
-        ("cls",),
+        ("cls", ),
         shell=True,
     )
 

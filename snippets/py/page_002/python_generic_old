@@ -1,0 +1,19 @@
+from decimal import Decimal
+
+from typing_extensions import TypeVar
+
+# * Generic bound to int, float, str, Decimal
+T = TypeVar("T", int, float, str, Decimal)
+
+
+def lambda_add(a: T, b: T) -> T:
+    return a + b
+
+
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
+    pass

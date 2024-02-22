@@ -2,6 +2,7 @@ import json5
 
 
 class Serializer:
+
     def __init__(self, *args, **kwargs) -> None:
         self.args = args
         self.kwargs = kwargs
@@ -12,22 +13,27 @@ class Serializer:
 
 
 class Rectangle(Serializer):
+
     def __init__(self, width=50, height=100, *args) -> None:
         super().__init__(width=width, height=height)
 
 
 class Square(Serializer):
+
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
 
 class Circle(Serializer):
+
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
 
 class House(Serializer):
-    def __init__(self, rectangle: Rectangle, square: Square, circle: Circle) -> None:
+
+    def __init__(self, rectangle: Rectangle, square: Square,
+                 circle: Circle) -> None:
         self.rectangle = rectangle
         self.square = square
         self.circle = circle
@@ -42,7 +48,8 @@ class House(Serializer):
 
 
 if __name__ == "__main__":
-    h = House(Rectangle(width=50, height=100), Square(sides=45), Circle(radius=20))
+    h = House(Rectangle(width=50, height=100), Square(sides=45),
+              Circle(radius=20))
     print(json5.dumps(h.serialize(), sort_keys=True))
     print(json5.dumps(h.serialize()))
 

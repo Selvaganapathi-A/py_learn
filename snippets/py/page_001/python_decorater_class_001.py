@@ -4,6 +4,7 @@ import time
 
 
 class Decorate:
+
     def __init__(self, function: Callable) -> None:
         self.function = function
 

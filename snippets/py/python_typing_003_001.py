@@ -1,6 +1,5 @@
 from typing import NoReturn, TypeVar
 
-
 T = TypeVar("T", str, int, float)
 U = TypeVar("U", str, int, float)
 

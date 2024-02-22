@@ -2,6 +2,7 @@ from typing import Any, Self, TypeVar
 
 
 class A:
+
     @staticmethod
     def __new__(cls: type["A"], value: str) -> type["A"]:
         print("__new__ method.")

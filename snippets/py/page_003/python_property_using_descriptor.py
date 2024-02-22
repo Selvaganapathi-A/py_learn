@@ -1,4 +1,5 @@
 class Descriptor_As_Property:
+
     def __init__(self, func_get=None, func_set=None, func_del=None):
         self.func_get = func_get
         self.func_set = func_set
@@ -33,6 +34,7 @@ class Descriptor_As_Property:
 
 
 class Student:
+
     def __init__(self, name, age):
         self.name = name
         self._age = age

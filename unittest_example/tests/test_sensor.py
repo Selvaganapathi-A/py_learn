@@ -1,5 +1,6 @@
 from unittest import mock, TestCase
 
+
 from py_learn.unittest_example.alarm import Alarm
 from py_learn.unittest_example.sensor import Sensor
 from py_learn.unittest_example.testsensor import TestSensor

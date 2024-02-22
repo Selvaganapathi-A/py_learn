@@ -1,4 +1,5 @@
 class SomeMetaClass(type):
+
     def __init__(self, name, bases, attrs, **kw_args):
         super(SomeMetaClass, self).__init__(name, bases, attrs)
         print(name)
@@ -17,6 +18,7 @@ class Speaker:
 
 
 class SmartSpeaker:
+
     def play_song(self):
         return "Some Song"
 
@@ -39,7 +41,7 @@ class Media(Speaker, SmartSpeaker, metaclass=SomeMetaClass):
 if __name__ == "__main__":
     from subprocess import run
 
-    run(("cls",), shell=True)
+    run(("cls", ), shell=True)
     print(type(Media))
     pixel = Media("Oh!, Oh ho!")
     print(pixel)

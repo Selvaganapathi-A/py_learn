@@ -2,6 +2,7 @@ from typing import Any, Callable, Iterable, Mapping
 
 
 def FunctionDecorator(myfunc: Callable[..., Any]) -> Callable[..., Any]:
+
     def Wrapper(*args: Iterable[Any], **kwargs: Mapping[Any, Any]):
         print("Wrapper Always Executed.")
         return myfunc(*args, **kwargs)

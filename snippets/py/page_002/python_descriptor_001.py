@@ -2,6 +2,7 @@ from typing import Type
 
 
 class StringDescriptor:
+
     def __set_name__(self, owner: Type, name: str):
         print("StringDescriptor", "set name", owner)
         self.property_name = name

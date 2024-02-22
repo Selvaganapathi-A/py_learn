@@ -1,8 +1,8 @@
 from typing import Callable, LiteralString, NewType, Text, Type, TypeAlias
 from typing import TypeGuard, TypeVar
 
-import typing
 
+import typing
 
 Q = NewType("Q", int)
 

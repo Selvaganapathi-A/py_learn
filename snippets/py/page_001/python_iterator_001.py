@@ -1,4 +1,5 @@
 class RangeTen:
+
     def __iter__(self):
         self.a = 0
         return self

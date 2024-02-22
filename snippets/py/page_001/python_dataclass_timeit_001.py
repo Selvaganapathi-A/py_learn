@@ -6,12 +6,12 @@ from typing import final, Final, Protocol
 import string
 import timeit
 
-ASCII_CHARACTERS: Final[str] = (
-    string.ascii_letters + string.ascii_lowercase + string.ascii_uppercase
-)
+ASCII_CHARACTERS: Final[str] = (string.ascii_letters + string.ascii_lowercase +
+                                string.ascii_uppercase)
 
 
 class Staff(Protocol):
+
     def get_commision(self) -> tuple[int | float, str, bool]:
         ...
 

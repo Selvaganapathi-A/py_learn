@@ -2,7 +2,6 @@ import time
 
 from rich.progress import Progress
 
-
 with Progress(refresh_per_second=50) as progress:
     task1 = progress.add_task("[red]Downloading...", total=100)
     task2 = progress.add_task("[green]Processing...", total=100)

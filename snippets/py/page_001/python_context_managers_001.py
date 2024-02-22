@@ -4,8 +4,6 @@ from types import TracebackType
 
 import logging
 import time
-
-
 """
 With context managers, you can perform any pair of operations that needs to be done
 before and after another operation or procedure, such as:
@@ -22,13 +20,13 @@ Setup and teardown
 
 @dataclass(slots=True)
 class Person:
+
     def __enter__(self):
         print("enter ctx")
         return self
 
-    def __exit__(
-        self, exc_type: Exception, exc_value: str, traceback: TracebackType
-    ) -> None:
+    def __exit__(self, exc_type: Exception, exc_value: str,
+                 traceback: TracebackType) -> None:
         print("exit ctx")
 
     def sayHi(self):
@@ -37,14 +35,14 @@ class Person:
 
 
 class MeasureTime:
+
     def __enter__(self):
         self.start = perf_counter_ns()
         self.end = 0.0
         return lambda: self.end - self.start
 
-    def __exit__(
-        self, exc_type: Exception, exc_value: str, traceback: TracebackType
-    ) -> None:
+    def __exit__(self, exc_type: Exception, exc_value: str,
+                 traceback: TracebackType) -> None:
         if exc_type is ZeroDivisionError:
             print(exc_value)
             print(traceback.tb_lineno)

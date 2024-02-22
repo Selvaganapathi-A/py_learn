@@ -4,6 +4,7 @@ import time
 
 
 class Factory:
+
     def __init__(
         self,
         *factory_args: int,
@@ -13,6 +14,7 @@ class Factory:
         print(factory_kwargs)
 
     def __call__(self, function: Callable[..., Any]) -> Any:
+
         def wrapper(*args: Any, **kwargs: Any):
             print(args, kwargs)
             start: int = time.perf_counter_ns()

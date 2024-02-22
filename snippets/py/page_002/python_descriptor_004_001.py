@@ -1,9 +1,10 @@
 from subprocess import run
 
-run(("cls",), shell=True)
+run(("cls", ), shell=True)
 
 
 class MyDescriptor:
+
     def __set_name__(self, owner, name):
         # print("set name", "owner", owner)
         # print("set name", "name", name)
@@ -40,11 +41,9 @@ class Foo:
 
 print("=" * 10)
 
-
 # Foo.a = 12
 # Foo.b = 13
 # Foo.c = 15
-
 
 print("=" * 10)
 print("=" * 10)
@@ -57,7 +56,6 @@ print(oa.b)
 print(oa.c)
 
 print("=" * 10)
-
 
 print("-" * 80)
 
@@ -72,7 +70,6 @@ print(oa.c)
 print("*" * 80)
 
 ob = Foo(4, 5, 6)
-
 
 print(ob.a)
 print(ob.b)
@@ -95,7 +92,6 @@ print(ob.b)
 print(ob.c)
 
 print("=" * 10)
-
 
 print("*" * 80)
 

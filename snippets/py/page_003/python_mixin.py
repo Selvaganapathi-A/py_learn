@@ -1,15 +1,23 @@
-from abc import ABC, ABCMeta, abstractclassmethod, abstractmethod, abstractproperty
+from abc import (
+    ABC,
+    ABCMeta,
+    abstractclassmethod,
+    abstractmethod,
+    abstractproperty,
+)
 from abc import abstractstaticmethod
 from typing import Any
 
 
 # Mixin Class
 class myMixin:
+
     def toDict(self):
         return self.__dict__
 
 
 class Employee:
+
     def __init__(self, pay) -> None:
         self.pay = pay
         pass

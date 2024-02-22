@@ -48,13 +48,10 @@ if __name__ == "__main__":
         "juliet",
     ]
     with ThreadPoolExecutor(max_workers=os.cpu_count()) as Executor:
-        future_object = (
-            Executor.submit(
-                fn_name,
-                x,
-            )
-            for x in names
-        )
+        future_object = (Executor.submit(
+            fn_name,
+            x,
+        ) for x in names)
         for x in as_completed(future_object):
             print(x.result())
     #

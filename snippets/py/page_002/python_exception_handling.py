@@ -1,6 +1,5 @@
 import logging
 
-
 if __name__ == "__main__":
     logging.basicConfig(format="%(message)s")
     try:

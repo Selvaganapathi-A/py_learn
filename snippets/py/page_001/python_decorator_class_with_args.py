@@ -4,10 +4,12 @@ import time
 
 
 class Decorate:
+
     def __init__(self, arg: int) -> None:
         self.arg = arg
 
     def __call__(self, function: Callable[..., Any]) -> Callable[..., Any]:
+
         def wrapper(a: int, b: int) -> int:
             start = time.perf_counter_ns()
             return_value: Any = function(a, b) * self.arg
