@@ -1,9 +1,7 @@
+import logging
 from typing import Self
 
-import logging
-
 from colorama import Fore
-
 
 logging.basicConfig(
     format=Fore.MAGENTA + "%(asctime)s\n%(message)s" + Fore.RESET,

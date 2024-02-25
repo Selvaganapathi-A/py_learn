@@ -1,6 +1,5 @@
-from socket import AF_INET, SOCK_DGRAM, socket
-
 import time
+from socket import AF_INET, SOCK_DGRAM, socket
 
 import json5
 

@@ -32,8 +32,9 @@ class Circle(Serializer):
 
 class House(Serializer):
 
-    def __init__(self, rectangle: Rectangle, square: Square,
-                 circle: Circle) -> None:
+    def __init__(
+        self, rectangle: Rectangle, square: Square, circle: Circle
+    ) -> None:
         self.rectangle = rectangle
         self.square = square
         self.circle = circle
@@ -48,8 +49,11 @@ class House(Serializer):
 
 
 if __name__ == "__main__":
-    h = House(Rectangle(width=50, height=100), Square(sides=45),
-              Circle(radius=20))
+    h = House(
+        Rectangle(width=50, height=100),
+        Square(sides=45),
+        Circle(radius=20),
+    )
     print(json5.dumps(h.serialize(), sort_keys=True))
     print(json5.dumps(h.serialize()))
 

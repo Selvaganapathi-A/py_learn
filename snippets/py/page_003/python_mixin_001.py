@@ -1,6 +1,5 @@
-from dataclasses import dataclass
-
 import json5
+from dataclasses import dataclass
 
 
 class Serializer:

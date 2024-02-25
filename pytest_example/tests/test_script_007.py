@@ -1,8 +1,8 @@
 from typing import Any, Callable
 
-from py_learn.pytest_example import fibo
-
 import pytest
+
+from py_learn.pytest_example import fibo
 
 
 def fake_fib_compute(n: int):

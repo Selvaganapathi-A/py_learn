@@ -1,6 +1,6 @@
-from py_learn.pytest_example import script_001
-
 import pytest
+
+from py_learn.pytest_example import script_001
 
 
 def test_greet():

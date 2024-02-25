@@ -1,8 +1,7 @@
 from datetime import datetime
 from typing import Self
 
-
-from pydantic import BaseModel, field_validator, ValidationInfo
+from pydantic import BaseModel, ValidationInfo, field_validator
 
 
 class Cookie(BaseModel):

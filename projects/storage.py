@@ -66,7 +66,9 @@ def computer_storage_linux_style(num: int | float, suffix: str = "B"):
     return "%.1f %s%s" % (num, "Yi", suffix)
 
 
-def computer_storage_windows_style(num: int | float, suffix: str = "B"):
+def computer_storage_windows_style(
+    num: int | float, suffix: str = "B"
+):
     for unit in ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]:
         if abs(num) < 1024.0:
             return "%3.1f %s%s" % (num, unit, suffix)

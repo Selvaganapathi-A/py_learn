@@ -17,9 +17,13 @@ class PositiveNumber[T, X: (int, float, Decimal)](int):
         )
 
     def __set__(self, __object_instance: T, __object_value: X):
-        print("called set with value", __object_instance, __object_value)
+        print(
+            "called set with value", __object_instance, __object_value
+        )
         if __object_value < 1:
-            raise ValueError("Must be Positive Integer", __object_value)
+            raise ValueError(
+                "Must be Positive Integer", __object_value
+            )
         __object_instance.__dict__[self.object_name] = __object_value
 
 

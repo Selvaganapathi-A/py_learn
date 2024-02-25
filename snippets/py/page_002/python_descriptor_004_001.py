@@ -1,6 +1,6 @@
 from subprocess import run
 
-run(("cls", ), shell=True)
+run(("cls",), shell=True)
 
 
 class MyDescriptor:

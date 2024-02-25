@@ -1,9 +1,9 @@
 import sys
 import time
 
-from py_learn.pytest_example import script_001
-
 import pytest
+
+from py_learn.pytest_example import script_001
 
 
 @pytest.mark.skip(reason="Feature not Implemented.")
@@ -16,13 +16,17 @@ def test_divides_zero():
     assert script_001.divides(8, 0) == float("inf")
 
 
-@pytest.mark.skipif(sys.version_info > (3, 10, 0),
-                    reason="unsupported python version.")
+@pytest.mark.skipif(
+    sys.version_info > (3, 10, 0),
+    reason="unsupported python version.",
+)
 def test_hi():
     assert 45 == int("45")
 
 
-@pytest.mark.skipif(sys.platform != "linux", reason="unsupported platform.")
+@pytest.mark.skipif(
+    sys.platform != "linux", reason="unsupported platform."
+)
 def test_for_linux_platform():
     assert 45 == int("45")
 
@@ -34,8 +38,7 @@ def test_slow_function():
 
 
 @pytest.mark.speed
-def test_fast_function():
-    ...
+def test_fast_function(): ...
 
 
 @pytest.mark.anyio

@@ -1,7 +1,6 @@
 from typing import Any, Callable
 
-from py_learn.pytest_example import shape_circle, shape_rectangle
-from py_learn.pytest_example import shape_square
+from py_learn.pytest_example import shape_circle, shape_rectangle, shape_square
 
 
 class TestRectangle:
@@ -22,9 +21,12 @@ class TestRectangle:
     def test_perimeter(self):
         assert self.rectangle.perimeter() == 2 * (self.a + self.b)
 
-    def test_equlality(self, circle: shape_circle.Circle,
-                       rectangle: shape_rectangle.Rectangle,
-                       square: shape_square.Square):
+    def test_equlality(
+        self,
+        circle: shape_circle.Circle,
+        rectangle: shape_rectangle.Rectangle,
+        square: shape_square.Square,
+    ):
         assert self.rectangle == rectangle
         assert self.rectangle != circle
         assert self.rectangle != square

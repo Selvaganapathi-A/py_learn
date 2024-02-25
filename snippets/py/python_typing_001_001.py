@@ -1,6 +1,6 @@
 from datetime import datetime
-from typing import Any, Dict, NotRequired, Required, reveal_type, TypedDict
-from typing import Unpack
+from typing import (Any, Dict, NotRequired, Required, TypedDict, Unpack,
+                    reveal_type)
 
 
 class Movie(TypedDict):
@@ -9,7 +9,9 @@ class Movie(TypedDict):
 
 
 def func(**kwargs: Unpack[Movie]):
-    release_date: datetime = kwargs.get("released", datetime(2060, 12, 31))
+    release_date: datetime = kwargs.get(
+        "released", datetime(2060, 12, 31)
+    )
     print(kwargs["name"])
     print(release_date)
     print()

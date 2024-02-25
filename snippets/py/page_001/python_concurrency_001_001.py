@@ -1,6 +1,5 @@
-from time import sleep
-
 import threading
+from time import sleep
 
 
 def fun1():

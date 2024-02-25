@@ -1,5 +1,6 @@
-from dataclasses import dataclass
 from typing import Any, Self
+
+from dataclasses import dataclass
 
 
 @dataclass(slots=True, frozen=True, kw_only=True)
@@ -7,7 +8,9 @@ class Appliance:
     name: str
     rating: int
 
-    def __call__(self: Self, count: int, *args: Any, **kwds: Any) -> Any:
+    def __call__(
+        self: Self, count: int, *args: Any, **kwds: Any
+    ) -> Any:
         return count * self.rating
 
 
@@ -59,7 +62,6 @@ if __name__ == "__main__":
     print(
         f"Inverter Needed : {((inverter_capacity_needed // 100) + 1) * 100} VA"
     )
-
     """
     backup_time = (battery_ah * battery_voltage * battery_efficiency) / ( power_load )
     """
@@ -70,6 +72,8 @@ if __name__ == "__main__":
 
     battery_efficiency = 0.95
 
-    backup_time = battery_ah * battery_voltage * battery_efficiency / power_load
+    backup_time = (
+        battery_ah * battery_voltage * battery_efficiency / power_load
+    )
 
     print(f"Backup Time : {backup_time} Hrs.")

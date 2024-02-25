@@ -34,10 +34,12 @@ print("Create Class Area")
 print("*" * 80)
 
 
-class Area(metaclass=Landmass,
-           country="India",
-           state="Tamilnadu",
-           capital="Chennai"):
+class Area(
+    metaclass=Landmass,
+    country="India",
+    state="Tamilnadu",
+    capital="Chennai",
+):
     population: int = 123567896969
     country: str
     state: str
@@ -58,10 +60,12 @@ print("Create Class Area14")
 print("*" * 80)
 
 
-class Area14(metaclass=Landmass,
-             country="India",
-             state="Kerala",
-             capital="Trivandram"):
+class Area14(
+    metaclass=Landmass,
+    country="India",
+    state="Kerala",
+    capital="Trivandram",
+):
     population: int = 123567896
     country: str
     state: str
@@ -87,7 +91,10 @@ class Tamilian(Area):
     importance = 10
 
     def describe(self):
-        return super().describe() + f" -> {self.locale} -> {self.importance} "
+        return (
+            super().describe()
+            + f" -> {self.locale} -> {self.importance} "
+        )
 
     pass
 
@@ -97,13 +104,18 @@ print("Create Class Attur")
 print("*" * 80)
 
 
-class Atturan(Tamilian, **{"soil": "red mud", "plants": "rice, sugarcane"}):
+class Atturan(
+    Tamilian, **{"soil": "red mud", "plants": "rice, sugarcane"}
+):
     population: int = 12356
     locale = "att"
     importance = 95
 
     def describe(self):
-        return super().describe() + f" -> {self.locale} -> {self.importance} "
+        return (
+            super().describe()
+            + f" -> {self.locale} -> {self.importance} "
+        )
 
     pass
 
@@ -114,7 +126,7 @@ print("*" * 80)
 if __name__ == "__main__":
     from subprocess import run
 
-    run(("cls", ), shell=True)
+    run(("cls",), shell=True)
 
     konaru = Area14("Kochin", "324123")
     print("-" * 80)

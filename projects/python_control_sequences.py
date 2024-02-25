@@ -88,7 +88,9 @@ def Partition_by_Size(SSD_CAPACITY: int, units: Storage):
     print_line("-")
 
     while True:
-        tmp: int = PARTITION_SIZE if 2 * PARTITION_SIZE < value else value
+        tmp: int = (
+            PARTITION_SIZE if 2 * PARTITION_SIZE < value else value
+        )
 
         print(
             f"{index:>3} {100 * tmp / TOTAL_SYSTEM_PARTITION:5.2f}% - "

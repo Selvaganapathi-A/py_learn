@@ -12,7 +12,9 @@ class Temperature_Sensor(Protocol):
 
 class Alarm:
 
-    def __init__(self, sensor: Temperature_Sensor | None = None) -> None:
+    def __init__(
+        self, sensor: Temperature_Sensor | None = None
+    ) -> None:
         self._low: int = 18
         self._high: int = 24
         self._sensor: Temperature_Sensor = sensor or Sensor()

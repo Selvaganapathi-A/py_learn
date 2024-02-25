@@ -10,16 +10,13 @@
 # pprint(locale.localeconv())
 
 import datetime
-
 # Calculating the hash
 # in order to add digital
 # fingerprints to the blocks
 import hashlib
-
 # To store data
 # in our blockchain
 import json
-
 
 # Flask is for creating the web
 # app and jsonify is for
@@ -106,6 +103,7 @@ app = Flask(__name__)
 # of the class blockchain
 blockchain = Blockchain()
 
+
 # Mining a new block
 @app.route("/mine_block", methods=["GET"])
 def mine_block():
@@ -129,7 +127,10 @@ def mine_block():
 # Display blockchain in json format
 @app.route("/get_chain", methods=["GET"])
 def display_chain():
-    response = {"chain": blockchain.chain, "length": len(blockchain.chain)}
+    response = {
+        "chain": blockchain.chain,
+        "length": len(blockchain.chain),
+    }
     return jsonify(response), 200
 
 

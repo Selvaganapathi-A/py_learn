@@ -42,7 +42,9 @@ async def await_coro_later(delay, coro, *args, **kwargs):
 async def demo():
     loop = asyncio.get_running_loop()
     start = loop.time()
-    loop.call_later(2, asyncio.create_task, foo("cb_to_create_task", start))
+    loop.call_later(
+        2, asyncio.create_task, foo("cb_to_create_task", start)
+    )
     await await_coro_later(5, foo, "coroutine_call_later", start)
 
 

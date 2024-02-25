@@ -1,6 +1,5 @@
-from typing import override
-
 import math
+from typing import override
 
 from py_learn.pytest_example.shape import Shape
 

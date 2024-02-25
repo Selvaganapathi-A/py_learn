@@ -1,12 +1,13 @@
+import logging
+import os
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 
-import logging
-import os
-
 
 def func_logger(hashString: str):
-    logFile = os.sep.join((".", "⌘ test ⌘", "log", hashString + ".txt"))
+    logFile = os.sep.join(
+        (".", "⌘ test ⌘", "log", hashString + ".txt")
+    )
     logger = logging.getLogger(hashString)
     logger.setLevel(logging.INFO)
     loggerFormat = logging.Formatter("%(message)s")
@@ -21,7 +22,9 @@ def func_logger(hashString: str):
     loggerHandler.setFormatter(loggerFormat)
     logger.addHandler(loggerHandler)
     logger.info("*" * 120)
-    logger.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S - %f").center(120))
+    logger.info(
+        datetime.now().strftime("%Y-%m-%d %H:%M:%S - %f").center(120)
+    )
     logger.info("*" * 120)
     return logger
 

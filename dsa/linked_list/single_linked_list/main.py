@@ -1,15 +1,18 @@
 from timeit import timeit
 
-
 from icecream import ic
-from py_learn.dsa.Linked_List.Single_Linked_List.dsa_linked_list_single import Node
-from py_learn.dsa.Linked_List.Single_Linked_List.dsa_linked_list_single import Singly_Linked_List
+
+from py_learn.dsa.Linked_List.Single_Linked_List.dsa_linked_list_single import (
+    Node, Singly_Linked_List)
+
 
 def find_middle[T](ll: Singly_Linked_List[T]):
     if ll.head is None or ll.head.next is None:
         return
     slow_ptr: Node[T] | None = ll.head
-    fast_ptr: Node[T] | None = slow_ptr.next.next if slow_ptr.next else None
+    fast_ptr: Node[T] | None = (
+        slow_ptr.next.next if slow_ptr.next else None
+    )
     while fast_ptr and slow_ptr:
         fast_ptr = fast_ptr.next.next if fast_ptr.next else None
         slow_ptr = slow_ptr.next

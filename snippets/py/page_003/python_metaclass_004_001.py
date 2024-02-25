@@ -59,7 +59,7 @@ if __name__ == "__main__":
     from subprocess import call, check_output, run
 
     run(
-        ("cls", ),
+        ("cls",),
         shell=True,
     )
 

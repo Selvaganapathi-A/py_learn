@@ -1,7 +1,6 @@
-from py_learn.pytest_example import shape_circle, shape_rectangle
-from py_learn.pytest_example import shape_square
-
 import pytest
+
+from py_learn.pytest_example import shape_circle, shape_rectangle, shape_square
 
 
 @pytest.fixture

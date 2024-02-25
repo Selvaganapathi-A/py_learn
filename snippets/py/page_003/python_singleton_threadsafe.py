@@ -8,13 +8,13 @@ class Singleton(type):
 
     def __call__(cls, *args: Any, **kwargs: Any):
         if cls not in cls._instances:
-            cls._instances[cls] = super(Singleton,
-                                        cls).__call__(*args, **kwargs)
+            cls._instances[cls] = super(Singleton, cls).__call__(
+                *args, **kwargs
+            )
         return cls._instances[cls]
 
 
-class someclass(metaclass=Singleton):
-    ...
+class someclass(metaclass=Singleton): ...
 
 
 class NaiveSingleton(type):
@@ -25,7 +25,8 @@ class NaiveSingleton(type):
         with cls.__threadLock__:
             if cls not in cls.__naive_instances__:
                 cls.__naive_instances__[cls] = super().__call__(
-                    *args, **kwargs)
+                    *args, **kwargs
+                )
         return cls.__naive_instances__[cls]
 
 
@@ -56,22 +57,14 @@ if __name__ == "__main__":
     t1 = Thread(
         target=test_singleton,
         args=("speaker", "play songs"),
-        kwargs={
-            "lock": lock,
-            "device_id": 8979,
-            "thrread": 1
-        },
+        kwargs={"lock": lock, "device_id": 8979, "thrread": 1},
     )
     # t1.daemon = True
 
     t2 = Thread(
         target=test_singleton,
         args=("mobile", "blood sucker"),
-        kwargs={
-            "lock": lock,
-            "device_id": 4552,
-            "thrread": 2
-        },
+        kwargs={"lock": lock, "device_id": 4552, "thrread": 2},
     )
     # t2.daemon = True
     t2.start()

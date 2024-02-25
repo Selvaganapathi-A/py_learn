@@ -41,7 +41,7 @@ class Media(Speaker, SmartSpeaker, metaclass=SomeMetaClass):
 if __name__ == "__main__":
     from subprocess import run
 
-    run(("cls", ), shell=True)
+    run(("cls",), shell=True)
     print(type(Media))
     pixel = Media("Oh!, Oh ho!")
     print(pixel)

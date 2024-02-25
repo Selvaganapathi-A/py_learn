@@ -1,6 +1,5 @@
-from typing import Any, Callable
-
 import time
+from typing import Any, Callable
 
 
 class Decorate:

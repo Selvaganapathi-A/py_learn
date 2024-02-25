@@ -1,12 +1,11 @@
-from concurrent.futures import as_completed, ProcessPoolExecutor
-from concurrent.futures import ThreadPoolExecutor
-from threading import current_thread
-from typing import Any, List
-
 # ~ # filename : learn - thread pool executor.py
 import datetime
 import os
 import time
+from concurrent.futures import (ProcessPoolExecutor, ThreadPoolExecutor,
+                                as_completed)
+from threading import current_thread
+from typing import Any, List
 
 
 def Threadfunc():
@@ -48,10 +47,13 @@ if __name__ == "__main__":
         "juliet",
     ]
     with ThreadPoolExecutor(max_workers=os.cpu_count()) as Executor:
-        future_object = (Executor.submit(
-            fn_name,
-            x,
-        ) for x in names)
+        future_object = (
+            Executor.submit(
+                fn_name,
+                x,
+            )
+            for x in names
+        )
         for x in as_completed(future_object):
             print(x.result())
     #

@@ -1,9 +1,10 @@
-from dataclasses import dataclass
+import logging
+import time
 from time import perf_counter_ns
 from types import TracebackType
 
-import logging
-import time
+from dataclasses import dataclass
+
 """
 With context managers, you can perform any pair of operations that needs to be done
 before and after another operation or procedure, such as:
@@ -25,8 +26,12 @@ class Person:
         print("enter ctx")
         return self
 
-    def __exit__(self, exc_type: Exception, exc_value: str,
-                 traceback: TracebackType) -> None:
+    def __exit__(
+        self,
+        exc_type: Exception,
+        exc_value: str,
+        traceback: TracebackType,
+    ) -> None:
         print("exit ctx")
 
     def sayHi(self):
@@ -41,8 +46,12 @@ class MeasureTime:
         self.end = 0.0
         return lambda: self.end - self.start
 
-    def __exit__(self, exc_type: Exception, exc_value: str,
-                 traceback: TracebackType) -> None:
+    def __exit__(
+        self,
+        exc_type: Exception,
+        exc_value: str,
+        traceback: TracebackType,
+    ) -> None:
         if exc_type is ZeroDivisionError:
             print(exc_value)
             print(traceback.tb_lineno)

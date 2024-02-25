@@ -1,11 +1,10 @@
+import collections
 from collections import abc
-from dataclasses import dataclass
 from os import name
 from typing import Any, AnyStr, List, TypedDict, TypeGuard
 
-import collections
-
 import json5
+from dataclasses import dataclass
 
 
 @dataclass

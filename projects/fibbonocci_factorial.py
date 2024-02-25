@@ -3,6 +3,7 @@ import time
 
 def cache(funct):
     buffer = {}
+
     def Wrapper(n):
         nonlocal buffer
         if n in buffer:
@@ -10,10 +11,12 @@ def cache(funct):
         else:
             buffer[n] = result = funct(n)
             return result
+
     return Wrapper
 
 
 def timeit(funct):
+
     def Wrapper(*args, **kwargs):
         t1 = time.perf_counter_ns()
         result = funct(*args, **kwargs)

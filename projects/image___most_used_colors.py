@@ -1,6 +1,5 @@
-from typing import Any
-
 import os
+from typing import Any
 
 from common.module_os import function_new_filename
 from PIL import Image, ImageDraw
@@ -45,7 +44,9 @@ def getColors(
     colors = list()
     for i in range(noOfColors):
         paletteIndex = colorCounts[i][1]
-        dominanColor = palette[paletteIndex * 3 : paletteIndex * 3 + 3]
+        dominanColor = palette[
+            paletteIndex * 3 : paletteIndex * 3 + 3
+        ]
         colors.append(
             tuple(
                 dominanColor,
@@ -85,7 +86,9 @@ def save_palette(colors, swatchsize=128, outfile="palette.png"):
         num_colors,
     )
     palette.save(
-        function_new_filename(outfile, "output", makedirs=True, filetype_alt=".png"),
+        function_new_filename(
+            outfile, "output", makedirs=True, filetype_alt=".png"
+        ),
         "PNG",
     )
 

@@ -1,6 +1,5 @@
-from datetime import datetime, timedelta, timezone
-
 import locale
+from datetime import datetime, timedelta, timezone
 
 locale.setlocale(locale.LC_ALL, "en_in")
 
@@ -60,7 +59,9 @@ print(f"Number      : {arbitrary_number:%}.")
 print(f"Number      : {arbitrary_number:.2%}.")
 print()
 
-india_timezone = timezone(timedelta(hours=5, minutes=30), name="Asia/Calcutta")
+india_timezone = timezone(
+    timedelta(hours=5, minutes=30), name="Asia/Calcutta"
+)
 australia = timezone(timedelta(hours=1, minutes=0), name="Australia")
 dt = datetime.now(tz=india_timezone)
 print(dt.isoformat())

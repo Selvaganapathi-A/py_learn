@@ -1,7 +1,6 @@
+import time
 from random import randint, random
 from time import sleep
-
-import time
 
 from tqdm import tqdm, trange
 
@@ -14,7 +13,10 @@ def main():
             # Postfix will be displayed on the right,
             # formatted automatically based on argument's datatype
             t.set_postfix(
-                loss=random(), gen=randint(1, 999), str="h", lst=[1, 2]
+                loss=random(),
+                gen=randint(1, 999),
+                str="h",
+                lst=[1, 2],
             )
             sleep(0.1)
 

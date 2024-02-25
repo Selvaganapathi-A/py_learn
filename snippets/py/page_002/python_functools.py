@@ -16,8 +16,13 @@ def demo_filter():
     print(f"Numbers :\n\t{numbers}".expandtabs(4))
     #
     nums_divisible_by_7: Iterable[int] = tuple(
-        filter(lambda x: (x % 7) == 0, numbers))
-    print(f"Numbers Divide by 7 :\n\t{nums_divisible_by_7}".expandtabs(4))
+        filter(lambda x: (x % 7) == 0, numbers)
+    )
+    print(
+        f"Numbers Divide by 7 :\n\t{nums_divisible_by_7}".expandtabs(
+            4
+        )
+    )
     pass
 
 
@@ -41,7 +46,11 @@ def demo_map():
     print(f"Numbers :\n\t{natural_numbers}".expandtabs(4))
     #
     multiply_by_five = tuple(map(lambda x: x * 5, natural_numbers))
-    print(f"Multiply Each Number by Five\n\t{multiply_by_five}".expandtabs(4))
+    print(
+        f"Multiply Each Number by Five\n\t{multiply_by_five}".expandtabs(
+            4
+        )
+    )
     #
     pass
 
@@ -50,9 +59,9 @@ def demo_partial():
     styleit("Partial Example")
 
     # partial Example
-    def gamer(name: str,
-              level: int = 0,
-              experience: int = 0) -> Mapping[str, Any]:
+    def gamer(
+        name: str, level: int = 0, experience: int = 0
+    ) -> Mapping[str, Any]:
         return {"name": name, "level": level, "exp": experience}
 
     level_80 = partial(gamer, level=80)

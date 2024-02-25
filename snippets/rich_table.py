@@ -1,11 +1,9 @@
+import faker
 from rich import print
 from rich.console import Console
 from rich.padding import Padding
 from rich.prompt import Prompt
 from rich.table import Table
-
-
-import faker
 
 
 def main():
@@ -15,11 +13,18 @@ def main():
     table = Table(title=table_title)
     table.add_column("Name", style="blue", justify="right")
     table.add_column(
-        "Contact", style="#ff4444", justify="center", header_style="#ff00ff"
+        "Contact",
+        style="#ff4444",
+        justify="center",
+        header_style="#ff00ff",
     )
     table.add_column("Country", style="blue", justify="center")
-    table.add_row("Harriet Bridges", "(500) 422-1867", "Antigua & Barbuda")
-    table.add_row("Sara Keller", "(824) 699-3363", "São Tomé and Príncipe")
+    table.add_row(
+        "Harriet Bridges", "(500) 422-1867", "Antigua & Barbuda"
+    )
+    table.add_row(
+        "Sara Keller", "(824) 699-3363", "São Tomé and Príncipe"
+    )
     table.add_row("Rosie Miller", "(657) 597-5913", "Russia")
     table.add_row("Marion Miles", "(771) 842-7593", "Peru")
     table.add_row("Isaac Rios", "(725) 472-6791", "Zimbabwe")

@@ -1,4 +1,4 @@
-from typing import final, override, Type
+from typing import Type, final, override
 
 
 class User:

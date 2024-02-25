@@ -5,14 +5,18 @@ def compute_compound_interest(
     principle: int, no_years: int, rate_of_interest: float
 ):
     return (
-        principle * ((100 + rate_of_interest) ** no_years) / (100**no_years)
+        principle
+        * ((100 + rate_of_interest) ** no_years)
+        / (100**no_years)
     )
 
 
 def compute_simple_interest(
     principle: float, no_years: int, rate_of_interest: float
 ):
-    return principle + ((principle * no_years * rate_of_interest) / 100)
+    return principle + (
+        (principle * no_years * rate_of_interest) / 100
+    )
 
 
 def main():

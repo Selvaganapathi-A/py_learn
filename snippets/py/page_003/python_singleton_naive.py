@@ -6,7 +6,9 @@ class Singleton(object):
 
     def __new__(cls, *args: Any, **kwargs: Any):
         if not cls._instance:
-            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)
+            cls._instance = super(Singleton, cls).__new__(
+                cls, *args, **kwargs
+            )
         return cls._instance
 
 
@@ -15,7 +17,9 @@ class NaiveSingleton(type):
 
     def __call__(cls, *args: Any, **kwargs: Any):
         if cls not in cls.__naive_instances__:
-            cls.__naive_instances__[cls] = super().__call__(*args, **kwargs)
+            cls.__naive_instances__[cls] = super().__call__(
+                *args, **kwargs
+            )
         return cls.__naive_instances__[cls]
 
 

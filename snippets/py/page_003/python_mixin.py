@@ -1,11 +1,5 @@
-from abc import (
-    ABC,
-    ABCMeta,
-    abstractclassmethod,
-    abstractmethod,
-    abstractproperty,
-)
-from abc import abstractstaticmethod
+from abc import (ABC, ABCMeta, abstractclassmethod, abstractmethod,
+                 abstractproperty, abstractstaticmethod)
 from typing import Any
 
 
@@ -34,7 +28,9 @@ class Person(myMixin, Employee):
     first_name: str
     last_name: str
 
-    def __init__(self, first_name: str, last_name: str, pay: int) -> None:
+    def __init__(
+        self, first_name: str, last_name: str, pay: int
+    ) -> None:
         super(Person, self).__init__(pay)
         self.first_name = first_name
         self.last_name = last_name

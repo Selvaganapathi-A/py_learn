@@ -26,7 +26,7 @@ class Fruit:
 
 
 if __name__ == "__main__":
-    run(("cls", ), shell=True)
+    run(("cls",), shell=True)
     fruit = Fruit("\tIron")
 
     print(f"{fruit.origin.expandtabs(5)!r}")

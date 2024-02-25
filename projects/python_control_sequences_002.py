@@ -1,7 +1,6 @@
 import sys
 import time
 
-
 """
 - Position the Cursor:
   \033[<L>;<C>H
@@ -28,7 +27,6 @@ import time
   \033[u
 
   """
-
 
 if __name__ == "__main__":
     sys.stdout.write("\033[4A")
