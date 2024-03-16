@@ -20,12 +20,10 @@ def getColors(
 ) -> list[Any]:
     image = Image.open(imagePath, "r")
     imageCopy = image.copy()
-    imageCopy.resize(
-        (
-            reSize,
-            reSize,
-        ),
-    )
+    imageCopy.resize((
+        reSize,
+        reSize,
+    ),)
     image.close()
 
     # Reduce Palette
@@ -44,14 +42,8 @@ def getColors(
     colors = list()
     for i in range(noOfColors):
         paletteIndex = colorCounts[i][1]
-        dominanColor = palette[
-            paletteIndex * 3 : paletteIndex * 3 + 3
-        ]
-        colors.append(
-            tuple(
-                dominanColor,
-            ),
-        )
+        dominanColor = palette[paletteIndex * 3:paletteIndex * 3 + 3]
+        colors.append(tuple(dominanColor,),)
     return colors
 
 
@@ -86,9 +78,10 @@ def save_palette(colors, swatchsize=128, outfile="palette.png"):
         num_colors,
     )
     palette.save(
-        function_new_filename(
-            outfile, "output", makedirs=True, filetype_alt=".png"
-        ),
+        function_new_filename(outfile,
+                              "output",
+                              makedirs=True,
+                              filetype_alt=".png"),
         "PNG",
     )
 
@@ -118,10 +111,8 @@ if __name__ == "__main__":
     src = (
         r"C:\Users\Tesla\Pictures\SpotLight\1920 x 1080\01fe7d49e20a3936896924062a504c837cfe08d54915b8390fa359074a75441d.jpeg",
     )
-    print(
-        getColors(
-            src,
-            8,
-            512,
-        )
-    )
+    print(getColors(
+        src,
+        8,
+        512,
+    ))

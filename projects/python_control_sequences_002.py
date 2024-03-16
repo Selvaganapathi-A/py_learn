@@ -1,6 +1,5 @@
 import sys
 import time
-
 """
 - Position the Cursor:
   \033[<L>;<C>H
@@ -40,8 +39,7 @@ if __name__ == "__main__":
     print()
 
     print(
-        "jkhfjfhgvhjhgfdvhgrshgrjyt jkgkjhgkjbkjgyu ukfk fkytkf fuyfkuyf fkuy"
-    )
+        "jkhfjfhgvhjhgfdvhgrshgrjyt jkgkjhgkjbkjgyu ukfk fkytkf fuyfkuyf fkuy")
 
     time.sleep(1)
     print("\033[F ", end="")

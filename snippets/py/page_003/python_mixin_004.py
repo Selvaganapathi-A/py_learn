@@ -32,9 +32,8 @@ class Circle(Serializer):
 
 class House(Serializer):
 
-    def __init__(
-        self, rectangle: Rectangle, square: Square, circle: Circle
-    ) -> None:
+    def __init__(self, rectangle: Rectangle, square: Square,
+                 circle: Circle) -> None:
         self.rectangle = rectangle
         self.square = square
         self.circle = circle

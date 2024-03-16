@@ -17,9 +17,8 @@ async def main():
     task1 = asyncio.create_task(foo(), name="foo function")
     task2 = asyncio.create_task(bar(), name="bar function")
 
-    done, pending = await asyncio.wait(
-        (task1, task2), return_when=asyncio.ALL_COMPLETED
-    )
+    done, pending = await asyncio.wait((task1, task2),
+                                       return_when=asyncio.ALL_COMPLETED)
 
     print("-" * 80)
 

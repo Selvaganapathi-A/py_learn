@@ -19,12 +19,8 @@ def main():
         header_style="#ff00ff",
     )
     table.add_column("Country", style="blue", justify="center")
-    table.add_row(
-        "Harriet Bridges", "(500) 422-1867", "Antigua & Barbuda"
-    )
-    table.add_row(
-        "Sara Keller", "(824) 699-3363", "São Tomé and Príncipe"
-    )
+    table.add_row("Harriet Bridges", "(500) 422-1867", "Antigua & Barbuda")
+    table.add_row("Sara Keller", "(824) 699-3363", "São Tomé and Príncipe")
     table.add_row("Rosie Miller", "(657) 597-5913", "Russia")
     table.add_row("Marion Miles", "(771) 842-7593", "Peru")
     table.add_row("Isaac Rios", "(725) 472-6791", "Zimbabwe")

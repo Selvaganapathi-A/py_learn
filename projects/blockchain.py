@@ -59,8 +59,7 @@ class Blockchain:
 
         while check_proof is False:
             hash_operation = hashlib.sha256(
-                str(new_proof**2 - previous_proof**2).encode()
-            ).hexdigest()
+                str(new_proof**2 - previous_proof**2).encode()).hexdigest()
             if hash_operation[:5] == "00000":
                 check_proof = True
             else:
@@ -84,8 +83,7 @@ class Blockchain:
             previous_proof = previous_block["proof"]
             proof = block["proof"]
             hash_operation = hashlib.sha256(
-                str(proof**2 - previous_proof**2).encode()
-            ).hexdigest()
+                str(proof**2 - previous_proof**2).encode()).hexdigest()
 
             if hash_operation[:5] != "00000":
                 return False

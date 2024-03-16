@@ -7,9 +7,7 @@ class Decorate:
     def __init__(self, arg: int) -> None:
         self.arg = arg
 
-    def __call__(
-        self, function: Callable[..., Any]
-    ) -> Callable[..., Any]:
+    def __call__(self, function: Callable[..., Any]) -> Callable[..., Any]:
 
         def wrapper(a: int, b: int) -> int:
             start = time.perf_counter_ns()

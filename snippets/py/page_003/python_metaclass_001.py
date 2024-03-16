@@ -35,10 +35,10 @@ print("*" * 80)
 
 
 class Area(
-    metaclass=Landmass,
-    country="India",
-    state="Tamilnadu",
-    capital="Chennai",
+        metaclass=Landmass,
+        country="India",
+        state="Tamilnadu",
+        capital="Chennai",
 ):
     population: int = 123567896969
     country: str
@@ -61,10 +61,10 @@ print("*" * 80)
 
 
 class Area14(
-    metaclass=Landmass,
-    country="India",
-    state="Kerala",
-    capital="Trivandram",
+        metaclass=Landmass,
+        country="India",
+        state="Kerala",
+        capital="Trivandram",
 ):
     population: int = 123567896
     country: str
@@ -91,10 +91,7 @@ class Tamilian(Area):
     importance = 10
 
     def describe(self):
-        return (
-            super().describe()
-            + f" -> {self.locale} -> {self.importance} "
-        )
+        return (super().describe() + f" -> {self.locale} -> {self.importance} ")
 
     pass
 
@@ -104,18 +101,13 @@ print("Create Class Attur")
 print("*" * 80)
 
 
-class Atturan(
-    Tamilian, **{"soil": "red mud", "plants": "rice, sugarcane"}
-):
+class Atturan(Tamilian, **{"soil": "red mud", "plants": "rice, sugarcane"}):
     population: int = 12356
     locale = "att"
     importance = 95
 
     def describe(self):
-        return (
-            super().describe()
-            + f" -> {self.locale} -> {self.importance} "
-        )
+        return (super().describe() + f" -> {self.locale} -> {self.importance} ")
 
     pass
 

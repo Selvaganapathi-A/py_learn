@@ -6,8 +6,7 @@ logger = logging.getLogger("Logger.example")
 logger.setLevel(logging.DEBUG)
 
 log_format = logging.Formatter(
-    "CRITICAL - [%(levelname)s] %(asctime)s %(lineno)d - %(message)s"
-)
+    "CRITICAL - [%(levelname)s] %(asctime)s %(lineno)d - %(message)s")
 
 critical_handler = logging.FileHandler("50 critical.txt")
 critical_handler.setFormatter(log_format)
@@ -15,32 +14,28 @@ critical_handler.setLevel(logging.CRITICAL)
 logger.addHandler(critical_handler)
 
 log_format = logging.Formatter(
-    "ERROR    - [%(levelname)s] %(asctime)s %(lineno)d - %(message)s"
-)
+    "ERROR    - [%(levelname)s] %(asctime)s %(lineno)d - %(message)s")
 error_handler = logging.FileHandler("42 - error.txt")
 error_handler.setFormatter(log_format)
 error_handler.setLevel(logging.ERROR)
 logger.addHandler(error_handler)
 
 log_format = logging.Formatter(
-    "WARNING  - [%(levelname)s] %(asctime)s %(lineno)d - %(message)s"
-)
+    "WARNING  - [%(levelname)s] %(asctime)s %(lineno)d - %(message)s")
 warning_handler = logging.StreamHandler(sys.stderr)
 warning_handler.setFormatter(log_format)
 warning_handler.setLevel(logging.WARNING)
 logger.addHandler(warning_handler)
 
 log_format = logging.Formatter(
-    "INFO     - [%(levelname)s] %(asctime)s %(lineno)d - %(message)s"
-)
+    "INFO     - [%(levelname)s] %(asctime)s %(lineno)d - %(message)s")
 info_handler = logging.StreamHandler(sys.stdout)
 info_handler.setFormatter(log_format)
 info_handler.setLevel(logging.INFO)
 logger.addHandler(info_handler)
 
 log_format = logging.Formatter(
-    "DEBUG     - [%(levelname)s] %(asctime)s %(lineno)d - %(message)s"
-)
+    "DEBUG     - [%(levelname)s] %(asctime)s %(lineno)d - %(message)s")
 debug_handler = logging.FileHandler("00 - debug.txt")
 debug_handler.setFormatter(log_format)
 debug_handler.setLevel(logging.DEBUG)

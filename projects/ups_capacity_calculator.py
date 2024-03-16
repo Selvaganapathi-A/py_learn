@@ -8,9 +8,7 @@ class Appliance:
     name: str
     rating: int
 
-    def __call__(
-        self: Self, count: int, *args: Any, **kwds: Any
-    ) -> Any:
+    def __call__(self: Self, count: int, *args: Any, **kwds: Any) -> Any:
         return count * self.rating
 
 
@@ -36,18 +34,16 @@ if __name__ == "__main__":
     TABLE_FAN = Appliance(name="Table Fan", rating=25)
     CEILING_FAN = Appliance(name="Ceiling Fan", rating=70)
 
-    power_load: int = sum(
-        (
-            MOBILE_CHARGER(4),
-            WIFI_ROUTER(1),
-            WALL_FAN(2),
-            TUBE_LIGHT(2),
-            NIGHT_LIGHT(2),
-            COMPUTER_LAPTOP(2),
-            TABLE_FAN(2),
-            # MIXER(1),
-        )
-    )
+    power_load: int = sum((
+        MOBILE_CHARGER(4),
+        WIFI_ROUTER(1),
+        WALL_FAN(2),
+        TUBE_LIGHT(2),
+        NIGHT_LIGHT(2),
+        COMPUTER_LAPTOP(2),
+        TABLE_FAN(2),
+        # MIXER(1),
+    ))
 
     power_factor: float = 0.7
 
@@ -60,8 +56,7 @@ if __name__ == "__main__":
     # print(inverter_capacity_needed)
 
     print(
-        f"Inverter Needed : {((inverter_capacity_needed // 100) + 1) * 100} VA"
-    )
+        f"Inverter Needed : {((inverter_capacity_needed // 100) + 1) * 100} VA")
     """
     backup_time = (battery_ah * battery_voltage * battery_efficiency) / ( power_load )
     """
@@ -72,8 +67,7 @@ if __name__ == "__main__":
 
     battery_efficiency = 0.95
 
-    backup_time = (
-        battery_ah * battery_voltage * battery_efficiency / power_load
-    )
+    backup_time = (battery_ah * battery_voltage * battery_efficiency /
+                   power_load)
 
     print(f"Backup Time : {backup_time} Hrs.")

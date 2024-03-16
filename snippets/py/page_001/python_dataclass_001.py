@@ -35,12 +35,10 @@ class Person:
 
     def about(self) -> str:
         age = relativedelta(datetime.now(), self.date_of_birth)
-        return (
-            f"{self.first_name.title()} {self.last_name.title()}"
-            f" {self.gender.name} {age.years} years,"
-            f" {age.months} months, {age.days} days old"
-            f" {self.employment_status.value}."
-        )
+        return (f"{self.first_name.title()} {self.last_name.title()}"
+                f" {self.gender.name} {age.years} years,"
+                f" {age.months} months, {age.days} days old"
+                f" {self.employment_status.value}.")
 
 
 def main():

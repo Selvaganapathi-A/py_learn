@@ -4,9 +4,7 @@ from typing import Any, Callable, Iterable, Mapping
 # Decorator
 def decorator(function: Callable[..., Any]) -> Callable[..., Any]:
 
-    def wrapper(
-        *args: Iterable[Any], **kwargs: Mapping[Any, Any]
-    ) -> Any:
+    def wrapper(*args: Iterable[Any], **kwargs: Mapping[Any, Any]) -> Any:
         wrapper.called += 1
         return function(*args, **kwargs)
 

@@ -5,9 +5,7 @@ if __name__ == "__main__":
     message = "Hello"
     encrypted_message = rsa.encrypt(message.encode(), public_key)
 
-    decrypted_message = rsa.decrypt(
-        encrypted_message, private_key
-    ).decode()
+    decrypted_message = rsa.decrypt(encrypted_message, private_key).decode()
 
     print(encrypted_message)
     print(decrypted_message)

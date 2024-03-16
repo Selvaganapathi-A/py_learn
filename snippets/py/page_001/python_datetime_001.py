@@ -2,7 +2,6 @@ import datetime
 import time
 
 import pytz
-
 """
 
 | %a | Wed |                        day of the week ||
@@ -97,18 +96,15 @@ if __name__ == "__main__":
     print("Depart in india    :", india_datetime)
     print(
         "Arrive Sydney Time :",
-        (india_datetime + datetime.timedelta(hours=21)).astimezone(
-            sydney
-        ),
+        (india_datetime + datetime.timedelta(hours=21)).astimezone(sydney),
     )
     print()
 
     print("Depart in India   :", india_datetime)
     print(
         "Arrive in Alaska  :",
-        (
-            india_datetime + datetime.timedelta(hours=31, minutes=40)
-        ).astimezone(alaska),
+        (india_datetime +
+         datetime.timedelta(hours=31, minutes=40)).astimezone(alaska),
     )
     print()
 

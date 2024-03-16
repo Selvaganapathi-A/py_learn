@@ -12,9 +12,7 @@ def debug(func_: Callable):
 
 class Fruit(type):
 
-    def __new__(
-        metaclass, name, bases, class_attrs, **kwargs
-    ):  # type:ignore
+    def __new__(metaclass, name, bases, class_attrs, **kwargs):  # type:ignore
         class_ = type(metaclass.__name__, bases, class_attrs)
         for k, v in vars(class_).items():
             # print(k, v)

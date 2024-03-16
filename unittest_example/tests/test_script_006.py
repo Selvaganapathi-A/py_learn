@@ -55,9 +55,7 @@ class TestDemo(unittest.TestCase):
     def test_that_run(self):
         self.assertEqual(1 + 1, 2)
 
-    @unittest.skipIf(
-        platform.startswith("win"), "Do not run on Windows"
-    )
+    @unittest.skipIf(platform.startswith("win"), "Do not run on Windows")
     def test_that_does_not_run_on_windows(self):
         self.assertIsNotNone([])
 

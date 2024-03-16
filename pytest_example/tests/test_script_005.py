@@ -24,9 +24,7 @@ def test_hi():
     assert 45 == int("45")
 
 
-@pytest.mark.skipif(
-    sys.platform != "linux", reason="unsupported platform."
-)
+@pytest.mark.skipif(sys.platform != "linux", reason="unsupported platform.")
 def test_for_linux_platform():
     assert 45 == int("45")
 
@@ -38,7 +36,8 @@ def test_slow_function():
 
 
 @pytest.mark.speed
-def test_fast_function(): ...
+def test_fast_function():
+    ...
 
 
 @pytest.mark.anyio

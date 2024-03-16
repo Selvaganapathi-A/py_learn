@@ -1,13 +1,9 @@
 from typing import Any, Callable, Iterable, Mapping
 
 
-def PrimeDecorator(
-    myfunc: Callable[[str | float], Any]
-) -> Callable[..., Any]:
+def PrimeDecorator(myfunc: Callable[[str | float], Any]) -> Callable[..., Any]:
 
-    def PrimeWrapper(
-        *args: Iterable[Any], **kwargs: Mapping[Any, Any]
-    ):
+    def PrimeWrapper(*args: Iterable[Any], **kwargs: Mapping[Any, Any]):
         print("Prime Wrapper Always Executed.")
         return myfunc(*args, **kwargs)
 
@@ -15,13 +11,9 @@ def PrimeDecorator(
     return PrimeWrapper
 
 
-def AlphaDecorator(
-    myfunc: Callable[[str | float], Any]
-) -> Callable[..., Any]:
+def AlphaDecorator(myfunc: Callable[[str | float], Any]) -> Callable[..., Any]:
 
-    def AlphaWrapper(
-        *args: Iterable[str | float], **kwargs: Mapping[Any, Any]
-    ):
+    def AlphaWrapper(*args: Iterable[str | float], **kwargs: Mapping[Any, Any]):
         print("Alpha Wrapper Always Executed.")
         return myfunc(*args, **kwargs)
 

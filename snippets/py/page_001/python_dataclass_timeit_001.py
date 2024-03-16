@@ -6,22 +6,18 @@ from typing import Final, Protocol, final
 
 from dataclasses import dataclass, field
 
-ASCII_CHARACTERS: Final[str] = (
-    string.ascii_letters
-    + string.ascii_lowercase
-    + string.ascii_uppercase
-)
+ASCII_CHARACTERS: Final[str] = (string.ascii_letters + string.ascii_lowercase +
+                                string.ascii_uppercase)
 
 
 class Staff(Protocol):
 
-    def get_commision(self) -> tuple[int | float, str, bool]: ...
+    def get_commision(self) -> tuple[int | float, str, bool]:
+        ...
 
 
 def generate_random_string_16(length: int = 16) -> str:
-    return "".join(
-        (choice(ASCII_CHARACTERS) for _ in range(0, length))
-    )
+    return "".join((choice(ASCII_CHARACTERS) for _ in range(0, length)))
 
 
 @final
@@ -93,14 +89,10 @@ def get_set_del(person: Person | Person_Slots):
 
 def main():
     anita = Person(name="Anita", age=20)
-    ws = min(
-        timeit.repeat(partial(get_set_del, anita), number=1_000_000)
-    )
+    ws = min(timeit.repeat(partial(get_set_del, anita), number=1_000_000))
 
     anita = Person_Slots(name="Anita", age=20)
-    s = min(
-        timeit.repeat(partial(get_set_del, anita), number=1_000_000)
-    )
+    s = min(timeit.repeat(partial(get_set_del, anita), number=1_000_000))
 
     print(((ws - s) / ws) * 100)
     print(s, ws)

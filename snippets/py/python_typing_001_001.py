@@ -9,9 +9,7 @@ class Movie(TypedDict):
 
 
 def func(**kwargs: Unpack[Movie]):
-    release_date: datetime = kwargs.get(
-        "released", datetime(2060, 12, 31)
-    )
+    release_date: datetime = kwargs.get("released", datetime(2060, 12, 31))
     print(kwargs["name"])
     print(release_date)
     print()

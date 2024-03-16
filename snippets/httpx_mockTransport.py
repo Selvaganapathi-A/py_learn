@@ -7,9 +7,7 @@ from httpx._models import Request
 
 class MockHandler(httpx.AsyncBaseTransport):
 
-    async def handle_async_request(
-        self, request: Request
-    ) -> Response:
+    async def handle_async_request(self, request: Request) -> Response:
         print(request.headers)
         print(request.url)
         print(request.method)
@@ -20,9 +18,7 @@ class MockHandler(httpx.AsyncBaseTransport):
 async def main():
     mounts: dict[str, MockHandler] = {"http://": MockHandler()}
     client = httpx.AsyncClient(mounts=mounts)
-    get_response: Response = await client.get(
-        "http://localhost:9000/data"
-    )
+    get_response: Response = await client.get("http://localhost:9000/data")
     print(get_response.encoding)
     print(get_response.content)
     response: tuple[Response, ...] = await asyncio.gather(

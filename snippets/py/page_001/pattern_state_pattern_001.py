@@ -5,9 +5,11 @@ from typing import Protocol, Self
 
 class LightState(Protocol):
 
-    def switch(self, bulb: "LightBulb"): ...
+    def switch(self, bulb: "LightBulb"):
+        ...
 
-    def show(self): ...
+    def show(self):
+        ...
 
 
 # ~ ======================================================================== ~ #

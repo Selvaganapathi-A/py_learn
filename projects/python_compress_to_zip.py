@@ -8,10 +8,10 @@ def main():
     if not (pathlike.exists() or pathlike.is_dir()):
         return None
     with zipfile.ZipFile(
-        file=pathlike.parent / (pathlike.name + "-compressed.zip"),
-        mode="w",
-        compresslevel=2,
-        compression=zipfile.ZIP_LZMA,
+            file=pathlike.parent / (pathlike.name + "-compressed.zip"),
+            mode="w",
+            compresslevel=2,
+            compression=zipfile.ZIP_LZMA,
     ) as writer:
         for root, _, files in os.walk(pathlike):
             root_dir: Path = Path(root)
