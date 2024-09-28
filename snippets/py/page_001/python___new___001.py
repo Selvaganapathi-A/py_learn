@@ -8,8 +8,8 @@ class Robot:
         cls.__identity__ += 1
         return super().__new__(cls)
 
-    def __init__(self, f_name: str = "Korangu") -> None:
-        self.f_name = f_name
+    def __init__(self, name: str = "Pear") -> None:
+        self.f_name = name
         pass
 
     @property
@@ -20,19 +20,29 @@ class Robot:
     def instances(cls):
         return cls.__identity__
 
+    def __repr__(self) -> str:
+        return self.f_name
+
 
 if __name__ == "__main__":
-    a1 = Robot("pa")
+    a1 = Robot("Falcon")
     print(a1, a1.objects_created)
-    a2 = Robot("ka")
+    #
+    a2 = Robot("Eagle")
     print(a2, a2.objects_created)
-    a3 = Robot("pi")
-    a4 = Robot("ko")
-
+    #
+    a3 = Robot("Night Wing")
     print(a3, a3.objects_created)
+    #
+    a4 = Robot("Honey bee")
     print(a4, a4.objects_created)
-
+    #
+    print()
+    print()
     print()
     print(a1.objects_created)
+    print(a2.objects_created)
+    print(a3.objects_created)
+    print(a4.objects_created)
     print(Robot.instances())
     pass

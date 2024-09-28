@@ -1,30 +1,32 @@
 from abc import ABCMeta, abstractmethod, abstractstaticmethod
+from typing import overload, override
 
 
 class Fruit(metaclass=ABCMeta):
 
     @abstractmethod
     def taste(self, value: str) -> str:
-        print("taste of fruit is", value)
-        return "goat"
+        ...
 
     def color(self) -> str:
-        print("pale")
         return "pale"
 
-    @abstractstaticmethod
-    def size():
-        return "large"
+    @abstractmethod
+    @staticmethod
+    def size() -> str:
+        ...
 
 
 class Tomato(Fruit):
 
-    def taste(self, value: str) -> str:
-        return super().taste(value)
+    @override
+    def taste(self, value: str = "") -> str:
+        return "sour," + value
 
     def color(self) -> str:
         return "red"
 
+    @override
     @staticmethod
     def size() -> str:
         # Can't Run Without instantiating this abstact method from parent class
@@ -34,7 +36,7 @@ class Tomato(Fruit):
 class Apple(Fruit):
 
     def taste(self, value: str = "sweet"):
-        return super().taste(value)
+        return value
 
     @staticmethod
     def size() -> str:
@@ -43,9 +45,9 @@ class Apple(Fruit):
 
 if __name__ == "__main__":
     apple = Apple()
-    apple.taste()
-    apple.color()
+    print("Apple", apple.taste())
+    print("Apple", apple.color())
 
     tomato = Tomato()
-    tomato.taste("not So Sweet...")
-    tomato.color()
+    print("Tomato", tomato.taste("not So Sweet..."))
+    print("Tomato", tomato.color())
