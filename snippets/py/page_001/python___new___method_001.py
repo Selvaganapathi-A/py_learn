@@ -1,5 +1,4 @@
-from typing import Any, Self, Type, Union
-
+from typing import Any, Self, Union
 
 class Connection:
     __slots__: tuple[str, ...] = ("__initialized__",)

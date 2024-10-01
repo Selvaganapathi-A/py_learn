@@ -1,5 +1,5 @@
-from abc import ABCMeta, abstractmethod, abstractstaticmethod
-from typing import overload, override
+from abc import ABCMeta, abstractmethod
+from typing import override
 
 
 class Fruit(metaclass=ABCMeta):
