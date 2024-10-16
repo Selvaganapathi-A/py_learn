@@ -81,7 +81,7 @@ determine neighbor rule beyond gravity opinion interest stand price grow lead ev
 """
 
     console.print(Markdown(md_code))
-    console.print("[#ff00ff] Helllo [/#ff00ff]")
+    console.print("[#ff00ff] Helllo [/#ff00ff] Goats")
     console.print("Visit my [link=https://www.willmcgugan.com]blog[/link]!")
     pass
 
