@@ -4,10 +4,8 @@ from typing import Any, Self, TypeVar
 class A:
 
     @staticmethod
-    def __new__(cls: type["A"], value: str) -> type["A"]:
+    def __new__(cls: type["A"], value: str) -> "A":
         print("__new__ method.")
-        print(dir(object))
-        # print(help(type))
         return object.__new__(cls)
 
     def __init__(self, value: str) -> None:

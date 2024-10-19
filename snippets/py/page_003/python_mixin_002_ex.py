@@ -35,5 +35,5 @@ if __name__ == "__main__":
     a = Human("ponnusami")
     print(a)
     print(a.sayWho())
-    print((json5.dumps(a.serialize()), 1))
+    print((json5.dumps(a.serialize(), indent=4), 1))
     pass
