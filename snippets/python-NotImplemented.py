@@ -28,7 +28,6 @@ class Apple(Fruit):
 def main():
     a = Apple(34.55)
     b = Apple(34.55)
-    #
     print(a.is_organic())
     print(a == b)
     print(a == 33.34)

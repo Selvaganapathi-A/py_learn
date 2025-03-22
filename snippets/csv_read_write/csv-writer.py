@@ -48,7 +48,6 @@ def funcname(fake: faker.Faker) -> Record:
             state=state,
             zip_code=zip_code,
         )
-
     return Record(
         first_name=fake.first_name_male(),
         last_name=fake.last_name_male(),
@@ -86,7 +85,6 @@ def main():
     )
     for x in range(1000):
         csv_writer.writerow(funcname(fake).export())
-
     csv_file_descriptor.flush()
     csv_file_descriptor.close()
 

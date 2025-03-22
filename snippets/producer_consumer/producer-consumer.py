@@ -29,7 +29,6 @@ async def main():
         "spain",
         "london",
     ]
-
     queue: asyncio.Queue[tuple[str, int]] = asyncio.Queue(3)
     # * create list to track tasks.
     producers: list[asyncio.Task[None]] = list()

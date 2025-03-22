@@ -13,7 +13,6 @@ class Animal:
 
     def serialize(self):
         return {"name": self.name, "spicies": "animal"}
-
         self.name
 
 

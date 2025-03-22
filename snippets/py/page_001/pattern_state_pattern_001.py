@@ -3,6 +3,7 @@ from typing import Protocol, Self, cast
 
 class LightState(Protocol):
     def switch(self, bulb: "LightBulb"): ...
+
     def show(self): ...
 
 

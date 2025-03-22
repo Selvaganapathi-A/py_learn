@@ -22,7 +22,6 @@ def main():
     print(yellow)
     print(yellow.__annotations__)
     print(yellow(7, 9, 8))
-
     xd: A = (9, 8)
     print(xd)
 

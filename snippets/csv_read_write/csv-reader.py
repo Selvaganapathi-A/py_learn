@@ -16,12 +16,9 @@ def main():
         csv_file_descriptor,
         delimiter=",",
     )
-
     for fn, ln, phone, dob, sex, state, zipcode in csv_reader:
         print((fn, ln), sex, dob)
-
     csv_file_descriptor.close()
-
     pass
 
 

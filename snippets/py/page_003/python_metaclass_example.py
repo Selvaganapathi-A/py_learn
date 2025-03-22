@@ -16,7 +16,6 @@ class Fruit(type):
             # print(k, v)
             if callable(v):
                 setattr(class_, k, debug(v))
-
         for k, v in kwargs.items():
             setattr(class_, k, v)
         return class_

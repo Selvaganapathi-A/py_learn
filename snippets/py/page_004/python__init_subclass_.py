@@ -37,7 +37,6 @@ Ensures that all subclasses define category, enforcing consistency.
 """
 
 
-# ~ ======================================================================== ~ #
 class Vehicle:
     registered_models: set[typing.Type[typing.Self]] = set()
 
@@ -74,7 +73,6 @@ class BMW(Bike):
     pass
 
 
-# ~ ======================================================================== ~ #
 """
     🔹 Key Takeaways
     __init_subclass__ runs automatically when a class is subclassed.
@@ -88,7 +86,6 @@ def main():
     duck = Bird()
     print(duck.kind)
     print(duck.legs)
-    #
     print(Vehicle.registered_models)
 
 
