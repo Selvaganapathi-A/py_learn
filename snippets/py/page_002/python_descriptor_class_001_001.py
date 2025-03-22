@@ -13,14 +13,10 @@ class DescriptorClass[T, U]:
     def __set_name__(self, __cls: type[T], __variable: str) -> None:
         self.__cls: type[T] = __cls
         self.__var: str = __variable
-
-        # ! Fore Storing And Retriving Values
+        # ! For Storing And Retriving Values
         self.__object_store: dict[type[T], dict[T, dict[str, U]]] = {__cls: {}}
-
         # * For House keeping Purposes
         self.__object_registry: dict[type[T], dict[T, dict[str, int]]] = {__cls: {}}
-
-        #
         logging.debug(f"create Descriptor {__cls.__name__}.{__variable}")
 
     def __set__(self, __instance: T, __value: U) -> None:
@@ -28,7 +24,7 @@ class DescriptorClass[T, U]:
             self.__object_registry[self.__cls][__instance] = {}
         if "defined" not in self.__object_registry[self.__cls][__instance]:
             logging.debug(
-                (f"Defining {self.__var} {self.__cls} " f"{__instance} {__value}")
+                (f"Defining {self.__var} {self.__cls} {__instance} {__value}")
             )
             self.__object_registry[self.__cls][__instance]["defined"] = 1
         else:
@@ -54,7 +50,7 @@ class DescriptorClass[T, U]:
         logging.debug(
             (
                 f"Accessing {__cls.__name__}.{self.__var} of {__instance} "
-                f"'[{self.__object_registry[__cls][__instance]["accessed"]}"
+                f"'[{self.__object_registry[__cls][__instance]['accessed']}"
                 " times.]'"
             )
         )
@@ -85,33 +81,26 @@ def main():
     print(p.area)
     print(p.area)
     print(p.area)
-    #
     q = State(410.01)
     r = State(420.01)
     s = State(430.01)
     t = State(440.01)
     u = State(450.01)
-    #
     q.total_area *= 1.1
     q.total_area *= 1.1
     q.total_area *= 1.1
     q.total_area *= 1.1
     q.total_area *= 1.1
-    #
     r.total_area *= 1.1
     r.total_area *= 1.1
     r.total_area *= 1.1
     r.total_area *= 1.1
-    #
     s.total_area *= 1.1
     s.total_area *= 1.1
     s.total_area *= 1.1
-    #
     t.total_area *= 1.1
     t.total_area *= 1.1
-    #
     u.total_area *= 1.1
-    #
     print(q.total_area)
     print(r.total_area)
     print(s.total_area)
@@ -121,4 +110,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    pass

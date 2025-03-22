@@ -20,7 +20,6 @@ class NaiveSingleton(type):
 
 
 class Food(metaclass=NaiveSingleton):
-
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         self.args = args
         self.kwargs = kwargs
@@ -29,7 +28,5 @@ class Food(metaclass=NaiveSingleton):
 if __name__ == "__main__":
     idli: Food = Food("idli", "hospital food.")
     burger: Food = Food("burger", "mc donalds.")
-
     print(idli.args)
     print(burger.args)
-    pass

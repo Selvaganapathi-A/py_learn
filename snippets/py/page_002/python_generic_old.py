@@ -5,7 +5,6 @@ from typing_extensions import TypeVar
 
 # * Generic bound to int, float, str, Decimal
 T = TypeVar("T", int, float, str, Decimal)
-
 A: TypeAlias = tuple[int, int]
 function: TypeAlias = Callable[[int, int, int], float]
 
@@ -20,18 +19,14 @@ def green(x: int, y: int, z: int) -> float:
 
 def main():
     yellow: function = green
-
     print(yellow)
     print(yellow.__annotations__)
     print(yellow(7, 9, 8))
 
     xd: A = (9, 8)
     print(xd)
-    pass
 
 
 if __name__ == "__main__":
     # help(TypeAlias)
     main()
-
-    pass

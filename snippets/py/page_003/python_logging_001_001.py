@@ -8,7 +8,6 @@ def main():
         datefmt="%Y-%m-%d %I:%M:%S %p",
         filename="basic.log",
     )
-
     logging.debug("This is a DEBUG")
     logging.info("This is a INFO")
     logging.warning("This is a WARNING")

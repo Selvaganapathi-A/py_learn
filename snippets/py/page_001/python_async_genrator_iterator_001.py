@@ -23,9 +23,9 @@ class Async_Iterator[T: (int, float)]:
         return x
 
 
-async def Async_Generator[
-    T: (int, float)
-](start: T, stop: T, step: T) -> AsyncGenerator[T, Any]:
+async def Async_Generator[T: (int, float)](
+    start: T, stop: T, step: T
+) -> AsyncGenerator[T, Any]:
     while start < stop:
         yield start
         start += step
@@ -48,4 +48,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-    pass

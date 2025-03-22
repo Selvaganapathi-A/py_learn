@@ -7,7 +7,6 @@ with Progress(refresh_per_second=50) as progress:
     task2 = progress.add_task("[green]Processing...", total=100)
     task3 = progress.add_task("[cyan]Cooking...", total=100)
     task4 = progress.add_task("[magenta]Baking...", total=100)
-
     while not progress.finished:
         progress.update(task1, advance=0.3)
         progress.update(task2, advance=0.5)

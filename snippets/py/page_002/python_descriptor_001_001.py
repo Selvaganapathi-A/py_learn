@@ -2,7 +2,6 @@ import time
 
 
 class LazyProperty:
-
     def __init__(self, function):
         self.function = function
         self.name = function.__name__
@@ -19,14 +18,12 @@ class LazyProperty:
     #     print(obj, value)
     #     obj.__dict__[self.name] = value
     # pass
-
     # def __del__(self, *args, **kwargs):
     #     print("->", args)
     #     print("->", kwargs)
 
 
 class DeepThought:
-
     @LazyProperty
     def meaning_of_life(self):
         time.sleep(1)

@@ -15,7 +15,6 @@ def singleton(cls: Type[Any]):
 
 @singleton
 class Plant:
-
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         pass
 
@@ -24,13 +23,10 @@ if __name__ == "__main__":
     a = Plant("audi", 98765)
     print(a)
     print()
-    #
     b = Plant("bmw", 12345)
     print(b)
     print()
-    #
     print(a, b)
     print(id(a), id(b))
     print(a == b)
     print(id(a) == id(b))
-    pass

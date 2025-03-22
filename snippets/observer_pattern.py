@@ -1,5 +1,4 @@
 class Channel:
-
     def __init__(self, name: str) -> None:
         self.name = name
         self.members: set["Subscriber"] = set[Subscriber]()
@@ -16,7 +15,6 @@ class Channel:
 
 
 class Subscriber:
-
     def __init__(self, name: str) -> None:
         self.name = name
 
@@ -27,29 +25,22 @@ class Subscriber:
 def main():
     youtube = Channel("Youtube")
     insta = Channel("Instagram")
-    #
     arun = Subscriber("Arun")
     mithra = Subscriber("Mithra")
     gugan = Subscriber("Gugan")
     mathu = Subscriber("Mathumitha")
     anjali = Subscriber("Anjali")
-    #
     youtube.subscribe(arun)
     youtube.subscribe(anjali)
     youtube.subscribe(mathu)
-    #
     insta.subscribe(mithra)
     insta.subscribe(gugan)
     insta.subscribe(arun)
     insta.subscribe(mathu)
-    #
     youtube.notify("🎁 New Year Celebration.🎁")
     print()
     insta.notify("💰💰💰 Paid Promotion")
-    #
-    pass
 
 
 if __name__ == "__main__":
     main()
-    pass

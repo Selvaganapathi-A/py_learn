@@ -43,13 +43,10 @@ if __name__ == "__main__":
     t1 = threading.Thread(target=fun1)
     t2 = threading.Thread(target=fun2)
     t3 = threading.Thread(target=fun3)
-
     t1.start()
     t2.start()
     t3.start()
-
     t1.join()
     t2.join()
     t3.join()
-
     print("All Threads done Exiting")

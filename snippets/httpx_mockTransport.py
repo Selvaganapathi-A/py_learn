@@ -1,15 +1,12 @@
+import asyncio
 from pprint import pprint
 
-import asyncio
-
+import httpx
 from httpx import Response
 from httpx._models import Request
 
-import httpx
-
 
 class MockHandler(httpx.AsyncBaseTransport):
-
     async def handle_async_request(self, request: Request) -> Response:
         print(request.url)
         print(request.method)
@@ -57,16 +54,12 @@ async def main():
         ),
         return_exceptions=False,
     )
-
     for response in responses:
         print(response.url)
         print(response.status_code)
         print(response.content)
 
-    pass
-
 
 if __name__ == "__main__":
     asyncio.run(main())
     print()
-    pass

@@ -56,51 +56,35 @@ class LicensedVehicleRegistry[T: (Car, Plane)]:
 def main():
     # Create Car Regitry
     carRegistry = VehicleRegistry[Car]()
-
     # Create Cars
     bmw = Car("bmw")
     audi = Car("audi")
     vw = Car("volkswagon")
     citroen = Car("citroen")
-
     toyoto = Mini("toyoto")
-
     # Add Cars to Car Registry
     carRegistry.add(bmw)
     carRegistry.add(audi)
     carRegistry.add(vw)
     carRegistry.add(citroen)
     carRegistry.add(toyoto)
-
     # Display Cars
     carRegistry.display()
-
     # ! ------------------------------------------------------------------------ ! #
-
     # Create Boat Registry
     boatRegistry = VehicleRegistry[Boat]()
-
     # Create Boats
     green_hunk = Boat("green_hunk")
-
     # Add Boats
     boatRegistry.add(green_hunk)
-
     # Display Boats
     boatRegistry.display()
-
     # ! ------------------------------------------------------------------------ ! #
-
     lv = LicensedVehicleRegistry[Car]()
-
-    #
     f13 = Plane("Fighter plane")
-    #
     lv.add(bmw)
     lv.add(f13)
     lv.add(green_hunk)
-    #
-
     lv.display()
 
 

@@ -1,9 +1,6 @@
+import operator
 from types import UnionType
 from typing import Any, Self
-
-
-import operator
-
 
 from rich import print
 
@@ -11,11 +8,9 @@ from rich import print
 class Fruit(object):
     def __init__(self, worth: float = 0) -> None:
         self.__worth = worth
-        pass
 
     def __add__(self, __value: Self) -> Self:
         print('"add" Method')
-
         ...
 
     def __sub__(self, __value: Self) -> bool:

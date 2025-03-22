@@ -1,18 +1,9 @@
-from typing import Protocol, Self
-
-# ~ ======================================================================== ~ #
+from typing import Protocol, Self, cast
 
 
 class LightState(Protocol):
-
-    def switch(self, bulb: "LightBulb"):
-        ...
-
-    def show(self):
-        ...
-
-
-# ~ ======================================================================== ~ #
+    def switch(self, bulb: "LightBulb"): ...
+    def show(self): ...
 
 
 class OffState:
@@ -21,7 +12,7 @@ class OffState:
     def __new__(cls: type[Self]) -> Self:
         if cls.__instance__ is None:
             cls.__instance__ = super().__new__(cls)
-        return cls.__instance__
+        return cast(Self, cls.__instance__)
 
     def switch(self, bulb: "LightBulb"):
         bulb.state = OnState()
@@ -37,7 +28,7 @@ class OnState:
     def __new__(cls: type[Self]) -> Self:
         if cls.__instance__ is None:
             cls.__instance__ = super().__new__(cls)
-        return cls.__instance__
+        return cast(Self, cls.__instance__)
 
     def switch(self, bulb: "LightBulb"):
         bulb.state = OffState()
@@ -47,11 +38,7 @@ class OnState:
         print("Light is On.")
 
 
-# ~ ------------------------------------------------------------------------ ~ #
-
-
 class LightBulb:
-
     def __init__(self) -> None:
         self.state: LightState = OffState()
 
@@ -59,12 +46,8 @@ class LightBulb:
         self.state.switch(self)
 
 
-# ~ ------------------------------------------------------------------------ ~ #
-
-
 def main():
     bulb = LightBulb()
-
     bulb.switch()
     bulb.switch()
     bulb.switch()
@@ -72,9 +55,7 @@ def main():
     print()
     bulb.state.show()
     bulb.state.show()
-    pass
 
 
 if __name__ == "__main__":
     main()
-    pass

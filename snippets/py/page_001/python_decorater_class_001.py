@@ -3,7 +3,6 @@ from typing import Any, Callable
 
 
 class Decorate:
-
     def __init__(self, function: Callable) -> None:
         self.function = function
 
@@ -32,11 +31,9 @@ def extra_function(a: int, b: int) -> int:
 #
 print()
 print(some_fuction(9, 8))
-
 #
 print()
 print(other_function(7, 6))
-
 #
 decorate = Decorate(extra_function)
 print(decorate(5, 4))

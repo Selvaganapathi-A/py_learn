@@ -16,9 +16,7 @@ async def run_parallel(*functions: typing.Awaitable[typing.Any]):
 async def do_thing(message: str):
     await asyncio.sleep(1)
     print(message)
-
     return len(message)
-    pass
 
 
 async def main():
@@ -43,9 +41,6 @@ async def main():
     )
     print(d)
 
-    pass
-
 
 if __name__ == "__main__":
     asyncio.run(main())
-    pass

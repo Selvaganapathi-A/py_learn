@@ -28,7 +28,6 @@ class Boat(Vehicle):
 class Registry[T: Vehicle]:
     def __init__(self) -> None:
         self.vehicles: list[T] = list()
-        pass
 
     def add_vehicle(self, vehicle: T):
         self.vehicles.append(vehicle)
@@ -38,11 +37,8 @@ def main():
     registry: Registry[Car] = Registry[Car]()
     registry.add_vehicle(Car("Honda"))
     registry.add_vehicle(Car("Tesla"))
-
     # registry.add_vehicle(Boat("Toyoto"))
-    pass
 
 
 if __name__ == "__main__":
     main()
-    pass

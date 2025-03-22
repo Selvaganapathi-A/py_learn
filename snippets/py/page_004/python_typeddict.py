@@ -16,7 +16,6 @@ def get_people(name: str) -> Person:
 def main():
     print(get_people("meera ragavan"))
     print(get_people("dani jensen"))
-    pass
 
 
 if __name__ == "__main__":

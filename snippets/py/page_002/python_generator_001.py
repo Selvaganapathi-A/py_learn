@@ -40,7 +40,6 @@ def main():
         finally:
             pass
         time.sleep(0.25)
-
     print("End of Program")
 
 
@@ -48,4 +47,3 @@ if __name__ == "__main__":
     logging.basicConfig(format="%(message)s")
     main()
     help(Generator)
-    pass

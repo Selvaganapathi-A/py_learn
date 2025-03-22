@@ -18,7 +18,8 @@ class Cookie(BaseModel):
     ) -> datetime:
         if value < info.data["made"]:
             raise ValueError(
-                "expiry date should not be equal to manufature date.",)
+                "expiry date should not be equal to manufature date.",
+            )
         return value
 
 
@@ -29,9 +30,7 @@ def main():
         expiry=datetime(2023, 5, 8, 6, 59, 59),
     )
     print(cookie)
-    pass
 
 
 if __name__ == "__main__":
     main()
-    pass

@@ -10,27 +10,23 @@ class Movie(TypedDict):
 
 def func(**kwargs: Unpack[Movie]):
     release_date: datetime = kwargs.get("released", datetime(2060, 12, 31))
-    print(kwargs["name"])
-    print(release_date)
-    print()
     print(kwargs)
+    print(kwargs["name"], release_date)
     print()
+    print("-" * 80)
 
 
 def main():
     anabelle: Movie = {"name": "Anabelle"}
     func(**anabelle)
-    #
     tin_tin: Dict[str, Any] = {
         "name": "Tin Tin's Adventures",
         "voice": "Ben Aflec",
     }
     func(**tin_tin)
-    #
     a: float = 0.976
     print(reveal_type(a))
 
 
 if __name__ == "__main__":
     main()
-    pass

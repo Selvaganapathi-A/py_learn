@@ -6,8 +6,6 @@ __all__ = [
     "pprint",
     "pretty_repr",
 ]
-
-
 pprint(__all__)
 
 
@@ -15,11 +13,11 @@ def super_print(arg: list[dict[str, str]]):
     md = ""
     title = "| " + " | ".join(("name", "country", "email")) + " | "
     title += "\n| " + " | ".join(("-", "-", "-")) + " | "
-
     md += title.title()
-
     for item in arg:
-        md += f"\n| {item.get("name")} | {item.get("contact")} | {item.get("country")} | "
+        md += (
+            f"\n| {item.get('name')} | {item.get('contact')} | {item.get('country')} | "
+        )
     print(Markdown(md))
 
 
@@ -46,10 +44,7 @@ users = [
     },
     {"name": "Sam Waters", "country": "Morocco", "contact": "robusat@givo.bz"},
 ]
-
-
 print(pretty_repr(users))
-
 pprint(users)
 print(users)
 print(Markdown("# Contact Details"))
@@ -60,7 +55,5 @@ print("(468) 997-4314")
 print("(668) 905-9855")
 print("(251) 652-7147")
 print("(443) 771-3964")
-
-
 super_print(users)
 print("[red]Hello[/red] Mark! [blue]Maintenance mode Initiated.[/blue]")

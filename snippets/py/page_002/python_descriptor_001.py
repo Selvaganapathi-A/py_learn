@@ -2,7 +2,6 @@ from typing import Type
 
 
 class StringDescriptor:
-
     def __set_name__(self, owner: Type, name: str):
         print("StringDescriptor", "set name", owner)
         self.property_name = name
@@ -29,18 +28,13 @@ class Person:
         print("Persion --init--")
         self.f_name = f_name
         self.l_name = l_name
-        pass
 
 
 if __name__ == "__main__":
     person = Person("g", "o")
     print(person)
-
     print(person.f_name)
     print(person.l_name)
-
     person.f_name = ""
-
     print(person.f_name)
     print(person.l_name)
-    pass

@@ -34,11 +34,10 @@ class VideoHandler(Handler):
 if __name__ == "__main__":
     from subprocess import run
 
-    # run(("cls",), shell=True)
+    run(("cls",), shell=True)
     pprint.pprint(CustomMetaclass.handlers)
-
     vh = VideoHandler()
     # print(type(vh))
     # print(type(CustomMetaclass.handlers["mp4"]))
     # print(type(type(CustomMetaclass.handlers["mp4"])))
-    pass
+    pprint.pprint(CustomMetaclass.handlers)

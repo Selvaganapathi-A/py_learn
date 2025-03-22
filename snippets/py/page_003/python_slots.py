@@ -22,14 +22,10 @@ class Fruit:
         # self.origin = origin
         self.color = "red"
 
-        pass
-
 
 if __name__ == "__main__":
     run(("cls",), shell=True)
     fruit = Fruit("\tIron")
-
     print(f"{fruit.origin.expandtabs(5)!r}")
-
     # print(dir(Fruit))
     # print(Fruit.__dict__)

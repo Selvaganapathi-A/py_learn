@@ -3,22 +3,17 @@ from typing import override
 
 
 class Fruit(metaclass=ABCMeta):
-
     @abstractmethod
-    def taste(self, value: str) -> str:
-        ...
-
+    def taste(self, value: str) -> str: ...
     def color(self) -> str:
         return "pale"
 
     @abstractmethod
     @staticmethod
-    def size() -> str:
-        ...
+    def size() -> str: ...
 
 
 class Tomato(Fruit):
-
     @override
     def taste(self, value: str = "") -> str:
         return "sour," + value
@@ -34,7 +29,6 @@ class Tomato(Fruit):
 
 
 class Apple(Fruit):
-
     def taste(self, value: str = "sweet"):
         return value
 
@@ -47,7 +41,6 @@ if __name__ == "__main__":
     apple = Apple()
     print("Apple", apple.taste())
     print("Apple", apple.color())
-
     tomato = Tomato()
     print("Tomato", tomato.taste("not So Sweet..."))
     print("Tomato", tomato.color())

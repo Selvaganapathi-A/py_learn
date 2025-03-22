@@ -1,8 +1,7 @@
 # SuperFastPython.com
 # example of using an asyncio semaphore
-from random import random
-
 import asyncio
+from random import random
 
 
 # task coroutine
@@ -14,7 +13,7 @@ async def task(semaphore: asyncio.Semaphore, number: int):
         # block for a moment
         await asyncio.sleep(value)
         # report a message
-        print(f'Task {number} got {value}')
+        print(f"Task {number} got {value}")
 
 
 # main coroutine

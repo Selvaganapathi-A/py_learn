@@ -16,12 +16,10 @@ async def bar() -> str:
 async def main():
     task1 = asyncio.create_task(foo(), name="foo function")
     task2 = asyncio.create_task(bar(), name="bar function")
-
-    done, pending = await asyncio.wait((task1, task2),
-                                       return_when=asyncio.ALL_COMPLETED)
-
+    done, pending = await asyncio.wait(
+        (task1, task2), return_when=asyncio.ALL_COMPLETED
+    )
     print("-" * 80)
-
     print("Task Completed.")
     for task in done:
         try:
@@ -30,14 +28,11 @@ async def main():
             print((task, task.get_name()))
             logging.exception(e, exc_info=e)
         print()
-
     print("-" * 80)
-
     print("Task Pending.")
     for task in pending:
         print((task, task.get_name(), task.result()))
         print()
-
     print("-" * 80)
 
 

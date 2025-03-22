@@ -1,15 +1,12 @@
 print("*" * 80)
 print("Create Metaclass Landmass")
-
 print("*" * 80)
 
 
 class Landmass(type):
-
     def __new__(cls, name, bases, class_dict, **kwargs):
         # class_ = super().__new__(cls, name, bases, class_dict)
         class_ = type.__new__(cls, name, bases, class_dict)
-
         print("MetaClass  :", cls)
         print("Class Name :", name)
         print("Base Clases:")
@@ -35,10 +32,10 @@ print("*" * 80)
 
 
 class Area(
-        metaclass=Landmass,
-        country="India",
-        state="Tamilnadu",
-        capital="Chennai",
+    metaclass=Landmass,
+    country="India",
+    state="Tamilnadu",
+    capital="Chennai",
 ):
     population: int = 123567896969
     country: str
@@ -61,10 +58,10 @@ print("*" * 80)
 
 
 class Area14(
-        metaclass=Landmass,
-        country="India",
-        state="Kerala",
-        capital="Trivandram",
+    metaclass=Landmass,
+    country="India",
+    state="Kerala",
+    capital="Trivandram",
 ):
     population: int = 123567896
     country: str
@@ -91,9 +88,7 @@ class Tamilian(Area):
     importance = 10
 
     def describe(self):
-        return (super().describe() + f" -> {self.locale} -> {self.importance} ")
-
-    pass
+        return super().describe() + f" -> {self.locale} -> {self.importance} "
 
 
 print("*" * 80)
@@ -107,47 +102,39 @@ class Atturan(Tamilian, **{"soil": "red mud", "plants": "rice, sugarcane"}):
     importance = 95
 
     def describe(self):
-        return (super().describe() + f" -> {self.locale} -> {self.importance} ")
-
-    pass
+        return super().describe() + f" -> {self.locale} -> {self.importance} "
 
 
 print("*" * 80)
 print("*" * 80)
-
 if __name__ == "__main__":
     from subprocess import run
 
     run(("cls",), shell=True)
-
     konaru = Area14("Kochin", "324123")
     print("-" * 80)
     print(konaru)
     print(konaru.describe())
     print(konaru.state)
     print(konaru.country)
-
     maduraian = Area("Madurai", "6785856")
     print("-" * 80)
     print(maduraian)
     print(maduraian.describe())
     print(maduraian.state)
     print(maduraian.country)
-
     tamil = Tamilian("Salem", 8796)
     print("-" * 80)
     print(tamil)
     print(tamil.describe())
     print(tamil.state)
     print(tamil.country)
-
     print()
     atturaan = Atturan("attur", 98)
     print("-" * 80)
     print(atturaan)
     print(atturaan.describe())
     print(atturaan.state)
-
     print(atturaan.soil)
     print(atturaan.plants)
     # print(po.service)

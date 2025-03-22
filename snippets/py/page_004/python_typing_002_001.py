@@ -30,25 +30,24 @@ class ClassicUser(ProUser):
     def __init__(self, name: str) -> None:
         super().__init__(name)
 
-    @override
-    def compute(
-        self,
-    ) -> str:  # type : ignore
-        # Typechecker Error raised
-        # Parent Class don't have 'compute' method.
-        return self.name
+    # @override
+    # def compute(
+    #     self,
+    # ) -> str:  # type : ignore
+    #     # Typechecker Error raised
+    #     # Parent Class don't have 'compute' method.
+    #     return self.name
+    # @override
+    # def security(
+    #     self,
+    # ):  # type : ignore
+    #     # Typechecker Error raised
+    #     # It need not to be inherited(overridden).
+    #     # Method is marked as final in Base Class 'User'
+    #     return super().security()
 
-    @override
-    def security(
-        self,
-    ):  # type : ignore
-        # Typechecker Error raised
-        # It need not to be inherited(overridden).
-        # Method is marked as final in Base Class 'User'
-        return super().security()
 
-
-def createUser[T](cls: Type[T], name: str) -> T:
+def createUser[T: User](cls: Type[T], name: str) -> T:
     return cls(name)
 
 
@@ -57,22 +56,18 @@ def main():
     print(user.name)
     print(user.display())
     print()
-
     basicUser: BasicUser = createUser(BasicUser, "Zahir")
     print(basicUser.name)
     print(basicUser.display())
     print()
-
     proUser: ProUser = createUser(ProUser, "Mithun")
     print(proUser.name)
     print(proUser.display())
     print()
-
     advancedUser: AdvancedUser = createUser(AdvancedUser, "Zenuth")
     print(advancedUser.name)
     print(advancedUser.display())
     print()
-
     classicUser: User = createUser(ClassicUser, "Amar")
     print(classicUser.name)
     print(classicUser.display())
@@ -81,4 +76,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    pass

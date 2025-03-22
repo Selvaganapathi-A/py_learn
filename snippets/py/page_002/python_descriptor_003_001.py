@@ -3,7 +3,6 @@ import pathlib
 
 
 class FileCountDescriptor:
-
     def __set_name__(self, cls, cls_name):
         self.cls_name = cls_name
         # self.cls = cls
@@ -12,8 +11,9 @@ class FileCountDescriptor:
         return len(os.listdir(instance.__dir_name__))
 
     def __set__(self, instance, value):
-        instance.__dict__[self.cls_name] = (value if self.cls_name
-                                            in instance.__dict__ else None)
+        instance.__dict__[self.cls_name] = (
+            value if self.cls_name in instance.__dict__ else None
+        )
 
 
 class Directory:
@@ -25,7 +25,5 @@ class Directory:
 
 if __name__ == "__main__":
     os.system("cls")
-
     folder = Directory((pathlib.Path(__file__).parent).__str__())
     print(folder.fc)
-    pass

@@ -25,22 +25,18 @@ def main():
     table.add_row("Marion Miles", "(771) 842-7593", "Peru")
     table.add_row("Isaac Rios", "(725) 472-6791", "Zimbabwe")
     table.add_row("Albert Roberson", "(480) 755-6643", "Ghana")
-
     console = Console()
     console.print(table)
-
-    pass
 
 
 if __name__ == "__main__":
     # main()
     fake = faker.Faker()
-
     print(dir(fake))
     table = Table()
     for x in range(20):
         table.add_row(
-            f"{x+1: >3}",
+            f"{x + 1: >3}",
             fake.name_female(),
             fake.email(),
             fake.street_address(),
@@ -49,8 +45,6 @@ if __name__ == "__main__":
             fake.state(),
         )
     print(table)
-
-    pass
 #                       Student Details
 # ┏━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┓
 # ┃            Name ┃    Contact     ┃        Country        ┃

@@ -1,5 +1,4 @@
 class RangeTen:
-
     def __iter__(self):
         self.a = 0
         return self
@@ -15,4 +14,3 @@ class RangeTen:
 if __name__ == "__main__":
     for x in RangeTen():
         print(x)
-    pass

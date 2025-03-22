@@ -47,15 +47,16 @@ if __name__ == "__main__":
         "juliet",
     ]
     with ThreadPoolExecutor(max_workers=os.cpu_count()) as Executor:
-        future_object = (Executor.submit(
-            fn_name,
-            x,
-        ) for x in names)
+        future_object = (
+            Executor.submit(
+                fn_name,
+                x,
+            )
+            for x in names
+        )
         for x in as_completed(future_object):
             print(x.result())
-    #
     print()
-    #
     timestamp = datetime.datetime.now()
     with ThreadPoolExecutor(4, "Miami") as Executor:
         r: List[Any] = []
@@ -69,9 +70,7 @@ if __name__ == "__main__":
             "Threadpool Completed",
             datetime.datetime.now() - timestamp,
         )
-    #
     print()
-    #
     timestamp = datetime.datetime.now()
     with ProcessPoolExecutor(4) as Executor:
         r: List[Any] = []

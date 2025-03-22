@@ -3,7 +3,6 @@ import time
 
 
 class Paginator:
-
     def __init__(self, page_size: int) -> None:
         self.__page_size: int = page_size
         self.__start: int = 0
@@ -16,7 +15,6 @@ class Paginator:
         await asyncio.sleep(0.25)
         page: int = self.__current_page
         start: int = self.__start
-        #
         self.__current_page += 1
         self.__start += self.__page_size
         return page, start, self.__page_size + start
@@ -26,10 +24,8 @@ class Paginator:
 
     def __next__(self):
         time.sleep(0.25)
-        #
         page: int = self.__current_page
         start: int = self.__start
-        #
         self.__current_page += 1
         self.__start += self.__page_size
         return page, start, self.__page_size + start
@@ -53,7 +49,6 @@ def sync_function(paginator: Paginator):
 
 def main():
     paginator = Paginator(100)
-    #
     asyncio.run(async_function(paginator))
     sync_function(paginator)
 

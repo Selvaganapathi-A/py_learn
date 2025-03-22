@@ -1,14 +1,13 @@
+import asyncio
+import logging
+import time
 from dataclasses import dataclass
 from time import perf_counter_ns
 from types import TracebackType
 
-import asyncio
-import logging
-import time
 """
 With context managers, you can perform any pair of operations that needs to be done
 before and after another operation or procedure, such as:
-
 Open and close
 Lock and release
 Change and reset
@@ -18,24 +17,26 @@ Start and stop
 Setup and teardown
 """
 
-#
-#
-#
-#
-#
 
-
+#
+#
+#
+#
+#
 class CustomContextManager:
-
     def __enter__(self):
         self.start = time.perf_counter()
         print("entering")
         return self
 
-    def __exit__(self, exc_type: BaseException, exc: type[BaseException],
-                 exc_tb: TracebackType):
+    def __exit__(
+        self,
+        exc_type: BaseException,
+        exc: type[BaseException],
+        exc_tb: TracebackType,
+    ):
         end = time.perf_counter()
-        print(end - self.start, 'microseconds in sync mode')
+        print(end - self.start, "microseconds in sync mode")
         return isinstance(exc, ZeroDivisionError)
 
     def wait(self):
@@ -43,16 +44,19 @@ class CustomContextManager:
 
 
 class AsyncCustomContextManager:
-
     async def __aenter__(self):
         print("async entering")
         self.start = time.perf_counter()
         return self
 
-    async def __aexit__(self, exc_type: BaseException, exc: type[BaseException],
-                        exc_tb: TracebackType):
+    async def __aexit__(
+        self,
+        exc_type: BaseException,
+        exc: type[BaseException],
+        exc_tb: TracebackType,
+    ):
         end = time.perf_counter()
-        print(end - self.start, 'microseconds in async mode.')
+        print(end - self.start, "microseconds in async mode.")
         return isinstance(exc, ZeroDivisionError)
 
     async def asyncwait(self):
@@ -65,7 +69,6 @@ async def a_main():
         for x in range(5):
             _.wait()
         print(81 / 0)
-    #
     async with AsyncCustomContextManager() as _:
         print(_)
         await asyncio.gather(*(_.asyncwait() for x in range(5)))
@@ -75,16 +78,14 @@ async def a_main():
 if __name__ == "__main__":
     asyncio.run(a_main())
 
-#
-#
-#
-#
-#
 
-
+#
+#
+#
+#
+#
 @dataclass(slots=True)
 class Person:
-
     def __enter__(self):
         print("enter ctx")
         return self
@@ -103,7 +104,6 @@ class Person:
 
 
 class MeasureTime:
-
     def __enter__(self):
         self.start = perf_counter_ns()
         self.end = 0.0
@@ -130,12 +130,10 @@ def main() -> None:
         print("harness")
     # -------------------------------------- #
     tim = 0
-
     with MeasureTime() as mt:
         tim = mt
         time.sleep(6)
     print(tim())
-    pass
 
 
 if __name__ == "__main__":

@@ -2,7 +2,6 @@ from typing import List
 
 
 class Country(object):
-
     def __init__(self, countryName: str):
         self.cities: List["City"] = []
         self.countryName: str = countryName
@@ -15,7 +14,6 @@ class Country(object):
 
 
 class City(object):
-
     def __init__(self, cityName: str):
         self.people: List["Person"] = []
         self.numPeople: int = 0
@@ -34,7 +32,6 @@ class City(object):
 
 
 class Person(object):
-
     def __init__(self, ID: int):
         self.ID = ID
 
@@ -74,4 +71,3 @@ if __name__ == "__main__":
         print(city.cityName, city.numPeople)
         # for people in city.people:
         #     print("\t", people, people.people_in_my_country())
-    pass

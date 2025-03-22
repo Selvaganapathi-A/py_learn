@@ -1,14 +1,12 @@
-from pathlib import Path
-from typing import Literal
-
 import csv
 import dataclasses
 import datetime
 import os
 import random
+from pathlib import Path
+from typing import Literal
 
 import faker
-import faker_education
 
 
 @dataclasses.dataclass(slots=True, frozen=True)
@@ -28,8 +26,6 @@ class Record:
             self.phone,
             self.birth_day,
             self.sex,
-            self.state,
-            self.zip_code,
         )
 
 
@@ -70,35 +66,31 @@ def main():
     newline = ""
     to avoid creating blank lines between rows
     """
-    csv_file_descriptor = csv_file.open("w", newline='')
+    csv_file_descriptor = csv_file.open("w", newline="")
     csv_writer = csv.writer(
         csv_file_descriptor,
         delimiter=",",
     )
-
     fake: faker.Faker = faker.Faker("en-US")
     fake.add_provider(faker_education.SchoolProvider)
-    #
-    csv_writer.writerow((
-        "First-Name",
-        "Last-Name",
-        "Phone-Number",
-        "Birth-Day",
-        "Sex",
-        "State",
-        "Zip-Code",
-    ))
-
+    csv_writer.writerow(
+        (
+            "First-Name",
+            "Last-Name",
+            "Phone-Number",
+            "Birth-Day",
+            "Sex",
+            "State",
+            "Zip-Code",
+        )
+    )
     for x in range(1000):
         csv_writer.writerow(funcname(fake).export())
 
     csv_file_descriptor.flush()
     csv_file_descriptor.close()
 
-    pass
-
 
 if __name__ == "__main__":
     os.system("cls")
     main()
-    pass

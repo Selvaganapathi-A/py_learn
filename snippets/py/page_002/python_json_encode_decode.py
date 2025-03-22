@@ -1,8 +1,7 @@
 import json
 import pprint
-from typing import Any
-
 from dataclasses import dataclass
+from typing import Any
 
 
 @dataclass
@@ -89,9 +88,7 @@ def main():
     load: list[Student] = json.loads(dump, object_hook=decoder)
     pprint.pprint(load)
     print(type(load[0]))
-    pass
 
 
 if __name__ == "__main__":
     main()
-    pass

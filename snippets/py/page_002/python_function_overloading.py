@@ -37,7 +37,6 @@ def main():
     func("4.7")
     func("4.7".split("."))
     func((1, 2, 4, 5))
-    pass
 
 
 if __name__ == "__main__":

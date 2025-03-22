@@ -2,7 +2,6 @@ from typing import Any, Callable
 
 
 def debug(func_: Callable):
-
     def wrapper(*args, **kwargs):
         print(func_.__qualname__, "is executing.")
         return func_(*args, **kwargs)
@@ -11,7 +10,6 @@ def debug(func_: Callable):
 
 
 class Fruit(type):
-
     def __new__(metaclass, name, bases, class_attrs, **kwargs):  # type:ignore
         class_ = type(metaclass.__name__, bases, class_attrs)
         for k, v in vars(class_).items():
@@ -21,7 +19,6 @@ class Fruit(type):
 
         for k, v in kwargs.items():
             setattr(class_, k, v)
-
         return class_
 
 
@@ -40,16 +37,13 @@ if __name__ == "__main__":
     from subprocess import run
 
     run(("cls",), shell=True)
-
     p = Pine()
-
     print()
     print(p.__dict__)
     print()
     print(p.__annotations__)
     print()
     print()
-
     print(Pine.__dict__)
     print()
     print(Pine.__annotations__)
@@ -60,7 +54,6 @@ if __name__ == "__main__":
     print(p.add(9))
     print(p.add(78))
     print(p.add(89))
-
     print()
     print(p.k)
     print(p.m)

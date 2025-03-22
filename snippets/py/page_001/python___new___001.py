@@ -10,7 +10,6 @@ class Robot:
 
     def __init__(self, name: str = "Pear") -> None:
         self.f_name = name
-        pass
 
     @property
     def objects_created(self):
@@ -27,16 +26,12 @@ class Robot:
 if __name__ == "__main__":
     a1 = Robot("Falcon")
     print(a1, a1.objects_created)
-    #
     a2 = Robot("Eagle")
     print(a2, a2.objects_created)
-    #
     a3 = Robot("Night Wing")
     print(a3, a3.objects_created)
-    #
     a4 = Robot("Honey bee")
     print(a4, a4.objects_created)
-    #
     print()
     print()
     print()
@@ -45,4 +40,3 @@ if __name__ == "__main__":
     print(a3.objects_created)
     print(a4.objects_created)
     print(Robot.instances())
-    pass

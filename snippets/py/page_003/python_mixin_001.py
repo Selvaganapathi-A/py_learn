@@ -1,9 +1,14 @@
-import json5
+import typing
 from dataclasses import dataclass
+
+import json5
+
+
+class SerializerProtocol(typing.Protocol):
+    def serislize(self): ...
 
 
 class Serializer:
-
     def __init__(self, *args, **kwargs) -> None:
         self.args = args
         self.kwargs = kwargs
@@ -17,18 +22,16 @@ class Device(Serializer):
 
 
 class Jsonizer:
-
     def __init__(self, *args, **kwargs) -> None:
         self.args = args
         self.kwargs = kwargs
 
-    def json(self):
+    def json(self: SerializerProtocol):
         return json5.dumps(self.serialize(), sort_keys=True)
 
 
 @dataclass
 class iPod(Device, Jsonizer):
-
     def __init__(self, *args, spicies="Monkey", **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.spicies = spicies

@@ -1,4 +1,4 @@
-from typing import overload, Self
+from typing import Self, overload
 
 class Range[T: (int, float)]:
     """

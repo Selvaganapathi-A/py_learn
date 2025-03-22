@@ -16,20 +16,17 @@ Apple = type(
         "say": taste,
     },
 )
-
 apple: Apple = Apple("black")
 print(Apple)
 # print(dir(a))
 print(apple.color)
 print(apple.say())
-
 if __name__ == "__main__":
     from subprocess import run
 
     run("cls", shell=True)
 
     class M:
-
         def __init__(self, n: float = 6) -> None:
             self.n = n
             self.__on_ = n
@@ -38,7 +35,6 @@ if __name__ == "__main__":
             return self.n
 
     a = M(89)
-
     print(M)
     print(dir(M))
     print()

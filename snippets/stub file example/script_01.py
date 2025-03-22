@@ -6,7 +6,6 @@ class Range[T: (int, float)]:
         start: T
         stop: T
         step: T
-
         if len(args) == 1:
             start = 0  # type: ignore
             stop = args[0]
@@ -18,7 +17,6 @@ class Range[T: (int, float)]:
             start, stop, step = args
         else:
             raise ValueError(*args)
-
         self.__current: T = start
         self.__start: T = start
         self.__stop: T = stop
