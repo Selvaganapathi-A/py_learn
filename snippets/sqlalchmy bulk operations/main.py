@@ -1,0 +1,114 @@
+from sqlalchemy import (Boolean, Integer, String, create_engine, insert, select,
+                        update)
+from sqlalchemy.orm import Mapped, Session, mapped_column, sessionmaker
+from sqlalchemy.orm.decl_api import DeclarativeBase
+
+
+class BaseModel(DeclarativeBase):
+    pass
+
+
+class User(BaseModel):
+    __tablename__: str = "user"
+    pk: Mapped[int] = mapped_column(Integer,
+                                    primary_key=True,
+                                    autoincrement=True)
+    name: Mapped[str] = mapped_column(String, nullable=False)
+    surname: Mapped[str] = mapped_column(String, nullable=True, default=None)
+    age: Mapped[int] = mapped_column(Integer, nullable=False)
+    country: Mapped[str] = mapped_column(String, nullable=True, default=None)
+    sex: Mapped[str] = mapped_column(String, nullable=True, default=None)
+    canVote: Mapped[bool] = mapped_column(Boolean, nullable=True, default=None)
+    canMarry: Mapped[bool] = mapped_column(Boolean, nullable=True, default=None)
+
+    def __str__(self) -> str:
+        return f"{self.name} - {self.surname} - {self.age}"
+
+
+def main(session: Session):
+    # * bulk insert
+    session.execute(
+        statement=insert(User),
+        params=[
+            {
+                "name": "elena",
+                "age": 14,
+                "sex": "F"
+            },
+            {
+                "name": "tony",
+                "age": 17,
+                "sex": "M"
+            },
+            {
+                "name": "rosemary",
+                "age": 16,
+                "sex": "F"
+            },
+            {
+                "name": "spphia",
+                "age": 39,
+                "sex": "F"
+            },
+            {
+                "name": "karen",
+                "age": 28,
+                "sex": "F"
+            },
+            {
+                "name": "john",
+                "age": 41,
+                "sex": "M"
+            },
+            {
+                "name": "mike",
+                "age": 18,
+                "sex": "M"
+            },
+        ],
+    )
+    #
+    # * Before Update
+    for user in session.execute(select(User)).scalars().fetchall():
+        print((
+            user.sex,
+            user.age,
+            user.name,
+            "I can Vote" if user.canVote else "can't Vote",
+            "💖" if user.canMarry else "😓",
+        ))
+    # * 2 boolean fields
+    cache = []
+    for user in session.execute(select(User)).scalars().fetchall():
+        cache.append({
+            "pk":
+                user.pk,
+            "canVote":
+                user.age >= 18,
+            "canMarry": (
+                (user.sex == "M" and user.age > 24 and user.age < 40) or
+                (user.sex == "F" and user.age > 21 and user.age < 37)),
+        })
+    # * bulk update
+    session.execute(update(User), cache)
+    # * After Update
+    for user in session.execute(select(User)).scalars().fetchall():
+        print((
+            user.sex,
+            user.age,
+            user.name,
+            "I can Vote" if user.canVote else "can't Vote",
+            "💖" if user.canMarry else "😓",
+        ))
+    #
+    session.commit()
+
+
+if __name__ == "__main__":
+    engine = create_engine("sqlite:///:memory:", echo=True)
+    session_maker = sessionmaker(bind=engine)
+    session = session_maker()
+    BaseModel.metadata.create_all(bind=engine)
+
+    main(session)
+    engine.dispose()
