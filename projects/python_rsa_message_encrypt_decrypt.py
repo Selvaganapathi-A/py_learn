@@ -1,8 +1,8 @@
 import rsa
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     public_key, private_key = rsa.newkeys(128)
-    message = "Hello"
+    message = 'Hello'
     encrypted_message = rsa.encrypt(message.encode(), public_key)
 
     decrypted_message = rsa.decrypt(encrypted_message, private_key).decode()

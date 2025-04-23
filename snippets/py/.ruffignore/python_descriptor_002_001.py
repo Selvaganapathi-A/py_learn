@@ -9,7 +9,7 @@ class PositiveNumber[T, X: (int, float, Decimal)](int):
         self.object_name = name
 
     def __get__(self, __class_instance: T, __class: type[T]):
-        print("called get", (__class_instance, __class))
+        print('called get', (__class_instance, __class))
         return (
             __class_instance.__dict__[self.object_name]
             if self.object_name in __class_instance.__dict__
@@ -17,9 +17,9 @@ class PositiveNumber[T, X: (int, float, Decimal)](int):
         )
 
     def __set__(self, __object_instance: T, __object_value: X):
-        print("called set with value", __object_instance, __object_value)
+        print('called set with value', __object_instance, __object_value)
         if __object_value < 1:
-            raise ValueError("Must be Positive Integer", __object_value)
+            raise ValueError('Must be Positive Integer', __object_value)
         __object_instance.__dict__[self.object_name] = __object_value
 
 
@@ -30,7 +30,7 @@ class Apple:
         self.sold_apples = value
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     a = Apple(109)
     print(a.sold_apples)
     for x in range(4, 20):

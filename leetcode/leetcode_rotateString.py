@@ -1,16 +1,15 @@
+import time
 from typing import Callable
 
 
-import time
-
-
 def ti(fun: Callable[[str, str], bool]):
+
     def wra(s: str, goal: str):
         nonlocal fun
         st = time.perf_counter()
         res = fun(s, goal)
         ed = time.perf_counter()
-        print(f"{(ed - st) * 1_000_000:9.3f} milliseconds")
+        print(f'{(ed - st) * 1_000_000:9.3f} milliseconds')
         return res
 
     return wra
@@ -48,23 +47,23 @@ def main():
     #
     #
     #
-    s = "abcde"
-    goal = "cdeab"
+    s = 'abcde'
+    goal = 'cdeab'
     result = rotateString(s, goal)
     print(result)
     #
-    s = "abcde"
-    goal = "abced"
+    s = 'abcde'
+    goal = 'abced'
     result = rotateString(s, goal)
     print(result)
     #
-    s = "bbbacddceeb"
-    goal = "ceebbbbacdd"
+    s = 'bbbacddceeb'
+    goal = 'ceebbbbacdd'
     result = rotateString(s, goal)
     print(result)
     #
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
     pass

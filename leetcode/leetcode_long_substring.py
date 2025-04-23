@@ -20,25 +20,23 @@ def find_longest_substring_without_repeating_characters(s: str):
 
 
 def main():
-    print("Hi.")
-    string = "abcabcbb"
+    print('Hi.')
+    string = 'abcabcbb'
     find_longest_substring_without_repeating_characters(string)
-    string = "bbbbbbb"
+    string = 'bbbbbbb'
     find_longest_substring_without_repeating_characters(string)
-    string = "bcabadcrb"
+    string = 'bcabadcrb'
     find_longest_substring_without_repeating_characters(string)
-    string = "badcaxcd"
+    string = 'badcaxcd'
     find_longest_substring_without_repeating_characters(string)
-    string = "selvaganapathi"
+    string = 'selvaganapathi'
     find_longest_substring_without_repeating_characters(string)
-    string = "abracadabra"
+    string = 'abracadabra'
     find_longest_substring_without_repeating_characters(string)
-    string = "communication"
+    string = 'communication'
     find_longest_substring_without_repeating_characters(string)
 
 
-if __name__ == "__main__":
-    run(
-        "clear",
-    )
+if __name__ == '__main__':
+    run('clear',)
     main()

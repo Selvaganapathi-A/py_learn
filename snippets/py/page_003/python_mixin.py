@@ -1,16 +1,18 @@
 # Mixin Class
 class myMixin:
+
     def toDict(self):
         return self.__dict__
 
 
 class Employee:
+
     def __init__(self, pay) -> None:
         self.pay = pay
         pass
 
     def __init_subclass__(cls) -> None:
-        print(cls.__name__, "was inherit me")
+        print(cls.__name__, 'was inherit me')
 
     def getPay(self):
         return self.pay
@@ -29,12 +31,12 @@ class Person(Employee, myMixin):
         return super(Person, self).getPay()
 
 
-if __name__ == "__main__":
-    ramya = Person("Ramya", "P", 80)
+if __name__ == '__main__':
+    ramya = Person('Ramya', 'P', 80)
     print()
     print(ramya.toDict())
     print(ramya.getPay())
-    meena = Person("Meena", "R", 120)
+    meena = Person('Meena', 'R', 120)
     print()
     print(meena.toDict())
     print(meena.getPay())

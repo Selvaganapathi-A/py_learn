@@ -1,8 +1,7 @@
-from typing import List
-
 import datetime
 import os
 import string
+from typing import List
 
 
 def numberToBase(n: int, b: int) -> List[int]:
@@ -15,11 +14,9 @@ def numberToBase(n: int, b: int) -> List[int]:
     return digits[::-1]
 
 
-if __name__ == "__main__":
-    os.system("clear")
-    text = (
-        string.digits + string.ascii_uppercase + string.ascii_lowercase + "_-"
-    )
+if __name__ == '__main__':
+    os.system('clear')
+    text = string.digits + string.ascii_uppercase + string.ascii_lowercase + '_-'
     mapped = {x: text[x] for x in range(len(text))}
     reverse_mapped = {text[x]: x for x in range(len(text))}
     # ts: float = 9_168_944_014_211_452.0
@@ -34,13 +31,11 @@ if __name__ == "__main__":
     print(reverse_mapped)
     print()
     print()
-    print(f"{int(ts):>13n}")
-    print(
-        "".join(mapped.get(x, "") for x in numberToBase(int(ts), base)),
-    )
+    print(f'{int(ts):>13n}')
+    print(''.join(mapped.get(x, '') for x in numberToBase(int(ts), base)),)
     print()
     print(
-        "".join(mapped.get(x, "") for x in numberToBase(number, base)),
+        ''.join(mapped.get(x, '') for x in numberToBase(number, base)),
         base,
     )
     """

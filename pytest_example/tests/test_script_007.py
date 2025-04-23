@@ -11,7 +11,7 @@ def fake_fib_compute(n: int):
 
 @pytest.fixture
 def mocker_function(monkeypatch: pytest.MonkeyPatch):
-    monkeypatch.setattr(fibo, "fibbonocci_number", fake_fib_compute)
+    monkeypatch.setattr(fibo, 'fibbonocci_number', fake_fib_compute)
 
 
 def test_fibo(mocker_function: Callable[..., Any]):

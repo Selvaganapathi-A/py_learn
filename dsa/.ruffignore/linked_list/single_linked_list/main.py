@@ -2,7 +2,7 @@ from timeit import timeit
 
 from icecream import ic
 
-from py_learn.dsa.Linked_List.Single_Linked_List.dsa_linked_list_single import (
+from py_learn.dsa.linked_list.single_linked_list.dsa_linked_list_single import (
     Node, Singly_Linked_List)
 
 
@@ -10,9 +10,7 @@ def find_middle[T](ll: Singly_Linked_List[T]):
     if ll.head is None or ll.head.next is None:
         return
     slow_ptr: Node[T] | None = ll.head
-    fast_ptr: Node[T] | None = (
-        slow_ptr.next.next if slow_ptr.next else None
-    )
+    fast_ptr: Node[T] | None = slow_ptr.next.next if slow_ptr.next else None
     while fast_ptr and slow_ptr:
         fast_ptr = fast_ptr.next.next if fast_ptr.next else None
         slow_ptr = slow_ptr.next
@@ -20,7 +18,7 @@ def find_middle[T](ll: Singly_Linked_List[T]):
     return slow_ptr
 
 
-def main():
+def main_1():
     li = Singly_Linked_List[str]()
     for x in range(0, 7, 1):
         li.append(chr(x + 65))
@@ -30,11 +28,6 @@ def main():
         print(x)
     print()
     ic(find_middle(li))
-    pass
-
-
-if __name__ == "__main__":
-    main()
     pass
 
 
@@ -76,8 +69,9 @@ def main():
     pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print(timeit(main, number=100000))
+    print(timeit(main_1, number=100000))
     # main()
 
     pass

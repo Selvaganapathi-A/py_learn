@@ -6,7 +6,6 @@
 # substring
 #  consisting of non-space characters only.
 
-
 # Example 1:
 
 # Input: s = "Hello World"
@@ -23,7 +22,6 @@
 # Output: 6
 # Explanation: The last word is "joyboy" with length 6.
 
-
 # Constraints:
 
 # 1 <= s.length <= 104
@@ -32,17 +30,18 @@
 
 
 class Solution:
+
     def lengthOfLastWord(self, s: str) -> int:
         s: str = s[::-1]
         no_of_characters: int = 0
         found: bool = False
         for i in range(len(s)):
-            if s[i] != " ":
+            if s[i] != ' ':
                 no_of_characters += 1
                 found = True
-            elif found and s[i] == " ":
+            elif found and s[i] == ' ':
                 break
         return no_of_characters
 
 
-print(Solution().lengthOfLastWord("   fly me   to   the moon  "))
+print(Solution().lengthOfLastWord('   fly me   to   the moon  '))

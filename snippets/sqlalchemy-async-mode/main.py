@@ -6,7 +6,7 @@ from sqlalchemy.future import select
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.decl_api import DeclarativeBase
 
-DATABASE_URL = "sqlite+aiosqlite:///example.db"
+DATABASE_URL = 'sqlite+aiosqlite:///example.db'
 
 # Async engine and session
 engine = create_async_engine(DATABASE_URL, echo=False)
@@ -23,7 +23,7 @@ class BaseModel(DeclarativeBase):
 
 # Define the model
 class UserModel(BaseModel):
-    __tablename__ = "users"
+    __tablename__ = 'users'
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
     email = Column(String, unique=True, index=True)
@@ -77,29 +77,29 @@ async def main():
     async with AsyncSessionLocal() as session:
         # Bulk Insert
         users = [
-            UserModel(name="Alice", email="alice@example.com"),
-            UserModel(name="Bob", email="bob@example.com"),
-            UserModel(name="Charlie", email="charlie@example.com"),
+            UserModel(name='Alice', email='alice@example.com'),
+            UserModel(name='Bob', email='bob@example.com'),
+            UserModel(name='Charlie', email='charlie@example.com'),
         ]
         await bulk_insert(session, users)
 
         # Bulk Update
         await bulk_update(session, {
-            1: "new_alice@example.com",
-            2: "new_bob@example.com"
+            1: 'new_alice@example.com',
+            2: 'new_bob@example.com'
         })
 
         # Fetch and Print
         users = await fetch_users(session)
-        print([f"{user.id}: {user.name} - {user.email}" for user in users])
+        print([f'{user.id}: {user.name} - {user.email}' for user in users])
 
         # Bulk Delete
         await bulk_delete(session, [1, 3])
 
         # Fetch and Print After Deletion
         users = await fetch_users(session)
-        print([f"{user.id}: {user.name} - {user.email}" for user in users])
+        print([f'{user.id}: {user.name} - {user.email}' for user in users])
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     asyncio.run(main())

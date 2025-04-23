@@ -2,10 +2,10 @@ from functools import lru_cache
 
 
 @lru_cache(20)
-def fibbonocci(n:int):
-    current:int
-    prev1:int = 0
-    prev2:int = 1
+def fibbonocci(n: int):
+    current: int
+    prev1: int = 0
+    prev2: int = 1
     for _ in range(2, n):
         current = prev1 + prev2
         prev1 = prev2
@@ -24,6 +24,6 @@ def main():
     pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
     pass

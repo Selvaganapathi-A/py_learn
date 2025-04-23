@@ -24,9 +24,10 @@ Setup and teardown
 #
 #
 class CustomContextManager:
+
     def __enter__(self):
         self.start = time.perf_counter()
-        print("entering")
+        print('entering')
         return self
 
     def __exit__(
@@ -36,7 +37,7 @@ class CustomContextManager:
         exc_tb: TracebackType,
     ):
         end = time.perf_counter()
-        print(end - self.start, "microseconds in sync mode")
+        print(end - self.start, 'microseconds in sync mode')
         return isinstance(exc, ZeroDivisionError)
 
     def wait(self):
@@ -44,8 +45,9 @@ class CustomContextManager:
 
 
 class AsyncCustomContextManager:
+
     async def __aenter__(self):
-        print("async entering")
+        print('async entering')
         self.start = time.perf_counter()
         return self
 
@@ -56,7 +58,7 @@ class AsyncCustomContextManager:
         exc_tb: TracebackType,
     ):
         end = time.perf_counter()
-        print(end - self.start, "microseconds in async mode.")
+        print(end - self.start, 'microseconds in async mode.')
         return isinstance(exc, ZeroDivisionError)
 
     async def asyncwait(self):
@@ -75,7 +77,7 @@ async def a_main():
         print(361 / 0)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     asyncio.run(a_main())
 
 
@@ -86,8 +88,9 @@ if __name__ == "__main__":
 #
 @dataclass(slots=True)
 class Person:
+
     def __enter__(self):
-        print("enter ctx")
+        print('enter ctx')
         return self
 
     def __exit__(
@@ -96,14 +99,15 @@ class Person:
         exc_value: str,
         traceback: TracebackType,
     ) -> None:
-        print("exit ctx")
+        print('exit ctx')
 
     def sayHi(self):
-        print("Person said Hi...")
-        return "hi"
+        print('Person said Hi...')
+        return 'hi'
 
 
 class MeasureTime:
+
     def __enter__(self):
         self.start = perf_counter_ns()
         self.end = 0.0
@@ -124,10 +128,10 @@ class MeasureTime:
 
 def main() -> None:
     with Person() as p:
-        print("hi")
-        print("hello")
+        print('hi')
+        print('hello')
         p.sayHi()
-        print("harness")
+        print('harness')
     # -------------------------------------- #
     tim = 0
     with MeasureTime() as mt:
@@ -136,5 +140,5 @@ def main() -> None:
     print(tim())
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

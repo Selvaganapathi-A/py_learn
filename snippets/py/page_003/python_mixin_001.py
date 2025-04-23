@@ -5,16 +5,19 @@ import json5
 
 
 class SerializerProtocol(typing.Protocol):
-    def serislize(self): ...
+
+    def serislize(self):
+        ...
 
 
 class Serializer:
+
     def __init__(self, *args, **kwargs) -> None:
         self.args = args
         self.kwargs = kwargs
 
     def serialize(self):
-        return {"args": self.args, **self.kwargs}
+        return {'args': self.args, **self.kwargs}
 
 
 class Device(Serializer):
@@ -22,6 +25,7 @@ class Device(Serializer):
 
 
 class Jsonizer:
+
     def __init__(self, *args, **kwargs) -> None:
         self.args = args
         self.kwargs = kwargs
@@ -32,18 +36,19 @@ class Jsonizer:
 
 @dataclass
 class iPod(Device, Jsonizer):
-    def __init__(self, *args, spicies="Monkey", **kwargs) -> None:
+
+    def __init__(self, *args, spicies='Monkey', **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.spicies = spicies
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     iDevice = iPod(
         14,
-        "en-US",
-        OS="mountain-lion",
-        Owner="tim cook",
-        Head_Office="San Andreas",
+        'en-US',
+        OS='mountain-lion',
+        Owner='tim cook',
+        Head_Office='San Andreas',
     )
     print(iDevice)
     print(iDevice.serialize())

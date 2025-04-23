@@ -1,5 +1,6 @@
 import sys
 import time
+
 """
 - Position the Cursor:
   \033[<L>;<C>H
@@ -27,35 +28,35 @@ import time
 
   """
 
-if __name__ == "__main__":
-    sys.stdout.write("\033[4A")
-    sys.stdout.write("\033[s")
-    print("\033[0;0f")
+if __name__ == '__main__':
+    sys.stdout.write('\033[4A')
+    sys.stdout.write('\033[s')
+    print('\033[0;0f')
     for x in range(3):
         for y in range(3):
             z = x * 3 + y + 1
-            print(f"\033[0;0f\033[K|{z:>3}|", end="\r", flush=True)
+            print(f'\033[0;0f\033[K|{z:>3}|', end='\r', flush=True)
             time.sleep(0.5)
     print()
 
     print(
-        "jkhfjfhgvhjhgfdvhgrshgrjyt jkgkjhgkjbkjgyu ukfk fkytkf fuyfkuyf fkuy")
+        'jkhfjfhgvhjhgfdvhgrshgrjyt jkgkjhgkjbkjgyu ukfk fkytkf fuyfkuyf fkuy')
 
     time.sleep(1)
-    print("\033[F ", end="")
+    print('\033[F ', end='')
     time.sleep(1)
-    print("\033[K ", end="")
+    print('\033[K ', end='')
     time.sleep(1)
 
-    print("Hello ")
+    print('Hello ')
     time.sleep(1)
-    print("Hii")
+    print('Hii')
     time.sleep(1)
-    print("\033[2J")
-    print("\033[0;0f")
-    print("\033[0;0H")
+    print('\033[2J')
+    print('\033[0;0f')
+    print('\033[0;0H')
     # \033[K - Clear to end of line
     # \033[F - One line Above
-    sys.stdout.write("\033[u")
-    print("Program ends,,,")
+    sys.stdout.write('\033[u')
+    print('Program ends,,,')
     pass

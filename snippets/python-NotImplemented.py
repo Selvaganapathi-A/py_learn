@@ -1,11 +1,13 @@
 class Fruit:
+
     def is_organic(self):
         raise NotImplementedError(
-            "Method Not Implemented."
+            'Method Not Implemented.'
         )  # indicates this method, should be implemented in subclasses.
 
 
 class Apple(Fruit):
+
     def __init__(self, price: float) -> None:
         self.price: float = price
 
@@ -22,7 +24,7 @@ class Apple(Fruit):
         return self.price != value.price
 
     def __repr__(self) -> str:
-        return f"Apple(price={self.price})"
+        return f'Apple(price={self.price})'
 
 
 def main():
@@ -36,5 +38,5 @@ def main():
     print(a != b)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

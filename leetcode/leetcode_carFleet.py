@@ -1,8 +1,10 @@
 class Solution:
-    def carFleet(self, target: int, position: list[int], speed: list[int]) -> int:
+
+    def carFleet(self, target: int, position: list[int],
+                 speed: list[int]) -> int:
         cars_right_to_left = sorted(zip(position, speed), reverse=True)
 
-        bottleneck = float("-inf")
+        bottleneck = float('-inf')
         fleets = 0
 
         for d, s in cars_right_to_left:
@@ -25,6 +27,6 @@ def main():
     print(Solution().carFleet(target, position, speed))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
     pass

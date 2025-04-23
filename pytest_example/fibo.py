@@ -1,7 +1,7 @@
 from functools import lru_cache
 
 __all__: list[str] = [
-    "fibbonocci_number",
+    'fibbonocci_number',
 ]
 
 
@@ -23,6 +23,6 @@ def main():
     pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
     pass

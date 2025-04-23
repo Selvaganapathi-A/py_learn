@@ -1,4 +1,4 @@
-""" This is About Convert Any Number to Base of Any"""
+"""This is About Convert Any Number to Base of Any"""
 
 from typing import List, Tuple
 
@@ -35,5 +35,5 @@ def main():
     print(converted)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

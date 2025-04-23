@@ -4,11 +4,11 @@ class Result[T, E]:
         self.error: E | None = error
 
     @staticmethod
-    def Ok(value: T) -> "Result[T, E]":
+    def Ok(value: T) -> 'Result[T, E]':
         return Result(value=value, error=None)
 
     @staticmethod
-    def Error(error: E) -> "Result[T, E]":
+    def Error(error: E) -> 'Result[T, E]':
         return Result(error=error)
 
     def is_ok(self) -> bool:
@@ -54,5 +54,5 @@ def main():
     print(result.unwrap_value_or_default(0))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

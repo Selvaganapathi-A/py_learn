@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw
 
 def func_image_type(pathlike: str) -> str | None:
     image_type = None
-    image = Image.open(pathlike, "r")
+    image = Image.open(pathlike, 'r')
     image_type = image.format
     image.close()
     return image_type
@@ -18,7 +18,7 @@ def getColors(
     noOfColors: int = 6,
     reSize: int = 256,
 ) -> list[Any]:
-    image = Image.open(imagePath, "r")
+    image = Image.open(imagePath, 'r')
     imageCopy = image.copy()
     imageCopy.resize((
         reSize,
@@ -28,7 +28,7 @@ def getColors(
 
     # Reduce Palette
     imagePalette = imageCopy.convert(
-        "P",
+        'P',
         palette=Image.WEB,
         colors=noOfColors,
     )
@@ -47,10 +47,10 @@ def getColors(
     return colors
 
 
-def save_palette(colors, swatchsize=128, outfile="palette.png"):
+def save_palette(colors, swatchsize=128, outfile='palette.png'):
     num_colors = len(colors)
     palette = Image.new(
-        "RGB",
+        'RGB',
         (
             swatchsize * num_colors,
             swatchsize,
@@ -79,15 +79,15 @@ def save_palette(colors, swatchsize=128, outfile="palette.png"):
     )
     palette.save(
         function_new_filename(outfile,
-                              "output",
+                              'output',
                               makedirs=True,
-                              filetype_alt=".png"),
-        "PNG",
+                              filetype_alt='.png'),
+        'PNG',
     )
 
 
 def main() -> None:
-    pathlike = os.path.join(os.path.dirname(__file__), "AppData")
+    pathlike = os.path.join(os.path.dirname(__file__), 'AppData')
     if not os.path.exists(pathlike):
         os.makedirs(pathlike)
     for root, _, files in os.walk(os.path.abspath(pathlike)):
@@ -107,9 +107,9 @@ def main() -> None:
         break
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     src = (
-        r"C:\Users\Tesla\Pictures\SpotLight\1920 x 1080\01fe7d49e20a3936896924062a504c837cfe08d54915b8390fa359074a75441d.jpeg",
+        r'C:\Users\Tesla\Pictures\SpotLight\1920 x 1080\01fe7d49e20a3936896924062a504c837cfe08d54915b8390fa359074a75441d.jpeg',
     )
     print(getColors(
         src,

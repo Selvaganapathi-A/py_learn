@@ -5,7 +5,8 @@ from typing import Any, Self
 from rich import print
 
 
-class Fruit(object):
+class SomeClass(object):
+
     def __init__(self, worth: float = 0) -> None:
         self.__worth = worth
 
@@ -184,7 +185,7 @@ class Fruit(object):
 
     def __neg__(self) -> bool:
         print('"neg" Method')
-        return "Negate fn"
+        return 'Negate fn'
 
     def __pos__(self) -> bool:
         print('"pos" Method')

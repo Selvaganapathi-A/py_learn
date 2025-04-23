@@ -9,7 +9,7 @@ class Node[T]:
         self.next: Self | None = None
 
     def __repr__(self) -> str:
-        return f"{self.data}"
+        return f'{self.data}'
 
 
 # * Single Linked List
@@ -72,7 +72,7 @@ class Singly_Linked_List[T]:
                     prev = current_node
                     current_node = current_node.next
             else:
-                raise ValueError(value, "Not in List.")
+                raise ValueError(value, 'Not in List.')
 
     @property
     def length(self) -> int:

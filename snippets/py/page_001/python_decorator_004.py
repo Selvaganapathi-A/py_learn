@@ -3,6 +3,7 @@ from typing import Any, Callable
 
 
 class decorate:
+
     def __init__(self, function: Callable[..., Any]) -> None:
         self.function: Callable[..., Any] = function
 
@@ -10,20 +11,20 @@ class decorate:
         start: int = time.perf_counter_ns()
         result: Any = self.function(*args, **kwargs)
         end: int = time.perf_counter_ns()
-        print(f"{end - start} nano seconds take to run.")
+        print(f'{end - start} nano seconds take to run.')
         return result
 
 
 @decorate
 def sayname(name: str):
-    return (" " + name + " ") * 4
+    return (' ' + name + ' ') * 4
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print()
-    print(sayname("google"))
+    print(sayname('google'))
     print()
-    print(sayname("bing"))
+    print(sayname('bing'))
     print()
-    print(sayname("yahoo"))
+    print(sayname('yahoo'))
     print()

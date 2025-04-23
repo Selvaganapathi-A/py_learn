@@ -8,7 +8,7 @@ class Node[T]:
         self.next_node: Self | None = None
 
     def __repr__(self) -> str:
-        return f"Node(data = {self.data})"
+        return f'Node(data = {self.data})'
 
 
 class LinkedList[T]:
@@ -159,7 +159,7 @@ def main():
     pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import timeit
 
     print(timeit.timeit(main, number=10000))

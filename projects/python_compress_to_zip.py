@@ -4,12 +4,12 @@ from pathlib import Path
 
 
 def main():
-    pathlike: Path = Path("./notebooks/")
+    pathlike: Path = Path('./notebooks/')
     if not (pathlike.exists() or pathlike.is_dir()):
         return None
     with zipfile.ZipFile(
-            file=pathlike.parent / (pathlike.name + "-compressed.zip"),
-            mode="w",
+            file=pathlike.parent / (pathlike.name + '-compressed.zip'),
+            mode='w',
             compresslevel=2,
             compression=zipfile.ZIP_LZMA,
     ) as writer:
@@ -26,9 +26,9 @@ def main():
                 print(filepath)
                 print(rel_path)
         writer.close()
-    print("Task Completed.")
+    print('Task Completed.')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
     pass

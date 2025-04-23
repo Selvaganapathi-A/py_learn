@@ -21,7 +21,7 @@ def timeit(funct):
         t1 = time.perf_counter_ns()
         result = funct(*args, **kwargs)
         t2 = time.perf_counter_ns()
-        print(f"time to execute : {(t2 - t1)}")
+        print(f'time to execute : {(t2 - t1)}')
         return result
 
     return Wrapper

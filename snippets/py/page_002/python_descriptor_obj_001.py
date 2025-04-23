@@ -1,5 +1,6 @@
 # descriptors4.py
 class OneDigitNumericValue:
+
     def __init__(self, *name):
         print(name)
         self.name = name
@@ -12,8 +13,8 @@ class OneDigitNumericValue:
 
 
 class Foo:
-    event_id = OneDigitNumericValue("number")
-    people_id = OneDigitNumericValue("number")
+    event_id = OneDigitNumericValue('number')
+    people_id = OneDigitNumericValue('number')
 
 
 my_foo_object = Foo()

@@ -1,4 +1,5 @@
 class Solution:
+
     def twoSum(self, numbers: list[int], target: int, /) -> list[int]:
         i: int = 0
         j: int = len(numbers) - 1
@@ -44,5 +45,5 @@ def main():
     pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

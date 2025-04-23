@@ -1,9 +1,10 @@
 from subprocess import run
 
-run(("cls",), shell=True)
+run(('cls',), shell=True)
 
 
 class MyDescriptor:
+
     def __set_name__(self, owner, name):
         # print("set name", "owner", owner)
         # print("set name", "name", name)
@@ -38,60 +39,60 @@ class Foo:
         self.c = c
 
 
-print("=" * 10)
+print('=' * 10)
 # Foo.a = 12
 # Foo.b = 13
 # Foo.c = 15
-print("=" * 10)
-print("=" * 10)
+print('=' * 10)
+print('=' * 10)
 #
 oa = Foo(1, 2, 3)
 print(oa.a)
 print(oa.b)
 print(oa.c)
-print("=" * 10)
-print("-" * 80)
+print('=' * 10)
+print('-' * 80)
 oa.a = 1
 oa.b = 2
 oa.c = 4
 print(oa.a)
 print(oa.b)
 print(oa.c)
-print("*" * 80)
+print('*' * 80)
 ob = Foo(4, 5, 6)
 print(ob.a)
 print(ob.b)
 print(ob.c)
-print("-" * 80)
+print('-' * 80)
 ob.a = 3
 ob.b = 7
 ob.c = 11
 print(oa.a)
 print(oa.b)
 print(oa.c)
-print("." * 80)
+print('.' * 80)
 print(ob.a)
 print(ob.b)
 print(ob.c)
-print("=" * 10)
-print("*" * 80)
+print('=' * 10)
+print('*' * 80)
 oc = Foo(7, 8, 9)
 print(oc.a)
 print(oc.b)
 print(oc.c)
-print("-" * 80)
+print('-' * 80)
 oc.a = 13
 oc.b = 17
 oc.c = 19
 print(oa.a)
 print(oa.b)
 print(oa.c)
-print("." * 80)
+print('.' * 80)
 print(ob.a)
 print(ob.b)
 print(ob.c)
-print("." * 80)
+print('.' * 80)
 print(oc.a)
 print(oc.b)
 print(oc.c)
-print("*" * 80)
+print('*' * 80)

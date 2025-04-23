@@ -8,7 +8,7 @@ class Robot:
         cls.__identity__ += 1
         return super().__new__(cls)
 
-    def __init__(self, name: str = "Pear") -> None:
+    def __init__(self, name: str = 'Pear') -> None:
         self.f_name = name
 
     @property
@@ -23,14 +23,14 @@ class Robot:
         return self.f_name
 
 
-if __name__ == "__main__":
-    a1 = Robot("Falcon")
+if __name__ == '__main__':
+    a1 = Robot('Falcon')
     print(a1, a1.objects_created)
-    a2 = Robot("Eagle")
+    a2 = Robot('Eagle')
     print(a2, a2.objects_created)
-    a3 = Robot("Night Wing")
+    a3 = Robot('Night Wing')
     print(a3, a3.objects_created)
-    a4 = Robot("Honey bee")
+    a4 = Robot('Honey bee')
     print(a4, a4.objects_created)
     print()
     print()

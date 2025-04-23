@@ -1,5 +1,5 @@
-from sqlalchemy import (Boolean, Integer, String, create_engine, insert, select,
-                        update)
+from sqlalchemy import (Boolean, Integer, String, create_engine, insert,
+                        select, update)
 from sqlalchemy.orm import Mapped, Session, mapped_column, sessionmaker
 from sqlalchemy.orm.decl_api import DeclarativeBase
 
@@ -9,7 +9,7 @@ class BaseModel(DeclarativeBase):
 
 
 class User(BaseModel):
-    __tablename__: str = "user"
+    __tablename__: str = 'user'
     pk: Mapped[int] = mapped_column(Integer,
                                     primary_key=True,
                                     autoincrement=True)
@@ -22,7 +22,7 @@ class User(BaseModel):
     canMarry: Mapped[bool] = mapped_column(Boolean, nullable=True, default=None)
 
     def __str__(self) -> str:
-        return f"{self.name} - {self.surname} - {self.age}"
+        return f'{self.name} - {self.surname} - {self.age}'
 
 
 def main(session: Session):
@@ -31,39 +31,39 @@ def main(session: Session):
         statement=insert(User),
         params=[
             {
-                "name": "elena",
-                "age": 14,
-                "sex": "F"
+                'name': 'elena',
+                'age': 14,
+                'sex': 'F'
             },
             {
-                "name": "tony",
-                "age": 17,
-                "sex": "M"
+                'name': 'tony',
+                'age': 17,
+                'sex': 'M'
             },
             {
-                "name": "rosemary",
-                "age": 16,
-                "sex": "F"
+                'name': 'rosemary',
+                'age': 16,
+                'sex': 'F'
             },
             {
-                "name": "spphia",
-                "age": 39,
-                "sex": "F"
+                'name': 'spphia',
+                'age': 39,
+                'sex': 'F'
             },
             {
-                "name": "karen",
-                "age": 28,
-                "sex": "F"
+                'name': 'karen',
+                'age': 28,
+                'sex': 'F'
             },
             {
-                "name": "john",
-                "age": 41,
-                "sex": "M"
+                'name': 'john',
+                'age': 41,
+                'sex': 'M'
             },
             {
-                "name": "mike",
-                "age": 18,
-                "sex": "M"
+                'name': 'mike',
+                'age': 18,
+                'sex': 'M'
             },
         ],
     )
@@ -74,20 +74,20 @@ def main(session: Session):
             user.sex,
             user.age,
             user.name,
-            "I can Vote" if user.canVote else "can't Vote",
-            "💖" if user.canMarry else "😓",
+            'I can Vote' if user.canVote else "can't Vote",
+            '💖' if user.canMarry else '😓',
         ))
     # * 2 boolean fields
     cache = []
     for user in session.execute(select(User)).scalars().fetchall():
         cache.append({
-            "pk":
+            'pk':
                 user.pk,
-            "canVote":
+            'canVote':
                 user.age >= 18,
-            "canMarry": (
-                (user.sex == "M" and user.age > 24 and user.age < 40) or
-                (user.sex == "F" and user.age > 21 and user.age < 37)),
+            'canMarry': (
+                (user.sex == 'M' and user.age > 24 and user.age < 40) or
+                (user.sex == 'F' and user.age > 21 and user.age < 37)),
         })
     # * bulk update
     session.execute(update(User), cache)
@@ -97,15 +97,15 @@ def main(session: Session):
             user.sex,
             user.age,
             user.name,
-            "I can Vote" if user.canVote else "can't Vote",
-            "💖" if user.canMarry else "😓",
+            'I can Vote' if user.canVote else "can't Vote",
+            '💖' if user.canMarry else '😓',
         ))
     #
     session.commit()
 
 
-if __name__ == "__main__":
-    engine = create_engine("sqlite:///:memory:", echo=True)
+if __name__ == '__main__':
+    engine = create_engine('sqlite:///:memory:', echo=True)
     session_maker = sessionmaker(bind=engine)
     session = session_maker()
     BaseModel.metadata.create_all(bind=engine)

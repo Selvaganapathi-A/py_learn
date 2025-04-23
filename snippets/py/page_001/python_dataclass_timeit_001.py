@@ -5,17 +5,18 @@ from functools import partial
 from secrets import choice
 from typing import Final, Protocol, final
 
-ASCII_CHARACTERS: Final[str] = (
-    string.ascii_letters + string.ascii_lowercase + string.ascii_uppercase
-)
+ASCII_CHARACTERS: Final[str] = (string.ascii_letters + string.ascii_lowercase +
+                                string.ascii_uppercase)
 
 
 class Staff(Protocol):
-    def get_commision(self) -> tuple[int | float, str, bool]: ...
+
+    def get_commision(self) -> tuple[int | float, str, bool]:
+        ...
 
 
 def generate_random_string_16(length: int = 16) -> str:
-    return "".join((choice(ASCII_CHARACTERS) for _ in range(0, length)))
+    return ''.join((choice(ASCII_CHARACTERS) for _ in range(0, length)))
 
 
 @final
@@ -31,7 +32,7 @@ class Person:
     )
     name: str
     age: int
-    student: str = "Yes"
+    student: str = 'Yes'
     # email: list[str] = []
     email: list[str] = field(default_factory=list)
     id: str = field(
@@ -44,8 +45,8 @@ class Person:
     _search_string: str = field(init=False, repr=False)
 
     def __post_init__(self):
-        object.__setattr__(self, "sort_index", self.age)
-        object.__setattr__(self, "_search_string", self.name)
+        object.__setattr__(self, 'sort_index', self.age)
+        object.__setattr__(self, '_search_string', self.name)
         # self.sort_index = self.age
 
 
@@ -62,7 +63,7 @@ class Person_Slots:
     )
     name: str
     age: int
-    student: str = "Yes"
+    student: str = 'Yes'
     # email: list[str] = []
     email: list[str] = field(default_factory=list)
     id: str = field(
@@ -72,8 +73,8 @@ class Person_Slots:
     _search_string: str = field(init=False, repr=False)
 
     def __post_init__(self):
-        object.__setattr__(self, "sort_index", self.age)
-        object.__setattr__(self, "_search_string", self.name)
+        object.__setattr__(self, 'sort_index', self.age)
+        object.__setattr__(self, '_search_string', self.name)
         # self.sort_index = self.age
 
 
@@ -84,24 +85,24 @@ def get_set_del(person: Person | Person_Slots):
 
 
 def main():
-    anita = Person(name="Anita", age=20)
+    anita = Person(name='Anita', age=20)
     ws = min(timeit.repeat(partial(get_set_del, anita), number=1_000_000))
-    anita = Person_Slots(name="Anita", age=20)
+    anita = Person_Slots(name='Anita', age=20)
     s = min(timeit.repeat(partial(get_set_del, anita), number=1_000_000))
     print(((ws - s) / ws) * 100)
     print(s, ws)
-    anita = Person(name="Anita", age=20)
-    anita.email.append("anita+person@googlemail.com")
-    michel = Person(name="Michel", age=18)
-    michel.email.append("michel+person@googlemail.com")
-    michel.email.append("michel+person_slot@live.com")
-    rahul = Person(name="Rahul", age=21)
-    rahul.email.append("rahul+person@googlemail.com")
-    rahul.__setattr__("student", "No")
+    anita = Person(name='Anita', age=20)
+    anita.email.append('anita+person@googlemail.com')
+    michel = Person(name='Michel', age=18)
+    michel.email.append('michel+person@googlemail.com')
+    michel.email.append('michel+person_slot@live.com')
+    rahul = Person(name='Rahul', age=21)
+    rahul.email.append('rahul+person@googlemail.com')
+    rahul.__setattr__('student', 'No')
     print(rahul)
     print(anita, michel)
     print(anita > michel)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

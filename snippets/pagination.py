@@ -3,6 +3,7 @@ import time
 
 
 class Paginator:
+
     def __init__(self, page_size: int) -> None:
         self.__page_size: int = page_size
         self.__start: int = 0
@@ -32,19 +33,19 @@ class Paginator:
 
 
 async def async_function(paginator: Paginator):
-    print("async function", await anext(paginator))
-    print("async function", await anext(paginator))
-    print("async function", await anext(paginator))
-    print("async function", await anext(paginator))
-    print("async function", await anext(paginator))
+    print('async function', await anext(paginator))
+    print('async function', await anext(paginator))
+    print('async function', await anext(paginator))
+    print('async function', await anext(paginator))
+    print('async function', await anext(paginator))
 
 
 def sync_function(paginator: Paginator):
-    print("sync function", next(paginator))
-    print("sync function", next(paginator))
-    print("sync function", next(paginator))
-    print("sync function", next(paginator))
-    print("sync function", next(paginator))
+    print('sync function', next(paginator))
+    print('sync function', next(paginator))
+    print('sync function', next(paginator))
+    print('sync function', next(paginator))
+    print('sync function', next(paginator))
 
 
 def main():
@@ -53,5 +54,5 @@ def main():
     sync_function(paginator)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

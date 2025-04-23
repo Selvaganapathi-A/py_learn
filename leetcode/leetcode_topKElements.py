@@ -2,7 +2,6 @@ from collections import defaultdict
 
 
 def topKElements(nums: list[int], k: int) -> list[int]:
-
     # ! Leetcode Result
     orb: dict[int, int] = {}
 
@@ -54,6 +53,6 @@ def else_case(nums: list[int], k: int) -> list[int]:
     return heapq.nlargest(k, nums)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
     pass

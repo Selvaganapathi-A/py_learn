@@ -23,18 +23,16 @@ def findElement(array: list[int], /, target: int):
             j = mid
         else:
             i = mid
-        print(
-            ("stet = {:>5d}; nums : {:>5d};  i = {:>5d};  j = {:>5d}; target = {:>5d}").format(
-                step, j - i, i, j, target
-            ),
-        )
+        print((
+            'stet = {:>5d}; nums : {:>5d};  i = {:>5d};  j = {:>5d}; target = {:>5d}'
+        ).format(step, j - i, i, j, target),)
         print(array[i], array[j])
         time.sleep(0.5)
 
 
 def find(start: int, end: int, /, target: int):
     if target < start or end < target:
-        return "Not in this period"
+        return 'Not in this period'
     i: int = start
     j: int = end
     step: int = 0
@@ -49,11 +47,9 @@ def find(start: int, end: int, /, target: int):
             j = mid
         else:
             i = mid
-        print(
-            ("stet = {:>5d}; nums : {:>5d};  i = {:>5d};  j = {:>5d}; target = {:>5d}").format(
-                step, j - i, i, j, target
-            ),
-        )
+        print((
+            'stet = {:>5d}; nums : {:>5d};  i = {:>5d};  j = {:>5d}; target = {:>5d}'
+        ).format(step, j - i, i, j, target),)
         time.sleep(0.5)
 
 
@@ -65,7 +61,7 @@ def test_001():
         print()
         print(find(0, 500, target=x))
         print()
-        print("-" * 80)
+        print('-' * 80)
 
 
 def test_002():
@@ -541,9 +537,9 @@ def main():
     testcase(3)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import os
 
-    os.system("cls")
+    os.system('cls')
     main()
     pass

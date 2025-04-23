@@ -2,8 +2,8 @@ import string
 
 
 class Solution:
-    def isPalindrome(self, s: str) -> tuple[bool, str]:
 
+    def isPalindrome(self, s: str) -> tuple[bool, str]:
         l_ptr: int = 0
         r_ptr: int = len(s) - 1
         while l_ptr < r_ptr:
@@ -21,16 +21,15 @@ class Solution:
 
 
 def main():
-
-    s = "A man, a plan, a canal: Panama "
+    s = 'A man, a plan, a canal: Panama '
     print(Solution().isPalindrome(s))
-    s = "aa"
+    s = 'aa'
     print(Solution().isPalindrome(s))
-    s = "0P"
+    s = '0P'
     print(Solution().isPalindrome(s))
     pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
     pass

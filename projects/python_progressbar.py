@@ -9,13 +9,13 @@ def main():
     with trange(10) as t:
         for i in t:
             # Description will be displayed on the left
-            t.set_description("GEN %i" % i)
+            t.set_description('GEN %i' % i)
             # Postfix will be displayed on the right,
             # formatted automatically based on argument's datatype
             t.set_postfix(
                 loss=random(),
                 gen=randint(1, 999),
-                str="h",
+                str='h',
                 lst=[1, 2],
             )
             sleep(0.1)
@@ -23,14 +23,14 @@ def main():
     with tqdm(
             total=10,
             bar_format=
-            "{postfix[0]} {bar} {postfix[1][value]:>8.2f} {postfix[2]} {postfix[3]}",
-            postfix=["Batch", {
-                "value": 0
-            }, "", ""],
+            '{postfix[0]} {bar} {postfix[1][value]:>8.2f} {postfix[2]} {postfix[3]}',
+            postfix=['Batch', {
+                'value': 0
+            }, '', ''],
     ) as t:
         for i in range(101):
             sleep(0.1)
-            t.postfix[1]["value"] = i / 4
+            t.postfix[1]['value'] = i / 4
             t.postfix[2] = i / 2
             t.postfix[3] = i
             t.update()
@@ -55,17 +55,17 @@ bar_format  : str, optional
 |          if the latter is empty.
 """
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # main()
     # help(tqdm)
     # ┳░▒▒▓█▀▄▁▂▃▄▅▆▇█▉
-    print("┳░▒▓█▀▄▁▂▃▄▅▆▇█▉ ┏┛┗┓┣┳┻━╋━┻┳┫╏╭╯╰╮")
+    print('┳░▒▓█▀▄▁▂▃▄▅▆▇█▉ ┏┛┗┓┣┳┻━╋━┻┳┫╏╭╯╰╮')
     with tqdm(
             total=10,
-            bar_format="{percentage:6.2f} % {bar} ",
-            postfix=" ",
-            ascii="░█",
-            colour="Blue",
+            bar_format='{percentage:6.2f} % {bar} ',
+            postfix=' ',
+            ascii='░█',
+            colour='Blue',
     ) as t:
         for j in range(1, 11):
             sleep(0.1)

@@ -29,9 +29,9 @@ def mapped_value() -> dict[int, str]:
 
 
 def convert_to(
-    value: int,
-    to: Storage = Storage.PB,
-    mapped: dict[int, str] = mapped_value(),
+        value: int,
+        to: Storage = Storage.PB,
+        mapped: dict[int, str] = mapped_value(),
 ):
     i: int = 0
     tmp = Decimal(value)
@@ -43,13 +43,13 @@ def convert_to(
     return f"{tmp:.2f} {mapped.get(i, 'BB')}"
 
 
-def print_line(
-    __char__: Literal[" ", "-", "*", "#"] = "-", *, length: int = 80
-):
+def print_line(__char__: Literal[' ', '-', '*', '#'] = '-',
+               *,
+               length: int = 80):
     print(__char__ * length)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print(convert_to(value=decimal_bytes(4) * Storage.GB, to=Storage.MB))
     print(convert_to(value=binary_Storage(4) * Storage.GB, to=Storage.MB))
 

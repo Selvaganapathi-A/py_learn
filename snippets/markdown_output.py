@@ -69,9 +69,9 @@ lina
 determine neighbor rule beyond gravity opinion interest stand price grow lead every concerned stream street chart kitchen dirty iron vast film log poetry stay
 """
     console.print(Markdown(md_code))
-    console.print("[#ff00ff] Helllo [/#ff00ff] Goats")
-    console.print("Visit my [link=https://www.willmcgugan.com]blog[/link]!")
+    console.print('[#ff00ff] Helllo [/#ff00ff] Goats')
+    console.print('Visit my [link=https://www.willmcgugan.com]blog[/link]!')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

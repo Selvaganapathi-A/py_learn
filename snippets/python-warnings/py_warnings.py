@@ -2,7 +2,7 @@ import warnings
 
 
 def somefn():
-    warnings.warn("function will be removed after major version change.",
+    warnings.warn('function will be removed after major version change.',
                   FutureWarning)
 
 
@@ -14,5 +14,5 @@ def main():
         print(w[0].source)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

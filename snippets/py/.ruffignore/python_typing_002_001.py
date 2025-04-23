@@ -6,7 +6,7 @@ class User:
         self.name = name
 
     def display(self):
-        return self.__class__.__name__ + " -> " + self.name
+        return self.__class__.__name__ + ' -> ' + self.name
 
     @final
     def security(self): ...
@@ -52,27 +52,27 @@ def createUser[T: User](cls: Type[T], name: str) -> T:
 
 
 def main():
-    user: User = createUser(User, "Arvindh")
+    user: User = createUser(User, 'Arvindh')
     print(user.name)
     print(user.display())
     print()
-    basicUser: BasicUser = createUser(BasicUser, "Zahir")
+    basicUser: BasicUser = createUser(BasicUser, 'Zahir')
     print(basicUser.name)
     print(basicUser.display())
     print()
-    proUser: ProUser = createUser(ProUser, "Mithun")
+    proUser: ProUser = createUser(ProUser, 'Mithun')
     print(proUser.name)
     print(proUser.display())
     print()
-    advancedUser: AdvancedUser = createUser(AdvancedUser, "Zenuth")
+    advancedUser: AdvancedUser = createUser(AdvancedUser, 'Zenuth')
     print(advancedUser.name)
     print(advancedUser.display())
     print()
-    classicUser: User = createUser(ClassicUser, "Amar")
+    classicUser: User = createUser(ClassicUser, 'Amar')
     print(classicUser.name)
     print(classicUser.display())
     print()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

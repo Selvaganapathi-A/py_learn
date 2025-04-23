@@ -6,13 +6,13 @@ from dateutil.relativedelta import relativedelta
 
 
 class EmploymentStatus(str, Enum):
-    UNKNOWN = "Unknown"
-    OTHER = "Other"
-    STUDENT = "Studying"
-    UNEMPLOYED = "Unemployed"
-    SALARIED_WORK = "Salaried Person"
-    FREELANCER = "Freelance Projects"
-    OWN_BUSINESS = "Own Business"
+    UNKNOWN = 'Unknown'
+    OTHER = 'Other'
+    STUDENT = 'Studying'
+    UNEMPLOYED = 'Unemployed'
+    SALARIED_WORK = 'Salaried Person'
+    FREELANCER = 'Freelance Projects'
+    OWN_BUSINESS = 'Own Business'
 
     @classmethod
     def default(cls):
@@ -35,18 +35,16 @@ class Person:
 
     def about(self) -> str:
         age = relativedelta(datetime.now(), self.date_of_birth)
-        return (
-            f"{self.first_name.title()} {self.last_name.title()}"
-            f" {self.gender.name} {age.years} years,"
-            f" {age.months} months, {age.days} days old"
-            f" {self.employment_status.value}."
-        )
+        return (f'{self.first_name.title()} {self.last_name.title()}'
+                f' {self.gender.name} {age.years} years,'
+                f' {age.months} months, {age.days} days old'
+                f' {self.employment_status.value}.')
 
 
 def main():
     sathya = Person(
-        first_name="Sathya",
-        last_name="Nathella",
+        first_name='Sathya',
+        last_name='Nathella',
         gender=Gender.FEMALE,
         date_of_birth=datetime(1995, 3, 18, 5, 40, 18),
         employment_status=EmploymentStatus.SALARIED_WORK,
@@ -57,5 +55,5 @@ def main():
     print(Gender.OTHER.value)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

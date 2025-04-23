@@ -18,7 +18,7 @@ class Stack[T]:
 
     def peek(self) -> T:
         if self.__top is None:
-            raise ValueError("Empty Stack")
+            raise ValueError('Empty Stack')
         else:
             return self.__top.value
 
@@ -29,7 +29,7 @@ class Stack[T]:
 
     def pop(self):
         if self.__top is None:
-            raise ValueError("Empty Stack")
+            raise ValueError('Empty Stack')
         else:
             self.__size -= 1
             value: T = self.__top.value

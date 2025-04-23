@@ -13,7 +13,7 @@ async def task(semaphore: asyncio.Semaphore, number: int):
         # block for a moment
         await asyncio.sleep(value)
         # report a message
-        print(f"Task {number} got {value}")
+        print(f'Task {number} got {value}')
 
 
 # main coroutine

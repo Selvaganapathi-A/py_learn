@@ -3,6 +3,7 @@ from typing import Any, Callable
 
 
 class Decorate:
+
     def __init__(self, function: Callable) -> None:
         self.function = function
 
@@ -10,7 +11,7 @@ class Decorate:
         start = time.perf_counter_ns()
         return_value = self.function(a, b)
         end = time.perf_counter_ns()
-        print(end - start, "nano seconds.")
+        print(end - start, 'nano seconds.')
         return return_value
 
 

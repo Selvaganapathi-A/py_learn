@@ -12,12 +12,13 @@ class Animal:
     name: str
 
     def serialize(self):
-        return {"name": self.name, "spicies": "animal"}
+        return {'name': self.name, 'spicies': 'animal'}
         self.name
 
 
 @dataclass
 class Monkey:
+
     def serialize(self):
         retur
 
@@ -27,8 +28,8 @@ class Human(Monkey, Animal):
     name: str
 
 
-if __name__ == "__main__":
-    a = Human("ponnusami")
+if __name__ == '__main__':
+    a = Human('ponnusami')
     print(a)
     print(a.sayWho())
     print((json5.dumps(a.serialize(), indent=4), 1))

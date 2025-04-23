@@ -33,42 +33,42 @@
 """
 
 
-def format_file_size(num: int | float, suffix: str = "Byte"):
+def format_file_size(num: int | float, suffix: str = 'Byte'):
     for unit in (
-            "",
-            "Kilo",
-            "Mega",
-            "Giga",
-            "Tera",
-            "Peta",
-            "Exa",
-            "Zetta",
-            "Yotta",
-            "Brono",
-            "Geop",
-            "Sagan",
-            "Pija",
-            "Alpha",
-            "Kryat",
-            "Amos",
+            '',
+            'Kilo',
+            'Mega',
+            'Giga',
+            'Tera',
+            'Peta',
+            'Exa',
+            'Zetta',
+            'Yotta',
+            'Brono',
+            'Geop',
+            'Sagan',
+            'Pija',
+            'Alpha',
+            'Kryat',
+            'Amos',
     ):
         if abs(num) < 1024.0:
-            return "%6.2f %s %s" % (num, unit, suffix)
+            return '%6.2f %s %s' % (num, unit, suffix)
         num /= 1024
-    return "%6.2f %s %s" % (num, "Pectrol", suffix)
+    return '%6.2f %s %s' % (num, 'Pectrol', suffix)
 
 
-def computer_storage_linux_style(num: int | float, suffix: str = "B"):
-    for unit in ["", "Ki", "Mi", "Gi", "Ti", "Pi", "Ei", "Zi", "Yi"]:
+def computer_storage_linux_style(num: int | float, suffix: str = 'B'):
+    for unit in ['', 'Ki', 'Mi', 'Gi', 'Ti', 'Pi', 'Ei', 'Zi', 'Yi']:
         if abs(num) < 1000.0:
-            return "%3.1f %s%s" % (num, unit, suffix)
+            return '%3.1f %s%s' % (num, unit, suffix)
         num /= 1000
-    return "%.1f %s%s" % (num, "Yi", suffix)
+    return '%.1f %s%s' % (num, 'Yi', suffix)
 
 
-def computer_storage_windows_style(num: int | float, suffix: str = "B"):
-    for unit in ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]:
+def computer_storage_windows_style(num: int | float, suffix: str = 'B'):
+    for unit in ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']:
         if abs(num) < 1024.0:
-            return "%3.1f %s%s" % (num, unit, suffix)
+            return '%3.1f %s%s' % (num, unit, suffix)
         num /= 1024
-    return "%.1f %s%s" % (num, "Yi", suffix)
+    return '%.1f %s%s' % (num, 'Yi', suffix)

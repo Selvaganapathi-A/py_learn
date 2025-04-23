@@ -23,9 +23,7 @@ class Async_Iterator[T: (int, float)]:
         return x
 
 
-async def Async_Generator[T: (int, float)](
-    start: T, stop: T, step: T
-) -> AsyncGenerator[T, Any]:
+async def Async_Generator[T: (int, float)](start: T, stop: T, step: T) -> AsyncGenerator[T, Any]:
     while start < stop:
         yield start
         start += step
@@ -33,7 +31,7 @@ async def Async_Generator[T: (int, float)](
 
 async def main():
     async for x in Async_Iterator(10, 100, 2):
-        print(f"{x:4.2f}")
+        print(f'{x:4.2f}')
     print()
     # hideit print("#" * 80)
     async for x in Async_Generator(350, 600, 10):
@@ -46,5 +44,5 @@ async def main():
     # hideit print("#" * 80)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     asyncio.run(main())

@@ -3,15 +3,17 @@ from typing import Any, Callable
 
 
 class Decorate:
+
     def __init__(self, arg: int) -> None:
         self.arg = arg
 
     def __call__(self, function: Callable[..., Any]) -> Callable[..., Any]:
+
         def wrapper(a: int, b: int) -> int:
             start = time.perf_counter_ns()
             return_value: Any = function(a, b) * self.arg
             end = time.perf_counter_ns()
-            print(end - start, "nano seconds.")
+            print(end - start, 'nano seconds.')
             return return_value
 
         return wrapper
@@ -31,7 +33,7 @@ def some_other_func(a: int, b: int) -> int:
     return a + b
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print()
     print(some_func(9, 8))
     print()

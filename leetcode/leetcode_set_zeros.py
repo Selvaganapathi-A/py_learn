@@ -1,14 +1,13 @@
-from subprocess import run
-from typing import List
-
-
 import secrets
 import time
+from subprocess import run
+from typing import List
 
 # from rich import print
 
 
 class Solution:
+
     def setZeroes(self, matrix: List[List[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
@@ -45,25 +44,25 @@ class Solution:
             r, c = 0, 0
 
             while rs < re or cs < ce:
-                print("---", (0, cs, ce), "---")
-                print("---", (rs, 0, 0), "---")
-                print("---", (re, 0, 0), "---")
+                print('---', (0, cs, ce), '---')
+                print('---', (rs, 0, 0), '---')
+                print('---', (re, 0, 0), '---')
                 print()
                 #
 
-                print("fwd col")
+                print('fwd col')
                 while cs <= c < ce:
                     # print(matrix[r][c])
                     print(((r, c), matrix[r][c]))
                     c += 1
                 rs += 1
                 time.sleep(1)
-                print("---", (0, cs, c, ce), "---")
-                print("---", (rs, 0, 0), "---")
-                print("---", (r, 0, 0), "---")
-                print("---", (re, 0, 0), "---")
+                print('---', (0, cs, c, ce), '---')
+                print('---', (rs, 0, 0), '---')
+                print('---', (r, 0, 0), '---')
+                print('---', (re, 0, 0), '---')
 
-                print("fwd row")
+                print('fwd row')
                 while rs <= r < re:
                     # print(matrix[r][c])
                     print(((r, c), matrix[r][c]))
@@ -71,11 +70,11 @@ class Solution:
                 r -= 1
                 ce -= 1
                 time.sleep(1)
-                print("---", (0, cs, ce), "---")
-                print("---", (rs, 0, 0), "---")
-                print("---", (re, 0, 0), "---")
+                print('---', (0, cs, ce), '---')
+                print('---', (rs, 0, 0), '---')
+                print('---', (re, 0, 0), '---')
 
-                print("rev col")
+                print('rev col')
                 while cs <= c < ce:
                     # print(matrix[r][c])
                     print(((r, c), matrix[r][c]))
@@ -83,11 +82,11 @@ class Solution:
                 c += 1
                 re -= 1
                 time.sleep(1)
-                print("---", (0, cs, ce), "---")
-                print("---", (rs, 0, 0), "---")
-                print("---", (re, 0, 0), "---")
+                print('---', (0, cs, ce), '---')
+                print('---', (rs, 0, 0), '---')
+                print('---', (re, 0, 0), '---')
 
-                print("rev row")
+                print('rev row')
                 while rs <= r < re:
                     # print(matrix[r][c])
                     print(((r, c), matrix[r][c]))
@@ -95,10 +94,10 @@ class Solution:
                 r += 1
                 cs += 1
                 time.sleep(1)
-                print("---", (0, cs, ce), "---")
-                print("---", (rs, 0, 0), "---")
-                print("---", (re, 0, 0), "---")
-                print("-" * 40)
+                print('---', (0, cs, ce), '---')
+                print('---', (rs, 0, 0), '---')
+                print('---', (re, 0, 0), '---')
+                print('-' * 40)
 
         time.sleep(5)
 
@@ -203,7 +202,7 @@ def main():
     pass
 
 
-if __name__ == "__main__":
-    run("clear")
+if __name__ == '__main__':
+    run('clear')
     main()
     pass

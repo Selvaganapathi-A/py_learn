@@ -9,9 +9,9 @@ class State(IntEnum):
 
 def bulb(state: State) -> str:
     if state == State.ON:
-        return "bulb is on."
+        return 'bulb is on.'
     elif state == State.OFF:
-        return "bulb is off."
+        return 'bulb is off.'
     else:
         raise Exception
 
@@ -25,6 +25,6 @@ def main():
     print(bulb(ud))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
     pass

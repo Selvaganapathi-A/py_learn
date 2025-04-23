@@ -8,15 +8,15 @@ class Person(TypedDict):
 
 def get_people(name: str) -> Person:
     return {
-        "first_name": name.split()[0],
-        "last_name": name.split()[1],
+        'first_name': name.split()[0],
+        'last_name': name.split()[1],
     }
 
 
 def main():
-    print(get_people("meera ragavan"))
-    print(get_people("dani jensen"))
+    print(get_people('meera ragavan'))
+    print(get_people('dani jensen'))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

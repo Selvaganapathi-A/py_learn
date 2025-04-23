@@ -20,30 +20,33 @@ async def producer(queue: asyncio.PriorityQueue[Tuple[int, float, str]]):
         food = Faker.dish()
         order = (order_id, cook_time, food)
         print(
-            f"{order_id:>3} \x1b[38;5;2mordering",
+            f'{order_id:>3} \x1b[38;5;2mordering',
             food,
-            "with",
+            'with',
             cook_time,
-            "\x1b[0m",
+            '\x1b[0m',
             flush=True,
         )
         await queue.put(order)
         item += 1
-    print("\x1b[48;5;6m" + "#" * 80 + "\x1b[0m", flush=True)
+    print('\x1b[48;5;6m' + '#' * 80 + '\x1b[0m', flush=True)
 
 
 async def consumer(queue: asyncio.PriorityQueue[Tuple[int, float, str]]):
     while True:
         order_id, cook_time, food = await queue.get()
-        print(f"{order_id:>3} \x1b[38;5;3m   cooking", food, "\x1b[0m", flush=True)
+        print(f'{order_id:>3} \x1b[38;5;3m   cooking',
+              food,
+              '\x1b[0m',
+              flush=True)
         await asyncio.sleep(cook_time)
         print(
-            f"{order_id:>3} \x1b[38;5;9m      served",
+            f'{order_id:>3} \x1b[38;5;9m      served',
             food,
-            "in",
+            'in',
             cook_time,
-            "minutes.",
-            "\x1b[0m",
+            'minutes.',
+            '\x1b[0m',
             flush=True,
         )
         queue.task_done()
@@ -52,9 +55,8 @@ async def consumer(queue: asyncio.PriorityQueue[Tuple[int, float, str]]):
 async def function():
     QUEUE_SIZE: int = 10
     WORKERS: int = 4
-    priority_queue: asyncio.PriorityQueue[Tuple[int, float, str]] = (
-        asyncio.PriorityQueue(QUEUE_SIZE)
-    )
+    priority_queue: asyncio.PriorityQueue[Tuple[
+        int, float, str]] = asyncio.PriorityQueue(QUEUE_SIZE)
     consumers: Iterable[asyncio.Task[NoReturn]] = list()
     for _ in range(WORKERS):
         task = asyncio.create_task(consumer(priority_queue))
@@ -69,5 +71,5 @@ def main():
     asyncio.run(function())
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

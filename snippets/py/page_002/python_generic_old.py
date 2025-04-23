@@ -4,7 +4,7 @@ from typing import Callable, TypeAlias
 from typing_extensions import TypeVar
 
 # * Generic bound to int, float, str, Decimal
-T = TypeVar("T", int, float, str, Decimal)
+T = TypeVar('T', int, float, str, Decimal)
 A: TypeAlias = tuple[int, int]
 function: TypeAlias = Callable[[int, int, int], float]
 
@@ -26,6 +26,6 @@ def main():
     print(xd)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # help(TypeAlias)
     main()

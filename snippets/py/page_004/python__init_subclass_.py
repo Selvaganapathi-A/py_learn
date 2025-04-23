@@ -18,11 +18,11 @@ class Animal:
         print(kwargs)
 
     def __init_subclass__(cls) -> None:
-        if not hasattr(cls, "kind"):
+        if not hasattr(cls, 'kind'):
             raise AttributeError('"kind" is not present in sub class.')
         print(cls.__name__)
-        print(hasattr(cls.__annotations__, "legs"))
-        setattr(cls, "legs", 0)
+        print(hasattr(cls.__annotations__, 'legs'))
+        setattr(cls, 'legs', 0)
 
 
 class Bird(Animal):
@@ -89,5 +89,5 @@ def main():
     print(Vehicle.registered_models)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

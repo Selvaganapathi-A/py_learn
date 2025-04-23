@@ -20,7 +20,7 @@ def main():
     while True:
         try:
             value = next(b)
-            print("\033[K", value, end="\r")
+            print('\033[K', value, end='\r')
             i += 1
             j += 1
             if i % 8 == 0:
@@ -28,7 +28,7 @@ def main():
                 b.send(-0.575)
             if value < -20:
                 # ! Example to 'throw' Method
-                b.throw(ValueError("Hello Google"))
+                b.throw(ValueError('Hello Google'))
             if value < -15:
                 # ! Example to 'close' Method
                 b.close()
@@ -40,10 +40,10 @@ def main():
         finally:
             pass
         time.sleep(0.25)
-    print("End of Program")
+    print('End of Program')
 
 
-if __name__ == "__main__":
-    logging.basicConfig(format="%(message)s")
+if __name__ == '__main__':
+    logging.basicConfig(format='%(message)s')
     main()
     help(Generator)

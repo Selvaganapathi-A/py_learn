@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw
 def function_HexagonalMask(radius: int = 10):
     width = radius
     height = int(math.sin(math.radians(60)) * width) + 1
-    image = Image.new("1", size=(width, height), color="black")
+    image = Image.new('1', size=(width, height), color='black')
     draw = ImageDraw.Draw(image)
     draw.polygon(
         tuple((
@@ -33,7 +33,7 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
     mask = function_HexagonalMask(pixel_diameter)
     maskHeight, maskWidth = mask.shape
     maskCenterY, maskCenterX = int(maskHeight / 2), int(maskWidth / 2)
-    image = Image.open(imagePath, "r")
+    image = Image.open(imagePath, 'r')
     imageArray = numpy.array(image).astype(numpy.float64)
     image.close()
     del image
@@ -43,8 +43,7 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
     i = 0
     tempXPointer = imageCenterX - maskCenterX
     while True:
-        tempYPointer = (imageCenterY - maskCenterY if i %
-                        2 == 0 else imageCenterY - maskHeight)
+        tempYPointer = imageCenterY - maskCenterY if i % 2 == 0 else imageCenterY - maskHeight
         startWidth, endWidth = tempXPointer, tempXPointer + maskWidth
         startWidth = 0 if startWidth < 0 else startWidth
         endWidth = imageWidth if imageWidth < endWidth else endWidth
@@ -54,10 +53,10 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
                 tempYPointer + maskHeight,
             )
             startHeight = 0 if startHeight < 0 else startHeight
-            endHeight = (imageHeight if imageHeight < endHeight else endHeight)
+            endHeight = imageHeight if imageHeight < endHeight else endHeight
             cutImageArray = imageArray[startHeight:endHeight,
                                        startWidth:endWidth, :]
-            cutImageArrayHeight, cutImageArrayWidth, _ = (cutImageArray.shape)
+            cutImageArrayHeight, cutImageArrayWidth, _ = cutImageArray.shape
             cutMask = mask[
                 maskHeight - cutImageArrayHeight:maskHeight,
                 0:cutImageArrayWidth,
@@ -84,8 +83,7 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
     i = 0
     tempXPointer = imageCenterX - maskCenterX
     while True:
-        tempYPointer = (imageCenterY + maskCenterY if i %
-                        2 == 0 else imageCenterY)
+        tempYPointer = imageCenterY + maskCenterY if i % 2 == 0 else imageCenterY
         startWidth, endWidth = tempXPointer, tempXPointer + maskWidth
         startWidth = 0 if startWidth < 0 else startWidth
         endWidth = imageWidth if imageWidth < endWidth else endWidth
@@ -95,10 +93,10 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
                 tempYPointer + maskHeight,
             )
             startHeight = 0 if startHeight < 0 else startHeight
-            endHeight = (imageHeight if imageHeight < endHeight else endHeight)
+            endHeight = imageHeight if imageHeight < endHeight else endHeight
             cutImageArray = imageArray[startHeight:endHeight,
                                        startWidth:endWidth, :]
-            cutImageArrayHeight, cutImageArrayWidth, _ = (cutImageArray.shape)
+            cutImageArrayHeight, cutImageArrayWidth, _ = cutImageArray.shape
             cutMask = mask[
                 :cutImageArrayHeight,
                 :cutImageArrayWidth,
@@ -125,8 +123,7 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
     i = 1
     tempXPointer = imageCenterX - int(0.75 * maskWidth) - maskCenterX
     while True:
-        tempYPointer = (imageCenterY + maskCenterY if i %
-                        2 == 0 else imageCenterY)
+        tempYPointer = imageCenterY + maskCenterY if i % 2 == 0 else imageCenterY
         startWidth, endWidth = tempXPointer, tempXPointer + maskWidth
         startWidth = 0 if startWidth < 0 else startWidth
         endWidth = imageWidth if imageWidth < endWidth else endWidth
@@ -136,10 +133,10 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
                 tempYPointer + maskHeight,
             )
             startHeight = 0 if startHeight < 0 else startHeight
-            endHeight = (imageHeight if imageHeight < endHeight else endHeight)
+            endHeight = imageHeight if imageHeight < endHeight else endHeight
             cutImageArray = imageArray[startHeight:endHeight,
                                        startWidth:endWidth, :]
-            cutImageArrayHeight, cutImageArrayWidth, _ = (cutImageArray.shape)
+            cutImageArrayHeight, cutImageArrayWidth, _ = cutImageArray.shape
             cutMask = mask[
                 :cutImageArrayHeight,
                 maskWidth - cutImageArrayWidth:,
@@ -166,8 +163,7 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
     i = 1
     tempXPointer = imageCenterX - int(0.75 * maskWidth) - maskCenterX
     while True:
-        tempYPointer = (imageCenterY - maskCenterY if i %
-                        2 == 0 else imageCenterY - maskHeight)
+        tempYPointer = imageCenterY - maskCenterY if i % 2 == 0 else imageCenterY - maskHeight
         startWidth, endWidth = tempXPointer, tempXPointer + maskWidth
         startWidth = 0 if startWidth < 0 else startWidth
         endWidth = imageWidth if imageWidth < endWidth else endWidth
@@ -177,10 +173,10 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
                 tempYPointer + maskHeight,
             )
             startHeight = 0 if startHeight < 0 else startHeight
-            endHeight = (imageHeight if imageHeight < endHeight else endHeight)
+            endHeight = imageHeight if imageHeight < endHeight else endHeight
             cutImageArray = imageArray[startHeight:endHeight,
                                        startWidth:endWidth, :]
-            cutImageArrayHeight, cutImageArrayWidth, _ = (cutImageArray.shape)
+            cutImageArrayHeight, cutImageArrayWidth, _ = cutImageArray.shape
             cutMask = mask[
                 maskHeight - cutImageArrayHeight:,
                 maskWidth - cutImageArrayWidth:,
@@ -213,11 +209,11 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
 
 def main():
     hexgonFilter(
-        imagePath=r"./images/001.jpg",
-        savePath=r"./images/001-001.jpg",
+        imagePath=r'./images/001.jpg',
+        savePath=r'./images/001-001.jpg',
         pixel_diameter=128,
     )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

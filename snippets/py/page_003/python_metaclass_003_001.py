@@ -1,32 +1,33 @@
 def Apple_init__(self, color):
-    print("called init", self, color)
+    print('called init', self, color)
     self.color = color
 
 
 def taste(self):
-    return f"Apple Color : {self.color}"
+    return f'Apple Color : {self.color}'
 
 
 Apple = type(
-    "Apple",
+    'Apple',
     (),
     {
-        "color": "red",
-        "__init__": Apple_init__,
-        "say": taste,
+        'color': 'red',
+        '__init__': Apple_init__,
+        'say': taste,
     },
 )
-apple: Apple = Apple("black")
+apple: Apple = Apple('black')
 print(Apple)
 # print(dir(a))
 print(apple.color)
 print(apple.say())
-if __name__ == "__main__":
+if __name__ == '__main__':
     from subprocess import run
 
-    run("cls", shell=True)
+    run('cls', shell=True)
 
     class M:
+
         def __init__(self, n: float = 6) -> None:
             self.n = n
             self.__on_ = n
@@ -39,7 +40,7 @@ if __name__ == "__main__":
     print(dir(M))
     print()
     print(a)
-    print(a.__setattr__("hello", 89))
+    print(a.__setattr__('hello', 89))
     print(a)
     print(a.hello)
     print(a._M__on_)

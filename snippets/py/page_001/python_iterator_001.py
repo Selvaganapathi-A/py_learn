@@ -1,4 +1,5 @@
 class RangeTen:
+
     def __iter__(self):
         self.a = 0
         return self
@@ -11,6 +12,6 @@ class RangeTen:
             raise StopIteration
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     for x in RangeTen():
         print(x)
