@@ -29,7 +29,7 @@ def serializer(value: Any):
 
 def deserialize(value: Any):
     match value:
-        case {'type': str(), 'value': str()}:
+        case {'type': 'decimal', 'value': str()}:
             return Decimal(value['value'])
         case {
             'type': 'Apple',
