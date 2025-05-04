@@ -35,8 +35,8 @@ class CreditCard:
 
 def luhn_checksum(number: str):
     print(number)
-    return sum((int(x) for x in number[-1::-2])) + sum(
-        (int(x) for x in number[-2::-2])) * 2
+    return (sum((int(x) for x in number[-1::-2])) + sum(
+        (int(x) for x in number[-2::-2])) * 2)
 
 
 def validate_card(*, card: CardInfo):

@@ -1,5 +1,5 @@
-from sqlalchemy import (Boolean, Integer, String, create_engine, insert,
-                        select, update)
+from sqlalchemy import (Boolean, Integer, String, and_, case, create_engine,
+                        insert, or_, select, update)
 from sqlalchemy.orm import Mapped, Session, mapped_column, sessionmaker
 from sqlalchemy.orm.decl_api import DeclarativeBase
 
@@ -85,19 +85,38 @@ def main(session: Session):
                 user.pk,
             'canVote':
                 user.age >= 18,
-            'canMarry': (
-                (user.sex == 'M' and user.age > 24 and user.age < 40) or
-                (user.sex == 'F' and user.age > 21 and user.age < 37)),
+            'canMarry': (user.sex == 'M' and user.age > 19) or
+                        (user.sex == 'F' and user.age > 16),
         })
     # * bulk update
     session.execute(update(User), cache)
+    # #
+    # # * Update the same via sqlquery
+    # #
+    # session.execute(
+    #     update(User).values(
+    #         canMarry=or_(
+    #             and_(
+    #                 User.sex == 'M',
+    #                 User.age > 19,
+    #             ),
+    #             and_(
+    #                 User.sex == 'F',
+    #                 User.age > 16,
+    #             ),
+    #         ),
+    #     )
+    # )
+    # #
+    # #
+    # #
     # * After Update
     for user in session.execute(select(User)).scalars().fetchall():
         print((
             user.sex,
             user.age,
             user.name,
-            'I can Vote' if user.canVote else "can't Vote",
+            '🤚' if user.canVote else '📍',
             '💖' if user.canMarry else '😓',
         ))
     #

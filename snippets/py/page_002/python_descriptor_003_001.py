@@ -12,9 +12,8 @@ class FileCountDescriptor:
         return len(os.listdir(instance.__dir_name__))
 
     def __set__(self, instance, value):
-        instance.__dict__[
-            self.
-            cls_name] = value if self.cls_name in instance.__dict__ else None
+        instance.__dict__[self.cls_name] = (value if self.cls_name
+                                            in instance.__dict__ else None)
 
 
 class Directory:

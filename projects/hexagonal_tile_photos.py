@@ -43,7 +43,8 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
     i = 0
     tempXPointer = imageCenterX - maskCenterX
     while True:
-        tempYPointer = imageCenterY - maskCenterY if i % 2 == 0 else imageCenterY - maskHeight
+        tempYPointer = (imageCenterY - maskCenterY if i %
+                        2 == 0 else imageCenterY - maskHeight)
         startWidth, endWidth = tempXPointer, tempXPointer + maskWidth
         startWidth = 0 if startWidth < 0 else startWidth
         endWidth = imageWidth if imageWidth < endWidth else endWidth
@@ -83,7 +84,8 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
     i = 0
     tempXPointer = imageCenterX - maskCenterX
     while True:
-        tempYPointer = imageCenterY + maskCenterY if i % 2 == 0 else imageCenterY
+        tempYPointer = (imageCenterY + maskCenterY if i %
+                        2 == 0 else imageCenterY)
         startWidth, endWidth = tempXPointer, tempXPointer + maskWidth
         startWidth = 0 if startWidth < 0 else startWidth
         endWidth = imageWidth if imageWidth < endWidth else endWidth
@@ -123,7 +125,8 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
     i = 1
     tempXPointer = imageCenterX - int(0.75 * maskWidth) - maskCenterX
     while True:
-        tempYPointer = imageCenterY + maskCenterY if i % 2 == 0 else imageCenterY
+        tempYPointer = (imageCenterY + maskCenterY if i %
+                        2 == 0 else imageCenterY)
         startWidth, endWidth = tempXPointer, tempXPointer + maskWidth
         startWidth = 0 if startWidth < 0 else startWidth
         endWidth = imageWidth if imageWidth < endWidth else endWidth
@@ -163,7 +166,8 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
     i = 1
     tempXPointer = imageCenterX - int(0.75 * maskWidth) - maskCenterX
     while True:
-        tempYPointer = imageCenterY - maskCenterY if i % 2 == 0 else imageCenterY - maskHeight
+        tempYPointer = (imageCenterY - maskCenterY if i %
+                        2 == 0 else imageCenterY - maskHeight)
         startWidth, endWidth = tempXPointer, tempXPointer + maskWidth
         startWidth = 0 if startWidth < 0 else startWidth
         endWidth = imageWidth if imageWidth < endWidth else endWidth
