@@ -70,9 +70,9 @@ def main():
                 'alg': alg,
                 'enc': enc,
                 'typ': 'JWE',
-                'kid': key.thumbprint(hashes.SHA3_384()),
+                'kid': key.thumbprint(hashes.SHA3_512()),
             }
-            print('Header : ', header)
+            pprint({'Header': header})
             # print('  Data : ', data)
             #
             jwetoken = jwe.JWE(plaintext=payload, protected=header)  # type: ignore
