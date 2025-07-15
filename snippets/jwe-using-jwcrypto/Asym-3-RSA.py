@@ -2,6 +2,7 @@ import datetime
 from pprint import pprint
 
 import orjson
+from cryptography.hazmat.primitives import hashes
 from jwcrypto import jwe, jwk
 
 
@@ -38,7 +39,7 @@ def main():
     for enc in ContentEncryptionOptions:
         # break
         for alg in AsymmetricAlgorithms:
-            header = {'alg': alg, 'enc': enc, 'typ': 'JWE'}
+            header = {'alg': alg, 'enc': enc, 'typ': 'JWE', 'kid': key.thumbprint()}
             print('Header : ', header)
             # print('  Data : ', data)
             #
@@ -65,7 +66,12 @@ def main():
         # break
         for alg in AsymmetricAlgorithms:
             key = jwk.JWK(kty='oct', alg=alg, k=password.hex())
-            header = {'alg': alg, 'enc': enc, 'typ': 'JWE'}
+            header = {
+                'alg': alg,
+                'enc': enc,
+                'typ': 'JWE',
+                'kid': key.thumbprint(hashes.SHA3_384()),
+            }
             print('Header : ', header)
             # print('  Data : ', data)
             #
