@@ -1,5 +1,4 @@
 class Solution:
-
     def productOfArrayExceptSelf(self, nums: list[int]) -> list[int]:
         # n, ans, suffix_prod = len(nums), [1] * len(nums), 1
 
@@ -29,9 +28,7 @@ class Solution:
 def main():
     arr = [2, 3, 4, 3, 2]
     print(Solution().productOfArrayExceptSelf(arr))
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

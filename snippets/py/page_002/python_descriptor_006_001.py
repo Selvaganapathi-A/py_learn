@@ -1,5 +1,4 @@
 class InstanceLevelDescriptor:
-
     def __set_name__(self, cls, cls_name):
         self.cls_name = cls_name
         self.__record_keeper__ = dict()
@@ -15,8 +14,7 @@ class InstanceLevelDescriptor:
     def __set__(self, instance, value):
         print('set instance', value)
         self.__record_keeper__[instance] = value
-        instance.__dict__[self.cls_name] = (value if self.cls_name
-                                            in instance.__dict__ else None)
+        instance.__dict__[self.cls_name] = value if self.cls_name in instance.__dict__ else None
 
 
 class SomeClass:

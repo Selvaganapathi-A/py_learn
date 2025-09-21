@@ -15,9 +15,7 @@ def singleton(cls: Type[Any]):
 
 @singleton
 class Plant:
-
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
-        pass
+    def __init__(self, *args: Any, **kwargs: Any) -> None: ...
 
 
 if __name__ == '__main__':

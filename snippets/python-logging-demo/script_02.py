@@ -11,7 +11,6 @@ from custom_test import test_logger
 #                                     'zypress.python-logging-demo.formatter')
 # test = importlib.import_module('test', 'zypress.python-logging-demo.test')
 class DebugHandler(logging.StreamHandler):
-
     def emit(self, record: logging.LogRecord) -> None:
         if record.levelno == logging.DEBUG:
             return super().emit(record)
@@ -25,8 +24,7 @@ def main():
     """
     logger = logging.getLogger('demo')
     handler = DebugHandler(sys.stderr)
-    handler.setFormatter(
-        BashFormatter('| {levelname:>12s} | {message:<24s} |', style='{'))
+    handler.setFormatter(BashFormatter('| {levelname:>12s} | {message:<24s} |', style='{'))
     logger.addHandler(handler)
     logger.setLevel(logging.DEBUG)
     test_logger(logger)

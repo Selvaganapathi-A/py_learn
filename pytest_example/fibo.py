@@ -20,9 +20,7 @@ def main():
     #
     r = fibbonocci_number(1000)
     print(r)
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

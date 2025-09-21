@@ -30,13 +30,10 @@ def main():
     print()
     print('\x1b[48;5;14m' + '\x1b[38;5;255m' + 'Hello' + '\x1b[0m' + ' World.')
     print('\x1b[48;5;236m' + '\x1b[38;5;51m' + 'Hello' + '\x1b[0m' + ' World.')
-    print('\x1b[48;5;196m' + '\x1b[1;38;5;231m' + 'Hello' + '\x1b[0m' +
-          ' World.')
+    print('\x1b[48;5;196m' + '\x1b[1;38;5;231m' + 'Hello' + '\x1b[0m' + ' World.')
     print('\x1b[38;5;16m' + 'Hello' + '\x1b[0m' + ' World.')
     print('\x1b[38;5;232m' + 'Hello' + '\x1b[0m' + ' World.')
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

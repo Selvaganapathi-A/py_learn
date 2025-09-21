@@ -45,32 +45,25 @@ class Vehicle:
         cls.registered_models.add(cls)
 
 
-class Lorry(Vehicle):
-    pass
+class Lorry(Vehicle): ...
 
 
-class Truck(Vehicle):
-    pass
+class Truck(Vehicle): ...
 
 
-class Car(Vehicle):
-    pass
+class Car(Vehicle): ...
 
 
-class Bike(Vehicle):
-    pass
+class Bike(Vehicle): ...
 
 
-class Ducatti(Bike):
-    pass
+class Ducatti(Bike): ...
 
 
-class Yamaha(Bike):
-    pass
+class Yamaha(Bike): ...
 
 
-class BMW(Bike):
-    pass
+class BMW(Bike): ...
 
 
 """

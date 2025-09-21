@@ -13,4 +13,3 @@ if __name__ == '__main__':
     n = 128
     max_message_len_in_bytes = (n // 8) - 11
     print(max_message_len_in_bytes)
-    pass

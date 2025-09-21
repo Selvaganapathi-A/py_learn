@@ -27,8 +27,6 @@ def main():
     k: int
     result: list[int]
     #
-    #
-    #
     nums = [1, 1, 1, 2, 2, 3]
     k = 4
     result = topKElements(nums, k)
@@ -44,8 +42,6 @@ def main():
     result = topKElements(nums, k)
     print(result)
 
-    pass
-
 
 def else_case(nums: list[int], k: int) -> list[int]:
     import heapq
@@ -55,4 +51,3 @@ def else_case(nums: list[int], k: int) -> list[int]:
 
 if __name__ == '__main__':
     main()
-    pass

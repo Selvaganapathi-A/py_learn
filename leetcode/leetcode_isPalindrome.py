@@ -2,7 +2,6 @@ import string
 
 
 class Solution:
-
     def isPalindrome(self, s: str) -> tuple[bool, str]:
         l_ptr: int = 0
         r_ptr: int = len(s) - 1
@@ -27,9 +26,7 @@ def main():
     print(Solution().isPalindrome(s))
     s = '0P'
     print(Solution().isPalindrome(s))
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

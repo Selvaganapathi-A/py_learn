@@ -38,5 +38,7 @@ def main():
 
 
 if __name__ == '__main__':
-    run('clear',)
+    run(
+        'clear',
+    )
     main()

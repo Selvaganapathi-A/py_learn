@@ -4,7 +4,6 @@ from typing import Any
 
 
 class Apple:
-
     def __init__(self, place: str, price: Decimal) -> None:
         self.place: str = place
         self.price: Decimal = price

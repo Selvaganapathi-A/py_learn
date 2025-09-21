@@ -20,7 +20,6 @@ class NaiveSingleton(type):
 
 
 class Food(metaclass=NaiveSingleton):
-
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         self.args = args
         self.kwargs = kwargs

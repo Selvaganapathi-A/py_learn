@@ -8,8 +8,6 @@ def workarea(session: Session):
     jenifer = Child(name='jenifer')
     adam.child = jenifer
     session.add(adam)
-    #
-    #
 
     # # ! below code raises error...
     jerry = Parent(name='Jerry')
@@ -27,7 +25,6 @@ def workarea(session: Session):
             print(child.name)
         print('-' * 80)
     print()
-    #
 
 
 def main():

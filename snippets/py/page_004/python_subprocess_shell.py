@@ -42,4 +42,4 @@ if var:
             shell=True,
         )
     except KeyboardInterrupt:
-        pass
+        ...

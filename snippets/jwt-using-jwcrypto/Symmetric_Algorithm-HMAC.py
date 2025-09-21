@@ -13,8 +13,6 @@ async def main():
     print(secret)
     print(secret.hex())
     print(key)
-    #
-    #
     ALGORITHMS: tuple[str, ...] = (
         'HS256',
         'HS384',
@@ -52,8 +50,6 @@ async def main():
         token.make_signed_token(key)
         json_token = token.serialize()
         print(json_token)
-        #
-        #
         # * verify
         received = jwt.JWT(key=key, jwt=json_token)
         print(received.claims)

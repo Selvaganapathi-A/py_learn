@@ -4,15 +4,12 @@ from sqlalchemy.orm import Mapped, Session, mapped_column, sessionmaker
 from sqlalchemy.orm.decl_api import DeclarativeBase
 
 
-class BaseModel(DeclarativeBase):
-    pass
+class BaseModel(DeclarativeBase): ...
 
 
 class User(BaseModel):
     __tablename__: str = 'user'
-    pk: Mapped[int] = mapped_column(Integer,
-                                    primary_key=True,
-                                    autoincrement=True)
+    pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String, nullable=False)
     surname: Mapped[str] = mapped_column(String, nullable=True, default=None)
     age: Mapped[int] = mapped_column(Integer, nullable=False)
@@ -30,64 +27,38 @@ def main(session: Session):
     session.execute(
         statement=insert(User),
         params=[
-            {
-                'name': 'elena',
-                'age': 14,
-                'sex': 'F'
-            },
-            {
-                'name': 'tony',
-                'age': 17,
-                'sex': 'M'
-            },
-            {
-                'name': 'rosemary',
-                'age': 16,
-                'sex': 'F'
-            },
-            {
-                'name': 'spphia',
-                'age': 39,
-                'sex': 'F'
-            },
-            {
-                'name': 'karen',
-                'age': 28,
-                'sex': 'F'
-            },
-            {
-                'name': 'john',
-                'age': 41,
-                'sex': 'M'
-            },
-            {
-                'name': 'mike',
-                'age': 18,
-                'sex': 'M'
-            },
+            {'name': 'elena', 'age': 14, 'sex': 'F'},
+            {'name': 'tony', 'age': 17, 'sex': 'M'},
+            {'name': 'rosemary', 'age': 16, 'sex': 'F'},
+            {'name': 'spphia', 'age': 39, 'sex': 'F'},
+            {'name': 'karen', 'age': 28, 'sex': 'F'},
+            {'name': 'john', 'age': 41, 'sex': 'M'},
+            {'name': 'mike', 'age': 18, 'sex': 'M'},
         ],
     )
     #
     # * Before Update
     for user in session.execute(select(User)).scalars().fetchall():
-        print((
-            user.sex,
-            user.age,
-            user.name,
-            'I can Vote' if user.canVote else "can't Vote",
-            '💖' if user.canMarry else '😓',
-        ))
+        print(
+            (
+                user.sex,
+                user.age,
+                user.name,
+                'I can Vote' if user.canVote else "can't Vote",
+                '💖' if user.canMarry else '😓',
+            )
+        )
     # * 2 boolean fields
     cache = []
     for user in session.execute(select(User)).scalars().fetchall():
-        cache.append({
-            'pk':
-                user.pk,
-            'canVote':
-                user.age >= 18,
-            'canMarry': (user.sex == 'M' and user.age > 19) or
-                        (user.sex == 'F' and user.age > 16),
-        })
+        cache.append(
+            {
+                'pk': user.pk,
+                'canVote': user.age >= 18,
+                'canMarry': (user.sex == 'M' and user.age > 19)
+                or (user.sex == 'F' and user.age > 16),
+            }
+        )
     # * bulk update
     session.execute(update(User), cache)
     # #
@@ -112,13 +83,15 @@ def main(session: Session):
     # #
     # * After Update
     for user in session.execute(select(User)).scalars().fetchall():
-        print((
-            user.sex,
-            user.age,
-            user.name,
-            '🤚' if user.canVote else '📍',
-            '💖' if user.canMarry else '😓',
-        ))
+        print(
+            (
+                user.sex,
+                user.age,
+                user.name,
+                '🤚' if user.canVote else '📍',
+                '💖' if user.canMarry else '😓',
+            )
+        )
     #
     session.commit()
 

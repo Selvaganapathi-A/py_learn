@@ -4,7 +4,6 @@ from py_learn.pytest_example.shape import Shape
 
 
 class Square(Shape):
-
     def __init__(self, side: float) -> None:
         super().__init__()
         self.a = side

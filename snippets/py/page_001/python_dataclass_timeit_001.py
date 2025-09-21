@@ -5,14 +5,13 @@ from functools import partial
 from secrets import choice
 from typing import Final, Protocol, final
 
-ASCII_CHARACTERS: Final[str] = (string.ascii_letters + string.ascii_lowercase +
-                                string.ascii_uppercase)
+ASCII_CHARACTERS: Final[str] = (
+    string.ascii_letters + string.ascii_lowercase + string.ascii_uppercase
+)
 
 
 class Staff(Protocol):
-
-    def get_commision(self) -> tuple[int | float, str, bool]:
-        ...
+    def get_commision(self) -> tuple[int | float, str, bool]: ...
 
 
 def generate_random_string_16(length: int = 16) -> str:

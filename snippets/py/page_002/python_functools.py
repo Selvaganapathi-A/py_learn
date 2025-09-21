@@ -13,8 +13,7 @@ def demo_filter():
     styleit('Filter Example')
     numbers: Iterable[int] = [x for x in range(1, 100)]
     print(f'Numbers :\n\t{numbers}'.expandtabs(4))
-    nums_divisible_by_7: Iterable[int] = tuple(
-        filter(lambda x: (x % 7) == 0, numbers))
+    nums_divisible_by_7: Iterable[int] = tuple(filter(lambda x: (x % 7) == 0, numbers))
     print(f'Numbers Divide by 7 :\n\t{nums_divisible_by_7}'.expandtabs(4))
 
 
@@ -38,9 +37,7 @@ def demo_partial():
     styleit('Partial Example')
 
     # partial Example
-    def gamer(name: str,
-              level: int = 0,
-              experience: int = 0) -> Mapping[str, Any]:
+    def gamer(name: str, level: int = 0, experience: int = 0) -> Mapping[str, Any]:
         return {'name': name, 'level': level, 'exp': experience}
 
     level_80 = partial(gamer, level=80)

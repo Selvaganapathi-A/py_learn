@@ -4,7 +4,6 @@ from py_learn.pytest_example import shape_circle, shape_rectangle, shape_square
 
 
 class TestRectangle:
-
     def setup_method(self, method: Callable[..., Any]):
         self.a = 8
         self.b = 5

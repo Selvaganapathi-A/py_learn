@@ -4,7 +4,6 @@ print('*' * 80)
 
 
 class Landmass(type):
-
     def __new__(cls, name, bases, class_dict, **kwargs):
         # class_ = super().__new__(cls, name, bases, class_dict)
         class_ = type.__new__(cls, name, bases, class_dict)
@@ -33,10 +32,10 @@ print('*' * 80)
 
 
 class Area(
-        metaclass=Landmass,
-        country='India',
-        state='Tamilnadu',
-        capital='Chennai',
+    metaclass=Landmass,
+    country='India',
+    state='Tamilnadu',
+    capital='Chennai',
 ):
     population: int = 123567896969
     country: str
@@ -59,10 +58,10 @@ print('*' * 80)
 
 
 class Area14(
-        metaclass=Landmass,
-        country='India',
-        state='Kerala',
-        capital='Trivandram',
+    metaclass=Landmass,
+    country='India',
+    state='Kerala',
+    capital='Trivandram',
 ):
     population: int = 123567896
     country: str

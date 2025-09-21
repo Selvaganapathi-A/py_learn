@@ -23,7 +23,3 @@ def func_logger(hashString: str):
     logger.info(datetime.now().strftime('%Y-%m-%d %H:%M:%S - %f').center(120))
     logger.info('*' * 120)
     return logger
-
-
-if __name__ == '__main__':
-    pass

@@ -38,7 +38,6 @@ async def main():
     decoded: JWTClaims = jwt.decode(token, key)
     decoded.validate()
     print(decoded)
-    #
 
 
 if __name__ == '__main__':

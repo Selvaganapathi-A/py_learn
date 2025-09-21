@@ -10,7 +10,8 @@ def main():
             salt=b'google',
             key=b'andromeda',
             leaf_size=7,
-        ).hexdigest())
+        ).hexdigest()
+    )
     print(
         hashlib.blake2b(
             b'123',
@@ -18,7 +19,8 @@ def main():
             salt=b'google',
             key=b'andromeda',
             leaf_size=7,
-        ).hexdigest())
+        ).hexdigest()
+    )
     print(
         hashlib.blake2b(
             b'meercat',
@@ -26,28 +28,32 @@ def main():
             salt=b'element',
             key=b'surprize',
             leaf_size=7,
-        ).hexdigest())
+        ).hexdigest()
+    )
     print(
         hashlib.pbkdf2_hmac(
             hash_name='sha3_512',
             password=b'google@lion',
             salt=b'dolphin',
             iterations=4,
-        ).hex())
+        ).hex()
+    )
     print(
         hashlib.pbkdf2_hmac(
             hash_name='sha3_512',
             password=b'google@tiger',
             salt=b'dolphin',
             iterations=2,
-        ).hex())
+        ).hex()
+    )
     print(
         hashlib.pbkdf2_hmac(
             hash_name='sha3_512',
             password=b'google@tiger',
             salt=b'dolphin',
             iterations=2,
-        ).hex())
+        ).hex()
+    )
 
 
 if __name__ == '__main__':

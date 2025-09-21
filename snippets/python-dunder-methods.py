@@ -6,7 +6,6 @@ from rich import print
 
 
 class SomeClass(object):
-
     def __init__(self, worth: float = 0) -> None:
         self.__worth = worth
 

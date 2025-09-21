@@ -39,8 +39,7 @@ if __name__ == '__main__':
             time.sleep(0.5)
     print()
 
-    print(
-        'jkhfjfhgvhjhgfdvhgrshgrjyt jkgkjhgkjbkjgyu ukfk fkytkf fuyfkuyf fkuy')
+    print('jkhfjfhgvhjhgfdvhgrshgrjyt jkgkjhgkjbkjgyu ukfk fkytkf fuyfkuyf fkuy')
 
     time.sleep(1)
     print('\033[F ', end='')
@@ -59,4 +58,3 @@ if __name__ == '__main__':
     # \033[F - One line Above
     sys.stdout.write('\033[u')
     print('Program ends,,,')
-    pass

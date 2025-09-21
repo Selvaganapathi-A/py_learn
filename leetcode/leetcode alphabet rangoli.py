@@ -71,20 +71,20 @@
 # ------e-d-e------
 # --------e--------
 ###########################################################
-def print_rangoli(size: int,
-                  join_with: str = '-',
-                  center_with: str = '-') -> float:
+def print_rangoli(size: int, join_with: str = '-', center_with: str = '-') -> float:
     string_lower = [chr(97 + x) for x in range(size)]
     for x in range(size):
         print(
-            join_with.join(string_lower[:size][::-1][:x] +
-                           string_lower[:size][size - x - 1:]).center(
-                               4 * size - 3, center_with))
+            join_with.join(
+                string_lower[:size][::-1][:x] + string_lower[:size][size - x - 1 :]
+            ).center(4 * size - 3, center_with)
+        )
     for x in range(1, size):
         print(
-            join_with.join(string_lower[::-1][:size - x - 1] +
-                           string_lower[x:]).center((4 * size) - 3,
-                                                    center_with))
+            join_with.join(string_lower[::-1][: size - x - 1] + string_lower[x:]).center(
+                (4 * size) - 3, center_with
+            )
+        )
     return size * 4 - 3
 
 

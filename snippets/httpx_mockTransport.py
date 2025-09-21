@@ -7,7 +7,6 @@ from httpx._models import Request
 
 
 class MockHandler(httpx.AsyncBaseTransport):
-
     async def handle_async_request(self, request: Request) -> Response:
         print(request.url)
         print(request.method)

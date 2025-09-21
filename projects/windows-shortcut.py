@@ -15,9 +15,7 @@ def main():
     shortcut = shell.CreateShortCut(str(shortcut))
     shortcut.Targetpath = str(target)
     shortcut.save()
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

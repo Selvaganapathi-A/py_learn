@@ -26,8 +26,6 @@ def main():
         'A192CBC-HS384',
         'A256CBC-HS512',
     )
-    #
-    #
     data = {
         'iss': 'https://example.com/.well-known/jwk.json',
         'sub': 1234567890,
@@ -61,8 +59,6 @@ def main():
             jwetoken.add_recipient(key)
             token = jwetoken.serialize()
             pprint(orjson.loads(token))
-            #
-            #
             jwe_obj = jwe.JWE()
             jwe_obj.deserialize(token, key)
             pprint(orjson.loads(jwe_obj.payload))  # type: ignore
@@ -70,8 +66,6 @@ def main():
             print()
         print()
         print()
-    #
-    pass
     #
     password = b'Ghost Rider'
     for enc in ContentEncryptionOptions:
@@ -90,17 +84,13 @@ def main():
             jwetoken.add_recipient(key)
             token = jwetoken.serialize()
             pprint(orjson.loads(token))
-            #
-            #
             jwe_obj = jwe.JWE()
             jwe_obj.deserialize(token, key)
             pprint(orjson.loads(jwe_obj.payload))  # type: ignore
             print()
         print()
         print()
-    #
 
 
 if __name__ == '__main__':
     main()
-    pass

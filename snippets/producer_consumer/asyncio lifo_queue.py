@@ -35,10 +35,7 @@ async def producer(queue: asyncio.LifoQueue[Tuple[int, float, str]]):
 async def consumer(queue: asyncio.LifoQueue[Tuple[int, float, str]]):
     while True:
         order_id, cook_time, food = await queue.get()
-        print(f'{order_id:>3} \x1b[38;5;3m   cooking',
-              food,
-              '\x1b[0m',
-              flush=True)
+        print(f'{order_id:>3} \x1b[38;5;3m   cooking', food, '\x1b[0m', flush=True)
         await asyncio.sleep(cook_time)
         print(
             f'{order_id:>3} \x1b[38;5;9m      served',
@@ -55,8 +52,7 @@ async def consumer(queue: asyncio.LifoQueue[Tuple[int, float, str]]):
 async def function():
     QUEUE_SIZE: int = 10
     WORKERS: int = 4
-    lifo_queue: asyncio.LifoQueue[Tuple[int, float,
-                                        str]] = asyncio.LifoQueue(QUEUE_SIZE)
+    lifo_queue: asyncio.LifoQueue[Tuple[int, float, str]] = asyncio.LifoQueue(QUEUE_SIZE)
     consumers: Iterable[asyncio.Task[NoReturn]] = list()
     for _ in range(WORKERS):
         task = asyncio.create_task(consumer(lifo_queue))

@@ -12,12 +12,10 @@ class User:
     def security(self): ...
 
 
-class BasicUser(User):
-    pass
+class BasicUser(User): ...
 
 
-class AdvancedUser(User):
-    pass
+class AdvancedUser(User): ...
 
 
 class ProUser(AdvancedUser):

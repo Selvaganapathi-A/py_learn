@@ -1,5 +1,4 @@
 class TestSensor:
-
     def __init__(self, temperature: int) -> None:
         self._temperature = temperature
 

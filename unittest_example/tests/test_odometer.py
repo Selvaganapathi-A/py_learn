@@ -28,7 +28,6 @@ The following are benefits of mocks:
 
 
 class Test_odometer(TestCase):
-
     def test_low_speed(self):
         odometer.speed = mock.Mock()
         odometer.speed.return_value = 20
@@ -55,7 +54,6 @@ class Test_odometer(TestCase):
 
 
 class Test_builtins_Secrets(TestCase):
-
     def test_mocking_builtin_secrets_module(self):
         secrets.choice = mock.Mock()
         secrets.choice.return_value = 900

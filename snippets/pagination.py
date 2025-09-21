@@ -3,7 +3,6 @@ import time
 
 
 class Paginator:
-
     def __init__(self, page_size: int) -> None:
         self.__page_size: int = page_size
         self.__start: int = 0

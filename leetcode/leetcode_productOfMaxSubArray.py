@@ -29,8 +29,6 @@ def main():
     nums: list[int]
     result: float
     #
-    #
-    #
     nums = [2, 3, -2, 4, 1, 0, 5, 2, 3]
     result = maxProductSubArray(nums)
     print(result)
@@ -42,7 +40,6 @@ def main():
     nums = [2, 3, -1, 4]
     result = maxProductSubArray(nums)
     print(result)
-    pass
 
 
 if __name__ == '__main__':
@@ -50,4 +47,3 @@ if __name__ == '__main__':
 
     subprocess.run('clear')
     main()
-    pass

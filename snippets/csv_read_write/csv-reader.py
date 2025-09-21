@@ -19,7 +19,6 @@ def main():
     for fn, ln, phone, dob, sex, state, zipcode in csv_reader:
         print((fn, ln), sex, dob)
     csv_file_descriptor.close()
-    pass
 
 
 if __name__ == '__main__':

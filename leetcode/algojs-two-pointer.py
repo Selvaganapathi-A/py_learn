@@ -23,9 +23,7 @@ def main():
     print(numbers)
     print(order(numbers, 10))
     print(numbers)
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

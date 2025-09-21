@@ -3,7 +3,6 @@ from typing import Any, Callable
 
 
 class decorate:
-
     def __init__(self, function: Callable[..., Any]) -> None:
         self.function: Callable[..., Any] = function
 

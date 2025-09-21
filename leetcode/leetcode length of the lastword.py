@@ -30,7 +30,6 @@
 
 
 class Solution:
-
     def lengthOfLastWord(self, s: str) -> int:
         s: str = s[::-1]
         no_of_characters: int = 0

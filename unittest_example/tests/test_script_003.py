@@ -2,7 +2,6 @@ from unittest import TestCase
 
 
 class Test_String(TestCase):
-
     def test_add(self):
         assert 'Hi! ' + 'John' == 'Hi! John'
 

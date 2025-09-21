@@ -4,27 +4,22 @@ from dataclasses import dataclass, field
 @dataclass
 class Vehicle:
     name: str
-    pass
 
 
 @dataclass
-class Car(Vehicle):
-    pass
+class Car(Vehicle): ...
 
 
 @dataclass
-class Mini(Car):
-    pass
+class Mini(Car): ...
 
 
 @dataclass
-class Boat(Vehicle):
-    pass
+class Boat(Vehicle): ...
 
 
 @dataclass
-class Plane(Vehicle):
-    pass
+class Plane(Vehicle): ...
 
 
 @dataclass
@@ -83,8 +78,13 @@ def main():
     lv = LicensedVehicleRegistry[Car]()
     f13 = Plane('Fighter plane')
     lv.add(bmw)
+    #
+    # ! raises ArgumentError in pylance
     lv.add(f13)
+    #
+    # ! raises ArgumentError in pylance
     lv.add(green_hunk)
+    #
     lv.display()
 
 

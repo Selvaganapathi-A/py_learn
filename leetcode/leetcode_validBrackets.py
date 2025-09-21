@@ -2,7 +2,6 @@ from learn.dsa.stack.stack import Stack
 
 
 class Solution:
-
     def isValid(self, s: str) -> bool:
         stack = Stack[str]()
         for character in s:
@@ -31,9 +30,7 @@ def main():
     print(Solution().isValid(s))
     s = '[)'
     print(Solution().isValid(s))
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

@@ -3,7 +3,6 @@ from typing import Callable
 
 
 def ti(fun: Callable[[str, str], bool]):
-
     def wra(s: str, goal: str):
         nonlocal fun
         st = time.perf_counter()
@@ -45,8 +44,6 @@ def main():
     goal: str
     result: bool
     #
-    #
-    #
     s = 'abcde'
     goal = 'cdeab'
     result = rotateString(s, goal)
@@ -61,9 +58,7 @@ def main():
     goal = 'ceebbbbacdd'
     result = rotateString(s, goal)
     print(result)
-    #
 
 
 if __name__ == '__main__':
     main()
-    pass

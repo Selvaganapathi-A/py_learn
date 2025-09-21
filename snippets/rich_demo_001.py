@@ -40,11 +40,7 @@ users = [
         'country': 'Grenada',
         'contact': 'bihab@buwiv.dm',
     },
-    {
-        'name': 'Sam Waters',
-        'country': 'Morocco',
-        'contact': 'robusat@givo.bz'
-    },
+    {'name': 'Sam Waters', 'country': 'Morocco', 'contact': 'robusat@givo.bz'},
 ]
 print(pretty_repr(users))
 pprint(users)

@@ -2,7 +2,6 @@ from subprocess import run
 
 
 class Solution:
-
     def minWindow(self, s: str, t: str) -> str:
         length_s: int = len(s)
         length_t: int = len(t)
@@ -22,21 +21,23 @@ class Solution:
         for current_pointer in range(length_s):
             character = s[current_pointer]
             window[character] = window.get(character, 0) + 1
-            if (character in count_in_t and
-                    window[character] == count_in_t[character]):
+            if character in count_in_t and window[character] == count_in_t[character]:
                 have += 1
             while have == need:
                 if (current_pointer - left_pointer + 1) < result_length:
                     result = [left_pointer, current_pointer]
                     result_length = current_pointer - left_pointer + 1
                 window[s[left_pointer]] -= 1
-                if (s[left_pointer] in count_in_t and
-                        window[s[left_pointer]] < count_in_t[s[left_pointer]]):
+                if (
+                    s[left_pointer] in count_in_t
+                    and window[s[left_pointer]] < count_in_t[s[left_pointer]]
+                ):
                     have -= 1
                 left_pointer += 1
         left_pointer, current_pointer = result
-        final_result: str = (s[left_pointer:current_pointer +
-                               1] if result_length != float('inf') else '')
+        final_result: str = (
+            s[left_pointer : current_pointer + 1] if result_length != float('inf') else ''
+        )
         return final_result
 
 
@@ -62,12 +63,10 @@ def main():
     t = 'lvn'
     result = solution.minWindow(s, t)
     print(result)
-    #
-    pass
 
 
 if __name__ == '__main__':
-    run('clear',)
+    run(
+        'clear',
+    )
     main()
-
-    pass

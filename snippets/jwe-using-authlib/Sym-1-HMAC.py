@@ -24,8 +24,6 @@ def main():
         'A192CBC-HS384',
         'A256CBC-HS512',
     )
-    #
-    #
     data = {
         'name': 'John Doe',
         'sub': 1234567890,
@@ -51,7 +49,6 @@ def main():
             # pprint(public_key)
             #
             jwe = JsonWebEncryption()
-
             mx = jwe.serialize(
                 header,
                 payload,
@@ -65,10 +62,7 @@ def main():
             print()
         print()
         print()
-    #
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

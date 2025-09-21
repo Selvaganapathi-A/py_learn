@@ -4,7 +4,6 @@ from py_learn.pytest_example.shape import Shape
 
 
 class Rectangle(Shape):
-
     def __init__(self, a: float, b: float) -> None:
         super(Rectangle, self).__init__()
         self.a = a

@@ -1,6 +1,5 @@
 import asyncio
 
-
 from authlib.jose import ECKey, JWTClaims, jwt
 from cryptography.hazmat.primitives.asymmetric.ec import EllipticCurvePublicKey
 
@@ -66,7 +65,6 @@ async def main():
         received.validate()
         print(received)
         print()
-        #
 
 
 if __name__ == '__main__':

@@ -47,8 +47,6 @@ def main():
             jwetoken.add_recipient(public_key)
             token = jwetoken.serialize()
             pprint(orjson.loads(token))
-            #
-            #
             jwe_obj = jwe.JWE()
             jwe_obj.deserialize(token, private_key)
             pprint(orjson.loads(jwe_obj.payload))  # type: ignore
@@ -79,19 +77,13 @@ def main():
             jwetoken.add_recipient(key)
             token = jwetoken.serialize()
             pprint(orjson.loads(token))
-            #
-            #
             jwe_obj = jwe.JWE()
             jwe_obj.deserialize(token, key)
             pprint(orjson.loads(jwe_obj.payload))  # type: ignore
             print()
         print()
         print()
-    #
-
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

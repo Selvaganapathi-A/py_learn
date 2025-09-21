@@ -1,4 +1,5 @@
-from typing import Generator, Self
+from collections.abc import Generator
+from typing import Self
 
 
 class Node[T]:
@@ -156,7 +157,6 @@ def main():
     # for person in linkedList.view():
     #     print(person, end=", ")
     # print()
-    pass
 
 
 if __name__ == '__main__':
@@ -164,5 +164,3 @@ if __name__ == '__main__':
 
     print(timeit.timeit(main, number=10000))
     # main()
-
-    pass

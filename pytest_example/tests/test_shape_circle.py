@@ -5,7 +5,6 @@ from py_learn.pytest_example import shape_circle, shape_rectangle, shape_square
 
 
 class TestCircle:
-
     def setup_method(self, method: Callable[..., Any]):
         self.radius = 5
         self.circle = shape_circle.Circle(self.radius)

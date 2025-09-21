@@ -4,14 +4,12 @@ from py_learn.unittest_example.sensor import Sensor
 
 
 class Temperature_Sensor(Protocol):
-
     @property
     def temperature(self) -> int:
         return 1
 
 
 class Alarm:
-
     def __init__(self, sensor: Temperature_Sensor | None = None) -> None:
         self._low: int = 18
         self._high: int = 24

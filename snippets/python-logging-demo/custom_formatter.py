@@ -3,7 +3,6 @@ from typing import Any, Literal, Mapping
 
 
 class BashFormatter(logging.Formatter):
-
     def __init__(
         self,
         fmt: str | None = None,

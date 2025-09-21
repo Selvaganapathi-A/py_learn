@@ -29,7 +29,6 @@ def main():
     b = Decimal('2.3')
     r = combine(a, b).quantize(Decimal('1.000'), rounding=decimal.ROUND_05UP)
     print(f'{a!r}+{b!r}={r!r}')
-    #
 
 
 if __name__ == '__main__':

@@ -3,12 +3,10 @@ from typing import Self
 
 
 class Infix(object):
-
     def __init__(self, func):
         self.func = func
 
-    def __add__(self, __value: Self):
-        ...
+    def __add__(self, __value: Self): ...
 
     def __or__(self, other):
         print(('__or__', self.func, other))

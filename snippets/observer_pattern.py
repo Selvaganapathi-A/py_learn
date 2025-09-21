@@ -1,5 +1,4 @@
 class Channel:
-
     def __init__(self, name: str) -> None:
         self.name = name
         self.members: set['Subscriber'] = set[Subscriber]()
@@ -16,7 +15,6 @@ class Channel:
 
 
 class Subscriber:
-
     def __init__(self, name: str) -> None:
         self.name = name
 

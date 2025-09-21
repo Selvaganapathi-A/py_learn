@@ -6,7 +6,6 @@ from py_learn.unittest_example.testsensor import TestSensor
 
 
 class TestAlarm(TestCase):
-
     def test_alarm_is_off_by_default(self):
         alarm: Alarm = Alarm()
         alarm.check()
@@ -36,7 +35,6 @@ class TestAlarm(TestCase):
 
 
 class TestAlarm002(TestCase):
-
     def setUp(self):
         self.mock_sensor: mock.MagicMock = mock.MagicMock(Sensor)
         self.alarm = Alarm(self.mock_sensor)

@@ -4,7 +4,6 @@ run(('cls',), shell=True)
 
 
 class MyDescriptor:
-
     def __set_name__(self, owner, name):
         # print("set name", "owner", owner)
         # print("set name", "name", name)

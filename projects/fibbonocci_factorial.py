@@ -16,7 +16,6 @@ def cache(funct):
 
 
 def timeit(funct):
-
     def Wrapper(*args, **kwargs):
         t1 = time.perf_counter_ns()
         result = funct(*args, **kwargs)

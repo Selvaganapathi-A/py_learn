@@ -41,7 +41,7 @@
 | &nbsp; | | |
 | Containment Test      | obj in seq         | contains(seq, obj)                |
 | &nbsp; | | |
-| # Not Implemented Yet (3.12.0)  |
+| # Not Implemented Yet (3.12.0)  | | |
 | Identity              | a is b             | is\_(a, b)                        |
 | Identity              | a is not b         | is_not(a, b)                      |
 | Truth Test            | obj                | truth(obj)                        |

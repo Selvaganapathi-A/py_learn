@@ -1,6 +1,5 @@
 # descriptors2.py
 class OneDigitNumericValue:
-
     def __init__(self):
         self.value = 0
 

@@ -54,10 +54,7 @@ def main():
             mt: JWSObject = jwe.deserialize(mx, private_key)
             print(orjson.loads(mt.get('payload', b'{}')))  # type: ignore
         print()
-    #
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

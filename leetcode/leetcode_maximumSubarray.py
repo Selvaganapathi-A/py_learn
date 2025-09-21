@@ -22,10 +22,6 @@ def maximumSubArray(nums: list[int]) -> float:
 def main():
     nums: list[int]
     result: float
-    #
-    #
-    #
-    #
     nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4, -6]
     result = maximumSubArray(nums)
     print(result)
@@ -33,7 +29,6 @@ def main():
     nums = [5, 4, -1, 7, 8]
     result = maximumSubArray(nums)
     print(result)
-    pass
 
 
 if __name__ == '__main__':

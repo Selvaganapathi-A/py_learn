@@ -24,7 +24,6 @@ Setup and teardown
 #
 #
 class CustomContextManager:
-
     def __enter__(self):
         self.start = time.perf_counter()
         print('entering')
@@ -45,7 +44,6 @@ class CustomContextManager:
 
 
 class AsyncCustomContextManager:
-
     async def __aenter__(self):
         print('async entering')
         self.start = time.perf_counter()
@@ -88,7 +86,6 @@ if __name__ == '__main__':
 #
 @dataclass(slots=True)
 class Person:
-
     def __enter__(self):
         print('enter ctx')
         return self
@@ -107,7 +104,6 @@ class Person:
 
 
 class MeasureTime:
-
     def __enter__(self):
         self.start = perf_counter_ns()
         self.end = 0.0

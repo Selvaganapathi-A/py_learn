@@ -1,5 +1,4 @@
 class Fruit:
-
     def is_organic(self):
         raise NotImplementedError(
             'Method Not Implemented.'
@@ -7,7 +6,6 @@ class Fruit:
 
 
 class Apple(Fruit):
-
     def __init__(self, price: float) -> None:
         self.price: float = price
 

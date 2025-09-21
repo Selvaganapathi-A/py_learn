@@ -10,7 +10,13 @@ def find_middle[T](ll: Singly_Linked_List[T]):
     if ll.head is None or ll.head.next is None:
         return
     slow_ptr: Node[T] | None = ll.head
-    fast_ptr: Node[T] | None = slow_ptr.next.next if slow_ptr.next else None
+    fast_ptr: Node[T] | None
+
+    if slow_ptr is not None and slow_ptr.next is not None:
+        fast_ptr = slow_ptr.next.next
+    else:
+        fast_ptr = None
+
     while fast_ptr and slow_ptr:
         fast_ptr = fast_ptr.next.next if fast_ptr.next else None
         slow_ptr = slow_ptr.next
@@ -28,7 +34,6 @@ def main_1():
         print(x)
     print()
     ic(find_middle(li))
-    pass
 
 
 def main():
@@ -64,14 +69,9 @@ def main():
     #     print(a, end=", ")
     # print()
     # print("After removing List".center(60, "-"))
-    #
-
-    pass
 
 
 if __name__ == '__main__':
     print(timeit(main, number=100000))
     print(timeit(main_1, number=100000))
     # main()
-
-    pass

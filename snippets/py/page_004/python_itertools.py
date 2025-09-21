@@ -11,7 +11,7 @@ def function_02():
     from itertools import zip_longest
 
     string: list[str] = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
-    number: list[int] = [x for x in range(9)]
+    number: list[int] = list(range(9))
     names: list[str] = ['anu', 'mohan', 'priya', 'rahu', 'meera']
     for x in zip_longest(string, number, names):
         print(x)
@@ -41,13 +41,14 @@ def function_03():
     for x in combinations(string, 3):
         print('-'.join(x))
     print('-' * 80)
-    for x in pairwise(string,):
+    for x in pairwise(
+        string,
+    ):
         print(x)
     print('-' * 80)
 
 
 def function_04():
-
     def vowel_count(word: str):
         ct: int = 0
         for ch in word:
@@ -79,8 +80,7 @@ def function_04():
     # returns iterable of consecutive keys based on key function
     sorted_words_by_vowel_count = sorted(words, key=vowel_count)
     grouped_words_by_vowel_count = {
-        k: list(v)
-        for k, v in groupby(sorted_words_by_vowel_count, key=vowel_count)
+        k: list(v) for k, v in groupby(sorted_words_by_vowel_count, key=vowel_count)
     }
     print(grouped_words_by_vowel_count)
 

@@ -4,8 +4,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 
-def get_samples(frequency: int,
-                amplitude: int = 100) -> list[tuple[float, float]]:
+def get_samples(frequency: int, amplitude: int = 100) -> list[tuple[float, float]]:
     m: list[tuple[float, float]] = list()
 
     samples = 2160
@@ -70,4 +69,3 @@ def main():
 if __name__ == '__main__':
     os.system('clear')
     main()
-    pass

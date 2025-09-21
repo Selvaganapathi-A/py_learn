@@ -12,7 +12,6 @@ def tearDownModule():
 
 
 class Test_Case(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls) -> None:
         print('Run Setup Class.')
@@ -42,7 +41,6 @@ class Test_Case(unittest.TestCase):
 
 @unittest.skip('Development in Progress')
 class Test_This_Framework_test_is_Skipped(unittest.TestCase):
-
     def test_This(self):
         assert 1 + 3 == 4
 
@@ -51,7 +49,6 @@ class Test_This_Framework_test_is_Skipped(unittest.TestCase):
 
 
 class TestDemo(unittest.TestCase):
-
     def test_that_run(self):
         self.assertEqual(1 + 1, 2)
 

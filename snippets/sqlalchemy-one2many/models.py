@@ -8,9 +8,7 @@ Base: DeclarativeMeta = declarative_base()
 class Vehicle(Base):
     __tablename__ = 'Vehicle'
     #
-    pk: Mapped[int] = mapped_column(Integer,
-                                    primary_key=True,
-                                    autoincrement=True)
+    pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     #
     vehicle_number: Mapped[str] = mapped_column(String, nullable=False)
     registration_number: Mapped[str] = mapped_column(String, nullable=False)
@@ -33,9 +31,7 @@ class Vehicle(Base):
 
 class Driver(Base):
     __tablename__ = 'Driver'
-    pk: Mapped[int] = mapped_column(Integer,
-                                    primary_key=True,
-                                    autoincrement=True)
+    pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     #
     first_name: Mapped[str] = mapped_column(String, nullable=False)
     last_name: Mapped[str] = mapped_column(String, nullable=False)

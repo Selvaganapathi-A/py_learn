@@ -35,22 +35,22 @@
 
 def format_file_size(num: int | float, suffix: str = 'Byte'):
     for unit in (
-            '',
-            'Kilo',
-            'Mega',
-            'Giga',
-            'Tera',
-            'Peta',
-            'Exa',
-            'Zetta',
-            'Yotta',
-            'Brono',
-            'Geop',
-            'Sagan',
-            'Pija',
-            'Alpha',
-            'Kryat',
-            'Amos',
+        '',
+        'Kilo',
+        'Mega',
+        'Giga',
+        'Tera',
+        'Peta',
+        'Exa',
+        'Zetta',
+        'Yotta',
+        'Brono',
+        'Geop',
+        'Sagan',
+        'Pija',
+        'Alpha',
+        'Kryat',
+        'Amos',
     ):
         if abs(num) < 1024.0:
             return '%6.2f %s %s' % (num, unit, suffix)

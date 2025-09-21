@@ -61,9 +61,7 @@ def main():
     msg = receive_message(vault, 'mathu', msg)
     print('Decrypted Message :', msg)
     print('*' * 106)
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

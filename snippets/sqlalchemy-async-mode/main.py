@@ -17,8 +17,7 @@ AsyncSessionLocal: sessionmaker = sessionmaker(
 )
 
 
-class BaseModel(DeclarativeBase):
-    pass
+class BaseModel(DeclarativeBase): ...
 
 
 # Define the model
@@ -84,10 +83,7 @@ async def main():
         await bulk_insert(session, users)
 
         # Bulk Update
-        await bulk_update(session, {
-            1: 'new_alice@example.com',
-            2: 'new_bob@example.com'
-        })
+        await bulk_update(session, {1: 'new_alice@example.com', 2: 'new_bob@example.com'})
 
         # Fetch and Print
         users = await fetch_users(session)

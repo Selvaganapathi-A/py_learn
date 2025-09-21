@@ -2,7 +2,6 @@ import os
 
 
 class Solution:
-
     def twoSum(self, nums: list[int], target: int) -> list[int]:
         temp: dict[int, int] = {}
         for i, num in enumerate(nums):
@@ -25,11 +24,8 @@ def main():
     #
     case_3 = [3, 3]
     print(sol.twoSum(case_3, 6))
-    #
-    pass
 
 
 if __name__ == '__main__':
     os.system('cls')
     main()
-    pass

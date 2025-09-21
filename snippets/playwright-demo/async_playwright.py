@@ -16,9 +16,7 @@ async def get_basic_data(browser: Browser):
         wait_until='domcontentloaded',
         timeout=60000,
     )
-    if webpage is None:
-        pass
-    else:
+    if webpage is not None:
         HTTP_STATUS = webpage.status
         RESPONSE_TITLE = await page.title()
         RESPONSE_URL = page.url
@@ -34,10 +32,12 @@ async def main():
             slow_mo=250,  # slowdown playwright operations by 0.25 second.
         )
         context: BrowserContext = await browser.new_context(
-            reduced_motion='reduce',)
+            reduced_motion='reduce',
+        )
         page: Page = await context.new_page()
         result = await asyncio.gather(
-            *(get_basic_data(browser) for _ in range(10)),)
+            *(get_basic_data(browser) for _ in range(10)),
+        )
         print(result)
         await page.close()
 

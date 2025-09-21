@@ -19,8 +19,7 @@ async def main():
         # Channel can be "chrome", "msedge", "chrome-beta", "msedge-beta" or "msedge-dev".
         browser = await p.chromium.launch(channel='chrome', headless=True)
         # context = await browser.new_context()
-        context = await browser.new_context(storage_state='session.json'
-                                           )  # Load session
+        context = await browser.new_context(storage_state='session.json')  # Load session
         page = await browser.new_page()
 
         response = await page.goto(
@@ -36,9 +35,7 @@ async def main():
         # print(help(response))
         #
         title = await page.title()
-        if response is None:
-            pass
-        else:
+        if response is not None:
             print(f'{response.status}')
         print(f'{title!r}')
         print(page.url)
@@ -59,4 +56,3 @@ if __name__ == '__main__':
     import asyncio
 
     asyncio.run(main())
-    pass

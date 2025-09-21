@@ -12,10 +12,9 @@ def main():
         a = a << 1
         print(f'{b: >4} - {a: >42} sector.')
         print(f'{b: >4} - {a: >42x} sector.')
-        print(f'{b: >4} - {format_file_size(a*512): >50}')
+        print(f'{b: >4} - {format_file_size(a * 512): >50}')
         print()
         time.sleep(0.25)
-    pass
 
 
 if __name__ == '__main__':
@@ -37,4 +36,3 @@ if __name__ == '__main__':
     print()
     print()
     print(format_file_size(gpt_64 / 128))
-    pass

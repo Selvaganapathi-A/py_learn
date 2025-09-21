@@ -1,5 +1,4 @@
 class SomeMetaClass(type):
-
     def __init__(self, name, bases, attrs, **kw_args):
         super(SomeMetaClass, self).__init__(name, bases, attrs)
         print(name)
@@ -18,7 +17,6 @@ class Speaker:
 
 
 class SmartSpeaker:
-
     def play_song(self):
         return 'Some Song'
 

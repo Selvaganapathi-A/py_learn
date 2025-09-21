@@ -1,7 +1,5 @@
 class Solution:
-
-    def carFleet(self, target: int, position: list[int],
-                 speed: list[int]) -> int:
+    def carFleet(self, target: int, position: list[int], speed: list[int]) -> int:
         cars_right_to_left = sorted(zip(position, speed), reverse=True)
 
         bottleneck = float('-inf')
@@ -29,4 +27,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    pass

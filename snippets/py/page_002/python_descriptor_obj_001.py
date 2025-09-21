@@ -1,6 +1,5 @@
 # descriptors4.py
 class OneDigitNumericValue:
-
     def __init__(self, *name):
         print(name)
         self.name = name

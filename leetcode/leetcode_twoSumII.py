@@ -1,5 +1,4 @@
 class Solution:
-
     def twoSum(self, numbers: list[int], target: int, /) -> list[int]:
         i: int = 0
         j: int = len(numbers) - 1
@@ -20,8 +19,6 @@ def main():
     target: int
     result: list[int]
     #
-    #
-    #
     nums = [2, 7, 11, 15]
     target = 9
     result = Solution().twoSum(sorted(nums), target)
@@ -41,8 +38,6 @@ def main():
     target = 2
     result = Solution().twoSum(sorted(nums), target)
     print(result)
-    #
-    pass
 
 
 if __name__ == '__main__':

@@ -31,12 +31,18 @@ def workarea(session: Session):
             print('-->', vehicle.vehicle_number, vehicle.registration_number)
     print()
     #
-    for vehicle in (session.execute(
-            select(Vehicle).join(Driver,
-                                 Driver.pk == Vehicle.driver_pk).order_by(
-                                     Driver.last_name,
-                                     Driver.first_name,
-                                 )).scalars().all()):
+    for vehicle in (
+        session.execute(
+            select(Vehicle)
+            .join(Driver, Driver.pk == Vehicle.driver_pk)
+            .order_by(
+                Driver.last_name,
+                Driver.first_name,
+            )
+        )
+        .scalars()
+        .all()
+    ):
         print(
             vehicle.vehicle_number,
             vehicle.registration_number,

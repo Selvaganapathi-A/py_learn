@@ -2,7 +2,6 @@ from typing import Any, Callable
 
 
 def debug(func_: Callable):
-
     def wrapper(*args, **kwargs):
         print(func_.__qualname__, 'is executing.')
         return func_(*args, **kwargs)
@@ -11,7 +10,6 @@ def debug(func_: Callable):
 
 
 class Fruit(type):
-
     def __new__(metaclass, name, bases, class_attrs, **kwargs):  # type:ignore
         class_ = type(metaclass.__name__, bases, class_attrs)
         for k, v in vars(class_).items():

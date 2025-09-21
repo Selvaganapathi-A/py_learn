@@ -7,7 +7,6 @@ from typing import List
 
 
 class Solution:
-
     def setZeroes(self, matrix: List[List[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
@@ -48,7 +47,6 @@ class Solution:
                 print('---', (rs, 0, 0), '---')
                 print('---', (re, 0, 0), '---')
                 print()
-                #
 
                 print('fwd col')
                 while cs <= c < ce:
@@ -199,10 +197,7 @@ def main():
         print()
         print()
 
-    pass
-
 
 if __name__ == '__main__':
     run('clear')
     main()
-    pass

@@ -2,7 +2,6 @@ from unittest import TestCase
 
 
 class TestDivision(TestCase):
-
     def test_division(self):
         assert 1 / 2 == 0.5
 

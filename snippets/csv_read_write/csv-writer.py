@@ -72,15 +72,17 @@ def main():
     )
     fake: faker.Faker = faker.Faker('en-US')
     fake.add_provider(faker_education.SchoolProvider)
-    csv_writer.writerow((
-        'First-Name',
-        'Last-Name',
-        'Phone-Number',
-        'Birth-Day',
-        'Sex',
-        'State',
-        'Zip-Code',
-    ))
+    csv_writer.writerow(
+        (
+            'First-Name',
+            'Last-Name',
+            'Phone-Number',
+            'Birth-Day',
+            'Sex',
+            'State',
+            'Zip-Code',
+        )
+    )
     for x in range(1000):
         csv_writer.writerow(funcname(fake).export())
     csv_file_descriptor.flush()

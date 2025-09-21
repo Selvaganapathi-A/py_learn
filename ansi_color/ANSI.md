@@ -89,18 +89,18 @@ Any whitespaces between sequences and arguments should be ignored. They are pres
 
 ## Colors / Graphics Mode
 
-| ESC Code Sequence | Reset Sequence | Description                                                |
-| :---------------- | :------------- | :--------------------------------------------------------- |
-| `ESC[1;34;{...}m` |                | Set graphics modes for cell, separated by semicolon (`;`). |
-| `ESC[0m`          |                | reset all modes (styles and colors)                        |
-| `ESC[1m`          | `ESC[22m`      | set bold mode.                                             |
-| `ESC[2m`          | `ESC[22m`      | set dim/faint mode.                                        |
-| `ESC[3m`          | `ESC[23m`      | set italic mode.                                           |
-| `ESC[4m`          | `ESC[24m`      | set underline mode.                                        |
-| `ESC[5m`          | `ESC[25m`      | set blinking mode                                          |
-| `ESC[7m`          | `ESC[27m`      | set inverse/reverse mode                                   |
-| `ESC[8m`          | `ESC[28m`      | set hidden/invisible mode                                  |
-| `ESC[9m`          | `ESC[29m`      | set strikethrough mode.                                    |
+| ESC Code Sequence | Reset Sequence | Description                                                 |
+| :---------------- | :------------- | :---------------------------------------------------------- |
+| `ESC[1;34;{...}m` |                | Set graphics modes for cell, separated by semicolon (`;`)\. |
+| `ESC[0m`          |                | reset all modes (styles and colors)\.                       |
+| `ESC[1m`          | `ESC[22m`      | set bold mode\.                                             |
+| `ESC[2m`          | `ESC[22m`      | set dim/faint mode\.                                        |
+| `ESC[3m`          | `ESC[23m`      | set italic mode\.                                           |
+| `ESC[4m`          | `ESC[24m`      | set underline mode\.                                        |
+| `ESC[5m`          | `ESC[25m`      | set blinking mode\.                                         |
+| `ESC[7m`          | `ESC[27m`      | set inverse/reverse mode\.                                  |
+| `ESC[8m`          | `ESC[28m`      | set hidden/invisible mode\.                                 |
+| `ESC[9m`          | `ESC[29m`      | set strikethrough mode.                                     |
 
 > **Note:** Some terminals may not support some of the graphic mode sequences listed above.
 
@@ -161,6 +161,8 @@ The following escape codes tells the terminal to use the given color ID:
 Where `{ID}` should be replaced with the color index from 0 to 255 of the following color table:
 
 ![256 Color table](https://user-images.githubusercontent.com/995050/47952855-ecb12480-df75-11e8-89d4-ac26c50e80b9.png)
+
+![256 Color table](./ansi-colors.png)
 
 The table starts with the original 16 colors (0-15).
 

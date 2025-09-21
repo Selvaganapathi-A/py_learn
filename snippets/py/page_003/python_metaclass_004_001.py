@@ -22,28 +22,22 @@ class Apple(metaclass=Fruit, origin='india', color='red'):
         self.color = color
 
 
-class Orange(metaclass=Fruit):
-    pass
+class Orange(metaclass=Fruit): ...
 
 
-class Banana(metaclass=Fruit):
-    pass
+class Banana(metaclass=Fruit): ...
 
 
-class Guaua(metaclass=Fruit):
-    pass
+class Guaua(metaclass=Fruit): ...
 
 
-class PineApple(metaclass=Fruit):
-    pass
+class PineApple(metaclass=Fruit): ...
 
 
-class StrawBerry(metaclass=Fruit):
-    pass
+class StrawBerry(metaclass=Fruit): ...
 
 
 class BlueBerry(metaclass=Fruit):
-
     def __new__(cls):
         print('Hi')
         return object.__new__(cls)

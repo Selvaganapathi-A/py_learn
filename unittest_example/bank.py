@@ -1,8 +1,7 @@
 from dataclasses import dataclass
 
 
-class InvalidTransaction(Exception):
-    pass
+class InvalidTransaction(Exception): ...
 
 
 @dataclass(slots=True)

@@ -35,10 +35,6 @@ def main():
         except StopIteration as se:
             logging.exception(se)
             break
-        else:
-            pass
-        finally:
-            pass
         time.sleep(0.25)
     print('End of Program')
 

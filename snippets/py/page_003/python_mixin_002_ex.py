@@ -18,7 +18,6 @@ class Animal:
 
 @dataclass
 class Monkey:
-
     def serialize(self):
         retur
 

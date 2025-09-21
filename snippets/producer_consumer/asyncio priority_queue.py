@@ -35,10 +35,7 @@ async def producer(queue: asyncio.PriorityQueue[Tuple[int, float, str]]):
 async def consumer(queue: asyncio.PriorityQueue[Tuple[int, float, str]]):
     while True:
         order_id, cook_time, food = await queue.get()
-        print(f'{order_id:>3} \x1b[38;5;3m   cooking',
-              food,
-              '\x1b[0m',
-              flush=True)
+        print(f'{order_id:>3} \x1b[38;5;3m   cooking', food, '\x1b[0m', flush=True)
         await asyncio.sleep(cook_time)
         print(
             f'{order_id:>3} \x1b[38;5;9m      served',
@@ -55,8 +52,9 @@ async def consumer(queue: asyncio.PriorityQueue[Tuple[int, float, str]]):
 async def function():
     QUEUE_SIZE: int = 10
     WORKERS: int = 4
-    priority_queue: asyncio.PriorityQueue[Tuple[int, float, str]] = (
-        asyncio.PriorityQueue(QUEUE_SIZE))
+    priority_queue: asyncio.PriorityQueue[Tuple[int, float, str]] = asyncio.PriorityQueue(
+        QUEUE_SIZE
+    )
     consumers: Iterable[asyncio.Task[NoReturn]] = list()
     for _ in range(WORKERS):
         task = asyncio.create_task(consumer(priority_queue))

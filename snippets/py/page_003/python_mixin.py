@@ -1,15 +1,12 @@
 # Mixin Class
 class myMixin:
-
     def toDict(self):
         return self.__dict__
 
 
 class Employee:
-
     def __init__(self, pay) -> None:
         self.pay = pay
-        pass
 
     def __init_subclass__(cls) -> None:
         print(cls.__name__, 'was inherit me')

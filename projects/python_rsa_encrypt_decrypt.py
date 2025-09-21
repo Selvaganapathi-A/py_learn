@@ -42,11 +42,14 @@ def sign(message: str, key: rsa.PrivateKey):
 
 def verify(message: str, signature: bytes, key: rsa.PublicKey):
     try:
-        return (rsa.verify(
-            message.encode('ascii'),
-            signature,
-            key,
-        ) == 'SHA-1')
+        return (
+            rsa.verify(
+                message.encode('ascii'),
+                signature,
+                key,
+            )
+            == 'SHA-1'
+        )
     except Exception:
         return False
 

@@ -21,12 +21,9 @@ def main():
             sleep(0.1)
 
     with tqdm(
-            total=10,
-            bar_format=
-            '{postfix[0]} {bar} {postfix[1][value]:>8.2f} {postfix[2]} {postfix[3]}',
-            postfix=['Batch', {
-                'value': 0
-            }, '', ''],
+        total=10,
+        bar_format='{postfix[0]} {bar} {postfix[1][value]:>8.2f} {postfix[2]} {postfix[3]}',
+        postfix=['Batch', {'value': 0}, '', ''],
     ) as t:
         for i in range(101):
             sleep(0.1)
@@ -61,13 +58,12 @@ if __name__ == '__main__':
     # ┳░▒▒▓█▀▄▁▂▃▄▅▆▇█▉
     print('┳░▒▓█▀▄▁▂▃▄▅▆▇█▉ ┏┛┗┓┣┳┻━╋━┻┳┫╏╭╯╰╮')
     with tqdm(
-            total=10,
-            bar_format='{percentage:6.2f} % {bar} ',
-            postfix=' ',
-            ascii='░█',
-            colour='Blue',
+        total=10,
+        bar_format='{percentage:6.2f} % {bar} ',
+        postfix=' ',
+        ascii='░█',
+        colour='Blue',
     ) as t:
         for j in range(1, 11):
             sleep(0.1)
             t.update()
-    pass

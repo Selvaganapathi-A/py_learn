@@ -27,7 +27,6 @@ if __name__ == '__main__':
     run('cls', shell=True)
 
     class M:
-
         def __init__(self, n: float = 6) -> None:
             self.n = n
             self.__on_ = n

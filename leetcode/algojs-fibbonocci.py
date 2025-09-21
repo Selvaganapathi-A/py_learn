@@ -21,9 +21,7 @@ def main():
     print(fibbonocci(13))
     print(fibbonocci(14))
     print(fibbonocci(12))
-    pass
 
 
 if __name__ == '__main__':
     main()
-    pass

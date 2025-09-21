@@ -4,7 +4,6 @@ from py_learn.unittest_example.bank import BackAccount, InvalidTransaction
 
 
 class Test_BankAccount(TestCase):
-
     def setUp(self):
         # Initialize a bank account with a balance of 1000 for testing
         self.account = BackAccount(balance=1000)
