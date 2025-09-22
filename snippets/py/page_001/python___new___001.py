@@ -4,7 +4,7 @@ from typing import Any, Self, Type
 class Robot:
     __identity__: int = 0
 
-    def __new__(cls: Type[Self], *args: Any, **kwargs: Any) -> Self:
+    def __new__(cls: type[Self], *args: Any, **kwargs: Any) -> Self:
         cls.__identity__ += 1
         return super().__new__(cls)
 
@@ -32,9 +32,6 @@ if __name__ == '__main__':
     print(a3, a3.objects_created)
     a4 = Robot('Honey bee')
     print(a4, a4.objects_created)
-    print()
-    print()
-    print()
     print(a1.objects_created)
     print(a2.objects_created)
     print(a3.objects_created)

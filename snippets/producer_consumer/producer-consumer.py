@@ -31,12 +31,12 @@ async def main():
     ]
     queue: asyncio.Queue[tuple[str, int]] = asyncio.Queue(3)
     # * create list to track tasks.
-    producers: list[asyncio.Task[None]] = list()
+    producers: list[asyncio.Task[None]] = []
     for task_id in countries:
         task = asyncio.create_task(producer(queue, task_id), name=task_id)
         producers.append(task)
     # * create list to track tasks.
-    consumers: list[asyncio.Task[NoReturn]] = list()
+    consumers: list[asyncio.Task[NoReturn]] = []
     for task_id in llms:
         task = asyncio.create_task(consumer(queue, task_id), name=task_id)
         consumers.append(task)

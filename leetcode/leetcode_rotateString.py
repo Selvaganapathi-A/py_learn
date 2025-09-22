@@ -1,5 +1,5 @@
 import time
-from typing import Callable
+from collections.abc import Callable
 
 
 def ti(fun: Callable[[str, str], bool]):
@@ -35,7 +35,6 @@ def rotateString(s: str, goal: str):
                 i = 0
             else:
                 j += 1
-
     return False
 
 

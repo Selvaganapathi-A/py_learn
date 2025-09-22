@@ -1,4 +1,5 @@
-from typing import Any, Callable, Iterable, Mapping
+from collections.abc import Callable, Iterable, Mapping
+from typing import Any
 
 
 def FunctionDecorator(myfunc: Callable[..., Any]) -> Callable[..., Any]:

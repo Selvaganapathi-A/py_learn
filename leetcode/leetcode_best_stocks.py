@@ -131,7 +131,6 @@ def main():
         current_profit = current_price - min_price
         if current_profit > max_profit:
             max_profit = current_profit
-
     ic(max_profit)
 
 

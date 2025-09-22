@@ -1,5 +1,3 @@
-from typing import Optional
-
 from playwright.async_api import async_playwright
 from playwright.async_api._generated import (Browser, BrowserContext, Page,
                                              Response)
@@ -7,11 +5,11 @@ from playwright.async_api._generated import (Browser, BrowserContext, Page,
 
 async def get_basic_data(browser: Browser):
     HTTP_STATUS: int = -1
-    RESPONSE_URL: Optional[str] = None
-    RESPONSE_TITLE: Optional[str] = None
+    RESPONSE_URL: str | None = None
+    RESPONSE_TITLE: str | None = None
     #
     page: Page = await browser.new_page()
-    webpage: Optional[Response] = await page.goto(
+    webpage: Response | None = await page.goto(
         'http://localhost:3000/',
         wait_until='domcontentloaded',
         timeout=60000,

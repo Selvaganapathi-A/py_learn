@@ -47,7 +47,7 @@ class DescriptorClass[T, U]:
             self.__object_registry[__cls][__instance]['accessed'] = 1
         logging.debug(
             (
-                f"Accessing {__cls.__name__}.{self.__var} of {__instance} "
+                f'Accessing {__cls.__name__}.{self.__var} of {__instance} '
                 f"'[{self.__object_registry[__cls][__instance]['accessed']}"
                 " times.]'"
             )

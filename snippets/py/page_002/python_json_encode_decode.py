@@ -81,10 +81,8 @@ def main():
     )
     data = [michel, rosy]
     pprint.pprint(data)
-    print()
     dump = json.dumps(data, default=encoder, indent=4)
     print(dump)
-    print()
     load: list[Student] = json.loads(dump, object_hook=decoder)
     pprint.pprint(load)
     print(type(load[0]))

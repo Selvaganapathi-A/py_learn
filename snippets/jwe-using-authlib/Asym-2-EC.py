@@ -32,7 +32,6 @@ def main():
         'iat': datetime.datetime(2024, 8, 1).timestamp(),
     }
     payload = orjson.dumps(data)
-
     for alg in AsymmetricAlgorithms:
         for enc in ContentEncryptionOptions:
             header = {'alg': alg, 'enc': enc, 'typ': 'JWE'}
@@ -53,7 +52,6 @@ def main():
             #
             mt: JWSObject = jwe.deserialize(mx, private_key)
             print(orjson.loads(mt.get('payload', b'{}')))  # type: ignore
-        print()
 
 
 if __name__ == '__main__':

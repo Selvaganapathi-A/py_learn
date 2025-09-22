@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Literal, Union
+from typing import Literal
 
 
 @dataclass(slots=True, frozen=True)
@@ -7,7 +7,7 @@ class Person:
     name: str
     gender: Literal['M', 'F']
     age: float
-    email: Union[str, None]
+    email: str | None
 
 
 users = [

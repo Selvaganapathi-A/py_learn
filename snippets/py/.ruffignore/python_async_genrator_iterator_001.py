@@ -32,15 +32,12 @@ async def Async_Generator[T: (int, float)](start: T, stop: T, step: T) -> AsyncG
 async def main():
     async for x in Async_Iterator(10, 100, 2):
         print(f'{x:4.2f}')
-    print()
     # hideit print("#" * 80)
     async for x in Async_Generator(350, 600, 10):
         print(x)
-    print()
     # hideit print("#" * 80)
     async for x in Async_Generator(350.78, 600.37, 13.147):
         print(x)
-    print()
     # hideit print("#" * 80)
 
 

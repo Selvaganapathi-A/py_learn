@@ -19,7 +19,6 @@ def main():
                 lst=[1, 2],
             )
             sleep(0.1)
-
     with tqdm(
         total=10,
         bar_format='{postfix[0]} {bar} {postfix[1][value]:>8.2f} {postfix[2]} {postfix[3]}',
@@ -31,7 +30,6 @@ def main():
             t.postfix[2] = i / 2
             t.postfix[3] = i
             t.update()
-
     for _ in tqdm(range(1, 26, 1)):
         time.sleep(1)
 
@@ -51,7 +49,6 @@ bar_format  : str, optional
 |          Note that a trailing ": " is automatically removed after {desc}
 |          if the latter is empty.
 """
-
 if __name__ == '__main__':
     # main()
     # help(tqdm)

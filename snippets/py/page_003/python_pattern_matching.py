@@ -24,7 +24,7 @@ def process(arg: Any):
             print(f'{arg} is Number')
         case str():
             print(f'{arg} is String')
-        case RedPrint():
+        case Red:
             print('is object')
         case _:
             print('is Unknown to me')
@@ -43,7 +43,6 @@ def main():
     a = RedPrint(29)
     process(a)
     process(sum)
-    print()
 
 
 if __name__ == '__main__':

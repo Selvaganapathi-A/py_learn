@@ -45,7 +45,7 @@ class ClassicUser(ProUser):
     #     return super().security()
 
 
-def createUser[T: User](cls: Type[T], name: str) -> T:
+def createUser[T: User](cls: type[T], name: str) -> T:
     return cls(name)
 
 
@@ -53,23 +53,18 @@ def main():
     user: User = createUser(User, 'Arvindh')
     print(user.name)
     print(user.display())
-    print()
     basicUser: BasicUser = createUser(BasicUser, 'Zahir')
     print(basicUser.name)
     print(basicUser.display())
-    print()
     proUser: ProUser = createUser(ProUser, 'Mithun')
     print(proUser.name)
     print(proUser.display())
-    print()
     advancedUser: AdvancedUser = createUser(AdvancedUser, 'Zenuth')
     print(advancedUser.name)
     print(advancedUser.display())
-    print()
     classicUser: User = createUser(ClassicUser, 'Amar')
     print(classicUser.name)
     print(classicUser.display())
-    print()
 
 
 if __name__ == '__main__':

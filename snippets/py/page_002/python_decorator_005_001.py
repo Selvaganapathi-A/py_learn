@@ -1,5 +1,6 @@
 import time
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 
 class Factory:
@@ -29,10 +30,6 @@ def sayname(name: str):
 
 
 if __name__ == '__main__':
-    print()
     print(sayname('google'))
-    print()
     print(sayname('bing'))
-    print()
     print(sayname('yahoo'))
-    print()

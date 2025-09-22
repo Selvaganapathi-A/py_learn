@@ -1,6 +1,4 @@
-import operator
-from types import UnionType
-from typing import Any, Self
+from typing import Self
 
 from rich import print
 

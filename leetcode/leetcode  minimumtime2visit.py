@@ -1,9 +1,8 @@
 import tracemalloc
-from typing import List
 
 
 class Solution:
-    def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
+    def minTimeToVisitAllPoints(self, points: list[list[int]]) -> int:
         distance = 0
         for i in range(1, len(points)):
             distance += max(

@@ -3,9 +3,8 @@ from pprint import pprint
 import orjson
 from jwcrypto import jwe, jwk
 
+
 # from authlib.jose import JsonWebEncryption, JWSObject, OctKey
-
-
 def main():
     SymmetricAlgorithms = (
         # ! not upported by authlib
@@ -17,7 +16,6 @@ def main():
         'A192GCMKW',
         'A256GCMKW',
     )
-
     ContentEncryptionOptions = (
         'A128GCM',
         'A192GCM',
@@ -62,10 +60,6 @@ def main():
             jwe_obj = jwe.JWE()
             jwe_obj.deserialize(token, key)
             pprint(orjson.loads(jwe_obj.payload))  # type: ignore
-            print()
-            print()
-        print()
-        print()
     #
     password = b'Ghost Rider'
     for enc in ContentEncryptionOptions:
@@ -87,9 +81,6 @@ def main():
             jwe_obj = jwe.JWE()
             jwe_obj.deserialize(token, key)
             pprint(orjson.loads(jwe_obj.payload))  # type: ignore
-            print()
-        print()
-        print()
 
 
 if __name__ == '__main__':

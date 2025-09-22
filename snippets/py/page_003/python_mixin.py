@@ -30,10 +30,8 @@ class Person(Employee, myMixin):
 
 if __name__ == '__main__':
     ramya = Person('Ramya', 'P', 80)
-    print()
     print(ramya.toDict())
     print(ramya.getPay())
     meena = Person('Meena', 'R', 120)
-    print()
     print(meena.toDict())
     print(meena.getPay())

@@ -4,7 +4,6 @@ from collections import defaultdict
 def topKElements(nums: list[int], k: int) -> list[int]:
     # ! Leetcode Result
     orb: dict[int, int] = {}
-
     for i in nums:
         if i in orb:
             orb[i] += 1
@@ -13,7 +12,6 @@ def topKElements(nums: list[int], k: int) -> list[int]:
     # print(sorted(orb, key=orb.get), orb)
     result: list[int] = []
     in_result = 0
-
     for x in sorted(orb.items(), key=lambda x: x[1], reverse=True):
         result.append(x[0])
         in_result += 1

@@ -5,7 +5,7 @@ import time
 from concurrent.futures import (ProcessPoolExecutor, ThreadPoolExecutor,
                                 as_completed)
 from threading import current_thread
-from typing import Any, List
+from typing import Any
 
 
 def Threadfunc():
@@ -56,10 +56,9 @@ if __name__ == '__main__':
         )
         for x in as_completed(future_object):
             print(x.result())
-    print()
     timestamp = datetime.datetime.now()
     with ThreadPoolExecutor(4, 'Miami') as Executor:
-        r: List[Any] = []
+        r: list[Any] = []
         for x in range(16):
             r.append(Executor.submit(Threadfunc))
         Executor.shutdown(wait=True)
@@ -70,10 +69,9 @@ if __name__ == '__main__':
             'Threadpool Completed',
             datetime.datetime.now() - timestamp,
         )
-    print()
     timestamp = datetime.datetime.now()
     with ProcessPoolExecutor(4) as Executor:
-        r: List[Any] = []
+        r: list[Any] = []
         for x in range(16):
             r.append(Executor.submit(Processfunc))
         Executor.shutdown(wait=True)

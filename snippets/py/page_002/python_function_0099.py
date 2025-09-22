@@ -8,11 +8,9 @@ def some_function(a: int, b: int, /, c: int, d: int, *, e: int = 900, f: int = 8
     # ! Non Positional Arguments
     print(a)
     print(b)
-    print()
     # ! Positional Arguments
     print(c)
     print(d)
-    print()
     # ! Keyword Arguments
     print(e)
     print(f)

@@ -1,4 +1,5 @@
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 
 def debug(func_: Callable):
@@ -37,22 +38,13 @@ if __name__ == '__main__':
 
     run(('cls',), shell=True)
     p = Pine()
-    print()
     print(p.__dict__)
-    print()
     print(p.__annotations__)
-    print()
-    print()
     print(Pine.__dict__)
-    print()
     print(Pine.__annotations__)
-    print()
-    print()
     print(p)
-    print()
     print(p.add(9))
     print(p.add(78))
     print(p.add(89))
-    print()
     print(p.k)
     print(p.m)

@@ -1,9 +1,9 @@
-from typing import Any, Self, Union
+from typing import Any, Self
 
 
 class Connection:
     __slots__: tuple[str, ...] = ('__initialized__',)
-    __spawned__instance__: Union[Self, None] = None
+    __spawned__instance__: Self | None = None
 
     def __new__(cls, *args: Any, **kwargs: Any) -> Self:
         if cls.__spawned__instance__ is None:

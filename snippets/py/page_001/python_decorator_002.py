@@ -1,4 +1,5 @@
-from typing import Any, Callable, Iterable, Mapping
+from collections.abc import Callable, Iterable, Mapping
+from typing import Any
 
 
 # Decorator
@@ -19,16 +20,11 @@ def say_name(name: str):
 if __name__ == '__main__':
     say_name('Kavya')
     print(say_name.called)
-    print()
     say_name('Ganga')
     print(say_name.called)
-    print()
     say_name('Yamuna')
     print(say_name.called)
-    print()
     say_name('Arun')
     print(say_name.called)
-    print()
     say_name('Maadhavan')
     print(say_name.called)
-    print()

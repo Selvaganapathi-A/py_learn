@@ -1,4 +1,5 @@
-from typing import Generator, NoReturn, Self
+from collections.abc import Generator
+from typing import NoReturn, Self
 
 
 # * Node

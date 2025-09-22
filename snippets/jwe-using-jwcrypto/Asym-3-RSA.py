@@ -35,11 +35,10 @@ def main():
         'iat': datetime.datetime(2024, 8, 1).timestamp(),
     }
     payload = orjson.dumps(data)
-
     for enc in ContentEncryptionOptions:
         # break
         for alg in AsymmetricAlgorithms:
-            header = {'alg': alg, 'enc': enc, 'typ': 'JWE', 'kid': key.thumbprint()}
+            header = {'alg': alg, 'enc': enc, 'typ': 'JWE', 'kid': key.thumb}
             print('Header : ', header)
             # print('  Data : ', data)
             #
@@ -50,9 +49,6 @@ def main():
             jwe_obj = jwe.JWE()
             jwe_obj.deserialize(token, private_key)
             pprint(orjson.loads(jwe_obj.payload))  # type: ignore
-            print()
-        print()
-        print()
     #
     AsymmetricAlgorithms = (
         'PBES2-HS256+A128KW',
@@ -80,9 +76,6 @@ def main():
             jwe_obj = jwe.JWE()
             jwe_obj.deserialize(token, key)
             pprint(orjson.loads(jwe_obj.payload))  # type: ignore
-            print()
-        print()
-        print()
 
 
 if __name__ == '__main__':

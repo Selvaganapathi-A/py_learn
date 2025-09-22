@@ -8,8 +8,6 @@ from py_learn.pytest_example import script_001
 
 @pytest.mark.skip(reason='Feature not Implemented.')
 def test_underdeveloped_feature(): ...
-
-
 @pytest.mark.xfail(reason='Cannot Divide by zero')
 def test_divides_zero():
     assert script_001.divides(8, 0) == float('inf')
@@ -35,8 +33,6 @@ def test_slow_function():
 
 @pytest.mark.speed
 def test_fast_function(): ...
-
-
 @pytest.mark.anyio
 async def test_async_add():
     async def add(a: float, b: float):

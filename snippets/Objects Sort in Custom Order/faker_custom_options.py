@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Literal, Union
+from typing import Any, Literal
 
 from faker import Faker
 from faker.providers import BaseProvider
@@ -18,7 +18,7 @@ class CustomProvider(BaseProvider):
             self.generator.name_male() if __person_gender == 'M' else self.generator.name_female()
         )
         __person_age = self.random_element(self.__person_ages)
-        __person_email_address = f"{__person_name.lower().replace(' ', '_')} {2024 - __person_age}@{self.generator.domain_name()}"
+        __person_email_address = f'{__person_name.lower().replace(" ", "_")} {2024 - __person_age}@{self.generator.domain_name()}'
         return Person(__person_name, __person_gender, __person_age, __person_email_address)
 
 
@@ -27,14 +27,14 @@ class Person:
     name: str
     gender: Literal['M', 'F']
     age: float
-    email: Union[str, None]
+    email: str | None
 
 
 def main():
     faker = Faker()
     faker.add_provider(CustomProvider)
     # print(dir(faker))
-    users: list[Person] = list()
+    users: list[Person] = []
     for _ in range(10):
         users.append(faker.personalia())
     print(users)

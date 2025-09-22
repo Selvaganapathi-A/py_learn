@@ -38,7 +38,7 @@ Ensures that all subclasses define category, enforcing consistency.
 
 
 class Vehicle:
-    registered_models: set[typing.Type[typing.Self]] = set()
+    registered_models: set[typing.type[typing.Self]] = set()
 
     def __init_subclass__(cls, *args, **kwargs: typing.Any) -> None:
         super(cls).__init_subclass__(*args, **kwargs)

@@ -38,7 +38,6 @@ def main():
     insta.subscribe(arun)
     insta.subscribe(mathu)
     youtube.notify('🎁 New Year Celebration.🎁')
-    print()
     insta.notify('💰💰💰 Paid Promotion')
 
 

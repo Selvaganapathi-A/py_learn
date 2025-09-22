@@ -9,7 +9,6 @@ Many to Many Relationship
 via
 Association Table.
 """
-
 associationTable = Table(
     'childParentRelationship',
     Base.metadata,
@@ -39,6 +38,7 @@ associationTable = Table(
     UniqueConstraint('child_pk', 'parent_pk', name='unixrelationship'),
 )
 
+
 # class Association(Base):
 #     __tablename__: str = 'association'
 #     child_pk: Mapped[int] = mapped_column(
@@ -51,8 +51,6 @@ associationTable = Table(
 #     )
 #     child: Mapped['Child'] = relationship('Child', back_populates='child')
 #     parent: Mapped['Parent'] = relationship('Parent', back_populates='parent')
-
-
 class Parent(Base):
     __tablename__ = 'parent'
     __table_args__ = (UniqueConstraint('first_name', 'last_name'),)
@@ -67,10 +65,8 @@ class Parent(Base):
 
 class Child(Base):
     __tablename__ = 'child'
-
     __table_args__ = (UniqueConstraint('first_name', 'last_name'),)
     pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-
     first_name: Mapped[str] = mapped_column(String, nullable=False)
     last_name: Mapped[str] = mapped_column(String, nullable=False)
     parents: Mapped[set['Parent']] = relationship(

@@ -1,19 +1,16 @@
 import secrets
 import time
 from subprocess import run
-from typing import List
+
 
 # from rich import print
-
-
 class Solution:
-    def setZeroes(self, matrix: List[List[int]]) -> None:
+    def setZeroes(self, matrix: list[list[int]]) -> list[list[int]]:
         """
         Do not return anything, modify matrix in-place instead.
         """
         row_z: set[int] = set()
         col_z: set[int] = set()
-
         rows = len(matrix)
         if rows > 0:
             cols = len(matrix[0])
@@ -23,31 +20,25 @@ class Solution:
                     if matrix[x][y] == 0:
                         col_z.add(y)
                         row_z.add(x)
-
             for x in row_z:
                 for y in range(cols):
                     matrix[x][y] = 0
             for x in col_z:
                 for y in range(rows):
                     matrix[y][x] = 0
-
         return matrix
 
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         rs: int = 0
         re: int = len(matrix) - 1
         if re > 0:
             cs: int = 0
             ce: int = len(matrix[0]) - 1
-
             r, c = 0, 0
-
             while rs < re or cs < ce:
                 print('---', (0, cs, ce), '---')
                 print('---', (rs, 0, 0), '---')
                 print('---', (re, 0, 0), '---')
-                print()
-
                 print('fwd col')
                 while cs <= c < ce:
                     # print(matrix[r][c])
@@ -59,7 +50,6 @@ class Solution:
                 print('---', (rs, 0, 0), '---')
                 print('---', (r, 0, 0), '---')
                 print('---', (re, 0, 0), '---')
-
                 print('fwd row')
                 while rs <= r < re:
                     # print(matrix[r][c])
@@ -71,7 +61,6 @@ class Solution:
                 print('---', (0, cs, ce), '---')
                 print('---', (rs, 0, 0), '---')
                 print('---', (re, 0, 0), '---')
-
                 print('rev col')
                 while cs <= c < ce:
                     # print(matrix[r][c])
@@ -83,7 +72,6 @@ class Solution:
                 print('---', (0, cs, ce), '---')
                 print('---', (rs, 0, 0), '---')
                 print('---', (re, 0, 0), '---')
-
                 print('rev row')
                 while rs <= r < re:
                     # print(matrix[r][c])
@@ -96,10 +84,8 @@ class Solution:
                 print('---', (rs, 0, 0), '---')
                 print('---', (re, 0, 0), '---')
                 print('-' * 40)
-
         time.sleep(5)
-
-        return list()
+        return []
 
 
 def main():
@@ -182,20 +168,14 @@ def main():
     # for x in range(5):
     #     row = secrets.choice(range(3, 8))
     #     column = secrets.choice(range(3, 8))
-
     #     s1 = [list(secrets.choice(value) for x in range(row)) for y in range(column)]
     #     samples.append(s1)
     print(samples)
-
     for sample, result in zip(samples, results):
         print(sample)
         # print(Solution().setZeroes(sample) == result)
         print(Solution().spiralOrder(sample))
         # break
-        print()
-        print()
-        print()
-        print()
 
 
 if __name__ == '__main__':

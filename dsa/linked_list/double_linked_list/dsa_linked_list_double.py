@@ -91,7 +91,7 @@ class LinkedList[T]:
 def main():
     import string
 
-    linkedList: LinkedList[str] = LinkedList()
+    linkedList: LinkedList[str] = LinkedList[str]()
     people = string.ascii_uppercase
     for person in people:
         linkedList.append(person)
@@ -120,43 +120,43 @@ def main():
     # print(" Show List ".center(60, "-"))
     # for person in linkedList.view():
     #     print(person, end=", ")
-    # print()
+    #
     # print(" End of List ".center(60, "-"))
-    # print()
+    #
     # print(" Show List ".center(60, "-"))
     # for person in linkedList.view_backward():
     #     print(person, end=", ")
-    # print()
+    #
     # print(" End of List ".center(60, "-"))
-    # print()
+    #
     # print("Removed First Node", linkedList.remove_first())
     # print("Removed First Node", linkedList.remove_first())
     # print("Removed First Node", linkedList.remove_first())
-    # print()
+    #
     # print("Removed First Node", linkedList.remove_first())
     # print("Removed First Node", linkedList.remove_first())
     # print("Removed First Node", linkedList.remove_first())
-    # print()
+    #
     # print("Removed Last Node", linkedList.remove_last())
     # print("Removed Last Node", linkedList.remove_last())
     # print("Removed Last Node", linkedList.remove_last())
-    # print()
+    #
     # print(linkedList.remove_last())
     # print(linkedList.remove_last())
     # print(linkedList.remove_last())
-    # print()
+    #
     # print(linkedList.remove_last())
     # print(linkedList.remove_last())
     # print(linkedList.remove_last())
-    # print()
+    #
     # print(linkedList.remove_last())
     # print(linkedList.remove_last())
-    # print()
-    # print()
+    #
+    #
     # print("after io operations")
     # for person in linkedList.view():
     #     print(person, end=", ")
-    # print()
+    #
 
 
 if __name__ == '__main__':

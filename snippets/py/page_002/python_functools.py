@@ -1,17 +1,16 @@
 # Lambda Function
+from collections.abc import Iterable, Mapping
 from functools import partial, reduce
-from typing import Any, Iterable, Mapping
+from typing import Any
 
 
 def styleit(string: str):
-    print()
-    print(f"# {(' ' + string + ' ').center(76, '*')} #")
-    print()
+    print(f'# {(" " + string + " ").center(76, "*")} #')
 
 
 def demo_filter():
     styleit('Filter Example')
-    numbers: Iterable[int] = [x for x in range(1, 100)]
+    numbers: Iterable[int] = list(range(1, 100))
     print(f'Numbers :\n\t{numbers}'.expandtabs(4))
     nums_divisible_by_7: Iterable[int] = tuple(filter(lambda x: (x % 7) == 0, numbers))
     print(f'Numbers Divide by 7 :\n\t{nums_divisible_by_7}'.expandtabs(4))
@@ -19,7 +18,7 @@ def demo_filter():
 
 def demo_reduce():
     styleit('Reduce Example')
-    natural_numbers: Iterable[int] = [x for x in range(1, 4)]
+    natural_numbers: Iterable[int] = list(range(1, 4))
     sum_of_nums = reduce(lambda x, y: x + y, natural_numbers)
     print(f'Numbers :\n\t{natural_numbers}'.expandtabs(4))
     print(f'sum of numbers = {sum_of_nums}')
@@ -27,9 +26,9 @@ def demo_reduce():
 
 def demo_map():
     styleit('Map Example')
-    natural_numbers: Iterable[int] = [x for x in range(1, 11)]
+    natural_numbers: Iterable[int] = list(range(1, 11))
     print(f'Numbers :\n\t{natural_numbers}'.expandtabs(4))
-    multiply_by_five = tuple(map(lambda x: x * 5, natural_numbers))
+    multiply_by_five = tuple((x * 5 for x in natural_numbers))
     print(f'Multiply Each Number by Five\n\t{multiply_by_five}'.expandtabs(4))
 
 
@@ -49,13 +48,9 @@ def demo_partial():
 
 def main():
     demo_filter()
-    print()
     demo_map()
-    print()
     demo_reduce()
-    print()
     demo_partial()
-    print()
 
 
 if __name__ == '__main__':

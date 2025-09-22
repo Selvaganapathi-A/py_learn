@@ -50,7 +50,6 @@ async def main():
         public_jwk = key.as_json(is_private=False)
         print('Private JWK:', key.as_json(True))
         print(' Public JWK:', public_jwk)
-        print()
         #
         # * sign jwt
         header = {'alg': algorithm, 'typ': 'JWT'}
@@ -58,13 +57,11 @@ async def main():
         # alg must be one of ES256, ES256K, ES384, ES512
         json_token = jwt.encode(header, payload=claims, key=key)
         print(json_token.decode())
-        print()
         #
         # * verify
         received: JWTClaims = jwt.decode(json_token, public_key)
         received.validate()
         print(received)
-        print()
 
 
 if __name__ == '__main__':

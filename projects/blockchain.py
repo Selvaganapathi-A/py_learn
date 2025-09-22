@@ -1,14 +1,15 @@
+# Flask is for creating the web
+# app and jsonify is for
+# displaying the blockchain
 # import locale
 # from pprint import pprint
 # # print(locale.windows_locale)
-
 # indian = locale.setlocale(locale.LC_ALL, 'en_IN')
 # # british = locale.setlocale(locale.LC_ALL, 'en_US')
 # # print(british)
 # # print(locale.getlocale(locale.LC_ALL))
 # print(locale.currency(1245300.25, grouping=True))
 # pprint(locale.localeconv())
-
 import datetime
 # Calculating the hash
 # in order to add digital
@@ -18,9 +19,6 @@ import hashlib
 # in our blockchain
 import json
 
-# Flask is for creating the web
-# app and jsonify is for
-# displaying the blockchain
 from flask import Flask, jsonify
 
 
@@ -55,7 +53,6 @@ class Blockchain:
     def proof_of_work(self, previous_proof):
         new_proof = 1
         check_proof = False
-
         while check_proof is False:
             hash_operation = hashlib.sha256(
                 str(new_proof**2 - previous_proof**2).encode()
@@ -64,7 +61,6 @@ class Blockchain:
                 check_proof = True
             else:
                 new_proof += 1
-
         return new_proof
 
     def hash(self, block):
@@ -74,28 +70,23 @@ class Blockchain:
     def chain_valid(self, chain):
         previous_block = chain[0]
         block_index = 1
-
         while block_index < len(chain):
             block = chain[block_index]
             if block['previous_hash'] != self.hash(previous_block):
                 return False
-
             previous_proof = previous_block['proof']
             proof = block['proof']
             hash_operation = hashlib.sha256(str(proof**2 - previous_proof**2).encode()).hexdigest()
-
             if hash_operation[:5] != '00000':
                 return False
             previous_block = block
             block_index += 1
-
         return True
 
 
 # Creating the Web
 # App using flask
 app = Flask(__name__)
-
 # Create the object
 # of the class blockchain
 blockchain = Blockchain()
@@ -109,7 +100,6 @@ def mine_block():
     proof = blockchain.proof_of_work(previous_proof)
     previous_hash = blockchain.hash(previous_block)
     block = blockchain.create_block(proof, previous_hash)
-
     response = {
         'message': 'A block is MINED',
         'index': block['index'],
@@ -117,7 +107,6 @@ def mine_block():
         'proof': block['proof'],
         'previous_hash': block['previous_hash'],
     }
-
     return jsonify(response), 200
 
 
@@ -135,7 +124,6 @@ def display_chain():
 @app.route('/valid', methods=['GET'])
 def valid():
     valid = blockchain.chain_valid(blockchain.chain)
-
     if valid:
         response = {'message': 'The Blockchain is valid.'}
     else:

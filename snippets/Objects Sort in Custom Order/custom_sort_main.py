@@ -53,7 +53,6 @@ def main():
     for person in sorted(users, key=get_name):
         print(person)
     print('-' * 80)
-    print()
     # * Sort by Age
     print('\x1b[48;5;196m\x1b[38;5;15m                                      \x1b[0m')
     print('\x1b[48;5;196m\x1b[38;5;15m        Sort by Age                   \x1b[0m')
@@ -68,7 +67,6 @@ def main():
     for person in sorted(users, key=get_gender_age_name):
         print(person)
     print('-' * 80)
-    print()
 
 
 if __name__ == '__main__':

@@ -27,7 +27,7 @@ class Boat(Vehicle):
 
 class Registry[T: Vehicle]:
     def __init__(self) -> None:
-        self.vehicles: list[T] = list()
+        self.vehicles: list[T] = []
 
     def add_vehicle(self, vehicle: T):
         self.vehicles.append(vehicle)

@@ -38,13 +38,11 @@ async def main():
         # alg must be one of PS384, PS512
         json_token = jwt.encode(header, payload=claims, key=key)
         print(json_token.decode())
-        print()
         #
         # * verify
         received: JWTClaims = jwt.decode(json_token, public_jwk)
         received.validate()
         print(received)
-        print()
 
 
 if __name__ == '__main__':

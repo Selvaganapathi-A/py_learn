@@ -15,7 +15,7 @@ def super_print(arg: list[dict[str, str]]):
     title += '\n| ' + ' | '.join(('-', '-', '-')) + ' | '
     md += title.title()
     for item in arg:
-        md += f"\n| {item.get('name')} | {item.get('contact')} | {item.get('country')} | "
+        md += f'\n| {item.get("name")} | {item.get("contact")} | {item.get("country")} | '
     print(Markdown(md))
 
 

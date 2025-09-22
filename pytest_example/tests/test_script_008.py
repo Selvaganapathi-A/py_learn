@@ -1,12 +1,12 @@
 from unittest.mock import MagicMock, patch
 
-from py_learn.pytest_example import fibo, shape_square
+from py_learn.pytest_example import fibbonocci, shape_square
 
 
 @patch('py_learn.pytest_example.fibo.fibbonocci_number')
 def test_function(mock_fibbonocci: MagicMock):
     mock_fibbonocci.return_value = 123789
-    assert fibo.fibbonocci_number(800) == 123789
+    assert fibbonocci.fibbonocci_number(800) == 123789
 
 
 @patch('py_learn.pytest_example.shape_square.Square.perimeter')

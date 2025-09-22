@@ -3,12 +3,10 @@ import rsa
 
 def generateKeys():
     (publicKey, privateKey) = rsa.newkeys(1024)
-
     with open('publicKey.pem', 'wb') as p:
         p.write(publicKey.save_pkcs1('PEM'))
         p.flush()
         p.close()
-
     with open('privateKey.pem', 'wb') as p:
         p.write(privateKey.save_pkcs1('PEM'))
         p.flush()
@@ -20,7 +18,6 @@ def loadKeys() -> tuple[rsa.PrivateKey, rsa.PublicKey]:
         publicKey = rsa.PublicKey.load_pkcs1(p.read())
         p.flush()
         p.close()
-
     with open('privateKey.pem', 'rb') as p:
         privateKey = rsa.PrivateKey.load_pkcs1(p.read())
         p.flush()
@@ -56,24 +53,17 @@ def verify(message: str, signature: bytes, key: rsa.PublicKey):
 
 def main():
     generateKeys()
-
     privateKey, publicKey = loadKeys()
-
     message = input('Write your message here:')
     ciphertext = encrypt(message, publicKey)
-
     signature = sign(message, privateKey)
-
     text = decrypt(ciphertext, privateKey)
-
     print(f'Cipher text: {ciphertext}')
     print(f'Signature: {signature}')
-
     if text:
         print(f'Message text: {text}')
     else:
         print('Unable to decrypt the message.')
-
     if verify(text, signature, publicKey):
         print('Successfully verified signature')
     else:

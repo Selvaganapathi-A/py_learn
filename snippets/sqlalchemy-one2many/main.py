@@ -29,7 +29,6 @@ def workarea(session: Session):
         print(driver.name)
         for vehicle in driver.vehicles:
             print('-->', vehicle.vehicle_number, vehicle.registration_number)
-    print()
     #
     for vehicle in (
         session.execute(
@@ -49,7 +48,6 @@ def workarea(session: Session):
             'owned by',
             vehicle.driver.name,
         )
-    print()
 
 
 def main():

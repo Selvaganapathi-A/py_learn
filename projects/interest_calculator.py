@@ -32,7 +32,6 @@ def main():
             Fore.RESET,
         )
         principle += 1_00_000
-    print()
 
 
 if __name__ == '__main__':

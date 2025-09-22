@@ -101,6 +101,5 @@ if __name__ == '__main__':
     session_maker = sessionmaker(bind=engine)
     session = session_maker()
     BaseModel.metadata.create_all(bind=engine)
-
     main(session)
     engine.dispose()

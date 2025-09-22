@@ -16,11 +16,9 @@ print(f'Number      : {arbitrary_number:>32}.')
 print(f'Number      : {arbitrary_number:<32}.')
 print(f'Number      : {arbitrary_number:^32}.')
 print(f'Number      : {arbitrary_number:32n}.')
-print()
 arbitrary_number = 44_000_000_000
 print(f'Number      :${arbitrary_number:>-32n}.')
 print(f'Number      :${arbitrary_number:+32n}.')
-print()
 arbitrary_number = -44_000000_000
 print(f'Number      : {arbitrary_number:-32n}.')
 print(f'Number      : {arbitrary_number:+32n}.')
@@ -33,7 +31,6 @@ arbitrary_number = 29872.35269503
 print(f'Number      : {arbitrary_number:.2g}.')
 print(f'Number      : {arbitrary_number:.5g}.')
 print(f'Number      : {arbitrary_number:.8g}.')
-print()
 arbitrary_number = 72.35269503
 print(f'Number      : {arbitrary_number:,.2g}.')
 print(f'Number      : {arbitrary_number:_.2g}.')
@@ -46,7 +43,6 @@ print(f'Number      : {arbitrary_number:_.8g}.')
 arbitrary_number = 0.35269503
 print(f'Number      : {arbitrary_number:%}.')
 print(f'Number      : {arbitrary_number:.2%}.')
-print()
 india_timezone = timezone(timedelta(hours=5, minutes=30), name='Asia/Calcutta')
 australia = timezone(timedelta(hours=1, minutes=0), name='Australia')
 dt = datetime.now(tz=india_timezone)

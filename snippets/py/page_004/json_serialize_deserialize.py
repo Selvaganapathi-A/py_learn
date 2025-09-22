@@ -51,9 +51,6 @@ def main():
     c = {'ohio apples': a, 'yorktown apples': {'newyork apples': b}}
     x1 = json.dumps(c, default=serializer)
     print(x1)
-    print()
-    print()
-    print()
     x2 = json.loads(x1, object_hook=deserialize)
     print(x2)
     ak: Apple = x2['ohio apples']

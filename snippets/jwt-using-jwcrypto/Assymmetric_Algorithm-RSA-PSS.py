@@ -49,7 +49,6 @@ async def main():
         # * verify
         received = jwt.JWT(key=public_key, jwt=json_token)
         print(received.claims)
-        print()
 
 
 if __name__ == '__main__':

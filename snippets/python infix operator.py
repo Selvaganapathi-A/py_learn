@@ -7,7 +7,6 @@ class Infix(object):
         self.func = func
 
     def __add__(self, __value: Self): ...
-
     def __or__(self, other):
         print(('__or__', self.func, other))
         return self.func(other)
@@ -36,9 +35,6 @@ def main():
     y = 6
     z = 7
     print(x | addopt | y)
-    print()
-    print()
-    print()
     print(x | adder | y | adder | z)
     print((7 * 12 / 240) * 60)
     print(dir(object))

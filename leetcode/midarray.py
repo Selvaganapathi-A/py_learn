@@ -4,9 +4,7 @@ import time
 def findElement(array: list[int], /, target: int):
     if len(array) < 1:
         return None
-
     array.sort()
-
     i: int = 0
     j: int = len(array) - 1
     step: int = 0
@@ -60,11 +58,8 @@ def find(start: int, end: int, /, target: int):
 def test_001():
     for x in range(874, 878):
         print(find(0, 1234, target=x))
-        print()
         print(find(0, 1133, target=x))
-        print()
         print(find(0, 500, target=x))
-        print()
         print('-' * 80)
 
 
@@ -404,7 +399,6 @@ def test_003():
     print(findElement(array, 95))
     print(findElement(array, 101))
     print(findElement(array, 68))
-
     # array = [
     #     2,
     #     3,
@@ -518,11 +512,9 @@ def test_003():
     #     192,
     #     196,
     # ]
-
     # print(sorted(set(array)))
     # array = [secrets.choice(data) for _ in range(64)]
     # print(sorted(set(array)))
-
     # array = [secrets.choice(data) for _ in range(64)]
     # print(sorted(set(array)))
     # pass

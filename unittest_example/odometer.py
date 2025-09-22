@@ -9,7 +9,6 @@ def speed():
 
 def alert():
     speed_ = speed()
-
     if speed_ < 30:
         return 'slow'
     elif speed_ < 50:

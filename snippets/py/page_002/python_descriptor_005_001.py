@@ -44,19 +44,19 @@ print(my_third_foo_object.number)
 #     i = SomeClass("one")
 #     ii = SomeClass("Two")
 #     iii = SomeClass("Three")
-#     print()
+#
 #     print("before")
 #     print(i.fc)
 #     print(ii.fc)
 #     print(iii.fc)
 #     i.fc = "I"
 #     iii.fc = "VI"
-#     print()
+#
 #     print("after")
 #     print(iii.fc)
 #     print(ii.fc)
 #     print(i.fc)
-#     print()
+#
 #     i.fc = "OI"
 #     print(SomeClass.fc)
 #     print(SomeClass.fc)

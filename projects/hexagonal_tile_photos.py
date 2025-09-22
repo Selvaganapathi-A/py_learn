@@ -194,7 +194,6 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
                     numpy.sum(cutImageArray2[:, :, counter]) / Trues
                     for counter in range(noOfChannels)
                 )
-
             tempYPointer = tempYPointer - maskHeight
             if tempYPointer <= (0 - maskHeight):
                 break
@@ -202,7 +201,6 @@ def hexgonFilter(imagePath: str, savePath: str, pixel_diameter: int):
         tempXPointer = tempXPointer - int(maskWidth * 0.75)
         if tempXPointer <= (0 - maskWidth):
             break
-
     image = Image.fromarray(imageArray.astype(numpy.uint8))
     image.save(savePath)
     image.close()

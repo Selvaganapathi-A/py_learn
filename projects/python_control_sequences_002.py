@@ -15,19 +15,15 @@ import time
   \033[<N>C
 - Move the cursor backward N columns:
   \033[<N>D
-
 - Clear the screen, move to (0,0):
   \033[2J
 - Erase to end of line:
   \033[K
-
 - Save cursor position:
   \033[s
 - Restore cursor position:
   \033[u
-
   """
-
 if __name__ == '__main__':
     sys.stdout.write('\033[4A')
     sys.stdout.write('\033[s')
@@ -37,16 +33,12 @@ if __name__ == '__main__':
             z = x * 3 + y + 1
             print(f'\033[0;0f\033[K|{z:>3}|', end='\r', flush=True)
             time.sleep(0.5)
-    print()
-
     print('jkhfjfhgvhjhgfdvhgrshgrjyt jkgkjhgkjbkjgyu ukfk fkytkf fuyfkuyf fkuy')
-
     time.sleep(1)
     print('\033[F ', end='')
     time.sleep(1)
     print('\033[K ', end='')
     time.sleep(1)
-
     print('Hello ')
     time.sleep(1)
     print('Hii')

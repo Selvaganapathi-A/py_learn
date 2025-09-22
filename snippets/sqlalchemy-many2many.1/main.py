@@ -17,7 +17,6 @@ def workarea(session: Session):
     miranda = Child(first_name='Miranda', last_name='Daisy')
     #
     # * Add Child Objects to Parents
-
     association = Association()
     association.child = ashley
     billy.children.add(association)

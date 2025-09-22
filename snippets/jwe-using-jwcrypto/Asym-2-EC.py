@@ -35,7 +35,6 @@ def main():
         'iat': datetime.datetime(2024, 8, 1).timestamp(),
     }
     payload = orjson.dumps(data)
-
     for enc in ContentEncryptionOptions:
         # break
         for alg in AsymmetricAlgorithms:
@@ -47,14 +46,10 @@ def main():
             jwetoken.add_recipient(public_key)
             token = jwetoken.serialize()
             pprint(orjson.loads(token))
-            print()
             #
             jwe_obj = jwe.JWE()
             jwe_obj.deserialize(token, private_key)
             pprint(orjson.loads(jwe_obj.payload))  # type: ignore
-            print()
-        print()
-        print()
 
 
 if __name__ == '__main__':

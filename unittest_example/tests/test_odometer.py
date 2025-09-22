@@ -4,26 +4,18 @@ from unittest import TestCase, mock
 from py_learn.unittest_example import odometer
 
 """
-
-
 When to use mock
 These are cases that you may consider using mocks:
-
 System calls
-
 -> Networking
 -> I/O operation
 -> Clocks & time, timezones
 -> Or other cases whose results are unpredictable
 -> Why using mocks
-
-
 The following are benefits of mocks:
-
 -> Speed up the test
 -> Exclude external redundancies
 -> Make unpredictable results predictable
-
 """
 
 

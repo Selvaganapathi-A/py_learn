@@ -28,17 +28,12 @@ if __name__ == '__main__':
     i = SomeClass('one')
     ii = SomeClass('Two')
     iii = SomeClass('Three')
-    print()
     print('before')
     print(i.fc)
     print(ii.fc)
     print(iii.fc)
-    print()
-    print()
     i.fc = 'I'
     iii.fc = 'VI'
-    print()
-    print()
     print('after')
     print(i.fc)
     print(ii.fc)

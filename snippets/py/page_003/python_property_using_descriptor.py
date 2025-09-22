@@ -52,13 +52,8 @@ class Student:
 
 
 if __name__ == '__main__':
-    print()
     martin = Student('martin', 15)
-    print()
     martha = Student('martha', 38)
-    print()
     print(martin.age)
-    print()
     martin.age = 57
-    print()
     print(martin.age)

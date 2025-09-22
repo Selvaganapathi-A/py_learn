@@ -9,17 +9,13 @@ def get_dice() -> int:
 def main():
     dice_count: int
     user_input: str
-
     try:
         user_input = input('Enter Number of Dice:')
-
         if user_input.lower() in ('exit', 'quit'):
             return
-
         dice_count: int = int(user_input)
         values = [get_dice() for _ in range(dice_count)]
         print(values, sum(values))
-
     except Exception as e:
         logging.exception(e)
 

@@ -31,7 +31,6 @@ def main():
     print(a.is_organic())
     print(a == b)
     print(a == 33.34)
-    print()
     print(a != 33.34)
     print(a != b)
 

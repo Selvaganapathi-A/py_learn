@@ -40,7 +40,7 @@ def convert_to(
         tmp /= 1024
         if (900 > tmp) or (i >= 9) or (i >= to):
             break
-    return f"{tmp:.2f} {mapped.get(i, 'BB')}"
+    return f'{tmp:.2f} {mapped.get(i, "BB")}'
 
 
 def print_line(__char__: Literal[' ', '-', '*', '#'] = '-', *, length: int = 80):
@@ -50,12 +50,9 @@ def print_line(__char__: Literal[' ', '-', '*', '#'] = '-', *, length: int = 80)
 if __name__ == '__main__':
     print(convert_to(value=decimal_bytes(4) * Storage.GB, to=Storage.MB))
     print(convert_to(value=binary_Storage(4) * Storage.GB, to=Storage.MB))
-
     print(convert_to(value=decimal_bytes(4) * Storage.TB, to=Storage.GB))
     print(convert_to(value=binary_Storage(4) * Storage.TB, to=Storage.GB))
-
     print(convert_to(value=decimal_bytes(4) * 2, to=Storage.TB))
     print(convert_to(value=binary_Storage(4) * 2, to=Storage.TB))
-
     print(convert_to(value=decimal_bytes(5) * 2))
     print(convert_to(value=binary_Storage(5) * 2))

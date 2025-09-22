@@ -12,17 +12,14 @@ class Landmass(type):
         print('Base Clases:')
         for i, clsname in enumerate(bases):
             print('  >>', i, clsname)
-        print()
         print('Class Dictionary :')
         for i, (k, v) in enumerate(class_dict.items()):
             print('  <>', i, k, v)
-        print()
         if kwargs:
             print('Metaclass Arguments :')
             for name, value in kwargs.items():
                 print('  []', name, value)
                 setattr(class_, name, value)
-        print()
         return class_
 
 
@@ -129,7 +126,6 @@ if __name__ == '__main__':
     print(tamil.describe())
     print(tamil.state)
     print(tamil.country)
-    print()
     atturaan = Atturan('attur', 98)
     print('-' * 80)
     print(atturaan)

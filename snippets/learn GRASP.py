@@ -6,10 +6,8 @@ from typing import Protocol
 class CardInfo(Protocol):
     @property
     def number(self) -> str: ...
-
     @property
     def expiry_month(self) -> int: ...
-
     @property
     def expiry_year(self) -> int: ...
 

@@ -32,7 +32,6 @@ class VehicleRegistry[T: Vehicle]:
     def display(self):
         for index, vehicle in enumerate(self.__vehicles__, start=1):
             print(index, vehicle.name)
-        print()
 
 
 @dataclass
@@ -45,7 +44,6 @@ class LicensedVehicleRegistry[T: (Car, Plane)]:
     def display(self):
         for index, vehicle in enumerate(self.__items__, start=1):
             print(index, vehicle.name)
-        print()
 
 
 def main():

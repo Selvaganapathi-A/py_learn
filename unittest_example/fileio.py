@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 def read_numbers_from_file(file: Path) -> list[float]:
-    numbers: list[float] = list()
+    numbers: list[float] = []
     if not file.exists():
         return numbers
     with file.open(mode='r', encoding='utf-8') as reader:

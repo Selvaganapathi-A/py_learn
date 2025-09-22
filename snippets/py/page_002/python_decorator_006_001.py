@@ -1,7 +1,7 @@
 from typing import Any, Type
 
 
-def singleton(cls: Type[Any]):
+def singleton(cls: type[Any]):
     instance = None
 
     def wrapper(*args: Any, **kwargs: Any):
@@ -21,10 +21,8 @@ class Plant:
 if __name__ == '__main__':
     a = Plant('audi', 98765)
     print(a)
-    print()
     b = Plant('bmw', 12345)
     print(b)
-    print()
     print(a, b)
     print(id(a), id(b))
     print(a == b)

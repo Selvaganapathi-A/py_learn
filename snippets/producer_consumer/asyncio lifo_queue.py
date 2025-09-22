@@ -6,7 +6,7 @@ import faker
 from faker_food import FoodProvider  # type:ignore
 
 
-async def producer(queue: asyncio.LifoQueue[Tuple[int, float, str]]):
+async def producer(queue: asyncio.LifoQueue[tuple[int, float, str]]):
     items: int = 50
     item: int = 0
     sleep_time = tuple(range(10, 101))
@@ -32,7 +32,7 @@ async def producer(queue: asyncio.LifoQueue[Tuple[int, float, str]]):
     print('\x1b[48;5;6m' + '#' * 80 + '\x1b[0m', flush=True)
 
 
-async def consumer(queue: asyncio.LifoQueue[Tuple[int, float, str]]):
+async def consumer(queue: asyncio.LifoQueue[tuple[int, float, str]]):
     while True:
         order_id, cook_time, food = await queue.get()
         print(f'{order_id:>3} \x1b[38;5;3m   cooking', food, '\x1b[0m', flush=True)
@@ -52,8 +52,8 @@ async def consumer(queue: asyncio.LifoQueue[Tuple[int, float, str]]):
 async def function():
     QUEUE_SIZE: int = 10
     WORKERS: int = 4
-    lifo_queue: asyncio.LifoQueue[Tuple[int, float, str]] = asyncio.LifoQueue(QUEUE_SIZE)
-    consumers: Iterable[asyncio.Task[NoReturn]] = list()
+    lifo_queue: asyncio.LifoQueue[tuple[int, float, str]] = asyncio.LifoQueue(QUEUE_SIZE)
+    consumers: Iterable[asyncio.Task[NoReturn]] = []
     for _ in range(WORKERS):
         task = asyncio.create_task(consumer(lifo_queue))
         consumers.append(task)

@@ -8,7 +8,6 @@ class Solution:
         for current_price in prices[1:]:
             min_price = min(current_price, min_price)
             max_profit = max(current_price - min_price, max_profit)
-
         return max_profit
 
 

@@ -27,21 +27,19 @@ def getColors(
         ),
     )
     image.close()
-
     # Reduce Palette
     imagePalette = imageCopy.convert(
         'P',
         palette=Image.WEB,
         colors=noOfColors,
     )
-
     # Find Dominant Colors in Image
     palette = imagePalette.getpalette()
     colorCounts = sorted(
         imagePalette.getcolors(),
         reverse=True,
     )
-    colors = list()
+    colors = []
     for i in range(noOfColors):
         paletteIndex = colorCounts[i][1]
         dominanColor = palette[paletteIndex * 3 : paletteIndex * 3 + 3]
@@ -65,7 +63,6 @@ def save_palette(colors, swatchsize=128, outfile='palette.png'):
     draw = ImageDraw.Draw(palette)
     posx: int = 0
     posy: int = 0
-
     for color in colors:
         draw.rectangle(
             (

@@ -11,16 +11,13 @@ def find_middle[T](ll: Singly_Linked_List[T]):
         return
     slow_ptr: Node[T] | None = ll.head
     fast_ptr: Node[T] | None
-
     if slow_ptr is not None and slow_ptr.next is not None:
         fast_ptr = slow_ptr.next.next
     else:
         fast_ptr = None
-
     while fast_ptr and slow_ptr:
         fast_ptr = fast_ptr.next.next if fast_ptr.next else None
         slow_ptr = slow_ptr.next
-
     return slow_ptr
 
 
@@ -28,18 +25,15 @@ def main_1():
     li = Singly_Linked_List[str]()
     for x in range(0, 7, 1):
         li.append(chr(x + 65))
-    print()
-    print()
     for x in li.view():
         print(x)
-    print()
     ic(find_middle(li))
 
 
 def main():
     import string
 
-    linked_list: Singly_Linked_List[str] = Singly_Linked_List()
+    linked_list: Singly_Linked_List[str] = Singly_Linked_List[str]()
     # print(linked_list.length)
     #
     for x in string.ascii_uppercase:
@@ -47,14 +41,14 @@ def main():
     # print(" Show List ".center(60, "-"))
     # for a in linked_list.view():
     #     print(a, end=", ")
-    # print()
+    #
     # print(" Show List ".center(60, "-"))
     # linked_list.reverse()
-    # print()
+    #
     # # print("Show Reverse List".center(60, "-"))
     # # for a in linked_list.view():
     # #     print(a, end=", ")
-    # # print()
+    # #
     # # print("Show Reverse List".center(60, "-"))
     #
     # linked_list.remove("Z")
@@ -67,7 +61,7 @@ def main():
     # print("After removing List".center(60, "-"))
     # for a in linked_list.view():
     #     print(a, end=", ")
-    # print()
+    #
     # print("After removing List".center(60, "-"))
 
 

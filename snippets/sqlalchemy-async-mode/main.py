@@ -7,7 +7,6 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.decl_api import DeclarativeBase
 
 DATABASE_URL = 'sqlite+aiosqlite:///example.db'
-
 # Async engine and session
 engine = create_async_engine(DATABASE_URL, echo=False)
 AsyncSessionLocal: sessionmaker = sessionmaker(
@@ -45,10 +44,8 @@ async def bulk_update(session: AsyncSession, user_updates: dict):
     stmt = select(UserModel).where(UserModel.id.in_(user_updates.keys()))
     result = await session.execute(stmt)
     users = result.scalars().all()
-
     for user in users:
         user.email = user_updates[user.id]  # Update email
-
     await session.commit()
 
 
@@ -57,10 +54,8 @@ async def bulk_delete(session: AsyncSession, user_ids: list):
     stmt = select(UserModel).where(UserModel.id.in_(user_ids))
     result = await session.execute(stmt)
     users = result.scalars().all()
-
     for user in users:
         await session.delete(user)
-
     await session.commit()
 
 
@@ -72,7 +67,6 @@ async def fetch_users(session: AsyncSession):
 
 async def main():
     await create_tables()  # Ensure tables exist
-
     async with AsyncSessionLocal() as session:
         # Bulk Insert
         users = [
@@ -81,17 +75,13 @@ async def main():
             UserModel(name='Charlie', email='charlie@example.com'),
         ]
         await bulk_insert(session, users)
-
         # Bulk Update
         await bulk_update(session, {1: 'new_alice@example.com', 2: 'new_bob@example.com'})
-
         # Fetch and Print
         users = await fetch_users(session)
         print([f'{user.id}: {user.name} - {user.email}' for user in users])
-
         # Bulk Delete
         await bulk_delete(session, [1, 3])
-
         # Fetch and Print After Deletion
         users = await fetch_users(session)
         print([f'{user.id}: {user.name} - {user.email}' for user in users])

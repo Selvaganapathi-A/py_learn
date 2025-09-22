@@ -41,7 +41,6 @@ async def main():
         serialization.PublicFormat.PKCS1,
     )
     print(private_pem.decode(), public_pem.decode(), sep='\n\n\n', end='\n\n')
-    print()
     #
     # Import into Authlib
     key: RSAKey = JsonWebKey.import_key(private_pem, {'alg': 'RS256'})  # type: ignore
@@ -55,13 +54,11 @@ async def main():
         # alg must be one of RS256, RS384, RS512
         json_token = jwt.encode(header, payload=claims, key=key)
         print(json_token.decode())
-        print()
         #
         # * verify
         received: JWTClaims = jwt.decode(json_token, public_key)
         received.validate()
         print(received)
-        print()
 
 
 if __name__ == '__main__':

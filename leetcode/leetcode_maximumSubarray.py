@@ -15,7 +15,6 @@ def maximumSubArray(nums: list[int]) -> float:
         # if num > max_current + num:
         #     i += 1
         # k += 1
-
     return max_alltime
 
 

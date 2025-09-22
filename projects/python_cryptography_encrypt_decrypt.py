@@ -41,10 +41,8 @@ def decrypt_message(encrypted_message: bytes) -> bytes:
 if __name__ == '__main__':
     # generate_key()
     message = 'This is Potato'
-
     message_encrypt = encrypt_message(message.encode())
     message_decrypt = decrypt_message(message_encrypt)
-
     print(message)
     print(message_encrypt)
     print(message_decrypt.decode())

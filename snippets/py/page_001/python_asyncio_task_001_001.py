@@ -12,7 +12,7 @@ async def coro(a: int, b: 'str'):
 
 async def main():
     help(Coroutine)
-    tasks: list[asyncio.Task[str]] = list()
+    tasks: list[asyncio.Task[str]] = []
     for x in range(10):
         task = asyncio.create_task(coro(random.randint(3, 9), chr(65 + x)), name='goku')
         tasks.append(task)

@@ -1,5 +1,6 @@
 import math
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 from py_learn.pytest_example import shape_circle, shape_rectangle, shape_square
 

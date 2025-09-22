@@ -25,12 +25,10 @@ async def main():
         except Exception as e:
             print((task, task.get_name()))
             logging.exception(e, exc_info=e)
-        print()
     print('-' * 80)
     print('Task Pending.')
     for task in pending:
         print((task, task.get_name(), task.result()))
-        print()
     print('-' * 80)
 
 

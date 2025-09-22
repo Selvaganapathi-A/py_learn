@@ -1,8 +1,9 @@
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 import pytest
 
-from py_learn.pytest_example import fibo
+from py_learn.pytest_example import fibbonocci
 
 
 def fake_fib_compute(n: int):
@@ -11,8 +12,8 @@ def fake_fib_compute(n: int):
 
 @pytest.fixture
 def mocker_function(monkeypatch: pytest.MonkeyPatch):
-    monkeypatch.setattr(fibo, 'fibbonocci_number', fake_fib_compute)
+    monkeypatch.setattr(fibbonocci, 'fibbonocci_number', fake_fib_compute)
 
 
 def test_fibo(mocker_function: Callable[..., Any]):
-    assert fibo.fibbonocci_number(100) == 9000
+    assert fibbonocci.fibbonocci_number(100) == 9000

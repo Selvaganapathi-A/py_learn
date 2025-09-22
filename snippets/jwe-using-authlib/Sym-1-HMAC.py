@@ -15,7 +15,6 @@ def main():
         'A192GCMKW',
         'A256GCMKW',
     )
-
     ContentEncryptionOptions = (
         'A128GCM',
         'A192GCM',
@@ -31,7 +30,6 @@ def main():
         'iat': datetime.datetime(2024, 8, 1).timestamp(),
     }
     payload = orjson.dumps(data)
-
     for alg in SymmetricAlgorithms:
         key: OctKey
         if alg.startswith('A128'):
@@ -59,9 +57,6 @@ def main():
             #
             mt: JWSObject = jwe.deserialize(mx, key)
             print(orjson.loads(mt.get('payload', b'{}')))  # type: ignore
-            print()
-        print()
-        print()
 
 
 if __name__ == '__main__':

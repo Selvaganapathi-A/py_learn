@@ -1,6 +1,4 @@
 # import time
-from typing import Optional
-
 from playwright.sync_api import sync_playwright
 from playwright.sync_api._generated import (Browser, BrowserContext,
                                             BrowserType, Page, Request,
@@ -8,7 +6,7 @@ from playwright.sync_api._generated import (Browser, BrowserContext,
 
 
 def get_title_httpStatus(page: Page):
-    response: Optional[Response] = page.goto(
+    response: Response | None = page.goto(
         'http://localhost:3000/',
         wait_until='domcontentloaded',
         timeout=60000,  # wait 60 seconds

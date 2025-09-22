@@ -13,7 +13,6 @@ Association Object.
 class Association(Base):
     __tablename__: str = 'ChildParentRelationship'
     __table_args__ = (UniqueConstraint('child_pk', 'parent_pk', name='uniqueRelationship'),)
-
     child_pk: Mapped[int] = mapped_column(
         Integer,
         ForeignKey('child.pk', ondelete='CASCADE', onupdate='CASCADE'),

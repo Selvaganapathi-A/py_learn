@@ -11,7 +11,6 @@ class MockHandler(httpx.AsyncBaseTransport):
         print(request.url)
         print(request.method)
         pprint({**request.headers})
-        print()
         return Response(200, headers=request.headers, text='ok')
 
 
@@ -62,4 +61,3 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
-    print()

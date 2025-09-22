@@ -5,7 +5,6 @@ from typing import override
 class Fruit(metaclass=ABCMeta):
     @abstractmethod
     def taste(self, value: str) -> str: ...
-
     def color(self) -> str:
         return 'pale'
 

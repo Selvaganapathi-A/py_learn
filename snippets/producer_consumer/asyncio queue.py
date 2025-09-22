@@ -6,7 +6,7 @@ import faker
 from faker_food import FoodProvider  # type:ignore
 
 
-async def producer(queue: asyncio.Queue[Tuple[int, float, str]]):
+async def producer(queue: asyncio.Queue[tuple[int, float, str]]):
     items: int = 32
     item: int = 0
     sleep_time = tuple(range(10, 101))
@@ -33,7 +33,7 @@ async def producer(queue: asyncio.Queue[Tuple[int, float, str]]):
     print('\x1b[48;5;6m' + '#' * 80 + '\x1b[0m', flush=True)
 
 
-async def consumer(queue: asyncio.Queue[Tuple[int, float, str]], staff: int):
+async def consumer(queue: asyncio.Queue[tuple[int, float, str]], staff: int):
     dish_served: int = 0
     while True:
         order_id, cook_time, food = await queue.get()
@@ -63,8 +63,8 @@ async def consumer(queue: asyncio.Queue[Tuple[int, float, str]], staff: int):
 async def function():
     QUEUE_SIZE: int = 10
     WORKERS: int = 4
-    queue: asyncio.Queue[Tuple[int, float, str]] = asyncio.Queue(QUEUE_SIZE)
-    consumers: Iterable[asyncio.Task[NoReturn]] = list()
+    queue: asyncio.Queue[tuple[int, float, str]] = asyncio.Queue(QUEUE_SIZE)
+    consumers: Iterable[asyncio.Task[NoReturn]] = []
     for _ in range(WORKERS):
         task = asyncio.create_task(consumer(queue, _ + 1001))
         consumers.append(task)

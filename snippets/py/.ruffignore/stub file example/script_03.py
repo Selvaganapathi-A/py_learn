@@ -11,7 +11,6 @@ def main():
     print('start stop step')
     for x in Range[int](0, 17, 4):
         print(x)
-    print()
 
 
 if __name__ == '__main__':

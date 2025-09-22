@@ -10,7 +10,6 @@ if num == sum:
 else:
     print(num, 'is not an Armstrong number')
 """
-
 3    153
 3    370
 3    371
@@ -26,5 +25,4 @@ else:
 5   194979
 6   548834
 3435 = 3^3 + 4^4 + 3^3 + 5^5
-
 """

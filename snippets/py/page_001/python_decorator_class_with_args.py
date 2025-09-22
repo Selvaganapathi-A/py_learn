@@ -1,5 +1,6 @@
 import time
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 
 class Decorate:
@@ -32,10 +33,7 @@ def some_other_func(a: int, b: int) -> int:
 
 
 if __name__ == '__main__':
-    print()
     print(some_func(9, 8))
-    print()
     print(other_func(7, 6))
-    print()
     decorate = Decorate(3)
     print(decorate(some_other_func)(5, 4))
