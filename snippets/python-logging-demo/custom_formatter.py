@@ -1,5 +1,6 @@
 import logging
-from typing import Any, Literal, Mapping
+from typing import Any, Literal
+from collections.abc import Mapping
 
 
 class BashFormatter(logging.Formatter):

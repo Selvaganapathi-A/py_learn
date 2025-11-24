@@ -1,4 +1,4 @@
-from typing import Type, final, override
+from typing import final, override
 
 
 class User:
@@ -22,6 +22,11 @@ class ProUser(AdvancedUser):
     @override
     def display(self) -> str:
         return super().display()
+
+    @override
+    def security(self):
+        super().security()
+        return "blake2b"
 
 
 class ClassicUser(ProUser):
@@ -59,6 +64,7 @@ def main():
     proUser: ProUser = createUser(ProUser, 'Mithun')
     print(proUser.name)
     print(proUser.display())
+    print(proUser.security())
     advancedUser: AdvancedUser = createUser(AdvancedUser, 'Zenuth')
     print(advancedUser.name)
     print(advancedUser.display())

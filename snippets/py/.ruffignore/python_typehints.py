@@ -2,6 +2,8 @@ from typing import Self
 
 
 class Vehicle:
+    __final__: bool = True
+
     def __init__(self, model: str) -> None:
         self.model: str = model
 
@@ -38,6 +40,7 @@ def main():
     registry.add_vehicle(Car('Honda'))
     registry.add_vehicle(Car('Tesla'))
     # registry.add_vehicle(Boat("Toyoto"))
+    print(getattr(Vehicle, '__final__'))
 
 
 if __name__ == '__main__':

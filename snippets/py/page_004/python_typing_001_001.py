@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import (Any, Dict, NotRequired, Required, TypedDict, Unpack,
+from typing import (Any, NotRequired, Required, TypedDict, Unpack,
                     reveal_type)
 
 

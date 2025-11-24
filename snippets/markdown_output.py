@@ -66,7 +66,8 @@ lina
 1. Isaiah Paul - 1973 Tuluw View - Sudan.
 1. Eddie Castillo - 1608 Ebafup Manor - Caribbean Netherlands.
 1. Rebecca McDonald - 1155 Enupu River - Vanuatu.
-determine neighbor rule beyond gravity opinion interest stand price grow lead every concerned stream street chart kitchen dirty iron vast film log poetry stay
+determine neighbor rule beyond gravity opinion interest stand price grow\
+lead every concerned stream street chart kitchen dirty iron vast film log poetry stay.
 """
     console.print(Markdown(md_code))
     console.print('[#ff00ff] Helllo [/#ff00ff] Goats')

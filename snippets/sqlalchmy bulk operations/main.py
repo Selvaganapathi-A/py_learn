@@ -1,5 +1,15 @@
-from sqlalchemy import (Boolean, Integer, String, and_, case, create_engine,
-                        insert, or_, select, update)
+from sqlalchemy import (
+    Boolean,
+    Integer,
+    String,
+    and_,
+    case,
+    create_engine,
+    insert,
+    or_,
+    select,
+    update,
+)
 from sqlalchemy.orm import Mapped, Session, mapped_column, sessionmaker
 from sqlalchemy.orm.decl_api import DeclarativeBase
 
@@ -19,7 +29,10 @@ class User(BaseModel):
     canMarry: Mapped[bool] = mapped_column(Boolean, nullable=True, default=None)
 
     def __str__(self) -> str:
-        return f'{self.name} - {self.surname} - {self.age}'
+        return f'<{self.name} {self.surname}>'
+
+    def __repr__(self) -> str:
+        return f'<{self.name} {self.surname}, {self.age}>'
 
 
 def main(session: Session):
@@ -27,13 +40,13 @@ def main(session: Session):
     session.execute(
         statement=insert(User),
         params=[
-            {'name': 'elena', 'age': 14, 'sex': 'F'},
-            {'name': 'tony', 'age': 17, 'sex': 'M'},
-            {'name': 'rosemary', 'age': 16, 'sex': 'F'},
-            {'name': 'spphia', 'age': 39, 'sex': 'F'},
-            {'name': 'karen', 'age': 28, 'sex': 'F'},
-            {'name': 'john', 'age': 41, 'sex': 'M'},
-            {'name': 'mike', 'age': 18, 'sex': 'M'},
+            {'surname': 'hanson', 'name': 'elena', 'age': 14, 'sex': 'F'},
+            {'surname': 'carr', 'name': 'tony', 'age': 17, 'sex': 'M'},
+            {'surname': 'ellis', 'name': 'rosemary', 'age': 16, 'sex': 'F'},
+            {'surname': 'mcbride', 'name': 'spphia', 'age': 39, 'sex': 'F'},
+            {'surname': 'garrett', 'name': 'karen', 'age': 28, 'sex': 'F'},
+            {'surname': 'moran', 'name': 'john', 'age': 41, 'sex': 'M'},
+            {'surname': 'cooper', 'name': 'mike', 'age': 18, 'sex': 'M'},
         ],
     )
     #
@@ -45,7 +58,7 @@ def main(session: Session):
                 user.age,
                 user.name,
                 'I can Vote' if user.canVote else "can't Vote",
-                '💖' if user.canMarry else '😓',
+                '💖' if user.canMarry else '-',
             )
         )
     # * 2 boolean fields
@@ -64,20 +77,20 @@ def main(session: Session):
     # #
     # # * Update the same via sqlquery
     # #
-    # session.execute(
-    #     update(User).values(
-    #         canMarry=or_(
-    #             and_(
-    #                 User.sex == 'M',
-    #                 User.age > 19,
-    #             ),
-    #             and_(
-    #                 User.sex == 'F',
-    #                 User.age > 16,
-    #             ),
-    #         ),
-    #     )
-    # )
+    session.execute(
+        update(User).values(
+            canMarry=or_(
+                and_(
+                    User.sex == 'M',
+                    User.age > 19,
+                ),
+                and_(
+                    User.sex == 'F',
+                    User.age > 16,
+                ),
+            ),
+        )
+    )
     # #
     # #
     # #
@@ -85,11 +98,12 @@ def main(session: Session):
     for user in session.execute(select(User)).scalars().fetchall():
         print(
             (
+                user,
                 user.sex,
                 user.age,
                 user.name,
-                '🤚' if user.canVote else '📍',
-                '💖' if user.canMarry else '😓',
+                '🤚' if user.canVote else '0',
+                '💖' if user.canMarry else '-',
             )
         )
     #

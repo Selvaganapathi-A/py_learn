@@ -1,4 +1,4 @@
-from typing import Any, Self, Type
+from typing import Any, Self
 
 
 class Robot:

@@ -1,15 +1,16 @@
 import asyncio
 import typing
+from collections.abc import Awaitable
 
 
-async def run_sequence(*functions: typing.Awaitable[typing.Any]):
+async def run_sequence(*functions: Awaitable[typing.Any]):
     data = []
     for function in functions:
         data.append(await function)
     return data
 
 
-async def run_parallel(*functions: typing.Awaitable[typing.Any]):
+async def run_parallel(*functions: Awaitable[typing.Any]):
     return await asyncio.gather(*functions)
 
 

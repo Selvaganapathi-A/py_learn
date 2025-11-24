@@ -1,6 +1,6 @@
 import typing
-from typing import (Callable, LiteralString, NewType, Text, Type, TypeAlias,
-                    TypeGuard, TypeVar)
+from collections.abc import Callable
+from typing import NewType, TypeAlias, TypeVar
 
 Q = NewType('Q', int)
 T = TypeVar('T', str, bytes, bytearray)
@@ -14,7 +14,9 @@ def func(a: alpha, b: int, c: str):
 
 
 def main():
-    some_function: alpha = lambda x, y: x + len(y)
+    def some_function(x, y):
+        return x + len(y)
+
     func(some_function, 45, 'bing')
     func(some_function, 93, 'google')
     func(

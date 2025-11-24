@@ -16,6 +16,7 @@ class Infix(object):
         return Infix(partial(self.func, other))
 
     def __call__(self, v1, v2):
+        print('__call__', v1, v2)
         return self.func(v1, v2)
 
 
@@ -26,7 +27,7 @@ def addopt(x, y):
 
 @Infix
 def adder(x, y):
-    print(x, y)
+    print('->', x, y)
     return x + y
 
 

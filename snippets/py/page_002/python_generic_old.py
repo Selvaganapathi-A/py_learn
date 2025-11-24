@@ -1,5 +1,6 @@
+from collections.abc import Callable
 from decimal import Decimal
-from typing import Callable, TypeAlias
+from typing import TypeAlias
 
 from typing_extensions import TypeVar
 

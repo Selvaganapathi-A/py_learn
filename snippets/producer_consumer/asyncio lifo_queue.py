@@ -1,6 +1,7 @@
 import asyncio
 import secrets
-from typing import Iterable, NoReturn, Tuple
+from collections.abc import Iterable
+from typing import NoReturn
 
 import faker
 from faker_food import FoodProvider  # type:ignore

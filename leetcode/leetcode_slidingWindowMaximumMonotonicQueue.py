@@ -3,7 +3,7 @@ import collections
 
 class Solution:
     def slidingWindowMaximumMonotonicQueue(self, nums: list[int], k: int) -> list[int]:
-        # *  List to store the maximum values for each sliding window
+        # *  list to store the maximum values for each sliding window
         result = []
         # *  Deque to store indices of elements in the current window
         double_ended_queue = collections.deque()

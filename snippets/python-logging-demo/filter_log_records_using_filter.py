@@ -8,9 +8,11 @@ from custom_test import test_logger
 
 
 # formatter: ModuleType = importlib.import_module(
-#     'formatter', 'zypress.python-logging-demo.formatter')
-# test: ModuleType = importlib.import_module('test',
-#                                            'zypress.python-logging-demo.test')
+#     'formatter', 'zypress.python-logging-demo.formatter'
+# )
+# test: ModuleType = importlib.import_module('test', 'zypress.python-logging-demo.test')
+
+
 class DebugFilter(logging.Filter):
     def filter(self, record: logging.LogRecord) -> bool:
         return record.levelno == logging.DEBUG

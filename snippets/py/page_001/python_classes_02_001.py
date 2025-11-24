@@ -1,9 +1,6 @@
-from typing import List
-
-
 class Country(object):
     def __init__(self, countryName: str):
-        self.cities: List['City'] = []
+        self.cities: list['City'] = []
         self.countryName: str = countryName
 
     def addCity(self, city: 'City'):
@@ -15,7 +12,7 @@ class Country(object):
 
 class City(object):
     def __init__(self, cityName: str):
-        self.people: List['Person'] = []
+        self.people: list['Person'] = []
         self.numPeople: int = 0
         self.cityName: str = cityName
 
@@ -40,7 +37,7 @@ class Person(object):
         city.addPerson(self)
 
     def people_in_my_country(self):
-        x = sum([city.numPeople for city in self.city.country.cities])
+        x = sum(city.numPeople for city in self.city.country.cities)
         return x
 
     def __repr__(self):

@@ -7,7 +7,7 @@ class Appliance:
     name: str
     rating: int
 
-    def __call__(self: Self, count: int, *args: Any, **kwds: Any) -> Any:
+    def __call__(self: Self, count: int, *args: Any, **kwds: Any) -> int:
         return count * self.rating
 
 

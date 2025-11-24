@@ -18,7 +18,7 @@ class Cookie(BaseModel):
     ) -> datetime:
         if value < info.data['made']:
             raise ValueError(
-                'expiry date should not be equal to manufature date.',
+                'manufacture date should be older than expiry date.',
             )
         return value
 

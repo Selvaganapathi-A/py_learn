@@ -1,7 +1,7 @@
 # from collections.abc import Coroutine
 import asyncio
 import random
-from typing import Coroutine
+from collections.abc import Coroutine
 
 
 async def coro(a: int, b: 'str'):

@@ -18,7 +18,7 @@ def _(a: str, b: str) -> str:
 
 
 @combine.register
-def _(a: list[int], b: list[int]) -> list[int]:
+def _(a: list, b: list) -> list:
     return a + b
 
 

@@ -23,20 +23,25 @@ class Subscriber:
 
 
 def main():
+    # channels
     youtube = Channel('Youtube')
     insta = Channel('Instagram')
+    # subscribers
     arun = Subscriber('Arun')
     mithra = Subscriber('Mithra')
     gugan = Subscriber('Gugan')
     mathu = Subscriber('Mathumitha')
     anjali = Subscriber('Anjali')
+    # youtube subscriptions
     youtube.subscribe(arun)
     youtube.subscribe(anjali)
     youtube.subscribe(mathu)
+    # insta subscriptions
     insta.subscribe(mithra)
     insta.subscribe(gugan)
     insta.subscribe(arun)
     insta.subscribe(mathu)
+    # send notifications
     youtube.notify('🎁 New Year Celebration.🎁')
     insta.notify('💰💰💰 Paid Promotion')
 

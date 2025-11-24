@@ -3,7 +3,9 @@ from timeit import timeit
 from icecream import ic
 
 from py_learn.dsa.linked_list.single_linked_list.dsa_linked_list_single import (
-    Node, Singly_Linked_List)
+    Node,
+    Singly_Linked_List,
+)
 
 
 def find_middle[T](ll: Singly_Linked_List[T]):
@@ -38,18 +40,18 @@ def main():
     #
     for x in string.ascii_uppercase:
         linked_list.append(x)
-    # print(" Show List ".center(60, "-"))
+    # print(" Show list ".center(60, "-"))
     # for a in linked_list.view():
     #     print(a, end=", ")
     #
-    # print(" Show List ".center(60, "-"))
+    # print(" Show list ".center(60, "-"))
     # linked_list.reverse()
     #
-    # # print("Show Reverse List".center(60, "-"))
+    # # print("Show Reverse list".center(60, "-"))
     # # for a in linked_list.view():
     # #     print(a, end=", ")
     # #
-    # # print("Show Reverse List".center(60, "-"))
+    # # print("Show Reverse list".center(60, "-"))
     #
     # linked_list.remove("Z")
     # linked_list.remove("V")
@@ -58,11 +60,11 @@ def main():
     # linked_list.remove("X")
     # linked_list.remove("arul")
     #
-    # print("After removing List".center(60, "-"))
+    # print("After removing list".center(60, "-"))
     # for a in linked_list.view():
     #     print(a, end=", ")
     #
-    # print("After removing List".center(60, "-"))
+    # print("After removing list".center(60, "-"))
 
 
 if __name__ == '__main__':

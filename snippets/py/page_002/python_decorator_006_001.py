@@ -1,4 +1,4 @@
-from typing import Any, Type
+from typing import Any
 
 
 def singleton(cls: type[Any]):

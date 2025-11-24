@@ -1,12 +1,11 @@
-from typing import Type
 
 
 class StringDescriptor:
-    def __set_name__(self, owner: Type, name: str):
+    def __set_name__(self, owner: type, name: str):
         print('StringDescriptor', 'set name', owner)
         self.property_name = name
 
-    def __get__(self, instance: object, owner: Type):
+    def __get__(self, instance: object, owner: type):
         print('StringDescriptor', 'get', instance, owner)
         if instance is None:
             return self

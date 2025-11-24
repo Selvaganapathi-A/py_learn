@@ -1,8 +1,9 @@
 class Fruit:
     def is_organic(self):
+        # indicates this method, should be implemented in subclasses.
         raise NotImplementedError(
             'Method Not Implemented.'
-        )  # indicates this method, should be implemented in subclasses.
+        )
 
 
 class Apple(Fruit):

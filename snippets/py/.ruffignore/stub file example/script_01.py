@@ -2,7 +2,7 @@ from typing import Self
 
 
 class Range[T: (int, float)]:
-    def __init__(self, *args) -> None:
+    def __init__(self, *args: T) -> None:
         start: T
         stop: T
         step: T
