@@ -1,5 +1,5 @@
-from typing import Any, cast, Self, TypeVar
 import logging
+from typing import TypeVar, cast
 
 
 class Ok[T]:

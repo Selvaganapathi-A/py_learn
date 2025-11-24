@@ -1,15 +1,5 @@
-from sqlalchemy import (
-    Boolean,
-    Integer,
-    String,
-    and_,
-    case,
-    create_engine,
-    insert,
-    or_,
-    select,
-    update,
-)
+from sqlalchemy import (Boolean, Integer, String, and_, case, create_engine,
+                        insert, or_, select, update)
 from sqlalchemy.orm import Mapped, Session, mapped_column, sessionmaker
 from sqlalchemy.orm.decl_api import DeclarativeBase
 

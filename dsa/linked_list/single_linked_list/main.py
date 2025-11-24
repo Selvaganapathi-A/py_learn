@@ -3,9 +3,7 @@ from timeit import timeit
 from icecream import ic
 
 from py_learn.dsa.linked_list.single_linked_list.dsa_linked_list_single import (
-    Node,
-    Singly_Linked_List,
-)
+    Node, Singly_Linked_List)
 
 
 def find_middle[T](ll: Singly_Linked_List[T]):

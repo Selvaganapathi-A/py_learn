@@ -6,7 +6,6 @@ from types import ModuleType
 from custom_formatter import BashFormatter
 from custom_test import test_logger
 
-
 # formatter: ModuleType = importlib.import_module(
 #     'formatter', 'zypress.python-logging-demo.formatter'
 # )

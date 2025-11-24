@@ -1,6 +1,6 @@
 import logging
-from typing import Any, Literal
 from collections.abc import Mapping
+from typing import Any, Literal
 
 
 class BashFormatter(logging.Formatter):
@@ -20,7 +20,7 @@ class BashFormatter(logging.Formatter):
             20: '\x1b[38;5;82m',
             30: '\x1b[38;5;226m',
             40: '\x1b[1;38;5;208m',
-            50: '\x1b[1;21;38;5;245m',  #  \x1B[48;5;196m
+            50: '\x1b[1;21;38;5;245m',  # \x1B[48;5;196m
         }
 
     def format(self, record: logging.LogRecord) -> str:

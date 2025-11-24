@@ -1,5 +1,3 @@
-
-
 class StringDescriptor:
     def __set_name__(self, owner: type, name: str):
         print('StringDescriptor', 'set name', owner)

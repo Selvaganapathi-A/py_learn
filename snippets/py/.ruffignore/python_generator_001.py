@@ -1,6 +1,6 @@
 import logging
 import time
-from collections.abc import  Generator
+from collections.abc import Generator
 
 
 def function[T: float](a: T, b: T, c: T) -> Generator[T, T, None]:

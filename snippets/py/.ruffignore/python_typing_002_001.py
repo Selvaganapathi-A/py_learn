@@ -26,7 +26,7 @@ class ProUser(AdvancedUser):
     @override
     def security(self):
         super().security()
-        return "blake2b"
+        return 'blake2b'
 
 
 class ClassicUser(ProUser):
