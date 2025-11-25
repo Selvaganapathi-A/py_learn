@@ -15,7 +15,9 @@ def numberToBase(n: int, b: int) -> list[int]:
 
 if __name__ == '__main__':
     os.system('clear')
-    text = string.digits + string.ascii_uppercase + string.ascii_lowercase + '_-'
+    text = (
+        string.digits + string.ascii_uppercase + string.ascii_lowercase + '_-'
+    )
     mapped = {x: text[x] for x in range(len(text))}
     reverse_mapped = {text[x]: x for x in range(len(text))}
     # ts: float = 9_168_944_014_211_452.0

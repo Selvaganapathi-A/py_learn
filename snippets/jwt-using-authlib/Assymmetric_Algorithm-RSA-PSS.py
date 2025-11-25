@@ -24,7 +24,9 @@ async def main():
     #
     # ! Claims are set to expire on 2026
     # * create jwk
-    key: RSAKey = JsonWebKey.generate_key(kty='RSA', crv_or_size=2048, is_private=True)
+    key: RSAKey = JsonWebKey.generate_key(
+        kty='RSA', crv_or_size=2048, is_private=True
+    )
     public_jwk = key.as_json(is_private=False)
     print(public_jwk)
     Private_PEM = key.as_pem(is_private=True, password=b'Hello World').decode()

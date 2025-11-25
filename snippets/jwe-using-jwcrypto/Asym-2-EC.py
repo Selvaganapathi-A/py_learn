@@ -25,7 +25,9 @@ def main():
     #
     private_key = key
     public_key = key.public()
-    print(key.export_to_pem(private_key=True, password=b'Ghost Rider').decode())
+    print(
+        key.export_to_pem(private_key=True, password=b'Ghost Rider').decode()
+    )
     print(key.export_to_pem(private_key=False).decode())
     #
     data = {

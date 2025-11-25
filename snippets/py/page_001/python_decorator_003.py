@@ -3,7 +3,9 @@ from typing import Any
 
 
 # Decorator
-def decorator_factory(*factory_args: int, **factory_kwargs: str) -> Callable[..., Any]:
+def decorator_factory(
+    *factory_args: int, **factory_kwargs: str
+) -> Callable[..., Any]:
     def decorator(function: Callable[..., Any]) -> Callable[..., Any]:
         def wrapper(*args: Iterable[Any], **kwargs: Mapping[Any, Any]) -> Any:
             return (

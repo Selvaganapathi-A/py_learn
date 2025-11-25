@@ -12,7 +12,9 @@ Association Object.
 
 class Association(Base):
     __tablename__: str = 'ChildParentRelationship'
-    __table_args__ = (UniqueConstraint('child_pk', 'parent_pk', name='uniqueRelationship'),)
+    __table_args__ = (
+        UniqueConstraint('child_pk', 'parent_pk', name='uniqueRelationship'),
+    )
     child_pk: Mapped[int] = mapped_column(
         Integer,
         ForeignKey('child.pk', ondelete='CASCADE', onupdate='CASCADE'),
@@ -37,7 +39,9 @@ class Parent(Base):
     __tablename__ = 'parent'
     __table_args__ = (UniqueConstraint('first_name', 'last_name'),)
     #
-    pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    pk: Mapped[int] = mapped_column(
+        Integer, primary_key=True, autoincrement=True
+    )
     #
     first_name: Mapped[str] = mapped_column(String, nullable=False)
     last_name: Mapped[str] = mapped_column(String, nullable=False)
@@ -51,7 +55,9 @@ class Child(Base):
     __tablename__ = 'child'
     __table_args__ = (UniqueConstraint('first_name', 'last_name'),)
     #
-    pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    pk: Mapped[int] = mapped_column(
+        Integer, primary_key=True, autoincrement=True
+    )
     #
     first_name: Mapped[str] = mapped_column(String, nullable=False)
     last_name: Mapped[str] = mapped_column(String, nullable=False)

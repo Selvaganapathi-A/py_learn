@@ -18,7 +18,9 @@ def main():
     # provide the profile name with which we want to open browser
     options.add_argument(r'--profile-directory=Default')  # type:ignore
     # chrome executable
-    options.binary_location = r'C:\Users\Tesla\Downloads\chrome-win64\chrome-win64\chrome.exe'
+    options.binary_location = (
+        r'C:\Users\Tesla\Downloads\chrome-win64\chrome-win64\chrome.exe'
+    )
     # initialize driver
     driver = webdriver.Chrome(service=service, options=options)
     #

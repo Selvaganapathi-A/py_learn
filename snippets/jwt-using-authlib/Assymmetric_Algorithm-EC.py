@@ -42,7 +42,9 @@ async def main():
         public_key: EllipticCurvePublicKey = key.as_key(False)
         print(public_key.public_numbers())
         #
-        Private_PEM = key.as_pem(is_private=True, password=b'Hello World').decode()
+        Private_PEM = key.as_pem(
+            is_private=True, password=b'Hello World'
+        ).decode()
         Public_PEM = key.as_pem(is_private=False).decode()
         print(Private_PEM, Public_PEM, sep='\n\n')
         #

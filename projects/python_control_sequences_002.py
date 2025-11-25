@@ -33,7 +33,9 @@ if __name__ == '__main__':
             z = x * 3 + y + 1
             print(f'\033[0;0f\033[K|{z:>3}|', end='\r', flush=True)
             time.sleep(0.5)
-    print('jkhfjfhgvhjhgfdvhgrshgrjyt jkgkjhgkjbkjgyu ukfk fkytkf fuyfkuyf fkuy')
+    print(
+        'jkhfjfhgvhjhgfdvhgrshgrjyt jkgkjhgkjbkjgyu ukfk fkytkf fuyfkuyf fkuy'
+    )
     time.sleep(1)
     print('\033[F ', end='')
     time.sleep(1)

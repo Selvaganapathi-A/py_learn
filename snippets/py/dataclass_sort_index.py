@@ -8,7 +8,9 @@ class Person:
     name: str
     age: int
     gender: Literal['M', 'F', 'O']
-    _sort_index: tuple[Literal['M', 'F', 'O'], int, str] = field(repr=False, init=False)
+    _sort_index: tuple[Literal['M', 'F', 'O'], int, str] = field(
+        repr=False, init=False
+    )
 
     def __post_init__(self: Self):
         self._sort_index = (self.gender, self.age, self.name)

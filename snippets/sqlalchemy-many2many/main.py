@@ -36,7 +36,9 @@ def workarea(session: Session):
     #
     # * Parent Child Relationship
     result = (
-        session.execute(select(Parent).order_by(Parent.last_name, Parent.first_name))
+        session.execute(
+            select(Parent).order_by(Parent.last_name, Parent.first_name)
+        )
         .scalars()
         .all()
     )

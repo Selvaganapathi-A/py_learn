@@ -81,7 +81,9 @@ def save_palette(colors, swatchsize=128, outfile='palette.png'):
         num_colors,
     )
     palette.save(
-        function_new_filename(outfile, 'output', makedirs=True, filetype_alt='.png'),
+        function_new_filename(
+            outfile, 'output', makedirs=True, filetype_alt='.png'
+        ),
         'PNG',
     )
 

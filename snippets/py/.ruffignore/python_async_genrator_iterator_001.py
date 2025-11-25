@@ -40,7 +40,9 @@ async def main():
     async for x in Async_Generator(350, 600, 10):
         print(x)
     print('#' * 80)
-    async for x in Async_Generator(Decimal('350.78'), Decimal('600.37'), Decimal(' 13.147')):
+    async for x in Async_Generator(
+        Decimal('350.78'), Decimal('600.37'), Decimal(' 13.147')
+    ):
         print(x)
     print('#' * 80)
 

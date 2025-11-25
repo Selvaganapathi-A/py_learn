@@ -43,7 +43,9 @@ def as_vendor_storage(value: int = 1) -> int:
     return 1_000**value
 
 
-def print_line(__char__: Literal[' ', '-', '*', '#'] = '-', *, length: int = 80):
+def print_line(
+    __char__: Literal[' ', '-', '*', '#'] = '-', *, length: int = 80
+):
     print(__char__ * length)
 
 

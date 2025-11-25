@@ -21,7 +21,10 @@ class Solution:
         for current_pointer in range(length_s):
             character = s[current_pointer]
             window[character] = window.get(character, 0) + 1
-            if character in count_in_t and window[character] == count_in_t[character]:
+            if (
+                character in count_in_t
+                and window[character] == count_in_t[character]
+            ):
                 have += 1
             while have == need:
                 if (current_pointer - left_pointer + 1) < result_length:
@@ -36,7 +39,9 @@ class Solution:
                 left_pointer += 1
         left_pointer, current_pointer = result
         final_result: str = (
-            s[left_pointer : current_pointer + 1] if result_length != float('inf') else ''
+            s[left_pointer : current_pointer + 1]
+            if result_length != float('inf')
+            else ''
         )
         return final_result
 

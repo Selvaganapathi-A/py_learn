@@ -227,7 +227,12 @@ users = [
         age=30,
         email='pamela_roberts 1994@bowen.com',
     ),
-    Person(name='Lisa Grant', gender='F', age=16, email='lisa_grant 2008@smith.net'),
+    Person(
+        name='Lisa Grant',
+        gender='F',
+        age=16,
+        email='lisa_grant 2008@smith.net',
+    ),
     Person(
         name='Raymond Riley',
         gender='M',
@@ -312,7 +317,9 @@ users = [
         age=22,
         email='monica_young 2002@nelson-nelson.biz',
     ),
-    Person(name='Ryan Cox', gender='M', age=21, email='ryan_cox 2003@riley.com'),
+    Person(
+        name='Ryan Cox', gender='M', age=21, email='ryan_cox 2003@riley.com'
+    ),
     Person(
         name='Nancy Serrano',
         gender='F',
@@ -349,7 +356,9 @@ users = [
         age=27,
         email='pamela_miller 1997@reese.com',
     ),
-    Person(name='Anne Kirk', gender='F', age=21, email='anne_kirk 2003@jones.info'),
+    Person(
+        name='Anne Kirk', gender='F', age=21, email='anne_kirk 2003@jones.info'
+    ),
     Person(
         name='Oscar Wilson',
         gender='M',
@@ -524,7 +533,9 @@ users = [
         age=24,
         email='spencer_reynolds 2000@stephenson.info',
     ),
-    Person(name='Ann Mann', gender='F', age=29, email='ann_mann 1995@cruz.com'),
+    Person(
+        name='Ann Mann', gender='F', age=29, email='ann_mann 1995@cruz.com'
+    ),
     Person(
         name='David Palmer',
         gender='M',

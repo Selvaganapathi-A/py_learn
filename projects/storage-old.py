@@ -43,7 +43,9 @@ def convert_to(
     return f'{tmp:.2f} {mapped.get(i, "BB")}'
 
 
-def print_line(__char__: Literal[' ', '-', '*', '#'] = '-', *, length: int = 80):
+def print_line(
+    __char__: Literal[' ', '-', '*', '#'] = '-', *, length: int = 80
+):
     print(__char__ * length)
 
 
