@@ -3,21 +3,28 @@ from functools import wraps
 from pprint import pprint
 from typing import Any
 
-REGISTRY: dict[str, Callable[[Any], None]] = {}
+_REGISTRY: dict[str, Callable[[Any], None]] = {}
 
 
 def register_exporter(format: str):
     def decorator(function: Callable[[Any], None]):
-        global REGISTRY
+        global _REGISTRY
 
         @wraps(function)
         def wrapper(data: Any):
             return function(data)
 
-        REGISTRY[format] = wrapper
+        _REGISTRY[format] = wrapper
         return wrapper
 
     return decorator
+
+
+def export_data(data: Any, format: str):
+    exporter_function = _REGISTRY.get(format)
+    if exporter_function is None:
+        raise ValueError('Exporter Not Registered.')
+    return exporter_function(data)
 
 
 @register_exporter('pdf')
@@ -45,13 +52,6 @@ def export_json(data: Any):
         compact=True,
         sort_dicts=False,
     )
-
-
-def export_data(data: Any, format: str):
-    exporter_function = REGISTRY.get(format)
-    if exporter_function is None:
-        raise ValueError('Exporter Not Registered.')
-    return exporter_function(data)
 
 
 def main():

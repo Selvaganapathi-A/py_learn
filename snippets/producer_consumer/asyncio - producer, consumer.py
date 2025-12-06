@@ -7,17 +7,17 @@ async def produce(queue: asyncio.Queue[int], n: int):
         # produce an item
         print(f'producing {x}/{n}')
         # simulate i/o operation using sleep
-        await asyncio.sleep(2)
+        await asyncio.sleep(0.25)
         # put the item in the queue
         await queue.put(x)
 
 
-async def consume(queue: asyncio.Queue[int]):
+async def consume(consumer_id: int, queue: asyncio.Queue[int]):
     while True:
         # wait for an item from the producer
         item = await queue.get()
         # process the item
-        print(f'consuming {item}...')
+        print(f'{consumer_id: >2d} - consuming {item}...')
         # simulate i/o operation using sleep
         await asyncio.sleep(5)
         # Notify the queue that the item has been processed
@@ -25,10 +25,10 @@ async def consume(queue: asyncio.Queue[int]):
 
 
 async def run(n: int):
-    queue: asyncio.Queue[int] = asyncio.Queue()
+    queue: asyncio.Queue[int] = asyncio.Queue(maxsize=10)
     # schedule consumers
     consumers: list[asyncio.Task[NoReturn]] = [
-        asyncio.create_task(consume(queue)) for _ in range(3)
+        asyncio.create_task(consume(_, queue)) for _ in range(7)
     ]
     # run the producer and wait for completion
     await produce(queue, n)
@@ -42,7 +42,7 @@ async def run(n: int):
 
 
 def main():
-    asyncio.run(run(10))
+    asyncio.run(run(25))
 
 
 if __name__ == '__main__':

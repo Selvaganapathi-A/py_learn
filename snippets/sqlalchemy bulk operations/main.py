@@ -1,5 +1,5 @@
-from sqlalchemy import (Boolean, Integer, String, and_, case, create_engine,
-                        insert, or_, select, update)
+from sqlalchemy import (Boolean, Integer, String, and_, create_engine, insert,
+                        or_, select, update)
 from sqlalchemy.orm import Mapped, Session, mapped_column, sessionmaker
 from sqlalchemy.orm.decl_api import DeclarativeBase
 
@@ -154,9 +154,9 @@ def bulk_update_by_orm(session: Session):
 
 def main(session: Session):
     bulk_insert(session)
-    view_user_data(session)
+    # view_user_data(session)
     bulk_update_by_orm(session)
-    view_user_data(session)
+    # view_user_data(session)
     session.commit()
 
 
