@@ -1,14 +1,24 @@
-import platform
-
-
 def get_systemdetails():
+    import os
+    import platform
+    import shutil
+
+    COLS, _ = shutil.get_terminal_size()
+
+    padding_length: int = int(COLS * 0.3)
+
     instruction_set, OS_Name = platform.architecture()
-    print(f'User         : {platform.node()}')
-    print(f'System       : {platform.system()} {platform.release()}')
-    print(f'System       : {platform.system()} {platform.version()}')
-    print(f'Machine      : {platform.machine()}')
-    print(f'Processor    : {platform.processor()}')
-    print(f'Architecture : {instruction_set} {OS_Name}')
+    print(f'{"User": <{padding_length}} : {platform.node()}')
+    print(
+        (
+            f'{"System": <{padding_length}} : {platform.system()} {platform.release()}'
+            f'({platform.version()})'
+        )
+    )
+    print(f'{"Instruction Set": <{padding_length}} : {platform.machine()}')
+    print(f'{"Processor": <{padding_length}} : {platform.processor()}')
+    print(f'{"Architecture": <{padding_length}} : {instruction_set} {OS_Name}')
+    print(f'{"CPU Count": <{padding_length}} : {os.cpu_count()} Core Processor')
 
 
 if __name__ == '__main__':
