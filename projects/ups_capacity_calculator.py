@@ -53,7 +53,5 @@ if __name__ == '__main__':
     battery_ah = 150 + 150
     battery_voltage = 12
     battery_efficiency = 0.95
-    backup_time = (
-        battery_ah * battery_voltage * battery_efficiency / power_load
-    )
+    backup_time = battery_ah * battery_voltage * battery_efficiency / power_load
     print(f'Backup Time : {backup_time} Hrs.')

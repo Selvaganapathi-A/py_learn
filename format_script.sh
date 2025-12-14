@@ -1,3 +1,5 @@
+#!/usr/bin env:zsh
+
 clear
 
 # echo '←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→'
@@ -18,12 +20,13 @@ clear
 
 # echo '←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→↘↓↙←↖↑↗→'
 # git status
+
 echo Format with RUFF
 uv run ruff format . --line-length 80
 echo
-echo Format with yapf
-uv run yapf -ir --style google .
-echo
+# echo Format with yapf
+# uv run yapf -ir --style google .
+# echo
 echo Format imports
 uv run isort .
 echo

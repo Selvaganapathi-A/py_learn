@@ -18,9 +18,7 @@ def render_to_string(text: Template):
         match var:
             case str():
                 values.append(var)
-            case Interpolation(
-                value, expression, conversion, format_specifier
-            ):
+            case Interpolation(value, expression, conversion, format_specifier):
                 txt = convert(value, conversion)
                 if format_specifier:
                     txt = format(txt, format_specifier)

@@ -18,9 +18,7 @@ class User(BaseModel):
     country: Mapped[str] = mapped_column(String, nullable=True, default=None)
     sex: Mapped[str] = mapped_column(String, nullable=True, default=None)
     canVote: Mapped[bool] = mapped_column(Boolean, nullable=True, default=None)
-    canMarry: Mapped[bool] = mapped_column(
-        Boolean, nullable=True, default=None
-    )
+    canMarry: Mapped[bool] = mapped_column(Boolean, nullable=True, default=None)
 
     def __str__(self) -> str:
         return f'<{self.name} {self.surname}>'

@@ -533,9 +533,7 @@ users = [
         age=24,
         email='spencer_reynolds 2000@stephenson.info',
     ),
-    Person(
-        name='Ann Mann', gender='F', age=29, email='ann_mann 1995@cruz.com'
-    ),
+    Person(name='Ann Mann', gender='F', age=29, email='ann_mann 1995@cruz.com'),
     Person(
         name='David Palmer',
         gender='M',

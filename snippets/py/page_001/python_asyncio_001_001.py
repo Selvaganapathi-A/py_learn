@@ -1,7 +1,6 @@
 import asyncio
 
 
-# %%
 # asyncio  call later
 def callback(n):
     print('callback {} invoked'.format(n))
@@ -24,7 +23,6 @@ finally:
     event_loop.close()
 
 
-# %%
 # Pass Croutine to loop call later
 async def foo(iv, start):
     await asyncio.sleep(1)

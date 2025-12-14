@@ -24,9 +24,7 @@ class NaiveSingleton(type):
     def __call__(cls, *args, **kwargs):
         with cls.__threadLock__:
             if cls not in cls.__naive_instances__:
-                cls.__naive_instances__[cls] = super().__call__(
-                    *args, **kwargs
-                )
+                cls.__naive_instances__[cls] = super().__call__(*args, **kwargs)
         return cls.__naive_instances__[cls]
 
 
