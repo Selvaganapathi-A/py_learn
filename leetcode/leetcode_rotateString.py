@@ -42,17 +42,14 @@ def main():
     s: str
     goal: str
     result: bool
-    #
     s = 'abcde'
     goal = 'cdeab'
     result = rotateString(s, goal)
     print(result)
-    #
     s = 'abcde'
     goal = 'abced'
     result = rotateString(s, goal)
     print(result)
-    #
     s = 'bbbacddceeb'
     goal = 'ceebbbbacdd'
     result = rotateString(s, goal)

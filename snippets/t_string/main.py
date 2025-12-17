@@ -36,10 +36,8 @@ def render_to_string(text: Template):
 def main():
     name: str = 'Guava'
     price: float = 12.54354
-    #
     t_string: Template = t'Product = {name!r}, price = {price: >10.2f}.'
     text = render_to_string(t_string)
-    #
     print()
     print(t_string)
     print()

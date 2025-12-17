@@ -66,7 +66,6 @@ def main():
     export_data(data, 'csv')
     export_data(data, 'json')
     export_data(data, 'xml')
-    #
     # below code raises ValueError
     # No exporter is registered.
     export_data(data, 'text')

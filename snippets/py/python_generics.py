@@ -76,14 +76,11 @@ def main():
     licensed_vehicles = LicensedVehicleRegistry[Car]()
     f13 = Plane('Fighter plane')
     licensed_vehicles.add(bmw)
-    #
     # ! raises ArgumentError in pylance
     # licensed_vehicles.add(f13)
-    #
     # ! raises ArgumentError in pylance
     # licensed_vehicles.add(green_hunk)
     licensed_vehicles.add(toyoto)
-    #
     licensed_vehicles.display()
 
 

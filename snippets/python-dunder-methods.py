@@ -273,7 +273,6 @@ class SomeClass(object):
         raise NotImplementedError()
 
     #
-    #
     """
     These methods are called to implement the binary arithmetic operations
     (+, -, *, @, /, //, %, divmod(), pow(), **, <<, >>, &, ^, |) with
@@ -458,7 +457,6 @@ class SomeClass(object):
         """
         raise NotImplementedError()
 
-    #
     """
     These are the so-called “rich comparison” methods. The correspondence
     between operator symbols and method names is as follows:
@@ -518,7 +516,6 @@ class SomeClass(object):
         """
         raise NotImplementedError()
 
-    #
     def __not__(self) -> bool:
         """
         # __not__

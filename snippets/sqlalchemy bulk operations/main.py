@@ -149,7 +149,6 @@ def bulk_update_by_orm(session: Session):
         )
     # * bulk update
     session.execute(update(User), cache)
-    #
 
 
 def main(session: Session):

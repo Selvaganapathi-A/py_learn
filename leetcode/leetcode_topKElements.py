@@ -24,17 +24,14 @@ def main():
     nums: list[int]
     k: int
     result: list[int]
-    #
     nums = [1, 1, 1, 2, 2, 3]
     k = 4
     result = topKElements(nums, k)
     print(result)
-    #
     nums = [-1, 2, 0]
     k = 1
     result = topKElements(nums, k)
     print(result)
-    #
     nums = [-2, -1, 2, 0, 8, 7, 4, 7, 1, 4, 7, 6, 4, 3]
     k = 3
     result = topKElements(nums, k)

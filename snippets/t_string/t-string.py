@@ -23,10 +23,8 @@ def main():
     health: float = 93.7
     blessing: str = 'kudos'
     feeling: str = '😊'
-    #
     # define template string
     string_template = t'Hello [{health: ^14.3f}] {business!a} {blessing!r} {feeling!s} [{health!s: >8s}]'
-    #
     #  build string when needed.
     print(build_string(string_template))
 

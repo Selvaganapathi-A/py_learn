@@ -37,7 +37,6 @@ def main():
         'name': 'John Doe',
     }
     payload = orjson.dumps(data)
-    #
     for alg in SymmetricAlgorithms:
         # print(alg)
         alg_size = 128
@@ -51,7 +50,6 @@ def main():
         for enc in ContentEncryptionOptions:
             header = {'alg': alg, 'enc': enc, 'typ': 'JWE'}
             print('Header : ', header)
-            #
             jwetoken = jwe.JWE(plaintext=payload, protected=header)  # type: ignore
             jwetoken.add_recipient(key)
             token = jwetoken.serialize()
@@ -59,7 +57,6 @@ def main():
             jwe_obj = jwe.JWE()
             jwe_obj.deserialize(token, key)
             pprint(orjson.loads(jwe_obj.payload))  # type: ignore
-    #
     password = b'Ghost Rider'
     for enc in ContentEncryptionOptions:
         # break
@@ -72,7 +69,6 @@ def main():
             header = {'alg': alg, 'enc': enc, 'typ': 'JWE'}
             print('Header : ', header)
             # print('  Data : ', data)
-            #
             jwetoken = jwe.JWE(plaintext=payload, protected=header)  # type: ignore
             jwetoken.add_recipient(key)
             token = jwetoken.serialize()

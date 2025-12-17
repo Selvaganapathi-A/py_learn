@@ -18,22 +18,18 @@ def main():
     nums: list[int]
     target: int
     result: list[int]
-    #
     nums = [2, 7, 11, 15]
     target = 9
     result = Solution().twoSum(sorted(nums), target)
     print(result)
-    #
     nums = [2, 3, 4]
     target = 6
     result = Solution().twoSum(sorted(nums), target)
     print(result)
-    #
     nums = [-1, 0]
     target = -1
     result = Solution().twoSum(sorted(nums), target)
     print(result)
-    #
     nums = [-1, 0, 1, 1, 3, 5, 8]
     target = 2
     result = Solution().twoSum(sorted(nums), target)

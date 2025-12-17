@@ -16,7 +16,6 @@ async def main():
         ),
         'name': 'John Doe',
     }
-    #
     # ! Claims are set to expire on 2026
     # * create jwk
     # Generate Ed25519 key
@@ -24,16 +23,13 @@ async def main():
     # public_jwk = key.as_dict(is_private=False)
     # print('Public JWK:', public_jwk)
     print('Public JWK:', key.as_json(True))
-    #
     Private_PEM = key.as_pem(is_private=True, password=b'Hello World').decode()
     Public_PEM = key.as_pem(is_private=False).decode()
     print(Private_PEM, Public_PEM, sep='\n\n')
-    #
     # * sign jwt
     header = {'alg': 'EdDSA', 'typ': 'JWT'}
     token = jwt.encode(header, payload=claims, key=key)
     print('JWT:', token.decode())
-    #
     decoded: JWTClaims = jwt.decode(token, key)
     decoded.validate()
     print(decoded)

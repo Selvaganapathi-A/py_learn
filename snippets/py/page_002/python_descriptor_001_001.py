@@ -36,6 +36,5 @@ if __name__ == '__main__':
     for i in range(2):
         # print(my_deep_thought_instance.__dict__)
         print(my_deep_thought_instance.meaning_of_life)
-        #
     print('*' * 80)
     print('End of Program')

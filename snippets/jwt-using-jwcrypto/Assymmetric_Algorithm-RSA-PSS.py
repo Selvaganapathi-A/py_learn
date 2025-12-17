@@ -16,7 +16,6 @@ async def main():
     print(key.export(private_key=False))
     print(key.export_to_pem(private_key=True, password=b'Google').decode())
     print(key.export_to_pem(private_key=False).decode())
-    #
     ALGORITHMS: tuple[str, ...] = (
         'PS384',
         'PS512',
@@ -44,7 +43,6 @@ async def main():
         token.make_signed_token(key)
         json_token = token.serialize()
         print(json_token)
-        #
         # * verify
         received = jwt.JWT(key=public_key, jwt=json_token)
         print(received.claims)

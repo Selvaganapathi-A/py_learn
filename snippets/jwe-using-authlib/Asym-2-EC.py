@@ -19,12 +19,9 @@ def main():
         'A192CBC-HS384',
         'A256CBC-HS512',
     )
-    #
     key: ECKey = JsonWebKey.generate_key('EC', 'P-521', is_private=True)
-    #
     private_key = key.as_dict(True)
     public_key = key.as_dict(False)
-    #
     data = {
         'name': 'John Doe',
         'sub': 1234567890,
@@ -39,9 +36,7 @@ def main():
             print('  Data : ', data)
             # pprint(private_key)
             # pprint(public_key)
-            #
             jwe = JsonWebEncryption()
-            #
             mx = jwe.serialize(
                 header,
                 payload,
@@ -49,7 +44,6 @@ def main():
                 # private_key,
             )
             print(mx.decode())
-            #
             mt: JWSObject = jwe.deserialize(mx, private_key)
             print(orjson.loads(mt.get('payload', b'{}')))  # type: ignore
 

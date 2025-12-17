@@ -45,7 +45,6 @@ def main():
             print('  Data : ', data)
             # pprint(private_key)
             # pprint(public_key)
-            #
             jwe = JsonWebEncryption()
             mx = jwe.serialize(
                 header,
@@ -54,7 +53,6 @@ def main():
                 # private_key,
             )
             print(mx.decode())
-            #
             mt: JWSObject = jwe.deserialize(mx, key)
             print(orjson.loads(mt.get('payload', b'{}')))  # type: ignore
 

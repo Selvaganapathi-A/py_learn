@@ -26,13 +26,11 @@ async def main():
             timeout=30_000,
             wait_until='commit',
         )
-        #
         print(type(page))
         print(type(context))
         print(type(browser))
         print(type(response))
         # print(help(response))
-        #
         title = await page.title()
         if response is not None:
             print(f'{response.status}')

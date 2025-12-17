@@ -14,7 +14,6 @@ def fetch_keys(users: tuple[str, ...]):
     for user in users:
         pk = PrivateKey.generate()
         keys[user] = Keys(publicKey=pk.public_key, privateKey=pk)
-        #
         print(user)
         print(pk.encode(encoder=encoding.Base64Encoder))
         print(pk.public_key.encode(encoder=encoding.Base64Encoder))
@@ -46,14 +45,11 @@ def receive_message(vault: dict[str, Keys], name: str, message: bytes):
 def main():
     users = ('arun', 'mathu', 'john', 'jack', 'mike')
     vault = fetch_keys(users)
-    #
     msg_from_mike = 'Hello John. This is Mike from Orlando.'
     msg = send_message(vault, 'john', msg_from_mike)
     print('Encrypted Message :', msg)
-    #
     rec_msg = receive_message(vault, 'john', msg)
     print('Decrypted Message :', rec_msg)
-    #
     # try decrypt message by another user. this whill raise Crypto Error.
     msg = receive_message(vault, 'mathu', msg)
     print('Decrypted Message :', msg)

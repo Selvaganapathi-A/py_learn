@@ -59,17 +59,13 @@ class Test_004(TestCase):
 
 class Test_005(TestCase):
     def test_sum_numbers(self):
-        #
         patcher = patch(
             'py_learn.unittest_example.fileio.read_numbers_from_file'
         )
-        #
         mock_function = patcher.start()
-        #
         mock_function.return_value = [900, 800, 1200, 1100]
         self.assertEqual(
             fileio.sum_of_numbers(Path(__file__).parent / 'dumme.input'),
             4000,
         )
-        #
         patcher.stop()

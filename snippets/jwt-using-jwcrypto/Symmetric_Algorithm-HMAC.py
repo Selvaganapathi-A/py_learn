@@ -5,10 +5,8 @@ from jwcrypto import jwk, jwt
 
 
 async def main():
-    #
     # * create jwk
     secret = os.urandom(64)
-    #
     key = jwk.JWK(kty='oct', k=secret.hex(), kid='HMAC Based Algorithms.')
     print(secret)
     print(secret.hex())
@@ -35,7 +33,6 @@ async def main():
     # print(timezone.localize(datetime.fromtimestamp(claims['iat'])))
     # print(timezone.localize(datetime.fromtimestamp(claims['nbf'])))
     # print(timezone.localize(datetime.fromtimestamp(claims['exp'])))
-    #
     for algorithm in ALGORITHMS:
         # * sign jwt
         header = {

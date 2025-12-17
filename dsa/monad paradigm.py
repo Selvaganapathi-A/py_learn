@@ -45,7 +45,6 @@ def main():
         print(result.unwrap_value())
     elif result.is_error():
         print(result.unwrap_error())
-    #
     result = divide(500, 0)
     if result.is_ok():
         print(result.unwrap_value())

@@ -55,12 +55,11 @@ def main():
     for _ in range(2500):
         users.append(faker.personalia().dump())
 
-    json_file = Path(__file__).parent / "person.json"
-    with json_file.open("w") as writer:
+    json_file = Path(__file__).parent / 'person.json'
+    with json_file.open('w') as writer:
         json.dump(users, writer, indent=4)
         writer.flush()
         writer.close()
-
 
 
 if __name__ == '__main__':

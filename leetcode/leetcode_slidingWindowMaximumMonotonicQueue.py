@@ -174,7 +174,6 @@ def main():
     nums: list[int]
     k: int
     result: list[int]
-    #
     solution = Solution()
     for k, nums in samples:
         print('k = ', k)

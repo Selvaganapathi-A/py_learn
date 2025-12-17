@@ -14,7 +14,6 @@ def workarea(session: Session):
     session.add(jerry)
     # #
     session.commit()
-    #
     for prsn in session.execute(select(Parent)).scalars().all():
         print(prsn.pk, prsn.name)
         child = prsn.child
@@ -28,17 +27,12 @@ def workarea(session: Session):
 def main():
     session: Session
     engine: Engine = create_engine('sqlite:///:memory:', echo=False)
-    #
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
-    #
     sessionLocal = sessionmaker(bind=engine)
     session = sessionLocal()
-    #
     workarea(session=session)
-    #
     session.commit()
-    #
     engine.dispose()
 
 

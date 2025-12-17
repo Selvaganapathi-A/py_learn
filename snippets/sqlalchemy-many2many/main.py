@@ -10,30 +10,23 @@ def workarea(session: Session):
     laurel = Parent(first_name='Laurel', last_name='Jack')
     brittany = Parent(first_name='Brittany', last_name='Bethrolis')
     daisy = Parent(first_name='Daisy', last_name='Haze')
-    #
     # * Create Child Objects
     ashley = Child(first_name='Ashley', last_name='Billy')
     james = Child(first_name='James', last_name='Tom')
     miranda = Child(first_name='Miranda', last_name='Daisy')
-    #
     # * Add Child Objects to Parents
     billy.children.add(ashley)
     laurel.children.add(ashley)
-    #
     billy.children.add(james)
     daisy.children.add(james)
-    #
     tom.children.add(miranda)
-    #
     brittany.children.add(miranda)
-    #
     session.add(billy)
     session.add(tom)
     session.add(laurel)
     session.add(brittany)
     session.add(daisy)
     session.commit()
-    #
     # * Parent Child Relationship
     result = (
         session.execute(
@@ -47,7 +40,6 @@ def workarea(session: Session):
         for child in parent.children:
             print('->>', child.first_name + ' ' + child.last_name)
     print('-' * 80)
-    #
     # * Child Parent Relationship
     result = session.execute(select(Child)).scalars().all()
     for child in result:
@@ -59,17 +51,12 @@ def workarea(session: Session):
 def main():
     session: Session
     engine: Engine = create_engine('sqlite:///:memory:', echo=False)
-    #
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
-    #
     sessionLocal = sessionmaker(bind=engine)
     session = sessionLocal()
-    #
     workarea(session=session)
-    #
     session.commit()
-    #
     engine.dispose()
 
 

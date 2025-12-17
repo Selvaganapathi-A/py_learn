@@ -20,15 +20,12 @@ def numberToBase(number: int, base: int) -> str:
 
 
 def main():
-    #
     number: int = 127
     base = len(_TEXT)
-    #
     print()
     print(MAPPED_TO_CHARACTER)
     # print(MAPPED_TO_NUMBER)
     print()
-    #
     print(numberToBase(number, base))
 
 

@@ -15,7 +15,6 @@ async def main():
     public_key: jwk.JWK = key.public()
     print(public_key)
     print(key.export(private_key=False))
-    #
     # * sign jwt
     header = {'alg': 'EdDSA'}
     claims = {
@@ -37,7 +36,6 @@ async def main():
     token.make_signed_token(key)
     json_token = token.serialize()
     print(json_token)
-    #
     # * verify
     received = jwt.JWT(key=public_key, jwt=json_token)
     print(received.claims)

@@ -9,7 +9,6 @@ def containsDuplicate(nums: list[int]) -> bool:
 def main():
     nums: list[int]
     result: bool
-    #
     nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]
     result = containsDuplicate(nums)
     print(result)

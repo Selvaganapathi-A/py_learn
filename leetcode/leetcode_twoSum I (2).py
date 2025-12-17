@@ -15,13 +15,10 @@ class Solution:
 
 def main():
     sol = Solution()
-    #
     case_1 = [2, 7, 11, 15]
     print(sol.twoSum(case_1, 9))
-    #
     case_2 = [3, 2, 4]
     print(sol.twoSum(case_2, 6))
-    #
     case_3 = [3, 3]
     print(sol.twoSum(case_3, 6))
 

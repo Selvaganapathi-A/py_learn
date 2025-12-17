@@ -34,11 +34,9 @@ def main():
     n = 2000
     r = fibbonocci_number(n)
     print(n, r)
-    #
     n = 19
     r = fibbonocci_number(n)
     print(n, r)
-    #
     for x in fibbonocci_sequence(20):
         print('&&&', x)
 

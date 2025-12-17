@@ -23,13 +23,10 @@ async def main():
         ),
         'name': 'John Doe',
     }
-    #
     # ! Claims are set to expire on 2026
-    #
     # * create jwk
     private_key: rsa.RSAPrivateKey = rsa.generate_private_key(65537, 2048)
     public_key: rsa.RSAPublicKey = private_key.public_key()
-    #
     private_pem = private_key.private_bytes(
         serialization.Encoding.PEM,
         serialization.PrivateFormat.PKCS8,
@@ -40,20 +37,16 @@ async def main():
         serialization.PublicFormat.PKCS1,
     )
     print(private_pem.decode(), public_pem.decode(), sep='\n\n\n', end='\n\n')
-    #
     # Import into Authlib
     key: RSAKey = JsonWebKey.import_key(private_pem, {'alg': 'RS256'})  # type: ignore
     public_jwk = key.as_json(is_private=False)
     print(public_jwk)
-    #
     for algorithm in ALGORITHMS:
-        #
         # * sign jwt
         header = {'alg': algorithm, 'typ': 'JWT'}
         # alg must be one of RS256, RS384, RS512
         json_token = jwt.encode(header, payload=claims, key=key)
         print(json_token.decode())
-        #
         # * verify
         received: JWTClaims = jwt.decode(json_token, public_key)
         received.validate()

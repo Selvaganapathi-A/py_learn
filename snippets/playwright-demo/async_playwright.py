@@ -7,7 +7,6 @@ async def get_basic_data(browser: Browser):
     HTTP_STATUS: int = -1
     RESPONSE_URL: str | None = None
     RESPONSE_TITLE: str | None = None
-    #
     page: Page = await browser.new_page()
     webpage: Response | None = await page.goto(
         'http://localhost:3000/',

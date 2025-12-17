@@ -177,7 +177,6 @@ def main():
     # Faker.seed(0)
 
     fake = Faker(('en_US'))
-    #
     fake.add_provider(AirTravelProvider)
     fake.add_provider(Provider)
     fake.add_provider(SchoolProvider)
@@ -185,7 +184,6 @@ def main():
     fake.add_provider(MusicProvider)
     fake.add_provider(VehicleProvider)
     fake.add_provider(CustomProvider)
-    #
     # # # before = set(dir(fake))
     # # # after = set(dir(fake))
     # # # #
@@ -200,9 +198,7 @@ def main():
     # # #         print()
     # # #     i += 1
     # # # print()
-    #
 
-    #
     #
     for x in range(3):
         print(

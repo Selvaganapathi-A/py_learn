@@ -29,9 +29,7 @@ async def main():
         ),
         'name': 'John Doe',
     }
-    #
     # ! Claims are set to expire on 2026
-    #
     for algorithm in ALGORITHMS:
         # * create jwk
         key: ECKey = ECKey.generate_key(
@@ -40,25 +38,21 @@ async def main():
         )
         public_key: EllipticCurvePublicKey = key.as_key(False)
         print(public_key.public_numbers())
-        #
         Private_PEM = key.as_pem(
             is_private=True, password=b'Hello World'
         ).decode()
         Public_PEM = key.as_pem(is_private=False).decode()
         print(Private_PEM, Public_PEM, sep='\n\n')
-        #
         # ! generate new key for eackh application
         public_jwk = key.as_json(is_private=False)
         print('Private JWK:', key.as_json(True))
         print(' Public JWK:', public_jwk)
-        #
         # * sign jwt
         header = {'alg': algorithm, 'typ': 'JWT'}
         print(header)
         # alg must be one of ES256, ES256K, ES384, ES512
         json_token = jwt.encode(header, payload=claims, key=key)
         print(json_token.decode())
-        #
         # * verify
         received: JWTClaims = jwt.decode(json_token, public_key)
         received.validate()

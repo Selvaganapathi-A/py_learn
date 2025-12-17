@@ -35,33 +35,27 @@ def main():
 
     linked_list: Singly_Linked_List[str] = Singly_Linked_List[str]()
     # print(linked_list.length)
-    #
     for x in string.ascii_uppercase:
         linked_list.append(x)
     # print(" Show list ".center(60, "-"))
     # for a in linked_list.view():
     #     print(a, end=", ")
-    #
     # print(" Show list ".center(60, "-"))
     # linked_list.reverse()
-    #
     # # print("Show Reverse list".center(60, "-"))
     # # for a in linked_list.view():
     # #     print(a, end=", ")
     # #
     # # print("Show Reverse list".center(60, "-"))
-    #
     # linked_list.remove("Z")
     # linked_list.remove("V")
     # linked_list.remove("W")
     # linked_list.remove("Y")
     # linked_list.remove("X")
     # linked_list.remove("arul")
-    #
     # print("After removing list".center(60, "-"))
     # for a in linked_list.view():
     #     print(a, end=", ")
-    #
     # print("After removing list".center(60, "-"))
 
 

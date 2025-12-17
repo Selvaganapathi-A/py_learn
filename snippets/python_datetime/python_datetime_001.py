@@ -61,13 +61,11 @@ if __name__ == '__main__':
     # pprint.pprint(all_timezones)
     # pprint.pprint(common_timezones)
     some_date = datetime.datetime.fromisoformat('2022-02-05T19:40:00')
-    #
     utc = pytz.timezone('UTC')
     india = pytz.timezone('Asia/Kolkata')
     alaska = pytz.timezone('US/Alaska')
     los_angeles = pytz.timezone('America/Los_Angeles')
     sydney = pytz.timezone('Australia/Sydney')
-    #
 
     print('              ', some_date)
     print('Universal Time', utc.localize(some_date))
@@ -75,19 +73,16 @@ if __name__ == '__main__':
     print('India     Time', india.localize(some_date))
     print('Seattle   Time', los_angeles.localize(some_date))
     print('Sydney    Time', sydney.localize(some_date))
-    #
     india_datetime = india.localize(some_date)
     print('time in India   :', india_datetime)
     print('time in Alaska  :', india_datetime.astimezone(alaska))
     print('time in Seattle :', india_datetime.astimezone(los_angeles))
     print('time in Sydney  :', india_datetime.astimezone(sydney))
     print('time in UTC     :', india_datetime.astimezone(utc))
-    #
     print('Travel in Flight...')
     alaska_datetime = alaska.localize(some_date)
     sydney_datetime = sydney.localize(some_date)
     print('Depart in india    :', india_datetime)
-    #
     print(
         'Arrive Sydney Time :',
         (india_datetime + datetime.timedelta(hours=21)).astimezone(sydney),

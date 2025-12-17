@@ -18,7 +18,6 @@ async def main():
     print(key.export_to_pem(private_key=False).decode())
     # * Export as JWK
     # print(key.export(private_key=False))
-    #
     ALGORITHMS: tuple[str, ...] = (
         'RS256',
         'RS384',
@@ -47,7 +46,6 @@ async def main():
         token.make_signed_token(key)
         json_token = token.serialize()
         print(json_token)
-        #
         # * verify
         received = jwt.JWT(key=public_key, jwt=json_token)
         print(received.claims)

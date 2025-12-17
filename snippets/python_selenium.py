@@ -23,11 +23,9 @@ def main():
     )
     # initialize driver
     driver = webdriver.Chrome(service=service, options=options)
-    #
     response = driver.get('https://example.com')
     print(response.title)
     print(response.current_url)
-    #
     driver.quit()
 
 

@@ -48,22 +48,18 @@ class Solution:
 
 def main():
     solution = Solution()
-    #
     s: str = 'ADOBECODEBANC'
     t: str = 'ABC'
     result = solution.minWindow(s, t)
     print(result)
-    #
     s = 'a'
     t = 'a'
     result = solution.minWindow(s, t)
     print(result)
-    #
     s = 'a'
     t = 'aa'
     result = solution.minWindow(s, t)
     print(result)
-    #
     s = 'selvaganapathi'
     t = 'lvn'
     result = solution.minWindow(s, t)

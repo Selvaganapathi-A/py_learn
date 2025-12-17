@@ -22,14 +22,11 @@ def main():
         'A192CBC-HS384',
         'A256CBC-HS512',
     )
-    #
     key: RSAKey = JsonWebKey.generate_key('RSA', 2048, is_private=True)
-    #
     private_key = key.as_dict(True)
     public_key = key.as_dict(False)
     print(key.as_pem(True, 'Ghost Rider').decode())
     print(key.as_pem(False).decode())
-    #
     data = {
         'name': 'John Doe',
         'sub': 1234567890,
@@ -43,9 +40,7 @@ def main():
             header = {'alg': alg, 'enc': enc, 'typ': 'JWE'}
             print('Header : ', header)
             print('  Data : ', data)
-            #
             jwe = JsonWebEncryption()
-            #
             mx = jwe.serialize(
                 header,
                 payload,
@@ -53,7 +48,6 @@ def main():
                 # private_key,
             )
             print(mx.decode())
-            #
             mt: JWSObject = jwe.deserialize(mx, private_key)
             print(orjson.loads(mt.get('payload', b'{}')))  # type: ignore
 

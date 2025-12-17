@@ -4,12 +4,9 @@ def maxProductSubArray(nums: list[int]) -> float:
         return 0
     left_pointer: int = 0
     right_pointer: int = 0
-    #
     current_product: float = nums[left_pointer]
     maximum_of_product: float = current_product
-    #
     product_of_previous_array_elements: float = nums[left_pointer]
-    #
     right_pointer = 1
     while right_pointer < length_of_array:
         temp = nums[right_pointer] * product_of_previous_array_elements
@@ -28,15 +25,12 @@ def maxProductSubArray(nums: list[int]) -> float:
 def main():
     nums: list[int]
     result: float
-    #
     nums = [2, 3, -2, 4, 1, 0, 5, 2, 3]
     result = maxProductSubArray(nums)
     print(result)
-    #
     nums = [-2, 0, -1]
     result = maxProductSubArray(nums)
     print(result)
-    #
     nums = [2, 3, -1, 4]
     result = maxProductSubArray(nums)
     print(result)

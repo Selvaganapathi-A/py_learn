@@ -9,7 +9,6 @@ class Async_Iterator[T: (int, float, Decimal)]:
         self.start = start
         self.stop = stop
         self.step = step
-        #
         self.incremental: bool = start < stop
         if step == 0:
             raise ValueError("Can't Iterate with `0` steps.")

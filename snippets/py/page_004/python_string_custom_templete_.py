@@ -11,4 +11,3 @@ if __name__ == '__main__':
         print(fstr(user_input))
         # print(r"f'{element}'")
         print(eval(r"f'Ghost Particle :- {element}'"))
-        #

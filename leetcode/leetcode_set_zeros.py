@@ -14,7 +14,6 @@ class Solution:
         rows = len(matrix)
         if rows > 0:
             cols = len(matrix[0])
-            #
             for x in range(rows):
                 for y in range(cols):
                     if matrix[x][y] == 0:

@@ -20,7 +20,6 @@ async def main():
         ),
         'name': 'John Doe',
     }
-    #
     # ! Claims are set to expire on 2026
     # * create jwk
     key: RSAKey = JsonWebKey.generate_key(
@@ -32,14 +31,12 @@ async def main():
     Public_PEM = key.as_pem(is_private=False).decode()
     print(Private_PEM, Public_PEM, sep='\n\n')
     # print(key.export(private_key=False))
-    #
     for algorithm in ALGORITHMS:
         # * sign jwt
         header = {'alg': algorithm, 'typ': 'JWT'}
         # alg must be one of PS384, PS512
         json_token = jwt.encode(header, payload=claims, key=key)
         print(json_token.decode())
-        #
         # * verify
         received: JWTClaims = jwt.decode(json_token, public_jwk)
         received.validate()

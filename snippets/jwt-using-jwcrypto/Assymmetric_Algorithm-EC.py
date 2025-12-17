@@ -4,7 +4,6 @@ from jwcrypto import jwk, jwt
 
 
 async def main():
-    #
     # * Read Public Key from file
     #     key = jwk.JWK.from_pem(
     #         """-----BEGIN ENCRYPTED PRIVATE KEY-----
@@ -29,7 +28,6 @@ async def main():
         'ES384': 'P-384',
         'ES512': 'P-521',
     }
-    #
     # * sign jwt
     # alg must be one of ES256, ES256K, ES384, ES512
     claims = {
@@ -57,7 +55,6 @@ async def main():
         print(key.export_to_pem(private_key=False).decode())
         # * Export as JWK
         # print(key.export(private_key=False))
-        #
         header = {'alg': algorithm}
         # * Sign JWT
         token = jwt.JWT(
@@ -67,7 +64,6 @@ async def main():
         token.make_signed_token(key)
         json_token = token.serialize()
         print(json_token)
-        #
         # * verify JWT
         received = jwt.JWT(key=public_key, jwt=json_token)
         print(received.claims)

@@ -1,18 +1,14 @@
 def show_graphics(ansi_seq: str):
     iot: list[str] = []
-    #
     nos_per_line = 16
-    #
     for x in range(256):
         txt = f'{ansi_seq}{x}m{x:^3}\x1b[0m'
         if x % nos_per_line == 0:
             print('  '.join(iot))
             iot.clear()
         iot.append(txt)
-    #
     if iot:
         print(' '.join(iot))
-    #
     return
 
 
