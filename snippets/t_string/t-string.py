@@ -5,7 +5,7 @@ def convert_to_string(arg: str | Interpolation) -> str:
     match arg:
         case str():
             return arg
-        case Interpolation(value, expression, conversion, format_specifier):
+        case Interpolation(value, expression, conversion, format_specifier):  # noqa: F841
             return format(convert(value, conversion), format_specifier)
         case _:
             raise NotImplementedError()

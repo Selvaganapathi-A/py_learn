@@ -11,15 +11,15 @@ class Car(Vehicle): ...
 
 
 @dataclass
-class Mini(Car): ...
-
-
-@dataclass
 class Boat(Vehicle): ...
 
 
 @dataclass
 class Plane(Vehicle): ...
+
+
+@dataclass
+class Mini(Car): ...
 
 
 @dataclass
@@ -63,7 +63,7 @@ def main():
     carRegistry.add(toyoto)
     # Display Cars
     carRegistry.display()
-    # ! ------------------------------------------------------------------------ ! #
+    # ! ------------------------------------------------------------------- ! #
     # Create Boat Registry
     boatRegistry = VehicleRegistry[Boat]()
     # Create Boats
@@ -72,16 +72,16 @@ def main():
     boatRegistry.add(green_hunk)
     # Display Boats
     boatRegistry.display()
-    # ! ------------------------------------------------------------------------ ! #
+    # ! ------------------------------------------------------------------- ! #
     licensed_vehicles = LicensedVehicleRegistry[Car]()
     f13 = Plane('Fighter plane')
     licensed_vehicles.add(bmw)
     #
     # ! raises ArgumentError in pylance
-    licensed_vehicles.add(f13)
+    # licensed_vehicles.add(f13)
     #
     # ! raises ArgumentError in pylance
-    licensed_vehicles.add(green_hunk)
+    # licensed_vehicles.add(green_hunk)
     licensed_vehicles.add(toyoto)
     #
     licensed_vehicles.display()

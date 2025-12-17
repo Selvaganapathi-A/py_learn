@@ -5,7 +5,9 @@ import pytz
 
 def main():
     zone = pytz.timezone('Asia/Calcutta')
-    timestamp = zone.localize(datetime.datetime(2024, 12, 7, 15, 27, 38, 56789))
+    timestamp = zone.localize(
+        datetime.datetime(2024, 12, 7, 15, 27, 38, 56789)
+    )
     print(f'%A = {timestamp:%A}')
     print(f'%a = {timestamp:%a}')
     print(f'%B = {timestamp:%B}')

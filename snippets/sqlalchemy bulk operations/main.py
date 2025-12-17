@@ -9,14 +9,18 @@ class BaseModel(DeclarativeBase): ...
 
 class User(BaseModel):
     __tablename__: str = 'user'
-    pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    pk: Mapped[int] = mapped_column(
+        Integer, primary_key=True, autoincrement=True
+    )
     name: Mapped[str] = mapped_column(String, nullable=False)
     surname: Mapped[str] = mapped_column(String, nullable=True, default=None)
     age: Mapped[int] = mapped_column(Integer, nullable=False)
     country: Mapped[str] = mapped_column(String, nullable=True, default=None)
     sex: Mapped[str] = mapped_column(String, nullable=True, default=None)
     canVote: Mapped[bool] = mapped_column(Boolean, nullable=True, default=None)
-    canMarry: Mapped[bool] = mapped_column(Boolean, nullable=True, default=None)
+    canMarry: Mapped[bool] = mapped_column(
+        Boolean, nullable=True, default=None
+    )
 
     def __str__(self) -> str:
         return f'<{self.name} {self.surname}>'
@@ -139,7 +143,8 @@ def bulk_update_by_orm(session: Session):
             {
                 'pk': user.pk,
                 'canVote': user.age >= 18,
-                'canMarry': (user.sex == 'M' and user.age > 19) or (user.sex == 'F' and user.age > 16),
+                'canMarry': (user.sex == 'M' and user.age > 19)
+                or (user.sex == 'F' and user.age > 16),
             }
         )
     # * bulk update

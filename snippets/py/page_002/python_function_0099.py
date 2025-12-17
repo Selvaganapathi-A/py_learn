@@ -1,4 +1,6 @@
-def some_function(a: int, b: int, /, c: int, d: int, *, e: int = 900, f: int = 800):
+def some_function(
+    a: int, b: int, /, c: int, d: int, *, e: int = 900, f: int = 800
+):
     """Doc-String
     Example
         Non-Positional Arguments

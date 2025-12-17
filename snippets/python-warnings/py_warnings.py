@@ -2,7 +2,9 @@ import warnings
 
 
 def somefn():
-    warnings.warn('function will be removed after major version change.', FutureWarning)
+    warnings.warn(
+        'function will be removed after major version change.', FutureWarning
+    )
 
 
 def main():

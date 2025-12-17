@@ -17,7 +17,9 @@ async def main():
         # Channel can be "chrome", "msedge", "chrome-beta", "msedge-beta" or "msedge-dev".
         browser = await p.chromium.launch(channel='chrome', headless=True)
         # context = await browser.new_context()
-        context = await browser.new_context(storage_state='session.json')  # Load session
+        context = await browser.new_context(
+            storage_state='session.json'
+        )  # Load session
         page = await browser.new_page()
         response = await page.goto(
             'http://localhost:3000/',

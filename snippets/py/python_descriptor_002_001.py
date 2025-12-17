@@ -10,7 +10,11 @@ class PositiveNumber[T](int):
     def __get__(self, __class_instance: T, __class: type[T]) -> int:
         # print('called get', (__class_instance, __class))
         return __class_instance.__dict__.get(self.object_name, 0)
-        return __class_instance.__dict__[self.object_name] if self.object_name in __class_instance.__dict__ else None
+        return (
+            __class_instance.__dict__[self.object_name]
+            if self.object_name in __class_instance.__dict__
+            else None
+        )
 
     def __set__(self, __object_instance: T, __object_value: int):
         print('called set with value', __object_instance, __object_value)

@@ -51,7 +51,9 @@ def main():
     logger = logging.getLogger('demo.google.hub')
 
     handler = logging.StreamHandler(sys.stdout)
-    handler.setFormatter(BashFormatter('{name} - {levelno: >2d} - {message}', style='{'))
+    handler.setFormatter(
+        BashFormatter('{name} - {levelno: >2d} - {message}', style='{')
+    )
     handler.addFilter(
         CustomLogFilter(
             LogLevel.INFO,

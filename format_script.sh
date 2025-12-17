@@ -75,11 +75,12 @@ fi
 
 
 echo Format with RUFF
-uv tool run ruff format . --line-length 256
+uv run ruff check .
+uv run ruff format . --line-length 79
 echo
 # echo Format with yapf
 # uv run yapf -ir --style google .
 # echo
 echo Format imports
-uv tool run isort .
+uv run isort .
 echo

@@ -16,17 +16,25 @@ class DescriptorClass[T, U]:
         # ! For Storing And Retriving Values
         self.__object_store: dict[type[T], dict[T, dict[str, U]]] = {__cls: {}}
         # * For House keeping Purposes
-        self.__object_registry: dict[type[T], dict[T, dict[str, int]]] = {__cls: {}}
+        self.__object_registry: dict[type[T], dict[T, dict[str, int]]] = {
+            __cls: {}
+        }
         logging.debug(f'create Descriptor {__cls.__name__}.{__variable}')
 
     def __set__(self, __instance: T, __value: U) -> None:
         if __instance not in self.__object_registry[self.__cls]:
             self.__object_registry[self.__cls][__instance] = {}
         if 'defined' not in self.__object_registry[self.__cls][__instance]:
-            logging.debug((f'Defining {self.__var} {self.__cls} {__instance} {__value}'))
+            logging.debug(
+                (f'Defining {self.__var} {self.__cls} {__instance} {__value}')
+            )
             self.__object_registry[self.__cls][__instance]['defined'] = 1
         else:
-            logging.debug((f'Modifying {self.__var} {self.__cls} {__instance} from {self.__object_store[self.__cls][__instance][self.__var]} to {__value}.'))
+            logging.debug(
+                (
+                    f'Modifying {self.__var} {self.__cls} {__instance} from {self.__object_store[self.__cls][__instance][self.__var]} to {__value}.'
+                )
+            )
             self.__object_registry[self.__cls][__instance]['defined'] += 1
         if self.__cls not in self.__object_store:
             self.__object_store[self.__cls] = {}
@@ -39,7 +47,11 @@ class DescriptorClass[T, U]:
             self.__object_registry[__cls][__instance]['accessed'] += 1
         else:
             self.__object_registry[__cls][__instance]['accessed'] = 1
-        logging.debug((f"Accessing {__cls.__name__}.{self.__var} of {__instance} '[{self.__object_registry[__cls][__instance]['accessed']} times.]'"))
+        logging.debug(
+            (
+                f"Accessing {__cls.__name__}.{self.__var} of {__instance} '[{self.__object_registry[__cls][__instance]['accessed']} times.]'"
+            )
+        )
         if __instance not in self.__object_store[self.__cls]:
             raise ValueError('Value not set yet.')
         return self.__object_store[self.__cls][__instance][self.__var]

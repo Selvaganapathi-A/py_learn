@@ -31,7 +31,9 @@ def main():
         'exp': 1752450600.0,
         'nbf': 1732450600.0,
         'iat': 1722450600.0,
-        'jti': ('6fdddab7d670f202629531c1a51b32ca30696d0af4dd5b0fbb5f82c0aba5e505110455f37d7ef73950c2bb0495a38f56'),
+        'jti': (
+            '6fdddab7d670f202629531c1a51b32ca30696d0af4dd5b0fbb5f82c0aba5e505110455f37d7ef73950c2bb0495a38f56'
+        ),
         'name': 'John Doe',
     }
     payload = orjson.dumps(data)

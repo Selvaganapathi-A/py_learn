@@ -49,7 +49,13 @@ def workarea(session: Session):
     session.commit()
     #
     # * Parent Child Relationship
-    result = session.execute(select(Parent).order_by(Parent.last_name, Parent.first_name)).scalars().all()
+    result = (
+        session.execute(
+            select(Parent).order_by(Parent.last_name, Parent.first_name)
+        )
+        .scalars()
+        .all()
+    )
     for parent in result:
         print(parent.first_name + '-' + parent.last_name)
         for child in parent.children:
