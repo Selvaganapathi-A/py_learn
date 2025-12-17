@@ -1,7 +1,40 @@
 from decimal import Decimal
-from enum import IntEnum
+from enum import IntEnum, StrEnum
 from functools import lru_cache
 from typing import Literal
+
+
+class Storage(StrEnum):
+    Byte = 'byte'  # Byte
+    Kilobyte = 'Kilo byte'  # Kilobyte
+    Megabyte = 'Mega byte'  # Megabyte
+    Gigabyte = 'Giga byte'  # Gigabyte
+    Terabyte = 'Tera byte'  # Terabyte
+    Petabyte = 'Peta byte'  # Petabyte
+    Exabyte = 'Exa byte'  # Exabyte
+    Zettabyte = 'Zetta byte'  # Zettabyte
+    Yottabyte = 'Yotta byte'  # Yottabyte
+    Brontobyte = 'Bronto byte'  # Brontobyte
+    Geopbyte = 'Geop byte'  # Geopbyte
+    Saganbyte = 'Sagan byte'  # Saganbyte
+    Pijabyte = 'Pija byte'  # Pijabyte
+    Alphabyte = 'Alpha byte'  # Alphabyte
+    Kryatbyte = 'Kryat byte'  # Kryatbyte
+    Amosbyte = 'Amos byte'  # Amosbyte
+    Pectrolbyte = 'Pectrol byte'  # Pectrolbyte
+    Bolgerbyte = 'Bolger byte'  # Bolgerbyte
+    Sambobyte = 'Sambo byte'  # Sambobyte
+    Quesabyte = 'Quesa byte'  # Quesabyte
+    Kinsabyte = 'Kinsa byte'  # Kinsabyte
+    Rutherbyte = 'Ruther byte'  # Rutherbyte
+    Dubnibyte = 'Dubni byte'  # Dubnibyte
+    Seaborgbyte = 'Seaborg byte'  # Seaborgbyte
+    Bohrbyte = 'Bohr byte'  # Bohrbyte
+    Hassiubyte = 'Hassiu byte'  # Hassiubyte
+    Meitnerbyte = 'Meitner byte'  # Meitnerbyte
+    Darmstadbyte = 'Darmstad byte'  # Darmstadbyte
+    Roentbyte = 'Roent byte'  # Roentbyte
+    Coperbyte = 'Coper byte'  # Coperbyte
 
 
 class MemoryUnit(IntEnum):
