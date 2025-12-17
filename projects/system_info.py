@@ -1,4 +1,4 @@
-def get_systemdetails():
+def print_system_details():
     import os
     import platform
     import shutil
@@ -9,12 +9,7 @@ def get_systemdetails():
 
     instruction_set, OS_Name = platform.architecture()
     print(f'{"User": <{padding_length}} : {platform.node()}')
-    print(
-        (
-            f'{"System": <{padding_length}} : {platform.system()} {platform.release()}'
-            f'({platform.version()})'
-        )
-    )
+    print((f'{"System": <{padding_length}} : {platform.system()} {platform.release()}({platform.version()})'))
     print(f'{"Instruction Set": <{padding_length}} : {platform.machine()}')
     print(f'{"Processor": <{padding_length}} : {platform.processor()}')
     print(f'{"Architecture": <{padding_length}} : {instruction_set} {OS_Name}')
@@ -22,4 +17,4 @@ def get_systemdetails():
 
 
 if __name__ == '__main__':
-    get_systemdetails()
+    print_system_details()

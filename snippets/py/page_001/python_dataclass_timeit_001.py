@@ -5,9 +5,7 @@ from functools import partial
 from secrets import choice
 from typing import Final, Protocol, final
 
-ASCII_CHARACTERS: Final[str] = (
-    string.ascii_letters + string.ascii_lowercase + string.ascii_uppercase
-)
+ASCII_CHARACTERS: Final[str] = string.ascii_letters + string.ascii_lowercase + string.ascii_uppercase
 
 
 class Staff(Protocol):

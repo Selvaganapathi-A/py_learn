@@ -25,6 +25,7 @@ class ProUser(AdvancedUser):
 
     @override
     def security(self):
+        # Typechecker Error raised
         super().security()
         return 'blake2b'
 

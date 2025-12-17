@@ -51,9 +51,7 @@ def main():
     print(users)
     users = session.query(User).where(User.name == 'Jenzy').first()
     print('Jenzy == ', users)
-    users = session.query(
-        session.query(User).where(User.name == 'James').exists()
-    ).scalar()
+    users = session.query(session.query(User).where(User.name == 'James').exists()).scalar()
     print('James == ', users)
     # Dispose Database
     engine.dispose(True)

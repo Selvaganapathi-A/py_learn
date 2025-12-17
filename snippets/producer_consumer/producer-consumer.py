@@ -11,9 +11,7 @@ async def producer(queue: asyncio.Queue[tuple[str, int]], task_id: str):
 async def consumer(queue: asyncio.Queue[tuple[str, int]], task_id: str):
     while True:
         prod_id, value = await queue.get()
-        print(
-            f'\x1b[38;5;{len(task_id)}m{task_id:>20}\x1b[0m {value:^4} {prod_id}'
-        )
+        print(f'\x1b[38;5;{len(task_id)}m{task_id:>20}\x1b[0m {value:^4} {prod_id}')
         queue.task_done()
         await asyncio.sleep(1)
 

@@ -7,9 +7,7 @@ class Singleton(type):
 
     def __new__(cls, *args: Any, **kwds: Any) -> Any:
         if cls._instance is None:
-            cls._instance = super(Singleton, cls).__new__(
-                cls, cls.__name__, (), {}
-            )
+            cls._instance = super(Singleton, cls).__new__(cls, cls.__name__, (), {})
         return cls._instance
 
 
@@ -27,7 +25,6 @@ def main():
     a.display()
     b.display()
     print(a is b)
-    pass
 
 
 if __name__ == '__main__':

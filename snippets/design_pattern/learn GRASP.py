@@ -29,17 +29,12 @@ class CreditCard:
 
 def luhn_checksum(number: str):
     # print(number)
-    return (
-        sum((int(x) for x in number[-1::-2]))
-        + sum((int(x) for x in number[-2::-2])) * 2
-    )
+    return sum((int(x) for x in number[-1::-2])) + sum((int(x) for x in number[-2::-2])) * 2
 
 
 def validate_card(*, card: CardInfo):
     checksum = luhn_checksum(card.number)
-    is_expired = datetime.datetime.now() < datetime.datetime(
-        year=card.expiry_year, month=card.expiry_month, day=1
-    )
+    is_expired = datetime.datetime.now() < datetime.datetime(year=card.expiry_year, month=card.expiry_month, day=1)
     return checksum % 10 == 0 and is_expired
 
 

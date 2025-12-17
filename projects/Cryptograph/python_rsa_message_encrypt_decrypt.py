@@ -11,24 +11,8 @@ if __name__ == '__main__':
 
     # public_key, private_key = rsa.newkeys(128)
     #
-    private_key = rsa.PrivateKey.load_pkcs1(
-        (
-            b'-----BEGIN RSA PRIVATE KEY-----\n'
-            b'MGICAQACEQCl4njb9pwdRgx5nKBGAQLVA'
-            b'gMBAAECEQCal9iyhb0vsB8fSAh24z7x\n'
-            b'AgkLd5ToXeERTicCCA53U4mSCcCjAgkE4'
-            b'qh1KvHlXocCB3qQiDgOHJMCCQtV9C4D\n'
-            b'zXzTZQ==\n'
-            b'-----END RSA PRIVATE KEY-----\n'
-        )
-    )
-    public_key = rsa.PublicKey.load_pkcs1(
-        (
-            b'-----BEGIN RSA PUBLIC KEY-----\n'
-            b'MBgCEQCl4njb9pwdRgx5nKBGAQLVAgMBAAE=\n'
-            b'-----END RSA PUBLIC KEY-----\n'
-        )
-    )
+    private_key = rsa.PrivateKey.load_pkcs1((b'-----BEGIN RSA PRIVATE KEY-----\nMGICAQACEQCl4njb9pwdRgx5nKBGAQLVAgMBAAECEQCal9iyhb0vsB8fSAh24z7x\nAgkLd5ToXeERTicCCA53U4mSCcCjAgkE4qh1KvHlXocCB3qQiDgOHJMCCQtV9C4D\nzXzTZQ==\n-----END RSA PRIVATE KEY-----\n'))
+    public_key = rsa.PublicKey.load_pkcs1((b'-----BEGIN RSA PUBLIC KEY-----\nMBgCEQCl4njb9pwdRgx5nKBGAQLVAgMBAAE=\n-----END RSA PUBLIC KEY-----\n'))
     #
     message = 'Hello'
     encrypted_message = rsa.encrypt(message.encode(), public_key)

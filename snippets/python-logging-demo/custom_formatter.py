@@ -1,5 +1,6 @@
 import logging
 from collections.abc import Mapping
+from datetime import datetime, timezone
 from typing import Any, Literal
 
 
@@ -40,3 +41,12 @@ class BashFormatter(logging.Formatter):
                 s = s + '\n'
             s = s + self.formatStack(record.stack_info)
         return self._color_fmts.get(record.levelno, '') + s + '\x1b[0m'
+
+    def formatTime(self, record: logging.LogRecord, datefmt: str | None = None) -> str:
+        log_record_created_as_datetime_object = datetime.fromtimestamp(
+            record.created,
+            timezone.utc,
+        )
+        if datefmt is None:
+            return log_record_created_as_datetime_object.isoformat()
+        return log_record_created_as_datetime_object.strftime(datefmt)

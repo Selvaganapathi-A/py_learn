@@ -317,9 +317,7 @@ users = [
         age=22,
         email='monica_young 2002@nelson-nelson.biz',
     ),
-    Person(
-        name='Ryan Cox', gender='M', age=21, email='ryan_cox 2003@riley.com'
-    ),
+    Person(name='Ryan Cox', gender='M', age=21, email='ryan_cox 2003@riley.com'),
     Person(
         name='Nancy Serrano',
         gender='F',
@@ -356,9 +354,7 @@ users = [
         age=27,
         email='pamela_miller 1997@reese.com',
     ),
-    Person(
-        name='Anne Kirk', gender='F', age=21, email='anne_kirk 2003@jones.info'
-    ),
+    Person(name='Anne Kirk', gender='F', age=21, email='anne_kirk 2003@jones.info'),
     Person(
         name='Oscar Wilson',
         gender='M',

@@ -58,9 +58,7 @@ async def consumer(queue: asyncio.LifoQueue[tuple[int, float, str]]):
 async def function():
     QUEUE_SIZE: int = 10
     WORKERS: int = 4
-    lifo_queue: asyncio.LifoQueue[tuple[int, float, str]] = asyncio.LifoQueue(
-        QUEUE_SIZE
-    )
+    lifo_queue: asyncio.LifoQueue[tuple[int, float, str]] = asyncio.LifoQueue(QUEUE_SIZE)
     consumers: Iterable[asyncio.Task[NoReturn]] = []
     for _ in range(WORKERS):
         task = asyncio.create_task(consumer(lifo_queue))

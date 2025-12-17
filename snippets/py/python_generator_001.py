@@ -6,8 +6,8 @@ from collections.abc import Generator
 def function[T: float](a: T, b: T, c: T) -> Generator[T, T, None]:
     i: T = 0  # type: ignore
     while a <= b:
-        i = yield a
         a += c  # type: ignore
+        i = yield a
         if isinstance(i, float):
             # print(i, "inside function")
             c = i

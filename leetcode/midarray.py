@@ -22,9 +22,7 @@ def findElement(array: list[int], /, target: int):
         else:
             i = mid
         print(
-            (
-                'stet = {:>5d}; nums : {:>5d};  i = {:>5d};  j = {:>5d}; target = {:>5d}'
-            ).format(step, j - i, i, j, target),
+            ('stet = {:>5d}; nums : {:>5d};  i = {:>5d};  j = {:>5d}; target = {:>5d}').format(step, j - i, i, j, target),
         )
         print(array[i], array[j])
         time.sleep(0.5)
@@ -48,9 +46,7 @@ def find(start: int, end: int, /, target: int):
         else:
             i = mid
         print(
-            (
-                'stet = {:>5d}; nums : {:>5d};  i = {:>5d};  j = {:>5d}; target = {:>5d}'
-            ).format(step, j - i, i, j, target),
+            ('stet = {:>5d}; nums : {:>5d};  i = {:>5d};  j = {:>5d}; target = {:>5d}').format(step, j - i, i, j, target),
         )
         time.sleep(0.5)
 

@@ -1,41 +1,39 @@
-import datetime
-import os
 import string
 
+_TEXT = string.digits + string.ascii_uppercase + string.ascii_lowercase + '#$'
+_TEXT_LENGTH = len(_TEXT)
+#
+MAPPED_TO_CHARACTER = {x: _TEXT[x] for x in range(_TEXT_LENGTH)}
+MAPPED_TO_NUMBER = {_TEXT[x]: x for x in range(_TEXT_LENGTH)}
 
-def numberToBase(n: int, b: int) -> list[int]:
-    if n == 0:
-        return [0]
+
+def numberToBase(number: int, base: int) -> str:
+    if number == 0:
+        return '0'
     digits: list[int] = []
-    while n:
-        digits.append(int(n % b))
-        n //= b
-    return digits[::-1]
+    while number:
+        reminder = number % base
+        number = number - reminder
+        number //= base
+        digits.append(reminder)
+    return ''.join(MAPPED_TO_CHARACTER[x] for x in digits[::-1]) + f' {base}'
+
+
+def main():
+    #
+    number: int = 127
+    base = len(_TEXT)
+    #
+    print()
+    print(MAPPED_TO_CHARACTER)
+    # print(MAPPED_TO_NUMBER)
+    print()
+    #
+    print(numberToBase(number, base))
 
 
 if __name__ == '__main__':
+    import os
+
     os.system('clear')
-    text = (
-        string.digits + string.ascii_uppercase + string.ascii_lowercase + '_-'
-    )
-    mapped = {x: text[x] for x in range(len(text))}
-    reverse_mapped = {text[x]: x for x in range(len(text))}
-    # ts: float = 9_168_944_014_211_452.0
-    ts: float = datetime.datetime.now().timestamp() * 1_000_000
-    number: int = 987
-    base = len(text)
-    converted = []
-    print(mapped)
-    print(reverse_mapped)
-    print(f'{int(ts):>13n}')
-    print(
-        ''.join(mapped.get(x, '') for x in numberToBase(int(ts), base)),
-    )
-    print(
-        ''.join(mapped.get(x, '') for x in numberToBase(number, base)),
-        base,
-    )
-    """
-168944014211452.0
-cQTNz3by
-    """
+    main()

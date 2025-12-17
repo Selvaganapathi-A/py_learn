@@ -27,9 +27,7 @@ async def consume(consumer_id: int, queue: asyncio.Queue[int]):
 async def run(n: int):
     queue: asyncio.Queue[int] = asyncio.Queue(maxsize=10)
     # schedule consumers
-    consumers: list[asyncio.Task[NoReturn]] = [
-        asyncio.create_task(consume(_, queue)) for _ in range(7)
-    ]
+    consumers: list[asyncio.Task[NoReturn]] = [asyncio.create_task(consume(_, queue)) for _ in range(7)]
     # run the producer and wait for completion
     await produce(queue, n)
     # wait until the consumer has processed all items

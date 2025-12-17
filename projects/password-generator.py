@@ -4,9 +4,7 @@ import string
 
 def generate_random_password(length: int = 8, /) -> str:
     text = (
-        string.ascii_lowercase[:20]
-        + string.ascii_uppercase[:20]
-        + string.digits
+        string.ascii_lowercase[:20] + string.ascii_uppercase[:20] + string.digits
         # + string.punctuation
     )
     """

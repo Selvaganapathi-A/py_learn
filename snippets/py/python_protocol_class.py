@@ -18,12 +18,8 @@ class User:
 class Login:
     __login_status: bool = False
 
-    def login(
-        self: UserProtocol, username: str, dateofbirth: datetime.date
-    ) -> bool:
-        self.__login_status = (
-            self.username == username and self.dateofbirth == dateofbirth
-        )
+    def login(self: UserProtocol, username: str, dateofbirth: datetime.date) -> bool:
+        self.__login_status = self.username == username and self.dateofbirth == dateofbirth
         return self.__login_status
 
     def logout(self: UserProtocol) -> bool:

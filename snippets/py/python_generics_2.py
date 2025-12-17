@@ -5,10 +5,10 @@ from typing import NewType, TypeAlias, TypeVar
 Q = NewType('Q', int)
 T = TypeVar('T', str, bytes, bytearray)
 type m = typing.Annotated[m, str, bytes]
-alpha: TypeAlias = Callable[[int, str], int]
+function: TypeAlias = Callable[[int, str], int]
 
 
-def func(a: alpha, b: int, c: str):
+def func(a: function, b: int, c: str):
     print(a(b, c))
     return b
 

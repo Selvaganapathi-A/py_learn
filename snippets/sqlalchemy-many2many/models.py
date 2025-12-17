@@ -54,9 +54,7 @@ associationTable = Table(
 class Parent(Base):
     __tablename__ = 'parent'
     __table_args__ = (UniqueConstraint('first_name', 'last_name'),)
-    pk: Mapped[int] = mapped_column(
-        Integer, primary_key=True, autoincrement=True
-    )
+    pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     first_name: Mapped[str] = mapped_column(String, nullable=False)
     last_name: Mapped[str] = mapped_column(String, nullable=False)
     children: Mapped[set['Child']] = relationship(
@@ -68,9 +66,7 @@ class Parent(Base):
 class Child(Base):
     __tablename__ = 'child'
     __table_args__ = (UniqueConstraint('first_name', 'last_name'),)
-    pk: Mapped[int] = mapped_column(
-        Integer, primary_key=True, autoincrement=True
-    )
+    pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     first_name: Mapped[str] = mapped_column(String, nullable=False)
     last_name: Mapped[str] = mapped_column(String, nullable=False)
     parents: Mapped[set['Parent']] = relationship(

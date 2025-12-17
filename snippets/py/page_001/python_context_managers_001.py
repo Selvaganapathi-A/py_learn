@@ -18,11 +18,6 @@ Setup and teardown
 """
 
 
-#
-#
-#
-#
-#
 class CustomContextManager:
     def __enter__(self):
         self.start = time.perf_counter()
@@ -79,11 +74,6 @@ if __name__ == '__main__':
     asyncio.run(a_main())
 
 
-#
-#
-#
-#
-#
 @dataclass(slots=True)
 class Person:
     def __enter__(self):

@@ -4,9 +4,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 
-def get_samples(
-    frequency: int, amplitude: int = 100
-) -> list[tuple[float, float]]:
+def get_samples(frequency: int, amplitude: int = 100) -> list[tuple[float, float]]:
     m: list[tuple[float, float]] = []
     samples = 2160
     graph_length = 2160
@@ -49,8 +47,7 @@ def main():
         x = int(signals[0][j][0]) + 30
         y = int(sum(ysum) / len(signals)) + 425
         imdraw.ellipse((x - 2, y - 2, x + 2, y + 2), fill='red')
-    # my_img.save("hello sawtooth wave.png")
-    my_img.save('hello square wave.png')
+    my_img.save('square wave.png')
     my_img.close()
 
 

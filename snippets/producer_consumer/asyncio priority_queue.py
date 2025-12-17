@@ -58,9 +58,7 @@ async def consumer(queue: asyncio.PriorityQueue[tuple[int, float, str]]):
 async def function():
     QUEUE_SIZE: int = 10
     WORKERS: int = 4
-    priority_queue: asyncio.PriorityQueue[tuple[int, float, str]] = (
-        asyncio.PriorityQueue(QUEUE_SIZE)
-    )
+    priority_queue: asyncio.PriorityQueue[tuple[int, float, str]] = asyncio.PriorityQueue(QUEUE_SIZE)
     consumers: Iterable[asyncio.Task[NoReturn]] = []
     for _ in range(WORKERS):
         task = asyncio.create_task(consumer(priority_queue))

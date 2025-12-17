@@ -1,8 +1,8 @@
-from typing import Self
+from typing import ClassVar, Self
 
 
 class Vehicle:
-    __final__: bool = True
+    __final__: ClassVar[bool] = True
 
     def __init__(self, model: str) -> None:
         self.model: str = model
@@ -37,10 +37,14 @@ class Registry[T: Vehicle]:
 
 def main():
     registry: Registry[Car] = Registry[Car]()
+    honda = Car('Honda')
     registry.add_vehicle(Car('Honda'))
     registry.add_vehicle(Car('Tesla'))
-    # registry.add_vehicle(Boat("Toyoto"))
+    registry.add_vehicle(Boat('Toyoto'))
+    honda.__final__ = False
+    print(honda.__final__)
     print(getattr(Vehicle, '__final__'))
+    print(honda.__final__)
 
 
 if __name__ == '__main__':

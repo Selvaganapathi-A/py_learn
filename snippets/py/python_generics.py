@@ -73,17 +73,18 @@ def main():
     # Display Boats
     boatRegistry.display()
     # ! ------------------------------------------------------------------------ ! #
-    lv = LicensedVehicleRegistry[Car]()
+    licensed_vehicles = LicensedVehicleRegistry[Car]()
     f13 = Plane('Fighter plane')
-    lv.add(bmw)
+    licensed_vehicles.add(bmw)
     #
     # ! raises ArgumentError in pylance
-    lv.add(f13)
+    licensed_vehicles.add(f13)
     #
     # ! raises ArgumentError in pylance
-    lv.add(green_hunk)
+    licensed_vehicles.add(green_hunk)
+    licensed_vehicles.add(toyoto)
     #
-    lv.display()
+    licensed_vehicles.display()
 
 
 if __name__ == '__main__':

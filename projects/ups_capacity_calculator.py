@@ -44,9 +44,7 @@ if __name__ == '__main__':
     inverter_capacity_needed: float = power_load / power_factor
     print(f'MAX LOAD Voltage : {power_load} Watts.')
     # print(inverter_capacity_needed)
-    print(
-        f'Inverter Needed : {((inverter_capacity_needed // 100) + 1) * 100} VA'
-    )
+    print(f'Inverter Needed : {((inverter_capacity_needed // 100) + 1) * 100} VA')
     """
     backup_time = (
     battery_ah * battery_voltage * battery_efficiency
@@ -55,8 +53,6 @@ if __name__ == '__main__':
     battery_ah = 150 + 150
     battery_voltage = 12
     battery_efficiency = 0.95
-    backup_time = (
-        battery_ah * battery_voltage * battery_efficiency
-    ) / power_load
+    backup_time = (battery_ah * battery_voltage * battery_efficiency) / power_load
 
     print(f'Backup Time : {backup_time} Hrs.')

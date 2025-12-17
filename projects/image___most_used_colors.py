@@ -81,9 +81,7 @@ def save_palette(colors, swatchsize=128, outfile='palette.png'):
         num_colors,
     )
     palette.save(
-        function_new_filename(
-            outfile, 'output', makedirs=True, filetype_alt='.png'
-        ),
+        function_new_filename(outfile, 'output', makedirs=True, filetype_alt='.png'),
         'PNG',
     )
 
@@ -110,9 +108,7 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    src = (
-        r'C:\Users\Tesla\Pictures\SpotLight\1920 x 1080\01fe7d49e20a3936896924062a504c837cfe08d54915b8390fa359074a75441d.jpeg',
-    )
+    src = (r'C:\Users\Tesla\Pictures\SpotLight\1920 x 1080\01fe7d49e20a3936896924062a504c837cfe08d54915b8390fa359074a75441d.jpeg',)
     print(
         getColors(
             src,

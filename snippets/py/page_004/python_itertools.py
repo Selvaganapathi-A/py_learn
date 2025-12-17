@@ -79,10 +79,7 @@ def function_04():
     ]
     # returns iterable of consecutive keys based on key function
     sorted_words_by_vowel_count = sorted(words, key=vowel_count)
-    grouped_words_by_vowel_count = {
-        k: list(v)
-        for k, v in groupby(sorted_words_by_vowel_count, key=vowel_count)
-    }
+    grouped_words_by_vowel_count = {k: list(v) for k, v in groupby(sorted_words_by_vowel_count, key=vowel_count)}
     print(grouped_words_by_vowel_count)
 
 

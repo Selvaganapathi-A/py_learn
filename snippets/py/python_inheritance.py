@@ -8,7 +8,7 @@ class A:
         print('A ouject function called.')
 
 
-class B:
+class B(A):
     def __init__(self) -> None:
         print('B Initialized.')
         super().__init__()
@@ -16,9 +16,10 @@ class B:
 
     def function(self):
         print('B ouject function called.')
+        super().function()
 
 
-class BA(B, A):
+class BA(B):
     def __init__(self) -> None:
         print('BA Initialized.')
         super().__init__()
@@ -29,11 +30,11 @@ class BA(B, A):
         super().function()
 
 
-class BBA(BA, B, A):
+class BBA(BA):
     def __init__(self) -> None:
         print('BA B A Initialized.')
         super().__init__()
-        super().__init_subclass__()
+        super(BBA, self).__init_subclass__()
 
     def function(self):
         print('BBA [BA, B, A] ouject function called.')
