@@ -73,14 +73,18 @@ else
     echo No Files deleted.
 fi
 
+echo Check for Code Violations
+uv run ruff check .
+echo
 
 echo Format with RUFF
-uv run ruff check .
 uv run ruff format . --line-length 79
 echo
+
 # echo Format with yapf
 # uv run yapf -ir --style google .
 # echo
+
 echo Format imports
 uv run isort .
 echo

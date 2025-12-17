@@ -29,7 +29,7 @@ def get_age(person: Person) -> float:
 
 def get_gender_age_name(
     person: Person,
-) -> tuple[Literal['M', 'F'], float, str]:
+) -> tuple[Literal['M', 'F', 'O'], float, str]:
     """
     Description:
         Returns a tuple containing the gender, age, and name of the given person.
