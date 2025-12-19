@@ -1,4 +1,4 @@
-class A:
+class A(object):
     def __init__(self) -> None:
         print('A Initialized.')
         super().__init__()
@@ -26,24 +26,26 @@ class BA(B):
         super().__init_subclass__()
 
     def function(self):
-        print('BA [B, A] ouject function called.')
+        print('BA ouject function called.')
         super().function()
 
 
-class BBA(BA):
+class BBA(BA, B, A):
     def __init__(self) -> None:
         print('BA B A Initialized.')
         super().__init__()
         super(BBA, self).__init_subclass__()
 
     def function(self):
-        print('BBA [BA, B, A] ouject function called.')
+        print('BBA ouject function called.')
         super().function()
 
 
 def main():
     bba = BBA()
+    print()
     bba.function()
+    print()
     print(bba.__class__.__bases__)
 
 

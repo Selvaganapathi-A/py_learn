@@ -16,13 +16,15 @@ class Square(Rectangle):
 
     def view(self):
         print(self.__dict__)
+        return self.__dict__
 
 
 if __name__ == '__main__':
-    rect = Rectangle(80, 90)
-    sqr = Square(70)
-    print(sqr.area())
-    print(sqr.perimeter())
-    print(sqr.view())
-    print(rect.area())
-    print(rect.perimeter())
+    rectangle = Rectangle(80, 90)
+    square = Square(70)
+    print('Square Area', square.area())
+    print('Square Perimeter', square.perimeter())
+    print('Square View', square.view())
+
+    print('Rectangle Area', rectangle.area())
+    print('Rectangle Perimeter', rectangle.perimeter())

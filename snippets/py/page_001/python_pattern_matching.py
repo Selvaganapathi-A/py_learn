@@ -24,7 +24,7 @@ def process(arg: Any):
             print(f'{arg} is Number')
         case str():
             print(f'{arg} is String')
-        case Red:
+        case RedPrint():
             print('is object')
         case _:
             print('is Unknown to me')
@@ -32,6 +32,8 @@ def process(arg: Any):
 
 
 def main():
+    from decimal import Decimal
+
     process({'a': 2})
     process([9, 8])
     process((0, 8))
@@ -43,6 +45,8 @@ def main():
     a = RedPrint(29)
     process(a)
     process(sum)
+    b = process(Decimal('88.5'))
+    print(b)
 
 
 if __name__ == '__main__':

@@ -23,6 +23,9 @@ def AlphaDecorator(myfunc: Callable[[str | float], Any]) -> Callable[..., Any]:
 @PrimeDecorator
 @AlphaDecorator
 def Speak(a: str | float) -> str | float:
+    # -- decorator order
+    # 1. AlphaDecorator
+    # 2. PrimeDecorator
     return a * 2
 
 

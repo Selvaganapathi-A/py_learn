@@ -40,10 +40,17 @@ def main():
     honda = Car('Honda')
     registry.add_vehicle(Car('Honda'))
     registry.add_vehicle(Car('Tesla'))
+
+    # ! raises type error
+    # boat cannot added to vehicle registry
     registry.add_vehicle(Boat('Toyoto'))
+
+    # ! Class Variable should'nt be assigned through class instance.
     honda.__final__ = False
+    #
     print(honda.__final__)
     print(getattr(Vehicle, '__final__'))
+    print(getattr(Car, '__final__'))  # returns True
     print(honda.__final__)
 
 

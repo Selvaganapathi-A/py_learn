@@ -1,7 +1,12 @@
 from typing import NoReturn, TypeVar
 
 T = TypeVar('T', str, int, float)
-U = TypeVar('U', str, int, float)
+
+"""
+T - can be either
+        str or float or int
+    not mixed type
+"""
 
 
 def some_function(a: T, b: T) -> T:

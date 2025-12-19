@@ -33,7 +33,9 @@ def main():
     # Database Setup
     # dataase on disk
     # engine = create_engine('sqlite:///pandora.db', echo=False)
-    # dataase on memory (RAM) ## Much Faster for read and arite of very large number of records
+    #
+    # dataase on memory (RAM) ## Much Faster for read, write
+    # very large number of records
     engine = create_engine('sqlite:///:memory:', echo=True)
     Base.metadata.create_all(bind=engine)
     Session = sessionmaker(bind=engine)
