@@ -105,9 +105,9 @@ class Atturan(Tamilian, **{'soil': 'red mud', 'plants': 'rice, sugarcane'}):
 print('*' * 80)
 print('*' * 80)
 if __name__ == '__main__':
-    from subprocess import run
+    # from subprocess import run
 
-    run(('cls',), shell=True)
+    # run(('cls',), shell=True)
     konaru = Area14('Kochin', '324123')
     print('-' * 80)
     print(konaru)
@@ -131,8 +131,8 @@ if __name__ == '__main__':
     print(atturaan)
     print(atturaan.describe())
     print(atturaan.state)
-    print(atturaan.soil)
-    print(atturaan.plants)
+    print(atturaan.soil) # type: ignore
+    print(atturaan.plants) # type: ignore
     # print(po.service)
     # po.service = "dancer"
     # print(po.service)

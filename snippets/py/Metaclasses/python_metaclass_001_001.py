@@ -12,15 +12,15 @@ class SomeMetaClass(type):
 class Speaker:
     track = 'track #1'
 
-    def play_song(self):
+    def play_song(self) -> str:
         return self.track
 
 
 class SmartSpeaker:
-    def play_song(self):
+    def play_song(self) -> str:
         return 'Some Song'
 
-    def play_karoke(self):
+    def play_karoke(self) -> str:
         return 'Music only'
 
 

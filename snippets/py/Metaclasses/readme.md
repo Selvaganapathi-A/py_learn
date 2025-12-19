@@ -663,3 +663,362 @@ If you want next:
 * mypy / pyright gotchas with metaclasses
 
 Say the word.
+
+<!--
+
+ -->
+
+Excellent set of topics. This is **advanced Python architecture**, the stuff that makes frameworks reliable—or utterly unmaintainable if done wrong. I’ll be direct, opinionated, and practical.
+
+Python **3.14**, fully typed, real patterns—not academic fluff.
+
+---
+
+# 1️⃣ Typing Django-Style Metaclasses (The Right Way)
+
+Django uses metaclasses to:
+
+* inspect class attributes
+* register fields
+* mutate the class at definition time
+
+### The Core Typing Problem
+
+Metaclasses return **classes**, not instances.
+Most people type them incorrectly—or not at all.
+
+---
+
+## Properly Typed Metaclass Skeleton
+
+```python
+from typing import Any, TypeVar, Type, Mapping
+
+T = TypeVar("T", bound=type)
+
+class ModelMeta(type):
+    def __new__(
+        mcls: Type[T],
+        name: str,
+        bases: tuple[type, ...],
+        namespace: dict[str, Any],
+        **kwargs: Any,
+    ) -> T:
+        cls = super().__new__(mcls, name, bases, namespace)
+        return cls
+```
+
+### Why This Matters
+
+* `T` preserves the **actual class type**
+* Prevents metaclass from collapsing everything to `type`
+* mypy/pyright stop screaming
+
+This is **non-optional** in serious code.
+
+---
+
+## Django-Style Usage
+
+```python
+class Model(metaclass=ModelMeta):
+    ...
+```
+
+Typing works because:
+
+* `ModelMeta.__new__` returns the same concrete class type
+* Subclasses preserve identity
+
+---
+
+# 2️⃣ Metaclass + Descriptor Typing (The Hard Part)
+
+This is where most people give up. You shouldn’t.
+
+---
+
+## Typed Descriptor (Field)
+
+```python
+from typing import Generic, TypeVar
+
+T = TypeVar("T")
+
+class Field(Generic[T]):
+    def __set_name__(self, owner: type, name: str) -> None:
+        self.name = name
+
+    def __get__(self, instance: object, owner: type | None = None) -> T:
+        if instance is None:
+            return self  # type: ignore[return-value]
+        return instance.__dict__[self.name]
+
+    def __set__(self, instance: object, value: T) -> None:
+        instance.__dict__[self.name] = value
+```
+
+Yes, the `type: ignore` is **unavoidable** today. That’s reality.
+
+---
+
+## Metaclass Collecting Descriptors
+
+```python
+class ModelMeta(type):
+    def __new__(
+        mcls,
+        name: str,
+        bases: tuple[type, ...],
+        namespace: dict[str, Any],
+    ) -> type:
+        fields: dict[str, Field[Any]] = {
+            k: v for k, v in namespace.items()
+            if isinstance(v, Field)
+        }
+
+        cls = super().__new__(mcls, name, bases, namespace)
+        cls.__fields__ = fields  # type: ignore[attr-defined]
+        return cls
+```
+
+### Typing Reality Check
+
+* Dynamic attribute injection = `type: ignore`
+* Don’t fight it—**document it**
+* Even Django accepts this tradeoff
+
+---
+
+# 3️⃣ Enforcing Abstract Class Contracts (Strong Guarantees)
+
+## ❌ Wrong Way (Runtime Checks)
+
+```python
+if not hasattr(cls, "save"):
+    raise TypeError("Must define save")
+```
+
+This is brittle and untyped.
+
+---
+
+## ✅ Correct Way: `ABCMeta`
+
+```python
+from abc import ABCMeta, abstractmethod
+
+class Repository(metaclass=ABCMeta):
+    @abstractmethod
+    def save(self, data: dict[str, object]) -> None:
+        ...
+```
+
+Now:
+
+* Runtime enforcement ✔
+* Static typing ✔
+* Tooling support ✔
+
+---
+
+## Metaclass + ABCMeta (Combined)
+
+```python
+class ModelMeta(ABCMeta):
+    ...
+```
+
+This is exactly what Django does internally.
+
+---
+
+## Enforcing Class-Level Contracts
+
+```python
+class PluginMeta(type):
+    def __init__(
+        cls,
+        name: str,
+        bases: tuple[type, ...],
+        namespace: dict[str, Any],
+    ) -> None:
+        super().__init__(name, bases, namespace)
+
+        if not hasattr(cls, "plugin_name"):
+            raise TypeError("plugin_name is required")
+```
+
+This enforces **structural rules at class creation time**.
+
+---
+
+# 4️⃣ Refactoring Metaclasses into `__init_subclass__`
+
+### Hard Truth
+
+> **If you can use `__init_subclass__`, you should.**
+
+Metaclasses are a last resort.
+
+---
+
+## Metaclass Logic (Before)
+
+```python
+class RegistryMeta(type):
+    registry: list[type] = []
+
+    def __new__(mcls, name, bases, ns):
+        cls = super().__new__(mcls, name, bases, ns)
+        mcls.registry.append(cls)
+        return cls
+```
+
+---
+
+## `__init_subclass__` (After — Cleaner)
+
+```python
+class RegistryBase:
+    registry: list[type] = []
+
+    def __init_subclass__(cls, **kwargs: object) -> None:
+        super().__init_subclass__(**kwargs)
+        RegistryBase.registry.append(cls)
+```
+
+### Why This Wins
+
+* No metaclass conflicts
+* Easier typing
+* Works with multiple inheritance
+* Clear intent
+
+---
+
+## Typed `__init_subclass__`
+
+```python
+class EnforcedBase:
+    def __init_subclass__(cls, *, required: bool = False, **kwargs: object) -> None:
+        super().__init_subclass__(**kwargs)
+        cls.required = required
+```
+
+Usage:
+
+```python
+class MyClass(EnforcedBase, required=True):
+    ...
+```
+
+This replaces **80% of metaclass use cases**.
+
+---
+
+# 5️⃣ mypy / pyright Gotchas (Real Pain Points)
+
+## ❗ Gotcha #1: Dynamic Attributes
+
+```python
+cls.new_attr = 123
+```
+
+Static checkers hate this.
+
+### Fix (Pick One)
+
+* `typing.Protocol`
+* `TypedDict` for metadata
+* `# type: ignore[attr-defined]`
+
+Be explicit. Silence is technical debt.
+
+---
+
+## ❗ Gotcha #2: Metaclass Return Types
+
+If you don’t return `T` from `__new__`:
+
+```text
+error: incompatible return type "type" vs "MyClass"
+```
+
+Always use:
+
+```python
+T = TypeVar("T", bound=type)
+```
+
+---
+
+## ❗ Gotcha #3: Descriptor `__get__`
+
+Type checkers **cannot express**:
+
+> “Return descriptor on class, value on instance”
+
+You must choose between:
+
+* correctness
+* silence
+
+Most frameworks choose correctness + ignore.
+
+---
+
+## ❗ Gotcha #4: Multiple Metaclasses
+
+```python
+TypeError: metaclass conflict
+```
+
+This is why Django prefers:
+
+* one metaclass
+* or `__init_subclass__`
+
+Avoid stacking metaclasses. It’s a design smell.
+
+---
+
+## ❗ Gotcha #5: pyright Is Stricter Than mypy
+
+pyright will flag:
+
+* missing `**kwargs` in `__init_subclass__`
+* incorrect metaclass signatures
+* unsafe dynamic injection
+
+If pyright passes, mypy usually will.
+
+---
+
+# Strategic Guidance (Blunt but Accurate)
+
+* **Metaclasses are infrastructure**, not features
+* If typing feels impossible, your design is suspect
+* Prefer `__init_subclass__` for extensibility
+* Accept limited `type: ignore`—but isolate them
+* Document every metaclass with intent and invariants
+
+---
+
+## One-Line Mental Model
+
+> **Metaclasses shape classes.
+> Descriptors shape attributes.
+> `__init_subclass__` shapes ecosystems.**
+
+---
+
+If you want next:
+
+* a fully typed mini-Django ORM core
+* Protocol-based alternatives to metaclasses
+* how SQLAlchemy 2.x reduced metaclass usage
+* writing plugins without metaclasses
+* future typing improvements (PEP 544 / 649 / 695 impacts)
+
+Say the word.

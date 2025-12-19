@@ -5,7 +5,7 @@ import pprint
 class CustomMetaclass(type):
     handlers = {}
 
-    def __new__(cls, name, bases, attrs):
+    def __new__(cls, name, bases, attrs) -> type:
         NewClass = type.__new__(cls, name, bases, attrs)  # Working
         # NewClass = super().__new__(cls, name, bases, attrs)  # Working
         NewClass = type(name, bases, attrs)
@@ -19,25 +19,25 @@ class Handler(metaclass=CustomMetaclass):
     media_formats: tuple = ()
 
 
-class ImageHandler(Handler):
+class ImageHandler(Handler, metaclass=CustomMetaclass):
     media_formats = 'jpeg', 'png'
 
 
-class AudioHandler(Handler):
+class AudioHandler(Handler, metaclass=CustomMetaclass):
     media_formats = 'mp3', 'wav'
 
 
-class VideoHandler(Handler):
+class VideoHandler(Handler, metaclass=CustomMetaclass):
     media_formats = 'mp4', 'mkv'
 
 
 if __name__ == '__main__':
-    from subprocess import run
+    # from subprocess import run
 
-    run(('cls',), shell=True)
+    # run(('cls',), shell=True)
     pprint.pprint(CustomMetaclass.handlers)
     vh = VideoHandler()
-    # print(type(vh))
-    # print(type(CustomMetaclass.handlers["mp4"]))
+    print(type(vh))
+    print(type(CustomMetaclass.handlers["mp4"]))
     # print(type(type(CustomMetaclass.handlers["mp4"])))
     pprint.pprint(CustomMetaclass.handlers)
