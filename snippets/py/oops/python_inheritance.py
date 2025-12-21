@@ -4,6 +4,10 @@ class A(object):
         super().__init__()
         super().__init_subclass__()
 
+    def __init_subclass__(cls) -> None:
+        cls.Creator = 'Alpha'
+        # object.__setattr__(cls, 'Creator', 'Alpha')
+
     def function(self):
         print('A ouject function called.')
 
@@ -15,7 +19,7 @@ class B(A):
         super().__init_subclass__()
 
     def function(self):
-        print('B ouject function called.')
+        print('B ouject function called.', self.Creator)
         super().function()
 
 
@@ -26,7 +30,7 @@ class BA(B):
         super().__init_subclass__()
 
     def function(self):
-        print('BA ouject function called.')
+        print('BA ouject function called.', self.Creator)
         super().function()
 
 
@@ -37,7 +41,7 @@ class BBA(BA, B, A):
         super(BBA, self).__init_subclass__()
 
     def function(self):
-        print('BBA ouject function called.')
+        print('BBA ouject function called.', self.Creator)
         super().function()
 
 
@@ -47,6 +51,7 @@ def main():
     bba.function()
     print()
     print(bba.__class__.__bases__)
+    print(bba.Creator)
 
 
 if __name__ == '__main__':

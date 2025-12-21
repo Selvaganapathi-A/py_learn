@@ -131,8 +131,8 @@ if __name__ == '__main__':
     print(atturaan)
     print(atturaan.describe())
     print(atturaan.state)
-    print(atturaan.soil) # type: ignore
-    print(atturaan.plants) # type: ignore
+    print(atturaan.soil)  # type: ignore
+    print(atturaan.plants)  # type: ignore
     # print(po.service)
     # po.service = "dancer"
     # print(po.service)

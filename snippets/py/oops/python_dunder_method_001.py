@@ -14,7 +14,7 @@ class A:
     def __str__(self) -> str:
         return f'{self.__class__.__name__}({self.value!r})'
 
-    def __call__(self, value: str) -> Any:
+    def __call__(self, value: str) -> Self:
         print('__call__ method.')
         self.value = value
         return self

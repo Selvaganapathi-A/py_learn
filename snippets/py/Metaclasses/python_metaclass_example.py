@@ -12,9 +12,14 @@ def debug(func_: Callable):
 
 class Fruit(type):
     def __new__(metaclass, name, bases, class_attrs, **kwargs):  # type:ignore
+        print(metaclass)
+        print(name)
+        print(bases)
+        print(class_attrs)
+        print(kwargs)
         class_ = type(metaclass.__name__, bases, class_attrs)
         for k, v in vars(class_).items():
-            # print(k, v)
+            print(k, v)
             if callable(v):
                 setattr(class_, k, debug(v))
         for k, v in kwargs.items():
@@ -26,8 +31,14 @@ class Pine(metaclass=Fruit, k=0, m=8):
     id10t: int
     location: str = '+90.28424'
 
-    def __str__(self):
+    def __init__(self, *args, **kwargs) -> None:
+        pass
+
+    def __str__(self, *args, **kwargs):
         return self.__class__.__name__
+
+    def __init_subclass__(cls, *args, **kwargs) -> None:
+        print('Pine __init_subclass__', cls, args, kwargs)
 
     def add(self, other: Any):
         return other, id(other), hash(self)
@@ -39,7 +50,8 @@ if __name__ == '__main__':
     run(('cls',), shell=True)
     p = Pine()
     print(p.__dict__)
-    print(p.__annotations__)
+    #
+    # print(p.__annotations__) # raises error
     print(Pine.__dict__)
     print(Pine.__annotations__)
     print(p)

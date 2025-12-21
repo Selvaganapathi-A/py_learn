@@ -1,0 +1,35 @@
+from collections.abc import Callable
+from decimal import Decimal
+from typing import TypeAlias
+
+from typing_extensions import TypeVar
+
+# * Generic bound to int, float, str, Decimal
+T = TypeVar('T', int, float, str, Decimal)
+A: TypeAlias = tuple[int, int]
+function: TypeAlias = Callable[[int, int, int], float]
+
+
+def lambda_add(a: T, b: T) -> T:
+    return a + b
+
+
+def green(x: int, y: int, z: int) -> float:
+    return (x + y + z) / 3
+
+
+def main():
+    print(lambda_add(1, 2))
+    print(lambda_add('1', '2'))
+    print(lambda_add(Decimal('12'), Decimal('24')))
+    yellow: function = green
+    print(yellow)
+    print(yellow.__annotations__)
+    print(yellow(7, 9, 8))
+    xd: A = (9, 8)
+    print(xd)
+
+
+if __name__ == '__main__':
+    # help(TypeAlias)
+    main()
