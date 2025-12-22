@@ -8,8 +8,8 @@ type m = typing.Annotated[m, str, bytes]
 function: TypeAlias = Callable[[int, str], int]
 
 
-def func(a: function, b: int, c: str):
-    print(a(b, c))
+def func(a: function, b: int, c: str, d: Q = Q(45)):
+    print(a(b, c), d)
     return b
 
 
@@ -27,7 +27,7 @@ def main():
 
 
 if __name__ == '__main__':
-    # main()
+    main()
     # #
     # help(TypeGuard)
     # help(TypeAlias)
