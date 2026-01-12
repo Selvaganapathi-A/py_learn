@@ -3,8 +3,7 @@ from typing import TypeVar, cast
 
 
 class Ok[T]:
-    def __init__(self, value: T) -> None:
-        pass
+    def __init__(self, value: T) -> None:...
 
 
 class Result[V, E: BaseException]:

@@ -65,6 +65,7 @@ def main():
         time_taken = timer()
         print(f'{time_taken:n} ns')
         raise ZeroDivisionError('Unable to divide by zero.', 1, 0)
+    print('code completed.')
 
 
 if __name__ == '__main__':

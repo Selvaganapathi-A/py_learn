@@ -86,10 +86,8 @@ You don’t need to know the internals — just the contracts.
 import inspect
 from typing import Any
 
-
 def add(a: int, b: int = 0) -> int:
     return a + b
-
 
 signature: inspect.Signature = inspect.signature(add)
 print(signature)
@@ -145,7 +143,6 @@ Auto-wire function arguments based on type hints.
 from typing import Dict, Type
 import inspect
 
-
 class Container:
     def __init__(self) -> None:
         self._services: Dict[type, object] = {}
@@ -170,10 +167,8 @@ Usage:
 class Database:
     pass
 
-
 def handler(db: Database) -> None:
     print("DB injected:", db)
-
 
 container: Container = Container()
 container.register(Database, Database())
@@ -191,7 +186,6 @@ No configuration. No boilerplate. Type-driven wiring.
 class User:
     def save(self) -> None:
         pass
-
 
 methods: list[str] = [
     name
@@ -213,7 +207,6 @@ Bad decorators break introspection. Good ones don’t.
 import inspect
 from functools import wraps
 from typing import Callable
-
 
 def validate_types(func: Callable) -> Callable:
     sig: inspect.Signature = inspect.signature(func)

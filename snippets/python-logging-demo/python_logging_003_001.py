@@ -1,7 +1,37 @@
 import logging
 import os
 from datetime import datetime
+from enum import IntEnum, StrEnum
 from logging.handlers import RotatingFileHandler
+
+
+class Level(IntEnum):
+    NOTSET = 0
+    DEBUG = 10
+    INFO = 20
+    WARNING = 30
+    ERROR = 40
+    CRITICAL = 50
+
+
+class Field(StrEnum):
+    ASCTIME = '%(asctime)s'
+    CREATED = '%(created)f'
+    FILENAME = '%(filename)s'
+    FUNCTIONNAME = '%(funcName)s'
+    LEVELNAME = '%(levelname)s'
+    LEVELNO = '%(levelno)s'
+    LINENO = '%(lineno)d'
+    MESSAGE = '%(message)s'
+    MODULE = '%(module)s'
+    MSECS = '%(msecs)d'
+    NAME = '%(name)s'
+    PATHNAME = '%(pathname)s'
+    PROCESS = '%(process)d'
+    PROCESSNAME = '%(processName)s'
+    RELATIVECREATED = '%(relativeCreated)d'
+    THREAD = '%(thread)d'
+    THREADNAME = '%(threadName)s'
 
 
 def func_logger(hashString: str):

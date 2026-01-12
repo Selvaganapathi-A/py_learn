@@ -24,14 +24,14 @@ It provides:
 
 ## 2️⃣ When to Use It (Non-Negotiable Rules)
 
-### ✅ Use when:
+### ✅ Use when
 
 * Work is CPU-bound
 * GIL is limiting throughput
 * Tasks are independent
 * Data is pickleable
 
-### ❌ Do NOT use when:
+### ❌ Do NOT use when
 
 * Work is I/O-bound (use threads / async)
 * Tasks are tiny (overhead dominates)
@@ -48,10 +48,8 @@ It provides:
 from concurrent.futures import ProcessPoolExecutor
 from typing import Iterable
 
-
 def cpu_work(x: int) -> int:
     return x * x
-
 
 if __name__ == "__main__":
     data: Iterable[int] = range(10)
@@ -77,10 +75,8 @@ if __name__ == "__main__":
 ```python
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
-
 def cpu_work(x: int) -> int:
     return x ** 2
-
 
 if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=4) as pool:
@@ -158,10 +154,8 @@ future.cancel()
 import asyncio
 from concurrent.futures import ProcessPoolExecutor
 
-
 def heavy(x: int) -> int:
     return x ** 3
-
 
 async def main() -> None:
     loop = asyncio.get_running_loop()
@@ -209,7 +203,7 @@ def outer():
 | macOS   | `spawn` |
 | Windows | `spawn` |
 
-### Best practice (portable):
+### Best practice (portable)
 
 ```python
 if __name__ == "__main__":
@@ -238,7 +232,7 @@ max_workers = os.cpu_count()
 
 Passing large objects repeatedly is slow.
 
-### Options:
+### Options
 
 * Preload data at process start
 * Use shared memory (`multiprocessing.shared_memory`)

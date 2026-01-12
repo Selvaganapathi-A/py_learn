@@ -91,10 +91,8 @@ They do **not** exist to speed up CPU-bound computation.
 import threading
 from typing import NoReturn
 
-
 def worker() -> None:
     print("Working in a thread")
-
 
 thread: threading.Thread = threading.Thread(target=worker)
 thread.start()
@@ -111,10 +109,8 @@ thread.join()
 ```python
 import threading
 
-
 def process(item: int) -> None:
     print(item)
-
 
 thread = threading.Thread(target=process, args=(42,))
 thread.start()
@@ -132,11 +128,9 @@ import threading
 import requests
 from typing import list
 
-
 def fetch(url: str, results: list[str]) -> None:
     response = requests.get(url)
     results.append(response.text)
-
 
 urls: list[str] = [
     "https://example.com",
@@ -186,10 +180,8 @@ This introduces:
 ```python
 import threading
 
-
 lock = threading.Lock()
 counter: int = 0
-
 
 def increment() -> None:
     global counter
@@ -235,10 +227,8 @@ Use `ThreadPoolExecutor`.
 ```python
 from concurrent.futures import ThreadPoolExecutor
 
-
 def work(x: int) -> int:
     return x * 2
-
 
 with ThreadPoolExecutor(max_workers=4) as pool:
     results = list(pool.map(work, range(10)))

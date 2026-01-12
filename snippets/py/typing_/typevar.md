@@ -104,7 +104,6 @@ class Duck:
     def quack(self) -> str:
         return "quack"
 
-
 d1: Duck = Duck()
 d2: Duck = Duck()
 
@@ -372,18 +371,14 @@ This is how you express **“supports + and returns same type”**.
 ```python
 from typing import Protocol, TypeVar
 
-
 T = TypeVar("T", bound="Addable")
-
 
 class Addable(Protocol):
     def __add__(self: T, other: T) -> T: ...
 
-
 class Duck:
     def __add__(self, other: "Duck") -> "Duck":
         return Duck()
-
 
 def incubate(a: T, b: T) -> T:
     return a + b
@@ -415,15 +410,12 @@ Using **PEP 695** syntax:
 ```python
 from typing import Protocol
 
-
 class Addable[T](Protocol):
     def __add__(self, other: T) -> T: ...
-
 
 class Duck:
     def __add__(self, other: "Duck") -> "Duck":
         return Duck()
-
 
 def incubate[T: Addable[T]](a: T, b: T) -> T:
     return a + b
@@ -441,7 +433,6 @@ Strong opinion:
 ```python
 from typing import overload
 from decimal import Decimal
-
 
 @overload
 def incubate(a: int, b: int) -> int: ...

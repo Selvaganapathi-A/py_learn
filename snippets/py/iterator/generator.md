@@ -71,7 +71,6 @@ Every generator **is an iterator**, but not every iterator is a generator.
 ```python
 from typing import Iterator
 
-
 def count_up(limit: int) -> Iterator[int]:
     for i in range(limit):
         yield i
@@ -141,7 +140,6 @@ Compared to list comprehensions:
 ```python
 from typing import Iterator
 
-
 def read_numbers(path: str) -> Iterator[int]:
     with open(path) as file:
         for line in file:
@@ -163,12 +161,10 @@ def numbers() -> Iterator[int]:
     for i in range(10):
         yield i
 
-
 def even(nums: Iterator[int]) -> Iterator[int]:
     for n in nums:
         if n % 2 == 0:
             yield n
-
 
 def squared(nums: Iterator[int]) -> Iterator[int]:
     for n in nums:
@@ -215,7 +211,6 @@ Generators are **two-way**.
 
 ```python
 from typing import Generator
-
 
 def accumulator() -> Generator[int, int, None]:
     total: int = 0
@@ -362,12 +357,10 @@ That `result` is the **return value** of `subgen`.
 ```python
 from typing import Generator
 
-
 def child() -> Generator[int, None, str]:
     yield 1
     yield 2
     return "done"
-
 
 def parent() -> Generator[int, None, None]:
     result: str = yield from child()
@@ -402,11 +395,9 @@ def step_one() -> Generator[str, None, None]:
     yield "connect"
     yield "authenticate"
 
-
 def step_two() -> Generator[str, None, None]:
     yield "fetch"
     yield "process"
-
 
 def workflow() -> Generator[str, None, None]:
     yield from step_one()
@@ -449,7 +440,6 @@ This is exactly how early `asyncio` worked.
 ```python
 from typing import Generator
 
-
 Coroutine = Generator[None, None, None]
 ```
 
@@ -462,7 +452,6 @@ Each coroutine yields control by yielding `None`.
 ```python
 from collections import deque
 from typing import Deque
-
 
 class Scheduler:
     def __init__(self) -> None:
@@ -574,13 +563,11 @@ This is *pull-based*, not push-based.
 import asyncio
 from typing import AsyncIterator
 
-
 async def producer() -> AsyncIterator[int]:
     for i in range(5):
         print(f"produced {i}")
         yield i
         await asyncio.sleep(0)  # give control back
-
 
 async def consumer() -> None:
     async for item in producer():
@@ -603,11 +590,9 @@ That’s **backpressure**.
 ```python
 queue: asyncio.Queue[int] = asyncio.Queue()
 
-
 async def bad_producer() -> None:
     for i in range(1_000_000):
         await queue.put(i)  # memory grows
-
 
 async def bad_consumer() -> None:
     while True:
@@ -627,7 +612,6 @@ async def stream() -> AsyncIterator[int]:
     for i in range(10):
         await asyncio.sleep(0.1)
         yield i
-
 
 async def process(stream: AsyncIterator[int]) -> None:
     async for item in stream:

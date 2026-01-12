@@ -66,9 +66,6 @@ def main():
     #     print(f"print(f\"%{cp} = {{dt:%{cp}}}\")")
     #     print(f"print(f\"%{sm} = {{dt:%{sm}}}\")")
 
-    pass
-
 
 if __name__ == '__main__':
     main()
-    pass

@@ -119,7 +119,6 @@ No magic. Just protocol.
 ```python
 from typing import Iterator
 
-
 class Counter:
     def __init__(self, limit: int) -> None:
         self.limit: int = limit
@@ -160,7 +159,6 @@ Output:
 ```python
 from typing import Iterator
 
-
 def read_lines(path: str) -> Iterator[str]:
     with open(path) as file:
         for line in file:
@@ -186,7 +184,6 @@ Any function with `yield`:
 
 ```python
 from typing import Iterator
-
 
 def counter(limit: int) -> Iterator[int]:
     current: int = 0
@@ -252,11 +249,9 @@ def sum_all(values: Iterable[int]) -> int:
 ```python
 from typing import Iterator
 
-
 class User:
     def __init__(self, user_id: int) -> None:
         self.user_id = user_id
-
 
 class UserRepository:
     def fetch_all(self) -> Iterator[User]:
@@ -289,7 +284,6 @@ Why this scales:
 
 ```python
 from typing import Iterator
-
 
 def infinite_ids(start: int = 0) -> Iterator[int]:
     current: int = start
@@ -435,7 +429,6 @@ Same protocol. Async flavor.
 from typing import AsyncIterator
 import asyncio
 
-
 async def async_counter(limit: int) -> AsyncIterator[int]:
     for i in range(limit):
         await asyncio.sleep(1)
@@ -470,7 +463,6 @@ Only do this when you need fine-grained control.
 from typing import AsyncIterator
 import asyncio
 
-
 class AsyncCounter:
     def __init__(self, limit: int) -> None:
         self.limit: int = limit
@@ -502,7 +494,6 @@ async for n in AsyncCounter(3):
 ```python
 from typing import AsyncIterator
 import aiohttp
-
 
 async def stream_response(url: str) -> AsyncIterator[bytes]:
     async with aiohttp.ClientSession() as session:
@@ -571,11 +562,9 @@ async def consume(stream: AsyncIterable[int]) -> None:
 from typing import AsyncIterator
 import asyncio
 
-
 class Event:
     def __init__(self, name: str) -> None:
         self.name = name
-
 
 async def event_stream() -> AsyncIterator[Event]:
     events = ["start", "process", "end"]

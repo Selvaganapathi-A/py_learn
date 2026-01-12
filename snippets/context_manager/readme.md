@@ -102,7 +102,6 @@ with open("example.txt", "w") as file:  # type: TextIO
 ```python
 from typing import Self
 
-
 class DatabaseConnection:
     def __enter__(self) -> Self:
         print("Connecting")
@@ -161,7 +160,6 @@ Returning `False` lets it propagate.
 from contextlib import contextmanager
 from typing import Iterator
 
-
 @contextmanager
 def open_resource(name: str) -> Iterator[str]:
     print(f"Acquire {name}")
@@ -206,7 +204,6 @@ No risk of forgetting `release()`.
 ```python
 import time
 
-
 class Timer:
     def __enter__(self) -> Self:
         self.start: float = time.perf_counter()
@@ -235,7 +232,6 @@ with Timer():
 
 ```python
 from typing import Self
-
 
 class AsyncResource:
     async def __aenter__(self) -> Self:

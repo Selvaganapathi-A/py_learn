@@ -40,7 +40,7 @@ class SomeClass(object):
         but raises an error if it is called with any arguments.
 
         """
-        pass
+        raise NotImplementedError('⚠️ `__init_subclass__` not Implemented yet!')
 
     """
     The following methods can be defined to emulate numeric objects.
@@ -484,7 +484,7 @@ class SomeClass(object):
         """
         raise NotImplementedError()
 
-    def __eq__(self, __other_value__: Self) -> bool:
+    def __eq__(self, __other_value__: object) -> bool:
         """
         # __eq__
 
@@ -492,7 +492,7 @@ class SomeClass(object):
         """
         raise NotImplementedError()
 
-    def __ne__(self, __other_value__: Self) -> bool:
+    def __ne__(self, __other_value__: object) -> bool:
         """
         # __ne__
 

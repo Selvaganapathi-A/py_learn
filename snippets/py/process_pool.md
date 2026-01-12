@@ -66,10 +66,8 @@ Real-world examples:
 ```python
 from multiprocessing import Process
 
-
 def worker() -> None:
     print("Hello from process")
-
 
 if __name__ == "__main__":
     p = Process(target=worker)
@@ -109,11 +107,9 @@ You must use:
 from multiprocessing import Process, Queue
 from typing import NoReturn
 
-
 def producer(queue: Queue[int]) -> None:
     for i in range(5):
         queue.put(i)
-
 
 def consumer(queue: Queue[int]) -> None:
     while True:
@@ -121,7 +117,6 @@ def consumer(queue: Queue[int]) -> None:
         print(item)
         if item == 4:
             break
-
 
 if __name__ == "__main__":
     q: Queue[int] = Queue()
@@ -147,10 +142,8 @@ Use `ProcessPoolExecutor`.
 ```python
 from concurrent.futures import ProcessPoolExecutor
 
-
 def cpu_work(x: int) -> int:
     return x * x
-
 
 if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=4) as pool:
@@ -169,7 +162,6 @@ Same pattern as threads.
 
 ```python
 from concurrent.futures import ProcessPoolExecutor, as_completed
-
 
 if __name__ == "__main__":
     with ProcessPoolExecutor() as pool:
@@ -208,7 +200,6 @@ if __name__ == "__main__":
 from multiprocessing import shared_memory
 import numpy as np
 
-
 shm = shared_memory.SharedMemory(create=True, size=100)
 ```
 
@@ -235,10 +226,8 @@ Pattern:
 import asyncio
 from concurrent.futures import ProcessPoolExecutor
 
-
 def heavy(x: int) -> int:
     return x ** 2
-
 
 async def main() -> None:
     loop = asyncio.get_running_loop()

@@ -31,8 +31,7 @@ class Pine(metaclass=Fruit, k=0, m=8):
     id10t: int
     location: str = '+90.28424'
 
-    def __init__(self, *args, **kwargs) -> None:
-        pass
+    def __init__(self, *args, **kwargs) -> None:...
 
     def __str__(self, *args, **kwargs):
         return self.__class__.__name__

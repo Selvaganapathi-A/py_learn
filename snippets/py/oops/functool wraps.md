@@ -56,13 +56,13 @@ Without `wraps`:
 
 ## 4. When should you use `wraps`?
 
-### Always use it when:
+### Always use it when
 
 * Writing decorators
 * Writing wrappers around callables
 * You expect introspection, typing, or tooling to work
 
-### Only skip it when:
+### Only skip it when
 
 * You intentionally want to hide the original function (rare, explicit)
 
@@ -111,7 +111,6 @@ You just erased the function’s identity.
 from functools import wraps
 from typing import Callable
 
-
 def my_decorator(func: Callable) -> Callable:
     @wraps(func)
     def wrapper(*args: object, **kwargs: object) -> object:
@@ -136,7 +135,6 @@ from functools import wraps
 from typing import Callable, TypeVar, Any
 
 T = TypeVar("T")
-
 
 def log_call(func: Callable[..., T]) -> Callable[..., T]:
     @wraps(func)
@@ -196,7 +194,6 @@ def deco_a(func: Callable) -> Callable:
     def wrapper(*args: object, **kwargs: object) -> object:
         return func(*args, **kwargs)
     return wrapper
-
 
 def deco_b(func: Callable) -> Callable:
     @wraps(func)

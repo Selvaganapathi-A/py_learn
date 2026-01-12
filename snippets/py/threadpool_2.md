@@ -31,10 +31,8 @@ import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
-
 def blocking_io(x: int) -> int:
     return x * 2
-
 
 async def main() -> None:
     loop = asyncio.get_running_loop()
@@ -73,16 +71,13 @@ import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from typing import AsyncIterator
 
-
 def cpu_or_blocking(x: int) -> int:
     return x * x
-
 
 async def producer() -> AsyncIterator[int]:
     for i in range(10):
         yield i
         await asyncio.sleep(0.1)
-
 
 async def pipeline() -> None:
     loop = asyncio.get_running_loop()
@@ -135,12 +130,10 @@ So cancellation means:
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 
-
 def slow() -> int:
     import time
     time.sleep(5)
     return 42
-
 
 async def main() -> None:
     loop = asyncio.get_running_loop()
@@ -180,7 +173,6 @@ So we build one.
 from dataclasses import dataclass, field
 from typing import Callable, Any
 
-
 @dataclass(order=True)
 class PriorityTask:
     priority: int
@@ -195,7 +187,6 @@ class PriorityTask:
 ```python
 import threading
 import queue
-
 
 class PriorityExecutor:
     def __init__(self, workers: int) -> None:
@@ -256,7 +247,6 @@ from concurrent.futures import ThreadPoolExecutor
 from typing import Callable, TypeVar, Generic
 
 T = TypeVar("T")
-
 
 class AsyncThreadExecutor(Generic[T]):
     def __init__(self, max_workers: int) -> None:

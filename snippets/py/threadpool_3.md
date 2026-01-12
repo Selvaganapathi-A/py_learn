@@ -63,11 +63,9 @@ If **parent exits** → **children die**
 ```python
 import asyncio
 
-
 async def worker(name: str) -> None:
     await asyncio.sleep(1)
     print(name)
-
 
 async def main() -> None:
     async with asyncio.TaskGroup() as tg:
@@ -158,14 +156,11 @@ Rule:
 import asyncio
 from typing import Callable
 
-
 queue: asyncio.Queue[int] = asyncio.Queue(maxsize=100)
-
 
 async def producer() -> None:
     for i in range(1_000):
         await queue.put(i)  # blocks when full
-
 
 async def consumer(
     fn: Callable[[int], int],
@@ -225,7 +220,6 @@ from concurrent.futures import ThreadPoolExecutor
 from typing import Callable, TypeVar, AsyncIterator
 
 T = TypeVar("T")
-
 
 class StructuredExecutor:
     def __init__(self, max_workers: int, queue_size: int) -> None:
@@ -304,7 +298,6 @@ import time
 from typing import Callable, TypeVar
 
 T = TypeVar("T")
-
 
 def instrumented(fn: Callable[[], T]) -> Callable[[], T]:
     def wrapper() -> T:

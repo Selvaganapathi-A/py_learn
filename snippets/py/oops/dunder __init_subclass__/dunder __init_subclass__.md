@@ -57,7 +57,7 @@ It exists to:
 
 ## 4. When should you use it? (And when not)
 
-### Use it when:
+### Use it when
 
 * You want to **validate subclasses**
 * You’re building **framework-style base classes**
@@ -65,7 +65,7 @@ It exists to:
 * You want subclass configuration via keyword arguments
 * You want clean, readable extensibility
 
-### Don’t use it when:
+### Don’t use it when
 
 * You only need instance behavior
 * A decorator would suffice
@@ -168,7 +168,6 @@ Frameworks *love* this pattern.
 ```python
 from typing import Dict, Type
 
-
 class Task:
     registry: Dict[str, Type["Task"]] = {}
 
@@ -187,7 +186,6 @@ Subclasses:
 ```python
 class EmailTask(Task):
     task_name: str = "email"
-
 
 class CleanupTask(Task):
     task_name: str = "cleanup"
@@ -212,7 +210,6 @@ task: Task = task_cls()
 
 ```python
 from typing import Dict
-
 
 class Model:
     fields: Dict[str, type]

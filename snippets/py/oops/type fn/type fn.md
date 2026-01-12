@@ -51,14 +51,14 @@ Yes. Python eats its own tail — intentionally.
 
 ## 4. When should you use `type()`?
 
-### Use it when:
+### Use it when
 
 * You need runtime inspection
 * You’re writing generic or framework code
 * You’re debugging unexpected behavior
 * You’re dynamically creating classes
 
-### Don’t use it when:
+### Don’t use it when
 
 * `isinstance()` is more appropriate
 * You’re doing rigid type comparisons
@@ -187,7 +187,6 @@ These two are functionally equivalent.
 
 ```python
 from typing import Dict, Type
-
 
 def create_plugin(name: str) -> Type[object]:
     return type(

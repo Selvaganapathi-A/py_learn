@@ -4,7 +4,6 @@ This is one of those *power-user* Python concepts that most people vaguely know 
 
 ---
 
-
 ## 1. What is `__new__`?
 
 `__new__` is a __class-level method responsible for creating a new instance__ of a class.
@@ -170,7 +169,6 @@ Why `__init__` won’t work here:
 ```python
 from typing import Optional
 
-
 class DatabaseConnection:
     _instance: Optional["DatabaseConnection"] = None
 
@@ -210,7 +208,6 @@ __Business value:__
 
 ```python
 from typing import Dict
-
 
 class User:
     _cache: Dict[int, "User"] = {}

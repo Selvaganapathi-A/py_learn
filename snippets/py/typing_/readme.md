@@ -423,7 +423,6 @@ def logged(func: Callable[P, R]) -> Callable[P, R]:
         return func(*args, **kwargs)
     return wrapper
 
-
 def timed(func: Callable[P, R]) -> Callable[P, R]:
     def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
         return func(*args, **kwargs)

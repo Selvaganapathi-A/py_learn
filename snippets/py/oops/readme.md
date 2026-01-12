@@ -648,7 +648,6 @@ Say the word.
 
 <!--
 
-
 Alright, let’s talk about **`__slots__`** — one of Python’s most *misunderstood performance features*. Used right, it’s a scalpel. Used wrong, it’s technical debt with a smile.
 
 I’ll be direct, typed, and practical.

@@ -111,7 +111,6 @@ class Base:
     def greet(self) -> None:
         print("Hello from Base")
 
-
 class Child(Base):
     def greet(self) -> None:
         super().greet()
@@ -171,12 +170,10 @@ class LoggerMixin:
         print("Logging")
         super().process()
 
-
 class AuthMixin:
     def process(self) -> None:
         print("Authenticating")
         super().process()
-
 
 class Service:
     def process(self) -> None:
@@ -217,7 +214,6 @@ class Base:
     def __init__(self, name: str) -> None:
         self.name: str = name
 
-
 class User(Base):
     def __init__(self, name: str, email: str) -> None:
         super().__init__(name)
@@ -239,7 +235,6 @@ class Base:
     @classmethod
     def describe(cls) -> str:
         return "Base"
-
 
 class Child(Base):
     @classmethod

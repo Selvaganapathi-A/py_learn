@@ -47,10 +47,8 @@ This is exactly what you want.
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Iterable
 
-
 def work(x: int) -> int:
     return x * x
-
 
 data: Iterable[int] = range(1_000)
 
@@ -82,11 +80,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests
 from typing import Iterable
 
-
 def fetch(url: str) -> str:
     response = requests.get(url, timeout=5)
     return response.text
-
 
 urls: Iterable[str] = [
     "https://example.com",
@@ -125,10 +121,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import deque
 from typing import Iterator
 
-
 def work(x: int) -> int:
     return x * 2
-
 
 def batched(iterable: Iterator[int], size: int) -> Iterator[list[int]]:
     batch: list[int] = []
@@ -139,7 +133,6 @@ def batched(iterable: Iterator[int], size: int) -> Iterator[list[int]]:
             batch = []
     if batch:
         yield batch
-
 
 with ThreadPoolExecutor(max_workers=10) as executor:
     for batch in batched(iter(range(10_000)), size=100):
@@ -163,16 +156,13 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from queue import Queue
 from typing import NoReturn
 
-
 def work(x: int) -> int:
     return x * x
-
 
 def producer(queue: Queue[int]) -> None:
     for i in range(1_000):
         queue.put(i)
     queue.put(-1)  # sentinel
-
 
 def consumer() -> None:
     queue: Queue[int] = Queue()

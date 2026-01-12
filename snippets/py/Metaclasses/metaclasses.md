@@ -109,6 +109,7 @@ When a class is defined:
    ```python
    MetaClass(name, bases, namespace)
    ```
+
 4. Class object is returned
 
 That’s it. No magic.
@@ -189,7 +190,6 @@ This is not theoretical. This is how ORMs are born.
 ```python
 from typing import Dict
 
-
 class ModelMeta(type):
     def __new__(
         mcls,
@@ -211,7 +211,6 @@ Usage:
 ```python
 class Model(metaclass=ModelMeta):
     pass
-
 
 class User(Model):
     id: int
@@ -296,7 +295,6 @@ If you skip `super()`, you’re sabotaging other metaclasses.
 ```python
 from typing import Dict, Type
 
-
 class RegistryMeta(type):
     registry: Dict[str, Type[object]] = {}
 
@@ -318,10 +316,8 @@ Usage:
 class Plugin(metaclass=RegistryMeta):
     pass
 
-
 class AnalyticsPlugin(Plugin):
     pass
-
 
 class AuthPlugin(Plugin):
     pass
