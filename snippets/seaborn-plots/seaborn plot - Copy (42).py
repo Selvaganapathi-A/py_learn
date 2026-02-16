@@ -2,10 +2,10 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-sns.set_theme(style='ticks')
+sns.set_theme(style="ticks")
 
 
-diamonds = sns.load_dataset('diamonds')
+diamonds = sns.load_dataset("diamonds")
 
 
 f, ax = plt.subplots(figsize=(7, 5))
@@ -15,11 +15,11 @@ sns.despine(f)
 
 sns.histplot(
     diamonds,
-    x='price',
-    hue='cut',
-    multiple='stack',
-    palette='light:m_r',
-    edgecolor='.3',
+    x="price",
+    hue="cut",
+    multiple="stack",
+    palette="light:m_r",
+    edgecolor=".3",
     linewidth=0.5,
     log_scale=True,
 )

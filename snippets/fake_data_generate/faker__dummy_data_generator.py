@@ -176,7 +176,7 @@ class CustomProvider(BaseProvider):
 def main():
     # Faker.seed(0)
 
-    fake = Faker(('en_US'))
+    fake = Faker("en_US")
     fake.add_provider(AirTravelProvider)
     fake.add_provider(Provider)
     fake.add_provider(SchoolProvider)
@@ -199,10 +199,9 @@ def main():
     # # #     i += 1
     # # # print()
 
-    #
     for x in range(3):
         print(
-            f'{x:>4}',
+            f"{x:>4}",
             fake.name(),
             fake.state(),
             fake.color_name(),
@@ -214,12 +213,12 @@ def main():
                 fake.military_dpo(),
                 fake.military_state(),
             ),
-            sep=', ',
+            sep=", ",
         )
     # print(fake.custom___data())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # from subprocess import run
     # run("clear",)
     main()

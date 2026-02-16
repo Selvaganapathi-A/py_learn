@@ -15,7 +15,7 @@ class Solution:
 tracemalloc.start()
 print(Solution().minTimeToVisitAllPoints([[1, 1], [3, 4], [-1, 0]]))
 print(Solution().minTimeToVisitAllPoints([[3, 4], [-1, 2]]))
-print('line 19', tracemalloc.get_traced_memory())
+print("line 19", tracemalloc.get_traced_memory())
 print(tracemalloc.get_tracemalloc_memory())
 tracemalloc.stop()
 
@@ -32,8 +32,7 @@ def isPalindrome(x: int) -> bool:
             break
     if prev == tmp:
         return True
-    else:
-        return False
+    return False
 
 
 print(isPalindrome(121))

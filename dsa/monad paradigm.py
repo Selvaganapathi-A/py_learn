@@ -4,11 +4,11 @@ class Result[T, E]:
         self.error: E | None = error
 
     @staticmethod
-    def Ok(value: T) -> 'Result[T, E]':
+    def Ok(value: T) -> Result[T, E]:
         return Result(value=value, error=None)
 
     @staticmethod
-    def Error(error: E) -> 'Result[T, E]':
+    def Error(error: E) -> Result[T, E]:
         return Result(error=error)
 
     def is_ok(self) -> bool:
@@ -20,8 +20,7 @@ class Result[T, E]:
     def unwrap_value(self) -> T | None:
         if self.is_ok():
             return self.value
-        else:
-            raise ValueError("Can't call `unwrap_value` on Error.")
+        raise ValueError("Can't call `unwrap_value` on Error.")
 
     def unwrap_value_or_default(self, default: T) -> T | None:
         return self.value if self.is_ok() else default
@@ -29,8 +28,7 @@ class Result[T, E]:
     def unwrap_error(self) -> E | None:
         if self.is_error():
             return self.error
-        else:
-            raise ValueError("Can't call `unwrap_error` on Success.")
+        raise ValueError("Can't call `unwrap_error` on Success.")
 
 
 def divide(a: float, b: float) -> Result[float, Exception]:
@@ -53,5 +51,5 @@ def main():
     print(result.unwrap_value_or_default(0))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

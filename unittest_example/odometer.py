@@ -9,19 +9,21 @@ def speed():
 
 def alert():
     speed_ = speed()
-    if speed_ < 30:
-        return 'slow'
-    elif speed_ < 50:
-        return 'normal'
-    elif speed_ < 75:
-        return 'high'
-    else:
-        return 'dangerous'
+    low_speed = 30
+    medium_speed = 50
+    high_speed = 75
+    if speed_ < low_speed:
+        return "slow"
+    if speed_ < medium_speed:
+        return "normal"
+    if speed_ < high_speed:
+        return "high"
+    return "dangerous"
 
 
 def main():
-    print(alert())
+    pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

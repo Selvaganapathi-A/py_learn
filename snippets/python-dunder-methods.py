@@ -1,7 +1,7 @@
 from typing import Self
 
 
-class SomeClass(object):
+class SomeClass:
     def __init__(self: Self) -> None:
         """
         Called after the instance has been created (by `__new__()`),
@@ -40,7 +40,7 @@ class SomeClass(object):
         but raises an error if it is called with any arguments.
 
         """
-        raise NotImplementedError('⚠️ `__init_subclass__` not Implemented yet!')
+        raise NotImplementedError("⚠️ `__init_subclass__` not Implemented yet!")
 
     """
     The following methods can be defined to emulate numeric objects.
@@ -272,7 +272,6 @@ class SomeClass(object):
         """
         raise NotImplementedError()
 
-    #
     """
     These methods are called to implement the binary arithmetic operations
     (+, -, *, @, /, //, %, divmod(), pow(), **, <<, >>, &, ^, |) with
@@ -529,7 +528,6 @@ class SomeClass(object):
 
     def __getitem__(self, __other_value__: Self) -> bool:
         raise NotImplementedError()
-        ...
 
     def __setitem__(self, __other_value__: Self) -> bool:
         raise NotImplementedError()

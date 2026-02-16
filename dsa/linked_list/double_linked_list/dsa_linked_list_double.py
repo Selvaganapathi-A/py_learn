@@ -9,7 +9,7 @@ class Node[T]:
         self.next_node: Self | None = None
 
     def __repr__(self) -> str:
-        return f'Node(data = {self.data})'
+        return f"Node(data = {self.data})"
 
 
 class LinkedList[T]:
@@ -43,14 +43,14 @@ class LinkedList[T]:
             self.head_node = new_node
             self.__length += 1
 
-    def view(self) -> Generator[T, None, None]:
+    def view(self) -> Generator[T]:
         if self.head_node is not None:
             current_node: Node[T] | None = self.head_node
             while current_node is not None:
                 yield current_node.data
                 current_node = current_node.next_node
 
-    def view_backward(self) -> Generator[T, None, None]:
+    def view_backward(self) -> Generator[T]:
         if self.tail_node is not None:
             current_node: Node[T] | None = self.tail_node
             while current_node is not None:
@@ -146,7 +146,7 @@ def main():
     #     print(person, end=", ")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import timeit
 
     print(timeit.timeit(main, number=10000))

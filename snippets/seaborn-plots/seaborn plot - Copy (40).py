@@ -1,14 +1,14 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-sns.set_theme(style='whitegrid')
+sns.set_theme(style="whitegrid")
 
-iris = sns.load_dataset('iris')
+iris = sns.load_dataset("iris")
 
 
 # "Melt" the dataset to "long-form" or "tidy" representation
 
-iris = iris.melt(id_vars='species', var_name='measurement')
+iris = iris.melt(id_vars="species", var_name="measurement")
 
 
 # Initialize the figure
@@ -22,9 +22,9 @@ sns.despine(bottom=True, left=True)
 
 sns.stripplot(
     data=iris,
-    x='value',
-    y='measurement',
-    hue='species',
+    x="value",
+    y="measurement",
+    hue="species",
     dodge=True,
     alpha=0.25,
     zorder=1,
@@ -40,15 +40,15 @@ sns.stripplot(
 
 sns.pointplot(
     data=iris,
-    x='value',
-    y='measurement',
-    hue='species',
+    x="value",
+    y="measurement",
+    hue="species",
     dodge=0.8 - 0.8 / 3,
-    palette='dark',
+    palette="dark",
     errorbar=None,
-    markers='d',
+    markers="d",
     markersize=4,
-    linestyle='none',
+    linestyle="none",
 )
 
 
@@ -56,7 +56,7 @@ sns.pointplot(
 
 sns.move_legend(
     ax,
-    loc='lower right',
+    loc="lower right",
     ncol=3,
     frameon=True,
     columnspacing=1,

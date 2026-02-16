@@ -4,15 +4,13 @@ import string
 
 def generate_random_password(length: int = 8, /) -> str:
     text = (
-        string.ascii_lowercase[:20]
-        + string.ascii_uppercase[:20]
-        + string.digits
+        string.ascii_lowercase[:20] + string.ascii_uppercase[:20] + string.digits
         # + string.punctuation
     )
     """
     generate random password of given length.
     """
-    return ''.join(secrets.choice(text) for _ in range(length))
+    return "".join(secrets.choice(text) for _ in range(length))
 
 
 def main():
@@ -20,5 +18,5 @@ def main():
     print(randomPassword)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -4,7 +4,7 @@ from py_learn.pytest_example import script_001, shape_square
 
 
 @pytest.mark.parametrize(
-    'a, b, result',
+    "a, b, result",
     [
         (1, 2, 3),
         (3, 4, 7),
@@ -28,12 +28,12 @@ from py_learn.pytest_example import script_001, shape_square
         (39, 40, 79),
     ],
 )
-def test_addition(a: float, b: float, result: float):
+def test__addition(a: float, b: float, result: float):
     assert script_001.addition(a, b) == result
 
 
 @pytest.mark.parametrize(
-    'side, result',
+    "side, result",
     [
         (1, 1),
         (2, 4),
@@ -57,5 +57,5 @@ def test_addition(a: float, b: float, result: float):
         (20, 400),
     ],
 )
-def test_shape_square_area(side: float, result: float):
+def test__shape_square_area(side: float, result: float):
     assert shape_square.Square(side).area() == result

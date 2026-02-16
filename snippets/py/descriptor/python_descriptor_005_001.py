@@ -4,13 +4,13 @@ class OneDigitNumericValue:
         self.value = 0
 
     def __get__(self, obj, type=None) -> object:
-        print('get', obj, type)
+        print("get", obj, type)
         return self.value
 
     def __set__(self, obj, value) -> None:
-        print('set', obj, value)
+        print("set", obj, value)
         if value > 9 or value < 0 or int(value) != value:
-            raise AttributeError('The value is invalid', value)
+            raise AttributeError("The value is invalid", value)
         self.value = value
 
 

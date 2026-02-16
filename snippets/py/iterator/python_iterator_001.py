@@ -7,10 +7,9 @@ class RangeTen:
         if self.a < 10:
             self.a += 1
             return self.a
-        else:
-            raise StopIteration
+        raise StopIteration
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     for x in RangeTen():
         print(x)

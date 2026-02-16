@@ -3,7 +3,7 @@ from typing import TypeVar, cast
 
 
 class Ok[T]:
-    def __init__(self, value: T) -> None:...
+    def __init__(self, value: T) -> None: ...
 
 
 class Result[V, E: BaseException]:
@@ -33,26 +33,26 @@ class Result[V, E: BaseException]:
         return self._is_err
 
     @staticmethod
-    def Ok(value: V) -> 'Result':
+    def Ok(value: V) -> Result:
         return Result(value, is_err=False)
 
     @staticmethod
-    def Err(error: E) -> 'Result':
+    def Err(error: E) -> Result:
         return Result(error=error, is_err=True)
 
 
-T = TypeVar('T', float, str)
+T = TypeVar("T", float, str)
 
 
 def add(a: T | None, b: T | None):
     if a is None:
-        return Result.Err(ValueError('a is none', a))
+        return Result.Err(ValueError("a is none", a))
     if b is None:
-        return Result.Err(ValueError('b is none', b))
+        return Result.Err(ValueError("b is none", b))
     return Result.Ok(a + b)
 
 
-logging.basicConfig(format='{levelname: >10}-{message}', style='{')
+logging.basicConfig(format="{levelname: >10}-{message}", style="{")
 
 c = add(1, None)
 if c.is_ok():

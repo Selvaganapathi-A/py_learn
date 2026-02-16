@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-sns.set_theme(style='white')
+sns.set_theme(style="white")
 
 rs = np.random.RandomState(50)
 

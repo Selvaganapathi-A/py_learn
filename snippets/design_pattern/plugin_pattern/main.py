@@ -1,7 +1,7 @@
 from package.repository import execute, register
 
 
-@register('cry')
+@register("cry")
 def cry(sentence: str):
     """
     Docstring for cry
@@ -13,11 +13,11 @@ def cry(sentence: str):
 
 
 def main():
-    execute('Listen to uS', 'shout')
-    execute('Hey', 'scream')
-    execute('Well doNe', 'whisper')
-    execute('Ahhh', 'cry')
+    execute("Listen to uS", "shout")
+    execute("Hey", "scream")
+    execute("Well doNe", "whisper")
+    execute("Ahhh", "cry")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

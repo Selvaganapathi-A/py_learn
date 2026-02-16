@@ -18,10 +18,10 @@ class Plant:
     def __init__(self, *args: Any, **kwargs: Any) -> None: ...
 
 
-if __name__ == '__main__':
-    a = Plant('audi', 98765)
+if __name__ == "__main__":
+    a = Plant("audi", 98765)
     print(a)
-    b = Plant('bmw', 12345)
+    b = Plant("bmw", 12345)
     print(b)
     print(a, b)
     print(id(a), id(b))

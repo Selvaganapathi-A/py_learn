@@ -1,22 +1,22 @@
-class Country(object):
+class Country:
     def __init__(self, countryName: str):
-        self.cities: list['City'] = []
+        self.cities: list[City] = []
         self.countryName: str = countryName
 
-    def addCity(self, city: 'City'):
+    def addCity(self, city: City):
         self.cities.append(city)
 
     def __repr__(self):
-        return f'Country({self.countryName})'
+        return f"Country({self.countryName})"
 
 
-class City(object):
+class City:
     def __init__(self, cityName: str):
-        self.people: list['Person'] = []
+        self.people: list[Person] = []
         self.numPeople: int = 0
         self.cityName: str = cityName
 
-    def addPerson(self, person: 'Person'):
+    def addPerson(self, person: Person):
         self.people.append(person)
         self.numPeople += 1
 
@@ -28,7 +28,7 @@ class City(object):
         return f'City({self.numPeople}, "{self.cityName}")'
 
 
-class Person(object):
+class Person:
     def __init__(self, ID: int):
         self.ID = ID
 
@@ -41,19 +41,19 @@ class Person(object):
         return x
 
     def __repr__(self):
-        return f'Person({self.ID})'
+        return f"Person({self.ID})"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     from secrets import choice
 
     # Define Country
-    US = Country('US')
+    US = Country("US")
     # Define States
-    TEXAS = City('TEXAS')
-    NYC = City('NYC')
-    SF = City('SF')
-    SEATTLE = City('SEATTLE')
+    TEXAS = City("TEXAS")
+    NYC = City("NYC")
+    SF = City("SF")
+    SEATTLE = City("SEATTLE")
     # add to Country
     TEXAS.join_country(US)
     NYC.join_country(US)

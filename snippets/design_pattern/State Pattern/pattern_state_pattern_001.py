@@ -2,7 +2,7 @@ from typing import Protocol, Self, cast
 
 
 class LightState(Protocol):
-    def switch(self, bulb: 'LightBulb'): ...
+    def switch(self, bulb: LightBulb): ...
     def show(self): ...
 
 
@@ -14,12 +14,12 @@ class OffState:
             cls.__instance__ = super().__new__(cls)
         return cast(Self, cls.__instance__)
 
-    def switch(self, bulb: 'LightBulb'):
+    def switch(self, bulb: LightBulb):
         bulb.state = OnState()
-        print('Light is on -> off')
+        print("Light is on -> off")
 
     def show(self):
-        print('Light is Off.')
+        print("Light is Off.")
 
 
 class OnState:
@@ -30,12 +30,12 @@ class OnState:
             cls.__instance__ = super().__new__(cls)
         return cast(Self, cls.__instance__)
 
-    def switch(self, bulb: 'LightBulb'):
+    def switch(self, bulb: LightBulb):
         bulb.state = OffState()
-        print('Light is off -> on')
+        print("Light is off -> on")
 
     def show(self):
-        print('Light is On.')
+        print("Light is On.")
 
 
 class LightBulb:
@@ -56,5 +56,5 @@ def main():
     bulb.state.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

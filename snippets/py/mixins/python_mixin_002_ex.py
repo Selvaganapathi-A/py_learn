@@ -8,7 +8,7 @@ class Animal:
     name: str
 
     def serialize(self):
-        return {'name': self.name, 'spicies': 'animal'}
+        return {"name": self.name, "spicies": "animal"}
 
 
 @dataclass
@@ -22,7 +22,7 @@ class Human(Monkey, Animal):
     name: str
 
 
-if __name__ == '__main__':
-    a = Human('ponnusami')
+if __name__ == "__main__":
+    a = Human("ponnusami")
     print(a)
     print((json5.dumps(a.serialize(), indent=4), 1))

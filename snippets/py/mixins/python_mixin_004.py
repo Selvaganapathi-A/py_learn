@@ -26,22 +26,20 @@ class Circle(Serializer):
 
 
 class House(Serializer):
-    def __init__(
-        self, rectangle: Rectangle, square: Square, circle: Circle
-    ) -> None:
+    def __init__(self, rectangle: Rectangle, square: Square, circle: Circle) -> None:
         self.rectangle = rectangle
         self.square = square
         self.circle = circle
 
     def serialize(self) -> dict[str, dict[str, int]]:
         return {
-            'rectangle': self.rectangle.serialize(),
-            'square': self.square.serialize(),
-            'circle': self.circle.serialize(),
+            "rectangle": self.rectangle.serialize(),
+            "square": self.square.serialize(),
+            "circle": self.circle.serialize(),
         }
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     h = House(
         Rectangle(width=50, height=100),
         Square(sides=45),

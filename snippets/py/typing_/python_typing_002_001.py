@@ -6,11 +6,11 @@ class User:
         self.name = name
 
     def display(self):
-        return self.__class__.__name__ + ' -> ' + self.name
+        return self.__class__.__name__ + " -> " + self.name
 
     @final
     def security(self) -> str:
-        return 'sha3_512'
+        return "sha3_512"
 
 
 class BasicUser(User): ...
@@ -28,7 +28,7 @@ class ProUser(AdvancedUser):
     def security(self):
         # Typechecker Error raised
         super().security()
-        return 'blake2b'
+        return "blake2b"
 
 
 class ClassicUser(ProUser):
@@ -57,23 +57,23 @@ def createUser[T: User](cls: type[T], name: str) -> T:
 
 
 def main():
-    user: User = createUser(User, 'Arvindh')
+    user: User = createUser(User, "Arvindh")
     print(user.name)
     print(user.display())
-    basicUser: BasicUser = createUser(BasicUser, 'Zahir')
+    basicUser: BasicUser = createUser(BasicUser, "Zahir")
     print(basicUser.name)
     print(basicUser.display())
-    proUser: ProUser = createUser(ProUser, 'Mithun')
+    proUser: ProUser = createUser(ProUser, "Mithun")
     print(proUser.name)
     print(proUser.display())
     print(proUser.security())
-    advancedUser: AdvancedUser = createUser(AdvancedUser, 'Zenuth')
+    advancedUser: AdvancedUser = createUser(AdvancedUser, "Zenuth")
     print(advancedUser.name)
     print(advancedUser.display())
-    classicUser: User = createUser(ClassicUser, 'Amar')
+    classicUser: User = createUser(ClassicUser, "Amar")
     print(classicUser.name)
     print(classicUser.display())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

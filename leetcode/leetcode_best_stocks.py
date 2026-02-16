@@ -126,13 +126,11 @@ def main():
     max_profit = 0
     current_profit = 0
     for i, current_price in enumerate(stock_trace[1:], start=1):
-        if min_price > current_price:
-            min_price = current_price
+        min_price = min(min_price, current_price)
         current_profit = current_price - min_price
-        if current_profit > max_profit:
-            max_profit = current_profit
+        max_profit = max(max_profit, current_profit)
     ic(max_profit)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

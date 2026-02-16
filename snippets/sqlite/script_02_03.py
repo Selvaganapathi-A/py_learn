@@ -5,16 +5,12 @@ def main():
     from _init import register_adapter_and_converters
     from _sqlite_database import dict_factory
 
-    #
     register_adapter_and_converters()
     connection: sqlite3.Connection = sqlite3.connect(
-        database=':memory:', detect_types=sqlite3.PARSE_DECLTYPES
+        database=":memory:", detect_types=sqlite3.PARSE_DECLTYPES
     )
-    #
     connection.row_factory = dict_factory
-    #
     cursor: sqlite3.Cursor = connection.cursor()
-    #
     query: str = """
     create table datalake(
         pk integer primary key autoincrement,
@@ -34,15 +30,10 @@ def main():
         minute=59,
         second=59,
         microsecond=987432,
-        tzinfo=datetime.timezone(
-            offset=datetime.timedelta(hours=5, minutes=30)
-        ),
+        tzinfo=datetime.timezone(offset=datetime.timedelta(hours=5, minutes=30)),
     )
     cursor.execute(query, (data,))
-    #
-    data: datetime.time = datetime.time(
-        hour=23, minute=59, second=59, microsecond=987432
-    )
+    data: datetime.time = datetime.time(hour=23, minute=59, second=59, microsecond=987432)
     cursor.execute(query, (data,))
     # * select
     query: str = """
@@ -55,5 +46,5 @@ def main():
     connection.close()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -2,21 +2,21 @@ from functools import partial
 from typing import Self
 
 
-class Infix(object):
+class Infix:
     def __init__(self, func):
         self.func = func
 
     def __add__(self, __value: Self): ...
     def __or__(self, other):
-        print(('__or__', self.func, other))
+        print(("__or__", self.func, other))
         return self.func(other)
 
     def __ror__(self, other):
-        print(('__ror__', self.func, other))
+        print(("__ror__", self.func, other))
         return Infix(partial(self.func, other))
 
     def __call__(self, v1, v2):
-        print('__call__', v1, v2)
+        print("__call__", v1, v2)
         return self.func(v1, v2)
 
 
@@ -27,7 +27,7 @@ def addopt(x, y):
 
 @Infix
 def adder(x, y):
-    print('->', x, y)
+    print("->", x, y)
     return x + y
 
 
@@ -41,5 +41,5 @@ def main():
     print(dir(object))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

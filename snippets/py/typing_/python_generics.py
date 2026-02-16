@@ -50,11 +50,11 @@ def main():
     # Create Car Regitry
     carRegistry = VehicleRegistry[Car]()
     # Create Cars
-    bmw = Car('bmw')
-    audi = Car('audi')
-    vw = Car('volkswagon')
-    citroen = Car('citroen')
-    toyoto = Mini('toyoto')
+    bmw = Car("bmw")
+    audi = Car("audi")
+    vw = Car("volkswagon")
+    citroen = Car("citroen")
+    toyoto = Mini("toyoto")
     # Add Cars to Car Registry
     carRegistry.add(bmw)
     carRegistry.add(audi)
@@ -67,14 +67,14 @@ def main():
     # Create Boat Registry
     boatRegistry = VehicleRegistry[Boat]()
     # Create Boats
-    green_hunk = Boat('green_hunk')
+    green_hunk = Boat("green_hunk")
     # Add Boats
     boatRegistry.add(green_hunk)
     # Display Boats
     boatRegistry.display()
     # ! ------------------------------------------------------------------- ! #
     licensed_vehicles = LicensedVehicleRegistry[Car]()
-    f13 = Plane('Fighter plane')
+    f13 = Plane("Fighter plane")
     licensed_vehicles.add(bmw)
     # ! raises ArgumentError in pylance
     # licensed_vehicles.add(f13)
@@ -84,5 +84,5 @@ def main():
     licensed_vehicles.display()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

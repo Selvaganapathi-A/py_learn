@@ -2,9 +2,7 @@ import collections
 
 
 class Solution:
-    def slidingWindowMaximumMonotonicQueue(
-        self, nums: list[int], k: int
-    ) -> list[int]:
+    def slidingWindowMaximumMonotonicQueue(self, nums: list[int], k: int) -> list[int]:
         # *  list to store the maximum values for each sliding window
         result = []
         # *  Deque to store indices of elements in the current window
@@ -14,8 +12,7 @@ class Solution:
         while right_pointer < len(nums):
             # *  Pop smaller values from the back of the deque
             while (
-                len(double_ended_queue) > 0
-                and nums[double_ended_queue[-1]] < nums[right_pointer]
+                len(double_ended_queue) > 0 and nums[double_ended_queue[-1]] < nums[right_pointer]
             ):
                 double_ended_queue.pop()
             # * add right pointer
@@ -176,14 +173,14 @@ def main():
     result: list[int]
     solution = Solution()
     for k, nums in samples:
-        print('k = ', k)
-        print('nums = ', nums)
+        print("k = ", k)
+        print("nums = ", nums)
         result = solution.slidingWindowMaximumMonotonicQueue(nums, k)
         print(result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import os
 
-    os.system('clear')
+    os.system("clear")
     main()

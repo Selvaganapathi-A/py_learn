@@ -1,48 +1,63 @@
 from typing import Self
 
 
-class Node[T]:
+class _Node[T]:
+    __slots__: tuple[str, ...] = ("prev", "value")
+
     def __init__(self, value: T, prev: None | Self = None) -> None:
         self.value: T = value
         self.prev: Self | None = prev
 
 
-class Stack[T]:
-    def __init__(self) -> None:
-        self.__size: int = 0
-        self.__top: None | Node[T] = None
+class _StackIterator[T]:
+    __slots__: tuple[str, ...] = ("_current",)
 
-    @property
-    def isEmpty(self) -> bool:
-        return self.__top is None
-
-    def peek(self) -> T:
-        if self.__top is None:
-            raise ValueError('Empty Stack')
-        else:
-            return self.__top.value
-
-    def insert(self, __value: T, /) -> None:
-        self.__size += 1
-        node = Node(value=__value, prev=self.__top)
-        self.__top = node
-
-    def pop(self):
-        if self.__top is None:
-            raise ValueError('Empty Stack')
-        else:
-            self.__size -= 1
-            value: T = self.__top.value
-            self.__top = self.__top.prev
-            return value
+    def __init__(self, node: _Node[T] | None):
+        self._current = node
 
     def __iter__(self) -> Self:
-        self.ptr: Node[T] | None = self.__top
         return self
 
     def __next__(self) -> T:
-        if self.ptr is None:
-            raise StopIteration()
-        return_value: T = self.ptr.value
-        self.ptr = self.ptr.prev
-        return return_value
+        if self._current is None:
+            raise StopIteration
+        value = self._current.value
+        self._current: _Node[T] | None = self._current.prev
+        return value
+
+
+class Stack[T]:
+    __slots__: tuple[str, ...] = ("_size", "_top")
+
+    def __init__(self) -> None:
+        self._size: int = 0
+        self._top: None | _Node[T] = None
+
+    def peek(self) -> T:
+        if self._top is None:
+            raise IndexError("Cannot peek empty stack.")
+        return self._top.value
+
+    def push(self, item: T, /) -> None:
+        self._top = _Node(value=item, prev=self._top)
+        self._size += 1
+
+    def pop(self) -> T:
+        if self._top is None:
+            raise IndexError("Pop from empty stack.")
+        value: T = self._top.value
+        self._top = self._top.prev
+        self._size -= 1
+        return value
+
+    def __bool__(self) -> bool:
+        return self._top is not None
+
+    def __iter__(self) -> _StackIterator[T]:
+        return _StackIterator(self._top)
+
+    def __len__(self) -> int:
+        return self._size
+
+    def __repr__(self) -> str:
+        return f"Stack(size={self._size})"

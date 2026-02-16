@@ -1,6 +1,3 @@
-from icecream import ic
-
-
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
         min_price = prices[0]
@@ -17,5 +14,5 @@ def main():
     print(result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -3,12 +3,14 @@ from timeit import timeit
 from icecream import ic
 
 from py_learn.dsa.linked_list.single_linked_list.dsa_linked_list_single import (
-    Node, Singly_Linked_List)
+    Node,
+    Singly_Linked_List,
+)
 
 
 def find_middle[T](ll: Singly_Linked_List[T]):
     if ll.head is None or ll.head.next is None:
-        return
+        return None
     slow_ptr: Node[T] | None = ll.head
     fast_ptr: Node[T] | None
     if slow_ptr is not None and slow_ptr.next is not None:
@@ -59,7 +61,7 @@ def main():
     # print("After removing list".center(60, "-"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(timeit(main, number=100000))
     print(timeit(main_1, number=100000))
     # main()

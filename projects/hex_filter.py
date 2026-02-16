@@ -24,9 +24,7 @@ def hex_mask(diameter: int, /) -> np.ndarray:
     y = np.abs(y - cy)
 
     mask = (
-        (x <= r)
-        & (y <= (math.sqrt(3) * r / 2))
-        & ((math.sqrt(3) * x + y) <= (math.sqrt(3) * r))
+        (x <= r) & (y <= (math.sqrt(3) * r / 2)) & ((math.sqrt(3) * x + y) <= (math.sqrt(3) * r))
     )
 
     return mask
@@ -85,11 +83,11 @@ def hex_pixelate(
 
 def main():
     hex_pixelate(
-        'C://Pictures/063.jpg',
-        'C://Pictures/63 - Copy (63).jpg',
+        "C://Pictures/063.jpg",
+        "C://Pictures/63 - Copy (63).jpg",
         64,
     )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -5,15 +5,15 @@ from sqlalchemy.orm.session import Session, sessionmaker
 
 def workarea(session: Session):
     # * Create Parent Objects
-    billy = Parent(first_name='Billy', last_name='M')
-    tom = Parent(first_name='Tom', last_name='Holland')
-    laurel = Parent(first_name='Laurel', last_name='Jack')
-    brittany = Parent(first_name='Brittany', last_name='Bethrolis')
-    daisy = Parent(first_name='Daisy', last_name='Haze')
+    billy = Parent(first_name="Billy", last_name="M")
+    tom = Parent(first_name="Tom", last_name="Holland")
+    laurel = Parent(first_name="Laurel", last_name="Jack")
+    brittany = Parent(first_name="Brittany", last_name="Bethrolis")
+    daisy = Parent(first_name="Daisy", last_name="Haze")
     # * Create Child Objects
-    ashley = Child(first_name='Ashley', last_name='Billy')
-    james = Child(first_name='James', last_name='Tom')
-    miranda = Child(first_name='Miranda', last_name='Daisy')
+    ashley = Child(first_name="Ashley", last_name="Billy")
+    james = Child(first_name="James", last_name="Tom")
+    miranda = Child(first_name="Miranda", last_name="Daisy")
     # * Add Child Objects to Parents
     billy.children.add(ashley)
     laurel.children.add(ashley)
@@ -29,28 +29,27 @@ def workarea(session: Session):
     session.commit()
     # * Parent Child Relationship
     result = (
-        session.execute(
-            select(Parent).order_by(Parent.last_name, Parent.first_name)
-        )
+        session
+        .execute(select(Parent).order_by(Parent.last_name, Parent.first_name))
         .scalars()
         .all()
     )
     for parent in result:
-        print(parent.first_name + '-' + parent.last_name)
+        print(parent.first_name + "-" + parent.last_name)
         for child in parent.children:
-            print('->>', child.first_name + ' ' + child.last_name)
-    print('-' * 80)
+            print("->>", child.first_name + " " + child.last_name)
+    print("-" * 80)
     # * Child Parent Relationship
     result = session.execute(select(Child)).scalars().all()
     for child in result:
-        print(child.first_name + ' ' + child.last_name)
+        print(child.first_name + " " + child.last_name)
         for parent in child.parents:
-            print('  =>', parent.first_name + ' ' + parent.last_name)
+            print("  =>", parent.first_name + " " + parent.last_name)
 
 
 def main():
     session: Session
-    engine: Engine = create_engine('sqlite:///:memory:', echo=False)
+    engine: Engine = create_engine("sqlite:///:memory:", echo=False)
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
     sessionLocal = sessionmaker(bind=engine)
@@ -60,5 +59,5 @@ def main():
     engine.dispose()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

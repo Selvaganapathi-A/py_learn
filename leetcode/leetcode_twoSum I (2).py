@@ -8,8 +8,7 @@ class Solution:
             need = target - num
             if need in temp:
                 return [temp[need], i]
-            else:
-                temp[num] = i
+            temp[num] = i
         return []
 
 
@@ -23,6 +22,6 @@ def main():
     print(sol.twoSum(case_3, 6))
 
 
-if __name__ == '__main__':
-    os.system('cls')
+if __name__ == "__main__":
+    os.system("cls")
     main()

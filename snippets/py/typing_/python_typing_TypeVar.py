@@ -1,6 +1,6 @@
 from typing import NoReturn, TypeVar
 
-T = TypeVar('T', str, int, float)
+T = TypeVar("T", str, int, float)
 
 """
 T - can be either
@@ -25,17 +25,16 @@ def feed[T: (int, str)](a: T, b: T) -> T:
 def main():
     print(some_function(8, 5))
     print(some_function(8.4, 5.9))
-    print(some_function('m', 'l'))
-    #
+    print(some_function("m", "l"))
     print(feed(1, 2))
-    print(feed('m', 'n'))
+    print(feed("m", "n"))
     #
     # type error
-    print(feed('m', 4))
+    print(feed("m", 4))
     # type error
-    print(some_function('m', 4))
+    print(some_function("m", 4))
     _: NoReturn = alwaysRaiseError()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

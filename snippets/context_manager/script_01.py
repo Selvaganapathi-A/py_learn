@@ -9,7 +9,7 @@ from typing import Any
 class CustomContextManager:
     def __enter__(self):
         self.start = time.perf_counter()
-        print('entering')
+        print("entering")
         return self
 
     def __exit__(
@@ -19,7 +19,7 @@ class CustomContextManager:
         traceback: TracebackType,
     ):
         end = time.perf_counter()
-        print(end - self.start, 'microseconds in sync mode')
+        print(end - self.start, "microseconds in sync mode")
         # Exception Propagation if return False or
         # suppress particular exception with `isinstance` method
         return False
@@ -45,10 +45,10 @@ class MeasureTime:
         * `True` if want to suppress errors.
         * `False` raises error until something captured."""
         if exception is ZeroDivisionError:
-            print('exception       :', exception)
-            print('message         :', message)
-            print('error at line   :', traceback.tb_lineno)
-            print('traceback       :', traceback)
+            print("exception       :", exception)
+            print("message         :", message)
+            print("error at line   :", traceback.tb_lineno)
+            print("traceback       :", traceback)
             logging.exception(exception)
             return True
         return False
@@ -57,19 +57,19 @@ class MeasureTime:
 def main():
     with CustomContextManager():
         for _ in range(5):
-            print('->', _)
+            print("->", _)
             time.sleep(0.1)
-    print('-' * 80)
+    print("-" * 80)
     with MeasureTime() as timer:
         time.sleep(2)
         time_taken = timer()
-        print(f'{time_taken:n} ns')
-        raise ZeroDivisionError('Unable to divide by zero.', 1, 0)
-    print('code completed.')
+        print(f"{time_taken:n} ns")
+        raise ZeroDivisionError("Unable to divide by zero.", 1, 0)
+    print("code completed.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import locale
 
-    locale.setlocale(locale.LC_ALL, 'en_AU')
+    locale.setlocale(locale.LC_ALL, "en_AU")
     main()

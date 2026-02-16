@@ -10,13 +10,13 @@ def main():
     while b < no_bits:
         b += 1
         a = a << 1
-        print(f'{b: >4} - {a: >42} sector.')
-        print(f'{b: >4} - {a: >42x} sector.')
-        print(f'{b: >4} - {format_file_size(a * 512): >50}')
+        print(f"{b: >4} - {a: >42} sector.")
+        print(f"{b: >4} - {a: >42x} sector.")
+        print(f"{b: >4} - {format_file_size(a * 512): >50}")
         time.sleep(0.25)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
     mbr_sectors_mapped = 4_294_967_296
     gpt_sectors_mapped = 18_446_744_073_709_551_616

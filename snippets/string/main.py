@@ -9,7 +9,7 @@ def build_template(text: Template, apply: Callable[[str], str]):
             values.append(var)
         else:
             values.append(apply(var.value))
-    return ''.join(values)
+    return "".join(values)
 
 
 def render_to_string(text: Template):
@@ -22,7 +22,7 @@ def render_to_string(text: Template):
                 value,
                 expression,
                 conversion,
-                format_specifier,  # noqa: F841
+                format_specifier,
             ):
                 txt = convert(value, conversion)
                 if format_specifier:
@@ -30,13 +30,13 @@ def render_to_string(text: Template):
                 values.append(txt)
             case _:
                 raise ValueError()
-    return ''.join(values)
+    return "".join(values)
 
 
 def main():
-    name: str = 'Guava'
+    name: str = "Guava"
     price: float = 12.54354
-    t_string: Template = t'Product = {name!r}, price = {price: >10.2f}.'
+    t_string: Template = t"Product = {name!r}, price = {price: >10.2f}."
     text = render_to_string(t_string)
     print()
     print(t_string)
@@ -45,5 +45,5 @@ def main():
     print()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

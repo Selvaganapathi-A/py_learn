@@ -9,7 +9,7 @@ class Employee:
         self.pay = pay
 
     def __init_subclass__(cls) -> None:
-        print(cls.__name__, 'was inherit me')
+        print(cls.__name__, "was inherit me")
 
     def getPay(self):
         return self.pay
@@ -20,18 +20,18 @@ class Person(Employee, myMixin):
     last_name: str
 
     def __init__(self, first_name: str, last_name: str, pay: int) -> None:
-        super(Person, self).__init__(pay)
+        super().__init__(pay)
         self.first_name = first_name
         self.last_name = last_name
 
     def getPay(self):
-        return super(Person, self).getPay()
+        return super().getPay()
 
 
-if __name__ == '__main__':
-    ramya = Person('Ramya', 'P', 80)
+if __name__ == "__main__":
+    ramya = Person("Ramya", "P", 80)
     print(ramya.toDict())
     print(ramya.getPay())
-    meena = Person('Meena', 'R', 120)
+    meena = Person("Meena", "R", 120)
     print(meena.toDict())
     print(meena.getPay())

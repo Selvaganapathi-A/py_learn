@@ -3,7 +3,7 @@ import time
 from collections.abc import Generator
 
 
-def function[T: float](a: T, b: T, c: T) -> Generator[T, T, None]:
+def function[T: float](a: T, b: T, c: T) -> Generator[T, T]:
     i: T = 0  # type: ignore
     while a <= b:
         a += c  # type: ignore
@@ -20,7 +20,7 @@ def main():
     while True:
         try:
             value = next(b)
-            print('\033[K', value, end='\r')
+            print("\033[K", value, end="\r")
             i += 1
             j += 1
             if value > 8:
@@ -28,7 +28,7 @@ def main():
                 b.send(-2)
             if value < -20:
                 # ! Example to 'throw' Method
-                b.throw(ValueError('Hello Google'))
+                b.throw(ValueError("Hello Google"))
             if value < -45:
                 # ! Example to 'close' Method
                 b.close()
@@ -36,10 +36,10 @@ def main():
             logging.exception(se)
             break
         time.sleep(0.25)
-    print('End of Program')
+    print("End of Program")
 
 
-if __name__ == '__main__':
-    logging.basicConfig(format='%(message)s')
+if __name__ == "__main__":
+    logging.basicConfig(format="%(message)s")
     main()
     # help(Generator)

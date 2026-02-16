@@ -1,20 +1,20 @@
 import seaborn as sns
 
-sns.set_theme(style='dark')
+sns.set_theme(style="dark")
 
-flights = sns.load_dataset('flights')
+flights = sns.load_dataset("flights")
 
 
 # Plot each year's time series in its own facet
 
 g = sns.relplot(
     data=flights,
-    x='month',
-    y='passengers',
-    col='year',
-    hue='year',
-    kind='line',
-    palette='crest',
+    x="month",
+    y="passengers",
+    col="year",
+    hue="year",
+    kind="line",
+    palette="crest",
     linewidth=4,
     zorder=5,
     col_wrap=3,
@@ -29,17 +29,17 @@ g = sns.relplot(
 for year, ax in g.axes_dict.items():
     # Add the title as an annotation within the plot
 
-    ax.text(0.8, 0.85, year, transform=ax.transAxes, fontweight='bold')
+    ax.text(0.8, 0.85, year, transform=ax.transAxes, fontweight="bold")
 
     # Plot every year's time series in the background
 
     sns.lineplot(
         data=flights,
-        x='month',
-        y='passengers',
-        units='year',
+        x="month",
+        y="passengers",
+        units="year",
         estimator=None,
-        color='.7',
+        color=".7",
         linewidth=1,
         ax=ax,
     )
@@ -52,8 +52,8 @@ ax.set_xticks(ax.get_xticks()[::2])
 
 # Tweak the supporting aspects of the plot
 
-g.set_titles('')
+g.set_titles("")
 
-g.set_axis_labels('', 'Passengers')
+g.set_axis_labels("", "Passengers")
 
 g.tight_layout()

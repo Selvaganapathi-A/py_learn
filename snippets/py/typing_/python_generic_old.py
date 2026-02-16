@@ -1,11 +1,9 @@
 from collections.abc import Callable
 from decimal import Decimal
-from typing import TypeAlias
-
-from typing_extensions import TypeVar
+from typing import TypeAlias, TypeVar
 
 # * Generic bound to int, float, str, Decimal
-T = TypeVar('T', int, float, str, Decimal)
+T = TypeVar("T", int, float, str, Decimal)
 A: TypeAlias = tuple[int, int]
 function: TypeAlias = Callable[[int, int, int], float]
 
@@ -20,8 +18,8 @@ def green(x: int, y: int, z: int) -> float:
 
 def main():
     print(lambda_add(1, 2))
-    print(lambda_add('1', '2'))
-    print(lambda_add(Decimal('12'), Decimal('24')))
+    print(lambda_add("1", "2"))
+    print(lambda_add(Decimal(12), Decimal(24)))
     yellow: function = green
     print(yellow)
     print(yellow.__annotations__)
@@ -30,6 +28,6 @@ def main():
     print(xd)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # help(TypeAlias)
     main()

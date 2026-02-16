@@ -12,13 +12,12 @@ class OneDigitNumericValue:
 
 
 class Foo:
-    event_id = OneDigitNumericValue('number')
-    people_id = OneDigitNumericValue('number')
+    event_id = OneDigitNumericValue("number")
+    people_id = OneDigitNumericValue("number")
 
 
 my_foo_object = Foo()
 my_second_foo_object = Foo()
-#
 my_second_foo_object.people_id = 76
 print(my_foo_object.event_id)
 my_foo_object.event_id = 879

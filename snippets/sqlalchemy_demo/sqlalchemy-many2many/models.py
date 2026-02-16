@@ -1,5 +1,13 @@
-from sqlalchemy import (Column, DateTime, ForeignKey, Integer, String, Table,
-                        UniqueConstraint, func)
+from sqlalchemy import (
+    Column,
+    DateTime,
+    ForeignKey,
+    Integer,
+    String,
+    Table,
+    UniqueConstraint,
+    func,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.orm.decl_api import DeclarativeMeta, declarative_base
 
@@ -10,32 +18,32 @@ via
 Association Table.
 """
 associationTable = Table(
-    'childParentRelationship',
+    "childParentRelationship",
     Base.metadata,
     Column(
-        'parent_pk',
+        "parent_pk",
         ForeignKey(
-            'parent.pk',
-            ondelete='CASCADE',
-            onupdate='CASCADE',
+            "parent.pk",
+            ondelete="CASCADE",
+            onupdate="CASCADE",
         ),
         primary_key=True,
     ),
     Column(
-        'child_pk',
+        "child_pk",
         ForeignKey(
-            'child.pk',
-            ondelete='CASCADE',
-            onupdate='CASCADE',
+            "child.pk",
+            ondelete="CASCADE",
+            onupdate="CASCADE",
         ),
         primary_key=True,
     ),
     Column(
-        'created',
+        "created",
         DateTime(timezone=True),
         default=func.now(),
     ),
-    UniqueConstraint('child_pk', 'parent_pk', name='unixrelationship'),
+    UniqueConstraint("child_pk", "parent_pk", name="unixrelationship"),
 )
 
 
@@ -52,28 +60,24 @@ associationTable = Table(
 #     child: Mapped['Child'] = relationship('Child', back_populates='child')
 #     parent: Mapped['Parent'] = relationship('Parent', back_populates='parent')
 class Parent(Base):
-    __tablename__ = 'parent'
-    __table_args__ = (UniqueConstraint('first_name', 'last_name'),)
-    pk: Mapped[int] = mapped_column(
-        Integer, primary_key=True, autoincrement=True
-    )
+    __tablename__ = "parent"
+    __table_args__ = (UniqueConstraint("first_name", "last_name"),)
+    pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     first_name: Mapped[str] = mapped_column(String, nullable=False)
     last_name: Mapped[str] = mapped_column(String, nullable=False)
-    children: Mapped[set['Child']] = relationship(
-        secondary='childParentRelationship',
-        back_populates='parents',
+    children: Mapped[set[Child]] = relationship(
+        secondary="childParentRelationship",
+        back_populates="parents",
     )
 
 
 class Child(Base):
-    __tablename__ = 'child'
-    __table_args__ = (UniqueConstraint('first_name', 'last_name'),)
-    pk: Mapped[int] = mapped_column(
-        Integer, primary_key=True, autoincrement=True
-    )
+    __tablename__ = "child"
+    __table_args__ = (UniqueConstraint("first_name", "last_name"),)
+    pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     first_name: Mapped[str] = mapped_column(String, nullable=False)
     last_name: Mapped[str] = mapped_column(String, nullable=False)
-    parents: Mapped[set['Parent']] = relationship(
-        secondary='childParentRelationship',
-        back_populates='children',
+    parents: Mapped[set[Parent]] = relationship(
+        secondary="childParentRelationship",
+        back_populates="children",
     )

@@ -7,13 +7,13 @@ class Fruit(type):
         if cls_.__name__ not in cls.handlers:
             cls.handlers[cls_.__name__] = cls_
         else:
-            raise ValueError(cls_.__name__, 'Created Already.')
+            raise ValueError(cls_.__name__, "Created Already.")
         for k, v in optional_dict.items():
             setattr(cls_, k, v)
         return cls_
 
 
-class Apple(metaclass=Fruit, origin='india', color='red'):
+class Apple(metaclass=Fruit, origin="india", color="red"):
     origin: str
     color: str
 
@@ -39,18 +39,18 @@ class StrawBerry(metaclass=Fruit): ...
 
 class BlueBerry(metaclass=Fruit):
     def __new__(cls):
-        print('Hi')
+        print("Hi")
         return object.__new__(cls)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     from subprocess import run
 
     run(
-        ('cls',),
+        ("cls",),
         shell=True,
     )
-    a = Apple('iran', 'black')
+    a = Apple("iran", "black")
     print(a.origin)
     print(a.color)
     print(Apple.origin)
@@ -58,8 +58,8 @@ if __name__ == '__main__':
     print(type(a))
     print(type(Apple))
     print(Fruit.handlers)
-    print('-' * 80)
+    print("-" * 80)
     bb = BlueBerry()
     print(bb)
     print(type(bb))
-    print('-' * 80)
+    print("-" * 80)

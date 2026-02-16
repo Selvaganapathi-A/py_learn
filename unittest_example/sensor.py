@@ -1,7 +1,7 @@
-import random
+import secrets
 
 
 class Sensor:
     @property
     def temperature(self) -> int:
-        return random.randint(10, 45)
+        return secrets.choice(range(10, 45))

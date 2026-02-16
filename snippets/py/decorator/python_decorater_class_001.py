@@ -11,7 +11,7 @@ class decorator:
         start = time.perf_counter_ns()
         return_value = self.function(a, b)
         end = time.perf_counter_ns()
-        print(end - start, 'nano seconds.')
+        print(end - start, "nano seconds.")
         return return_value
 
 
@@ -36,5 +36,5 @@ def main():
     print(decorate(5, 4))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

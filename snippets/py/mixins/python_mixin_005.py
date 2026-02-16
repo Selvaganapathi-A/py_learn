@@ -9,7 +9,7 @@ class Auditable(Protocol):
 
 class Audit:
     def audit(self: Auditable):
-        return self.role == 'admin'
+        return self.role == "admin"
 
 
 class User:

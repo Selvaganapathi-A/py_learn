@@ -22,10 +22,7 @@ class Control[T]:
 
     async def finished(self):
         async with self.lock:
-            return (
-                all(event.is_set() for event in self.events)
-                and self.queue.empty()
-            )
+            return all(event.is_set() for event in self.events) and self.queue.empty()
 
     async def set_event(self):
         async with self.lock:
@@ -48,20 +45,13 @@ async def produce(producer_id: int, control_out: Control[WorkItem], n: int):
     for x in range(1, n + 1):
         # simulate i/o operation using sleep
         await asyncio.sleep(sleep())
-        #
         await control_out.inflight.acquire()
         # put the item in the queue
         await control_out.queue.put(WorkItem(item=x))
-        #
-        print(
-            (
-                f'{Fore.RED}[x] {producer_id: >3d} - producing '
-                f'{x}/{n}{Fore.RESET}'
-            )
-        )
+        print(f"{Fore.RED}[x] {producer_id: >3d} - producing {x}/{n}{Fore.RESET}")
 
     await control_out.set_event()
-    print(f'{producer_id} Producer exits.')
+    print(f"{producer_id} Producer exits.")
 
 
 async def processor(
@@ -74,7 +64,7 @@ async def processor(
         try:
             # wait for an item from the producer
             item = await asyncio.wait_for(control_in.queue.get(), 0.5)
-        except asyncio.TimeoutError:
+        except TimeoutError:
             if await control_in.finished():
                 break
             # print(
@@ -91,13 +81,9 @@ async def processor(
             await asyncio.sleep(sleep())
             # put the item into queue
             await control_out.queue.put(item)
-            #
-            txt = ('   ' * stage) + '[x]'
+            txt = ("   " * stage) + "[x]"
             print(
-                (
-                    f'{Fore.YELLOW}{txt} {processor_id: >3d}'
-                    f' - processing {item.item}...{Fore.RESET}'
-                )
+                f"{Fore.YELLOW}{txt} {processor_id: >3d} - processing {item.item}...{Fore.RESET}"
             )
         finally:
             # Notify the queue that the item has been processed
@@ -115,7 +101,7 @@ async def sink(
         try:
             # wait for an item from the producer
             item = await asyncio.wait_for(sink_control.queue.get(), 0.5)
-        except asyncio.TimeoutError:
+        except TimeoutError:
             if await sink_control.finished():
                 break
             # print(
@@ -130,13 +116,8 @@ async def sink(
             # simulate i/o operation using sleep
             await asyncio.sleep(sleep())
             # consume the item
-            txt = ('   ' * stage) + '[x]'
-            print(
-                (
-                    f'{Fore.CYAN}{txt} {sink_id: >3d} - consuming '
-                    f'{item.item}...{Fore.RESET}'
-                )
-            )
+            txt = ("   " * stage) + "[x]"
+            print(f"{Fore.CYAN}{txt} {sink_id: >3d} - consuming {item.item}...{Fore.RESET}")
         finally:
             # Notify the queue that the item has been processed
             sink_control.queue.task_done()
@@ -146,14 +127,11 @@ async def sink(
 
 async def run(n: int):
     number_of_stages = 3
-    #
     number_of_producers = 1
     number_of_processers = 4
     number_of_consumers = 3
-    #
     max_queue_size = 12
     inflight = 8
-    #
     sem = asyncio.Semaphore(inflight)
     controls: list[Control[WorkItem]] = [
         Control(
@@ -176,7 +154,6 @@ async def run(n: int):
                     n,
                 )
             )
-        #
         for processor_id in range(number_of_processers):
             for stage in range(1, number_of_stages + 1):
                 taskgroup.create_task(
@@ -202,8 +179,8 @@ def main():
     asyncio.run(run(32))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import os
 
-    os.system('clear')
+    os.system("clear")
     main()

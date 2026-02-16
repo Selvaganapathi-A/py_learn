@@ -22,7 +22,7 @@ class Person:
 
     @pk.setter
     def pk(self, value: Any) -> NoReturn:
-        raise ValueError('Readonly Property')
+        raise ValueError("Readonly Property")
 
     @pk.getter
     def pk(self) -> rsa.PublicKey:
@@ -30,26 +30,22 @@ class Person:
 
 
 def main():
-    ramesh = Person('ramesh')
-    suresh = Person('suresh')
+    ramesh = Person("ramesh")
+    suresh = Person("suresh")
 
-    message = 'Hello Suresh'.encode()
-    encrypted_message_for_suresh = ramesh.sendMessage(
-        to=suresh, message=message
-    )
+    message = b"Hello Suresh"
+    encrypted_message_for_suresh = ramesh.sendMessage(to=suresh, message=message)
 
-    print('Encrypted Message', encrypted_message_for_suresh)
+    print("Encrypted Message", encrypted_message_for_suresh)
     print()
-    decrypted_message_for_suresh = suresh.readMessage(
-        encrypted_message_for_suresh
-    )
+    decrypted_message_for_suresh = suresh.readMessage(encrypted_message_for_suresh)
 
     print()
     print(decrypted_message_for_suresh)
-    print('-' * 80)
+    print("-" * 80)
 
     print()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

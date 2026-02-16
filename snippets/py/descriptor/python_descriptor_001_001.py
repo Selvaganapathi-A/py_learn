@@ -9,7 +9,7 @@ class LazyProperty:
         print(self.function)
 
     def __get__(self, object_, class_=None) -> object:
-        print('get called', (object_, class_))
+        print("get called", (object_, class_))
         object_.__dict__[self.name] = self.function(object_)
         return object_.__dict__[self.name]
 
@@ -30,11 +30,11 @@ class DeepThought:
         return 42
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     my_deep_thought_instance = DeepThought()
-    print('*' * 80)
+    print("*" * 80)
     for i in range(2):
         # print(my_deep_thought_instance.__dict__)
         print(my_deep_thought_instance.meaning_of_life)
-    print('*' * 80)
-    print('End of Program')
+    print("*" * 80)
+    print("End of Program")

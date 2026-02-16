@@ -10,7 +10,7 @@ class Node[T]:
         self.next: Self | None = None
 
     def __repr__(self) -> str:
-        return f'{self.data}'
+        return f"{self.data}"
 
 
 # * Single Linked List
@@ -31,7 +31,7 @@ class Singly_Linked_List[T]:
             current_node.next = new_node
         self.__length += 1
 
-    def view(self) -> Generator[T, None, None]:
+    def view(self) -> Generator[T]:
         if self.head is None:
             return
         current_node: Node[T] | None = self.head
@@ -56,24 +56,20 @@ class Singly_Linked_List[T]:
     def remove(self, value: T) -> bool:
         if self.head is None:
             return False
-        else:
-            prev: Node[T] | None = None
-            current_node: Node[T] | None = self.head
-            while current_node:
-                if current_node.data == value:
-                    if prev is None:
-                        self.head = current_node.next
-                        del current_node
-                        return True
-                    else:
-                        prev.next = current_node.next
-                        del current_node
-                        return True
-                else:
-                    prev = current_node
-                    current_node = current_node.next
-            else:
-                raise ValueError(value, 'Not in List.')
+        prev: Node[T] | None = None
+        current_node: Node[T] | None = self.head
+        while current_node:
+            if current_node.data == value:
+                if prev is None:
+                    self.head = current_node.next
+                    del current_node
+                    return True
+                prev.next = current_node.next
+                del current_node
+                return True
+            prev = current_node
+            current_node = current_node.next
+        raise ValueError(value, "Not in List.")
 
     @property
     def length(self) -> int:

@@ -16,8 +16,8 @@ class Square(Rectangle):
         super().__init__(side, side)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     square_plot = Square(6)
     rectangle_plot = Rectangle(9, 4)
-    print('Area of Square    :', square_plot.area())
-    print('Area of Rectangle :', rectangle_plot.area())
+    print("Area of Square    :", square_plot.area())
+    print("Area of Rectangle :", rectangle_plot.area())

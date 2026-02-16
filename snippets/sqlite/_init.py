@@ -37,27 +37,27 @@ def _register_adapter():
 def _register_converter():
     # ! Converter for Date
     sqlite3.register_converter(
-        'DATE',
+        "DATE",
         _sqlite_converters.sqlite_converter_date,
     )
     # ! Converter for Time
     sqlite3.register_converter(
-        'TIME',
+        "TIME",
         _sqlite_converters.sqlite_converter_time,
     )
     # ! Converter for DateTime and Timestamp
     sqlite3.register_converter(
-        'DATETIME',
+        "DATETIME",
         _sqlite_converters.sqlite_converter_datetime,
     )
     # ! Converter for pathlib.Path
     sqlite3.register_converter(
-        'PATH',
+        "PATH",
         _sqlite_converters.sqlite_converter_Path,
     )
     # ! Converter for pathlib.Path
     sqlite3.register_converter(
-        'WindowsPATH',
+        "WindowsPATH",
         _sqlite_converters.sqlite_converter_WindowsPath,
     )
 
@@ -67,5 +67,5 @@ def register_adapter_and_converters():
     _register_converter()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     register_adapter_and_converters()

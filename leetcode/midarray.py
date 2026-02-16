@@ -11,10 +11,10 @@ def findElement(array: list[int], /, target: int):
     while i < j:
         if array[j] == target:
             return j
-        elif array[i] == target:
+        if array[i] == target:
             return i
-        elif j - i == 1:
-            return
+        if j - i == 1:
+            return None
         step += 1
         mid = (i + j) // 2
         if target < array[mid]:
@@ -23,8 +23,8 @@ def findElement(array: list[int], /, target: int):
             i = mid
         print(
             (
-                'stet = {:>5d}; nums : {:>5d};  i = {:>5d};  j = {:>5d}; target = {:>5d}'
-            ).format(step, j - i, i, j, target),
+                f"stet = {step:>5d}; nums : {j - i:>5d};  i = {i:>5d};  j = {j:>5d}; target = {target:>5d}"
+            ),
         )
         print(array[i], array[j])
         time.sleep(0.5)
@@ -32,14 +32,14 @@ def findElement(array: list[int], /, target: int):
 
 def find(start: int, end: int, /, target: int):
     if target < start or end < target:
-        return 'Not in this period'
+        return "Not in this period"
     i: int = start
     j: int = end
     step: int = 0
     while i < j:
         if j == target:
             return j
-        elif i == target:
+        if i == target:
             return i
         step += 1
         mid = (i + j) // 2
@@ -49,8 +49,8 @@ def find(start: int, end: int, /, target: int):
             i = mid
         print(
             (
-                'stet = {:>5d}; nums : {:>5d};  i = {:>5d};  j = {:>5d}; target = {:>5d}'
-            ).format(step, j - i, i, j, target),
+                f"stet = {step:>5d}; nums : {j - i:>5d};  i = {i:>5d};  j = {j:>5d}; target = {target:>5d}"
+            ),
         )
         time.sleep(0.5)
 
@@ -60,7 +60,7 @@ def test_001():
         print(find(0, 1234, target=x))
         print(find(0, 1133, target=x))
         print(find(0, 500, target=x))
-        print('-' * 80)
+        print("-" * 80)
 
 
 def test_002():
@@ -69,8 +69,6 @@ def test_002():
 
 
 def test_003():
-    import secrets
-
     data = tuple(range(500))
     # array = [secrets.choice(data) for _ in range(500)]
     # print(array)
@@ -533,8 +531,8 @@ def main():
     testcase(3)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import os
 
-    os.system('cls')
+    os.system("cls")
     main()

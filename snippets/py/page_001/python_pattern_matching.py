@@ -11,44 +11,43 @@ class RedPrint:
 def process(arg: Any):
     match arg:
         case dict():
-            print(f'{arg} is Dictionary')
+            print(f"{arg} is Dictionary")
         case list():
-            print(f'{arg} is List')
+            print(f"{arg} is List")
         case tuple():
-            print(f'{arg} is tuple')
+            print(f"{arg} is tuple")
         case bool():
-            print(f'{arg} is Boolean')
+            print(f"{arg} is Boolean")
         case int():
-            print(f'{arg} is Number')
+            print(f"{arg} is Number")
         case float():
-            print(f'{arg} is Number')
+            print(f"{arg} is Number")
         case str():
-            print(f'{arg} is String')
+            print(f"{arg} is String")
         case RedPrint():
-            print('is object')
+            print("is object")
         case _:
-            print('is Unknown to me')
-    return
+            print("is Unknown to me")
 
 
 def main():
     from decimal import Decimal
 
-    process({'a': 2})
+    process({"a": 2})
     process([9, 8])
     process((0, 8))
     process(2)
     process(9.8)
-    process('venom')
+    process("venom")
     process(False)
     process(True)
     a = RedPrint(29)
     process(a)
     process(sum)
-    b = process(Decimal('88.5'))
+    b = process(Decimal("88.5"))
     print(b)
 
 
-if __name__ == '__main__':
-    os.system('cls')
+if __name__ == "__main__":
+    os.system("cls")
     main()

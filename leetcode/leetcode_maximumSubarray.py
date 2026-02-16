@@ -1,6 +1,6 @@
 def maximumSubArray(nums: list[int]) -> float:
-    max_alltime = float('-inf')
-    max_current = float('-inf')
+    max_alltime = float("-inf")
+    max_current = float("-inf")
     # i: int = 0
     # j: int = 0
     # k: int = 0
@@ -29,5 +29,5 @@ def main():
     print(result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

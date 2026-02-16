@@ -27,5 +27,5 @@ def main():
     print(Solution().productOfArrayExceptSelf(arr))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,4 +1,4 @@
-## Length of Last Word
+# Length of Last Word
 # Given a string s consisting of words and spaces, return the length of the last word in the string.
 # A word is a maximal
 # substring
@@ -25,12 +25,12 @@ class Solution:
         no_of_characters: int = 0
         found: bool = False
         for i in range(len(s)):
-            if s[i] != ' ':
+            if s[i] != " ":
                 no_of_characters += 1
                 found = True
-            elif found and s[i] == ' ':
+            elif found and s[i] == " ":
                 break
         return no_of_characters
 
 
-print(Solution().lengthOfLastWord('   fly me   to   the moon  '))
+print(Solution().lengthOfLastWord("   fly me   to   the moon  "))

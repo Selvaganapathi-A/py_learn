@@ -5,9 +5,8 @@ def read_numbers_from_file(file: Path) -> list[float]:
     numbers: list[float] = []
     if not file.exists():
         return numbers
-    with file.open(mode='r', encoding='utf-8') as reader:
-        for line in reader:
-            numbers.append(float(line.strip()))
+    with file.open(mode="r", encoding="utf-8") as reader:
+        numbers.extend(float(line.strip()) for line in reader)
         reader.close()
     return numbers
 

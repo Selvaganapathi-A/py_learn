@@ -3,13 +3,11 @@ from typing import Any
 
 # using Metaclass
 class Singleton(type):
-    _instance: 'Singleton | None' = None
+    _instance: Singleton | None = None
 
     def __new__(cls, *args: Any, **kwds: Any) -> Any:
         if cls._instance is None:
-            cls._instance = super(Singleton, cls).__new__(
-                cls, cls.__name__, (), {}
-            )
+            cls._instance = super().__new__(cls, cls.__name__, (), {})
         return cls._instance
 
 
@@ -22,12 +20,12 @@ class AppConfig(Singleton):
 
 
 def main():
-    a = AppConfig('Fish')
-    b = AppConfig('Cat')
+    a = AppConfig("Fish")
+    b = AppConfig("Cat")
     a.display()
     b.display()
     print(a is b)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

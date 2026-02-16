@@ -5,7 +5,7 @@ from typing import NoReturn
 async def produce(queue: asyncio.Queue[int], n: int):
     for x in range(1, n + 1):
         # produce an item
-        print(f'producing {x}/{n}')
+        print(f"producing {x}/{n}")
         # simulate i/o operation using sleep
         await asyncio.sleep(0.25)
         # put the item in the queue
@@ -17,7 +17,7 @@ async def consume(consumer_id: int, queue: asyncio.Queue[int]):
         # wait for an item from the producer
         item = await queue.get()
         # process the item
-        print(f'{consumer_id: >2d} - consuming {item}...')
+        print(f"{consumer_id: >2d} - consuming {item}...")
         # simulate i/o operation using sleep
         await asyncio.sleep(5)
         # Notify the queue that the item has been processed
@@ -45,5 +45,5 @@ def main():
     asyncio.run(run(25))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

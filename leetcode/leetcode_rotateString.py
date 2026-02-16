@@ -8,7 +8,7 @@ def ti(fun: Callable[[str, str], bool]):
         st = time.perf_counter()
         res = fun(s, goal)
         ed = time.perf_counter()
-        print(f'{(ed - st) * 1_000_000:9.3f} milliseconds')
+        print(f"{(ed - st) * 1_000_000:9.3f} milliseconds")
         return res
 
     return wra
@@ -29,12 +29,11 @@ def rotateString(s: str, goal: str):
             j += 1
             if i == len(s):
                 return True
+        elif i > 0:
+            j = j - i + 1
+            i = 0
         else:
-            if i > 0:
-                j = j - i + 1
-                i = 0
-            else:
-                j += 1
+            j += 1
     return False
 
 
@@ -42,19 +41,19 @@ def main():
     s: str
     goal: str
     result: bool
-    s = 'abcde'
-    goal = 'cdeab'
+    s = "abcde"
+    goal = "cdeab"
     result = rotateString(s, goal)
     print(result)
-    s = 'abcde'
-    goal = 'abced'
+    s = "abcde"
+    goal = "abced"
     result = rotateString(s, goal)
     print(result)
-    s = 'bbbacddceeb'
-    goal = 'ceebbbbacdd'
+    s = "bbbacddceeb"
+    goal = "ceebbbbacdd"
     result = rotateString(s, goal)
     print(result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -4,8 +4,8 @@ from enum import StrEnum
 
 
 class EventType(StrEnum):
-    ADDED = 'ADDED'
-    REMOVED = 'REMOVED'
+    ADDED = "ADDED"
+    REMOVED = "REMOVED"
 
 
 @dataclass(frozen=True)

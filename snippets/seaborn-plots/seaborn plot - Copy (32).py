@@ -5,16 +5,14 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-sns.set_theme(style='white')
+sns.set_theme(style="white")
 
 
 # Generate a large random dataset
 
 rs = np.random.RandomState(33)
 
-d = pd.DataFrame(
-    data=rs.normal(size=(100, 26)), columns=list(ascii_letters[26:])
-)
+d = pd.DataFrame(data=rs.normal(size=(100, 26)), columns=list(ascii_letters[26:]))
 
 
 # Compute the correlation matrix
@@ -47,5 +45,5 @@ sns.heatmap(
     center=0,
     square=True,
     linewidths=0.5,
-    cbar_kws={'shrink': 0.5},
+    cbar_kws={"shrink": 0.5},
 )

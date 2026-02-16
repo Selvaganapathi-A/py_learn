@@ -7,7 +7,7 @@ class Config:
         # print(cls.__annotations__)
         # print(args)
         # print(kwargs)
-        print(hasattr(cls, 'fields'))
+        print(hasattr(cls, "fields"))
         super().__init_subclass__(**kwargs)
 
 
@@ -25,12 +25,12 @@ class User(Config):
 
 
 def main():
-    user = User(4, 'John', 'meta@meta.meta')
+    user = User(4, "John", "meta@meta.meta")
     print(User.fields)
     print(user.id)
     print(user.__dict__)
-    print(hasattr(user, 'age'))
+    print(hasattr(user, "age"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

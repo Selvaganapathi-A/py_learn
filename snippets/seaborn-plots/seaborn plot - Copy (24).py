@@ -1,19 +1,19 @@
 import seaborn as sns
 
-sns.set_theme(style='whitegrid')
+sns.set_theme(style="whitegrid")
 
 
 # Load the dataset
 
-crashes = sns.load_dataset('car_crashes')
+crashes = sns.load_dataset("car_crashes")
 
 
 # Make the PairGrid
 
 g = sns.PairGrid(
-    crashes.sort_values('total', ascending=False),
+    crashes.sort_values("total", ascending=False),
     x_vars=crashes.columns[:-3],
-    y_vars=['abbrev'],
+    y_vars=["abbrev"],
     height=10,
     aspect=0.25,
 )
@@ -24,27 +24,27 @@ g = sns.PairGrid(
 g.map(
     sns.stripplot,
     size=10,
-    orient='h',
+    orient="h",
     jitter=False,
-    palette='flare_r',
+    palette="flare_r",
     linewidth=1,
-    edgecolor='w',
+    edgecolor="w",
 )
 
 
 # Use the same x axis limits on all columns and add better labels
 
-g.set(xlim=(0, 25), xlabel='Crashes', ylabel='')
+g.set(xlim=(0, 25), xlabel="Crashes", ylabel="")
 
 
 # Use semantically meaningful titles for the columns
 
 titles = [
-    'Total crashes',
-    'Speeding crashes',
-    'Alcohol crashes',
-    'Not distracted crashes',
-    'No previous crashes',
+    "Total crashes",
+    "Speeding crashes",
+    "Alcohol crashes",
+    "Not distracted crashes",
+    "No previous crashes",
 ]
 
 
