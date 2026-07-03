@@ -19,7 +19,7 @@ class Inventory:
 
     def remove_item(self, item: str):
         if self.get_count(item) == 0:
-            raise ValueError(item + " not in Inventory.")
+            raise ValueError(item + ' not in Inventory.')
         self._store.append(
             Event(
                 EventType.REMOVED,

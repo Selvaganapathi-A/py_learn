@@ -1,9 +1,9 @@
 import seaborn as sns
 
-sns.set_theme(style="white")
+sns.set_theme(style='white')
 
 
-df = sns.load_dataset("penguins")
+df = sns.load_dataset('penguins')
 
 
 g = sns.PairGrid(df, diag_sharey=False)

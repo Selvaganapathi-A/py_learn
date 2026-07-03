@@ -7,7 +7,7 @@ class Country:
         self.cities.append(city)
 
     def __repr__(self):
-        return f"Country({self.countryName})"
+        return f'Country({self.countryName})'
 
 
 class City:
@@ -41,19 +41,19 @@ class Person:
         return x
 
     def __repr__(self):
-        return f"Person({self.ID})"
+        return f'Person({self.ID})'
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     from secrets import choice
 
     # Define Country
-    US = Country("US")
+    US = Country('US')
     # Define States
-    TEXAS = City("TEXAS")
-    NYC = City("NYC")
-    SF = City("SF")
-    SEATTLE = City("SEATTLE")
+    TEXAS = City('TEXAS')
+    NYC = City('NYC')
+    SF = City('SF')
+    SEATTLE = City('SEATTLE')
     # add to Country
     TEXAS.join_country(US)
     NYC.join_country(US)

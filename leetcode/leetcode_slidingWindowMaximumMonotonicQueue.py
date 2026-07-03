@@ -11,9 +11,7 @@ class Solution:
         left_pointer = right_pointer = 0
         while right_pointer < len(nums):
             # *  Pop smaller values from the back of the deque
-            while (
-                len(double_ended_queue) > 0 and nums[double_ended_queue[-1]] < nums[right_pointer]
-            ):
+            while len(double_ended_queue) > 0 and nums[double_ended_queue[-1]] < nums[right_pointer]:
                 double_ended_queue.pop()
             # * add right pointer
             double_ended_queue.append(right_pointer)
@@ -173,14 +171,14 @@ def main():
     result: list[int]
     solution = Solution()
     for k, nums in samples:
-        print("k = ", k)
-        print("nums = ", nums)
+        print('k = ', k)
+        print('nums = ', nums)
         result = solution.slidingWindowMaximumMonotonicQueue(nums, k)
         print(result)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import os
 
-    os.system("clear")
+    os.system('clear')
     main()

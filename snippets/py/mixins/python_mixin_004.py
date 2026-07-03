@@ -33,13 +33,13 @@ class House(Serializer):
 
     def serialize(self) -> dict[str, dict[str, int]]:
         return {
-            "rectangle": self.rectangle.serialize(),
-            "square": self.square.serialize(),
-            "circle": self.circle.serialize(),
+            'rectangle': self.rectangle.serialize(),
+            'square': self.square.serialize(),
+            'circle': self.circle.serialize(),
         }
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     h = House(
         Rectangle(width=50, height=100),
         Square(sides=45),

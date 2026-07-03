@@ -1,19 +1,19 @@
 import seaborn as sns
 
-sns.set_theme(style="whitegrid")
+sns.set_theme(style='whitegrid')
 
 
 # Load the example Titanic dataset
 
-titanic = sns.load_dataset("titanic")
+titanic = sns.load_dataset('titanic')
 
 
 # Set up a grid to plot survival probability against several variables
 
 g = sns.PairGrid(
     titanic,
-    y_vars="survived",
-    x_vars=["class", "sex", "who", "alone"],
+    y_vars='survived',
+    x_vars=['class', 'sex', 'who', 'alone'],
     height=5,
     aspect=0.5,
 )
@@ -21,7 +21,7 @@ g = sns.PairGrid(
 
 # Draw a seaborn pointplot onto each Axes
 
-g.map(sns.pointplot, color="xkcd:plum")
+g.map(sns.pointplot, color='xkcd:plum')
 
 g.set(ylim=(0, 1))
 

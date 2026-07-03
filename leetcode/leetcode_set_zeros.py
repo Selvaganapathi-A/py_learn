@@ -34,21 +34,21 @@ class Solution:
             ce: int = len(matrix[0]) - 1
             r, c = 0, 0
             while rs < re or cs < ce:
-                print("---", (0, cs, ce), "---")
-                print("---", (rs, 0, 0), "---")
-                print("---", (re, 0, 0), "---")
-                print("fwd col")
+                print('---', (0, cs, ce), '---')
+                print('---', (rs, 0, 0), '---')
+                print('---', (re, 0, 0), '---')
+                print('fwd col')
                 while cs <= c < ce:
                     # print(matrix[r][c])
                     print(((r, c), matrix[r][c]))
                     c += 1
                 rs += 1
                 time.sleep(1)
-                print("---", (0, cs, c, ce), "---")
-                print("---", (rs, 0, 0), "---")
-                print("---", (r, 0, 0), "---")
-                print("---", (re, 0, 0), "---")
-                print("fwd row")
+                print('---', (0, cs, c, ce), '---')
+                print('---', (rs, 0, 0), '---')
+                print('---', (r, 0, 0), '---')
+                print('---', (re, 0, 0), '---')
+                print('fwd row')
                 while rs <= r < re:
                     # print(matrix[r][c])
                     print(((r, c), matrix[r][c]))
@@ -56,10 +56,10 @@ class Solution:
                 r -= 1
                 ce -= 1
                 time.sleep(1)
-                print("---", (0, cs, ce), "---")
-                print("---", (rs, 0, 0), "---")
-                print("---", (re, 0, 0), "---")
-                print("rev col")
+                print('---', (0, cs, ce), '---')
+                print('---', (rs, 0, 0), '---')
+                print('---', (re, 0, 0), '---')
+                print('rev col')
                 while cs <= c < ce:
                     # print(matrix[r][c])
                     print(((r, c), matrix[r][c]))
@@ -67,10 +67,10 @@ class Solution:
                 c += 1
                 re -= 1
                 time.sleep(1)
-                print("---", (0, cs, ce), "---")
-                print("---", (rs, 0, 0), "---")
-                print("---", (re, 0, 0), "---")
-                print("rev row")
+                print('---', (0, cs, ce), '---')
+                print('---', (rs, 0, 0), '---')
+                print('---', (re, 0, 0), '---')
+                print('rev row')
                 while rs <= r < re:
                     # print(matrix[r][c])
                     print(((r, c), matrix[r][c]))
@@ -78,10 +78,10 @@ class Solution:
                 r += 1
                 cs += 1
                 time.sleep(1)
-                print("---", (0, cs, ce), "---")
-                print("---", (rs, 0, 0), "---")
-                print("---", (re, 0, 0), "---")
-                print("-" * 40)
+                print('---', (0, cs, ce), '---')
+                print('---', (rs, 0, 0), '---')
+                print('---', (re, 0, 0), '---')
+                print('-' * 40)
         time.sleep(5)
         return []
 
@@ -176,6 +176,6 @@ def main():
         # break
 
 
-if __name__ == "__main__":
-    run("clear")
+if __name__ == '__main__':
+    run('clear')
     main()

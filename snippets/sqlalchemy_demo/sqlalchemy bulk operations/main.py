@@ -17,7 +17,7 @@ class BaseModel(DeclarativeBase): ...
 
 
 class User(BaseModel):
-    __tablename__: str = "user"
+    __tablename__: str = 'user'
     pk: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String, nullable=False)
     surname: Mapped[str] = mapped_column(String, nullable=True, default=None)
@@ -28,10 +28,10 @@ class User(BaseModel):
     canMarry: Mapped[bool] = mapped_column(Boolean, nullable=True, default=None)
 
     def __str__(self) -> str:
-        return f"<{self.name} {self.surname}>"
+        return f'<{self.name} {self.surname}>'
 
     def __repr__(self) -> str:
-        return f"<{self.name} {self.surname}, {self.age}>"
+        return f'<{self.name} {self.surname}, {self.age}>'
 
 
 def bulk_insert(session: Session):
@@ -40,53 +40,53 @@ def bulk_insert(session: Session):
         statement=insert(User),
         params=[
             {
-                "country": "fiji",
-                "surname": "hanson",
-                "name": "elena",
-                "age": 14,
-                "sex": "F",
+                'country': 'fiji',
+                'surname': 'hanson',
+                'name': 'elena',
+                'age': 14,
+                'sex': 'F',
             },
             {
-                "country": "taiwan",
-                "surname": "carr",
-                "name": "tony",
-                "age": 17,
-                "sex": "M",
+                'country': 'taiwan',
+                'surname': 'carr',
+                'name': 'tony',
+                'age': 17,
+                'sex': 'M',
             },
             {
-                "country": "england",
-                "surname": "ellis",
-                "name": "rosemary",
-                "age": 16,
-                "sex": "F",
+                'country': 'england',
+                'surname': 'ellis',
+                'name': 'rosemary',
+                'age': 16,
+                'sex': 'F',
             },
             {
-                "country": "france",
-                "surname": "mcbride",
-                "name": "spphia",
-                "age": 39,
-                "sex": "F",
+                'country': 'france',
+                'surname': 'mcbride',
+                'name': 'spphia',
+                'age': 39,
+                'sex': 'F',
             },
             {
-                "country": "peru",
-                "surname": "garrett",
-                "name": "karen",
-                "age": 28,
-                "sex": "F",
+                'country': 'peru',
+                'surname': 'garrett',
+                'name': 'karen',
+                'age': 28,
+                'sex': 'F',
             },
             {
-                "country": "persia",
-                "surname": "moran",
-                "name": "john",
-                "age": 41,
-                "sex": "M",
+                'country': 'persia',
+                'surname': 'moran',
+                'name': 'john',
+                'age': 41,
+                'sex': 'M',
             },
             {
-                "country": "iraq",
-                "surname": "cooper",
-                "name": "mike",
-                "age": 18,
-                "sex": "M",
+                'country': 'iraq',
+                'surname': 'cooper',
+                'name': 'mike',
+                'age': 18,
+                'sex': 'M',
             },
         ],
     )
@@ -99,11 +99,11 @@ def bulk_update_by_sql_query(session: Session):
         update(User).values(
             canMarry=or_(
                 and_(
-                    User.sex == "M",
+                    User.sex == 'M',
                     User.age > 19,
                 ),
                 and_(
-                    User.sex == "F",
+                    User.sex == 'F',
                     User.age > 16,
                 ),
             ),
@@ -115,8 +115,7 @@ def bulk_update_by_sql_query(session: Session):
 def view_user_data(session: Session):
     # * Before Update
     for user in (
-        session
-        .execute(
+        session.execute(
             select(User).order_by(
                 User.sex,
                 User.age,
@@ -129,25 +128,29 @@ def view_user_data(session: Session):
         .scalars()
         .fetchall()
     ):
-        print((
-            user.sex,
-            user.age,
-            user.country,
-            user.name,
-            "I can Vote" if user.canVote else "can't Vote",
-            "💖" if user.canMarry else "-",
-        ))
+        print(
+            (
+                user.sex,
+                user.age,
+                user.country,
+                user.name,
+                'I can Vote' if user.canVote else "can't Vote",
+                '💖' if user.canMarry else '-',
+            )
+        )
 
 
 def bulk_update_by_orm(session: Session):
     # * 2 boolean fields
     cache = []
     for user in session.execute(select(User)).scalars().fetchall():
-        cache.append({
-            "pk": user.pk,
-            "canVote": user.age >= 18,
-            "canMarry": (user.sex == "M" and user.age > 19) or (user.sex == "F" and user.age > 16),
-        })
+        cache.append(
+            {
+                'pk': user.pk,
+                'canVote': user.age >= 18,
+                'canMarry': (user.sex == 'M' and user.age > 19) or (user.sex == 'F' and user.age > 16),
+            }
+        )
     # * bulk update
     session.execute(update(User), cache)
 
@@ -160,8 +163,8 @@ def main(session: Session):
     session.commit()
 
 
-if __name__ == "__main__":
-    engine = create_engine("sqlite:///:memory:", echo=True)
+if __name__ == '__main__':
+    engine = create_engine('sqlite:///:memory:', echo=True)
     session_maker = sessionmaker(bind=engine)
     session = session_maker()
     BaseModel.metadata.create_all(bind=engine)

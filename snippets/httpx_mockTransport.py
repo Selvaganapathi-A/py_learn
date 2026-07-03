@@ -11,53 +11,38 @@ class MockHandler(httpx.AsyncBaseTransport):
         print(request.url)
         print(request.method)
         pprint({**request.headers})
-        return Response(200, headers=request.headers, text="ok")
+        return Response(200, headers=request.headers, text='ok')
 
 
-async def main():
-    mounts: dict[str, MockHandler] = {"http://": MockHandler()}
-    client = httpx.AsyncClient(mounts=mounts)
-    get_response: Response = await client.get("http://localhost:9000/data")
+async def main() -> None:
+    mounts: dict[str, MockHandler] = {'http://': MockHandler()}
+    client = httpx.AsyncClient(
+        mounts=mounts,
+        headers={
+            'user-agent': 'moz-2090',
+        },
+    )
+    get_response: Response = await client.get('http://localhost:9000/data')
     print(get_response.encoding)
     print(get_response.content)
     responses: tuple[Response, ...] = await asyncio.gather(
-        client.post(
-            "http://localhost:9000/ds",
-            data={
-                "hi": b"server",
-            },
-        ),
-        client.post(
-            "http://localhost:9000/ds",
-            data={
-                "hi": b"server",
-            },
-        ),
-        client.post(
-            "http://localhost:9000/ds",
-            data={
-                "hi": b"server",
-            },
-        ),
-        client.post(
-            "http://localhost:9000/ds",
-            data={
-                "hi": b"server",
-            },
-        ),
-        client.post(
-            "http://localhost:9000/ds",
-            data={
-                "hi": b"server",
-            },
+        *(
+            client.post(
+                'http://localhost:9000/ds',
+                data={
+                    'hi': b'server',
+                },
+            )
+            for _ in range(8)
         ),
         return_exceptions=False,
     )
     for response in responses:
         print(response.url)
+        print(response.headers)
         print(response.status_code)
         print(response.content)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     asyncio.run(main())

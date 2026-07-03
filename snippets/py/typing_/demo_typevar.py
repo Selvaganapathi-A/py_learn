@@ -2,8 +2,8 @@ import functools
 from collections.abc import Callable
 from typing import ParamSpec, TypeVar
 
-P = ParamSpec("P")
-R = TypeVar("R")
+P = ParamSpec('P')
+R = TypeVar('R')
 
 
 def shout_if_called(func: Callable[P, R]) -> Callable[P, R]:
@@ -19,7 +19,7 @@ def shout_if_called(func: Callable[P, R]) -> Callable[P, R]:
         :return: Description
         :rtype: R
         """
-        print("[*]", func.__qualname__, "is called with", *args, kwargs)
+        print('[*]', func.__qualname__, 'is called with', *args, kwargs)
         return func(*args, **kwargs)
 
     return wrapper
@@ -53,9 +53,9 @@ def expose(*, sts: str) -> str:
 
 def main():
     print(add(1, 6))
-    print(expose(sts="*"))
+    print(expose(sts='*'))
     print(add.__doc__)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

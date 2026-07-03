@@ -10,8 +10,8 @@ from playwright.sync_api._generated import (
 
 def get_title_httpStatus(page: Page):
     response: Response | None = page.goto(
-        "http://localhost:3000/",
-        wait_until="domcontentloaded",
+        'http://localhost:3000/',
+        wait_until='domcontentloaded',
         timeout=60000,  # wait 60 seconds
     )
     if response is None:
@@ -27,17 +27,17 @@ def reauestLoaded(req: Request):
 def main():
     with sync_playwright() as contextManager:
         browser: Browser = contextManager.chromium.launch(
-            channel="chrome",
+            channel='chrome',
             headless=False,
             timeout=30000,  # wait 60 seconds for the browser instant to start.
             slow_mo=250,  # slowdown playwright operations by 0.25 second.
         )
         page = browser.new_page()
-        page.expect_event("load", lambda x: print(x))
+        page.expect_event('load', lambda x: print(x))
         responses = [get_title_httpStatus(page) for _ in range(5)]
         print(responses)
         page.close()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

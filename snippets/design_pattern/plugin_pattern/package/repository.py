@@ -35,10 +35,10 @@ def execute(sentence: str, plugin: str) -> str:
 def load_all_modules_in_this_package(args: list[str], level: int = 0):
     sub_packages: list[str] = []
     package_name = args[0].rsplit(os.sep, 1)[-1]
-    module_name = (__name__.rsplit(".", 1))[0]
+    module_name = (__name__.rsplit('.', 1))[0]
     # print(args, f'{module_name}.{package_name}')
     for _, x, _y in pkgutil.iter_modules(args):
-        loader_arg = f"{module_name}.{package_name}.{x}"
+        loader_arg = f'{module_name}.{package_name}.{x}'
         if level > 0:
             importlib.import_module(loader_arg)
             # print(loader_arg)

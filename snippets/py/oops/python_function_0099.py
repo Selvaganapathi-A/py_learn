@@ -20,5 +20,5 @@ def main():
     some_function(6, 3, c=5, d=6)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

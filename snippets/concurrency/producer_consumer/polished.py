@@ -2,7 +2,7 @@ import asyncio
 from dataclasses import dataclass
 from typing import TypeVar
 
-T = TypeVar("T")
+T = TypeVar('T')
 
 
 @dataclass(slots=True)
@@ -21,7 +21,7 @@ async def producer(
     for i in range(1, count + 1):
         await asyncio.sleep(0.05)
         await out.put(i)
-        print(f"[PRODUCER] produced {i}")
+        print(f'[PRODUCER] produced {i}')
 
     # Signal downstream workers to stop
     for _ in range(workers):
@@ -45,7 +45,7 @@ async def stage(
                 return
 
             await asyncio.sleep(0.1)
-            print(f"[{name}-{worker_id}] processed {item}")
+            print(f'[{name}-{worker_id}] processed {item}')
             await out.put(item)
 
         finally:
@@ -66,7 +66,7 @@ async def sink(
                 return
 
             await asyncio.sleep(0.15)
-            print(f"[SINK-{worker_id}] consumed {item}")
+            print(f'[SINK-{worker_id}] consumed {item}')
 
         finally:
             inp.task_done()
@@ -92,7 +92,7 @@ async def run() -> None:
             for w in range(workers_per_stage):
                 tg.create_task(
                     stage(
-                        f"STAGE-{stage_idx + 1}",
+                        f'STAGE-{stage_idx + 1}',
                         w,
                         queues[stage_idx],
                         queues[stage_idx + 1],
@@ -107,5 +107,5 @@ def main() -> None:
     asyncio.run(run())
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-sns.set_theme(style="white")
+sns.set_theme(style='white')
 
 
 # Generate a large random dataset
@@ -45,5 +45,5 @@ sns.heatmap(
     center=0,
     square=True,
     linewidths=0.5,
-    cbar_kws={"shrink": 0.5},
+    cbar_kws={'shrink': 0.5},
 )

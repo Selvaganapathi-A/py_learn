@@ -13,9 +13,9 @@ def dict_factory(cursor: sqlite3.Cursor, row: sqlite3.Row) -> dict[str, Any]:
 
 class Database:
     __slots__: tuple[str, ...] = (
-        "__connection__",
-        "__cursor__",
-        "__initialized__",
+        '__connection__',
+        '__cursor__',
+        '__initialized__',
     )
     __instance__: Self | None = None
 
@@ -46,7 +46,7 @@ class Database:
 
     @connection.setter
     def connection(self, value: Any):
-        raise ValueError("Cannot assign value.")
+        raise ValueError('Cannot assign value.')
 
     @connection.getter
     def connection(self) -> sqlite3.Connection:
@@ -54,7 +54,7 @@ class Database:
 
     @connection.deleter
     def connection(self):
-        raise NotImplementedError("Action Not Implemented")
+        raise NotImplementedError('Action Not Implemented')
 
     @property
     def cursor(self) -> sqlite3.Cursor:
@@ -62,7 +62,7 @@ class Database:
 
     @cursor.setter
     def cursor(self, value: Any):
-        raise ValueError("Cannot assign value.")
+        raise ValueError('Cannot assign value.')
 
     @cursor.getter
     def cursor(self):
@@ -70,7 +70,7 @@ class Database:
 
     @cursor.deleter
     def cursor(self):
-        raise NotImplementedError("Action Not Implemented")
+        raise NotImplementedError('Action Not Implemented')
 
     def save(self) -> None:
         self.__connection__.commit()
@@ -89,7 +89,7 @@ class Database:
 
     def vacuum(self):
         self.__connection__.commit()
-        self.__cursor__.execute("VACUUM;")
+        self.__cursor__.execute('VACUUM;')
         self.__connection__.commit()
 
     def get_tables(self) -> Generator[Any]:
@@ -99,10 +99,10 @@ class Database:
     def get_fields(self, table_name: str) -> Generator[str]:
         if self.table_exists(table_name):
             self.__cursor__.execute(
-                f"select * from {table_name} limit 1;",
+                f'select * from {table_name} limit 1;',
             )
             return (x[0] for x in self.__cursor__.description)
-        raise sqlite3.DatabaseError("Table not present in this database.", table_name)
+        raise sqlite3.DatabaseError('Table not present in this database.', table_name)
 
     def get_schema(self, table_name: str) -> str:
         if self.table_exists(table_name):
@@ -111,7 +111,7 @@ class Database:
                 (table_name,),
             )
             return self.__cursor__.fetchone()[0]
-        raise sqlite3.DatabaseError("Table not present in this database.", table_name)
+        raise sqlite3.DatabaseError('Table not present in this database.', table_name)
 
     def table_exists(self, table_name: str) -> bool:
         self.__cursor__.execute(

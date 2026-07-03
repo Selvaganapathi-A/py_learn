@@ -19,21 +19,21 @@ def main():
         compound_interest: int = compute_compound_interest(principle, no_year, rate_of_interest)
         print(
             Fore.YELLOW,
-            f"{no_year:3d} {compound_interest:>{prefix}.{suffix}f}",
+            f'{no_year:3d} {compound_interest:>{prefix}.{suffix}f}',
             Fore.RESET,
         )
         print(
             Fore.GREEN,
-            f"{no_year:3d} {simple_interest:>{prefix}.{suffix}f}",
+            f'{no_year:3d} {simple_interest:>{prefix}.{suffix}f}',
             Fore.RESET,
         )
         print(
             Fore.RED,
-            f"    {compound_interest - simple_interest:{prefix}.{suffix}f}",
+            f'    {compound_interest - simple_interest:{prefix}.{suffix}f}',
             Fore.RESET,
         )
         principle += 1_00_000
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

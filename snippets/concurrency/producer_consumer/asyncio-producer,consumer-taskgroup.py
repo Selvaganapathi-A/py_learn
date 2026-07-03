@@ -12,9 +12,7 @@ class Control[T]:
     queue: asyncio.Queue[T]
     workers: int
     pressure: int = 0
-    events: list[asyncio.Event] = dataclasses.field(
-        init=False, default_factory=lambda: list[asyncio.Event]()
-    )
+    events: list[asyncio.Event] = dataclasses.field(init=False, default_factory=lambda: list[asyncio.Event]())
 
     def __post_init__(self):
         for worker in range(self.workers):
@@ -48,10 +46,10 @@ async def produce(producer_id: int, control_out: Control[WorkItem], n: int):
         await control_out.inflight.acquire()
         # put the item in the queue
         await control_out.queue.put(WorkItem(item=x))
-        print(f"{Fore.RED}[x] {producer_id: >3d} - producing {x}/{n}{Fore.RESET}")
+        print(f'{Fore.RED}[x] {producer_id: >3d} - producing {x}/{n}{Fore.RESET}')
 
     await control_out.set_event()
-    print(f"{producer_id} Producer exits.")
+    print(f'{producer_id} Producer exits.')
 
 
 async def processor(
@@ -81,10 +79,8 @@ async def processor(
             await asyncio.sleep(sleep())
             # put the item into queue
             await control_out.queue.put(item)
-            txt = ("   " * stage) + "[x]"
-            print(
-                f"{Fore.YELLOW}{txt} {processor_id: >3d} - processing {item.item}...{Fore.RESET}"
-            )
+            txt = ('   ' * stage) + '[x]'
+            print(f'{Fore.YELLOW}{txt} {processor_id: >3d} - processing {item.item}...{Fore.RESET}')
         finally:
             # Notify the queue that the item has been processed
             control_in.queue.task_done()
@@ -116,8 +112,8 @@ async def sink(
             # simulate i/o operation using sleep
             await asyncio.sleep(sleep())
             # consume the item
-            txt = ("   " * stage) + "[x]"
-            print(f"{Fore.CYAN}{txt} {sink_id: >3d} - consuming {item.item}...{Fore.RESET}")
+            txt = ('   ' * stage) + '[x]'
+            print(f'{Fore.CYAN}{txt} {sink_id: >3d} - consuming {item.item}...{Fore.RESET}')
         finally:
             # Notify the queue that the item has been processed
             sink_control.queue.task_done()
@@ -179,8 +175,8 @@ def main():
     asyncio.run(run(32))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import os
 
-    os.system("clear")
+    os.system('clear')
     main()

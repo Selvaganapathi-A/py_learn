@@ -4,7 +4,7 @@ from concurrent.futures import ProcessPoolExecutor
 from functools import partial
 
 
-def cpu_heavy_work(i: int, j: int = 8, *, l: str = "poll"):
+def cpu_heavy_work(i: int, j: int = 8, *, l: str = 'poll'):
     time.sleep(3)
     return i * j
 
@@ -16,9 +16,7 @@ async def sheduler(
     cpupool: ProcessPoolExecutor,
 ):
     async with semaphore:
-        result = await eventloop.run_in_executor(
-            cpupool, partial(cpu_heavy_work, task_count, 1, l="lorem")
-        )
+        result = await eventloop.run_in_executor(cpupool, partial(cpu_heavy_work, task_count, 1, l='lorem'))
         print(result)
         return
 
@@ -39,5 +37,5 @@ async def main():
                 )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     asyncio.run(main())

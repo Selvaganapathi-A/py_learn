@@ -12,7 +12,7 @@ class Decorate:
             start = time.perf_counter_ns()
             return_value: Any = function(a, b) * self.arg
             end = time.perf_counter_ns()
-            print(end - start, "nano seconds.")
+            print(end - start, 'nano seconds.')
             return return_value
 
         return wrapper
@@ -32,7 +32,7 @@ def some_other_func(a: int, b: int) -> int:
     return a + b
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print(some_func(9, 8))
     print(other_func(7, 6))
     decorate = Decorate(3)

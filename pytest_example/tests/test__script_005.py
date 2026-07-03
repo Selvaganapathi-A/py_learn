@@ -7,30 +7,30 @@ import pytest
 from py_learn.pytest_example import script_001
 
 
-@pytest.mark.skip(reason="Feature not Implemented.")
+@pytest.mark.skip(reason='Feature not Implemented.')
 def test__underdeveloped_feature():
-    error_message = "⚠️ `under_developed_feature()` not Implemented yet!"
+    error_message = '⚠️ `under_developed_feature()` not Implemented yet!'
     raise NotImplementedError(error_message)
 
 
-@pytest.mark.xfail(reason="Cannot Divide by zero")
+@pytest.mark.xfail(reason='Cannot Divide by zero')
 def test__divides_zero():
-    assert script_001.divides(8, 0) == float("inf")
+    assert script_001.divides(8, 0) == float('inf')
 
 
 @pytest.mark.skipif(
     sys.version_info < (3, 10, 0),
-    reason="unsupported python version.",
+    reason='unsupported python version.',
 )
 def test__hi():
     expected_value = 45
-    assert expected_value == int("45")
+    assert expected_value == int('45')
 
 
-@pytest.mark.skipif(sys.platform != "linux", reason="unsupported platform.")
+@pytest.mark.skipif(sys.platform != 'linux', reason='unsupported platform.')
 def test__for_linux_platform():
     expected_value = 45
-    assert expected_value == int("45")
+    assert expected_value == int('45')
 
 
 @pytest.mark.slow

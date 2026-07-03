@@ -25,11 +25,11 @@ def main():
     t = threading.Thread(target=worker, args=(total, q), daemon=True)
     t.start()
     with Progress(
-        TextColumn("[bold blue]{task.description}"),
+        TextColumn('[bold blue]{task.description}'),
         BarColumn(),
-        TextColumn("{task.completed}/{task.total}"),
+        TextColumn('{task.completed}/{task.total}'),
     ) as progress:
-        task = progress.add_task("Processing", total=total)
+        task = progress.add_task('Processing', total=total)
         while True:
             message: Status = q.get()
             if message == Status.done:
@@ -38,5 +38,5 @@ def main():
     t.join()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

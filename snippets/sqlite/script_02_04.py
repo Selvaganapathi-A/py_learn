@@ -6,9 +6,7 @@ def main():
     from _sqlite_database import dict_factory
 
     register_adapter_and_converters()
-    connection: sqlite3.Connection = sqlite3.connect(
-        database=":memory:", detect_types=sqlite3.PARSE_DECLTYPES
-    )
+    connection: sqlite3.Connection = sqlite3.connect(database=':memory:', detect_types=sqlite3.PARSE_DECLTYPES)
     connection.row_factory = dict_factory
     cursor: sqlite3.Cursor = connection.cursor()
     query: str = """
@@ -27,7 +25,7 @@ def main():
     """
     data: pathlib.Path = pathlib.Path().resolve()
     cursor.execute(query, (data,))
-    data: pathlib.Path = pathlib.WindowsPath("./readme.md").resolve()
+    data: pathlib.Path = pathlib.WindowsPath('./readme.md').resolve()
     cursor.execute(query, (data,))
     # * select
     query: str = """
@@ -40,5 +38,5 @@ def main():
     connection.close()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

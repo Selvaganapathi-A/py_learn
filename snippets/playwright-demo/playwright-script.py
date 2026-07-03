@@ -15,14 +15,14 @@ from playwright.async_api import async_playwright
 async def main():
     async with async_playwright() as p:
         # Channel can be "chrome", "msedge", "chrome-beta", "msedge-beta" or "msedge-dev".
-        browser = await p.chromium.launch(channel="chrome", headless=True)
+        browser = await p.chromium.launch(channel='chrome', headless=True)
         # context = await browser.new_context()
-        context = await browser.new_context(storage_state="session.json")  # Load session
+        context = await browser.new_context(storage_state='session.json')  # Load session
         page = await browser.new_page()
         response = await page.goto(
-            "http://localhost:3000/",
+            'http://localhost:3000/',
             timeout=30_000,
-            wait_until="commit",
+            wait_until='commit',
         )
         print(type(page))
         print(type(context))
@@ -31,21 +31,21 @@ async def main():
         # print(help(response))
         title = await page.title()
         if response is not None:
-            print(f"{response.status}")
-        print(f"{title!r}")
+            print(f'{response.status}')
+        print(f'{title!r}')
         print(page.url)
         await page.close()
         # await asyncio.sleep(5)
         # break
         # input("Press Any key to Continue")
         # Step 3: Wait for Login to Complete
-        await page.wait_for_load_state("networkidle")
+        await page.wait_for_load_state('networkidle')
         # Step 4: Save Cookies & Storage State
-        await context.storage_state(path="session.json")
+        await context.storage_state(path='session.json')
         await browser.close()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import asyncio
 
     asyncio.run(main())

@@ -20,12 +20,12 @@ class AppConfig(metaclass=SingletonMeta):
 
 
 def main():
-    a = AppConfig("Fish")
-    b = AppConfig("Cat")
+    a = AppConfig('Fish')
+    b = AppConfig('Cat')
     a.display()
     b.display()
     print(a is b)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

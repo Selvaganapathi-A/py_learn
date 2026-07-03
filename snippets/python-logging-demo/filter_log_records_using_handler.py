@@ -21,13 +21,13 @@ def main():
     filter records by
         logging.Streamhandler
     """
-    logger = logging.getLogger("demo")
+    logger = logging.getLogger('demo')
     handler = DebugHandler(sys.stderr)
-    handler.setFormatter(BashFormatter("| {levelname:>12s} | {message:<24s} |", style="{"))
+    handler.setFormatter(BashFormatter('| {levelname:>12s} | {message:<24s} |', style='{'))
     logger.addHandler(handler)
     logger.setLevel(logging.DEBUG)
     test_logger(logger)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

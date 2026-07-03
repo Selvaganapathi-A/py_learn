@@ -7,47 +7,47 @@ def normalize(obj: Any) -> Any:
     match obj:
         case Path():
             return {
-                "__type__": "Path",
-                "value": str(obj),
+                '__type__': 'Path',
+                'value': str(obj),
             }
         case datetime():
             return {
-                "__type__": "datetime",
-                "value": obj.isoformat(timespec="microseconds"),
+                '__type__': 'datetime',
+                'value': obj.isoformat(timespec='microseconds'),
             }
         case date():
             return {
-                "__type__": "date",
-                "value": obj.isoformat(),
+                '__type__': 'date',
+                'value': obj.isoformat(),
             }
         case time():
             return {
-                "__type__": "time",
-                "value": obj.isoformat(timespec="microseconds"),
+                '__type__': 'time',
+                'value': obj.isoformat(timespec='microseconds'),
             }
         case timedelta():
             return {
-                "__type__": "timerange",
-                "value": obj.total_seconds(),
+                '__type__': 'timerange',
+                'value': obj.total_seconds(),
             }
         case _:
             return obj
 
 
 def _denormalize_object(obj: Any) -> Any:
-    obj_type = obj["__type__"]
-    value = obj["value"]
+    obj_type = obj['__type__']
+    value = obj['value']
 
     match obj_type:
-        case "Path":
+        case 'Path':
             return Path(value)
-        case "datetime":
+        case 'datetime':
             return datetime.fromisoformat(value)
-        case "date":
+        case 'date':
             return date.fromisoformat(value)
-        case "time":
+        case 'time':
             return time.fromisoformat(value)
-        case "timedelta":
+        case 'timedelta':
             return timedelta(seconds=value)
     return obj
 
@@ -57,7 +57,7 @@ def denormalize(obj: Any) -> Any:
     if not isinstance(obj, dict):
         return obj
 
-    if "__type__" in obj or "value" in obj:
+    if '__type__' in obj or 'value' in obj:
         return _denormalize_object(obj)
 
     return obj

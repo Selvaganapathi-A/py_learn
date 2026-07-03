@@ -2,7 +2,7 @@ import asyncio
 from dataclasses import dataclass
 from typing import TypeVar
 
-T = TypeVar("T")
+T = TypeVar('T')
 
 
 @dataclass(slots=True)
@@ -23,13 +23,13 @@ async def producer(
 
             # simulate catastrophic failure
             if i == 17:
-                raise RuntimeError("DATABASE CORRUPTION")
+                raise RuntimeError('DATABASE CORRUPTION')
 
             await out.put(i)
-            print(f"[PRODUCER] produced {i}")
+            print(f'[PRODUCER] produced {i}')
 
     except Exception as exc:
-        print(f"[PRODUCER] CRITICAL: {exc}")
+        print(f'[PRODUCER] CRITICAL: {exc}')
         shutdown.set()  # 🔥 global stop signal
 
 
@@ -52,7 +52,7 @@ async def stage(
 
         try:
             await asyncio.sleep(2)  # simulate processing
-            print(f"[{name}-{worker_id}] processed {item}")
+            print(f'[{name}-{worker_id}] processed {item}')
 
             if not shutdown.is_set():
                 await out.put(item)
@@ -81,7 +81,7 @@ async def sink(
 
         try:
             await asyncio.sleep(0.8)
-            print(f"[SINK-{worker_id}] consumed {item}")
+            print(f'[SINK-{worker_id}] consumed {item}')
 
         finally:
             inp.task_done()
@@ -111,7 +111,7 @@ async def run() -> None:
             for w in range(workers_per_stage):
                 tg.create_task(
                     stage(
-                        f"STAGE-{stage_idx + 1}",
+                        f'STAGE-{stage_idx + 1}',
                         w,
                         queues[stage_idx],
                         queues[stage_idx + 1],
@@ -127,5 +127,5 @@ def main() -> None:
     asyncio.run(run())
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

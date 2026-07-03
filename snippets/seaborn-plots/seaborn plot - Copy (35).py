@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-sns.set_theme(style="dark")
+sns.set_theme(style='dark')
 
 
 # Simulate data from a bivariate Gaussian
@@ -22,8 +22,8 @@ x, y = rng.multivariate_normal(mean, cov, n).T
 
 f, ax = plt.subplots(figsize=(6, 6))
 
-sns.scatterplot(x=x, y=y, s=5, color=".15")
+sns.scatterplot(x=x, y=y, s=5, color='.15')
 
-sns.histplot(x=x, y=y, bins=50, pthresh=0.1, cmap="mako")
+sns.histplot(x=x, y=y, bins=50, pthresh=0.1, cmap='mako')
 
-sns.kdeplot(x=x, y=y, levels=5, color="w", linewidths=1)
+sns.kdeplot(x=x, y=y, levels=5, color='w', linewidths=1)

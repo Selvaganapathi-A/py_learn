@@ -1,7 +1,7 @@
 class Fruit:
     def is_organic(self):
         # indicates this method, should be implemented in subclasses.
-        raise NotImplementedError("Method Not Implemented.")
+        raise NotImplementedError('Method Not Implemented.')
 
 
 class Apple(Fruit):
@@ -9,7 +9,7 @@ class Apple(Fruit):
         self.price: float = price
 
     def __eq__(self, value: object) -> bool:
-        # print('equals', self, value)
+        print('equals', self, value)
         if not isinstance(value, Apple):
             return NotImplemented
         return self.price == value.price
@@ -17,24 +17,22 @@ class Apple(Fruit):
     def __ne__(self, value: object) -> bool:
         # print('not equals', self, value)
         if not isinstance(value, Apple):
-            return (
-                NotImplemented  # return NotImplemented. fallbacks to pythons default comparison.
-            )
+            return NotImplemented  # return NotImplemented. fallbacks to pythons default comparison.
         return self.price != value.price
 
     def __repr__(self) -> str:
-        return f"Apple(price={self.price})"
+        return f'Apple(price={self.price})'
 
 
 def main():
     a = Apple(34.55)
     b = Apple(34.55)
-    print(a.is_organic())
+    # print(a.is_organic())
     print(a == b)
     print(a == 33.34)
     print(a != 33.34)
     print(a != b)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

@@ -12,7 +12,7 @@ async def task(semaphore: asyncio.Semaphore, number: int):
         # block for a moment
         await asyncio.sleep(value)
         # report a message
-        print(f"Task {number} got {value}")
+        print(f'Task {number} got {value}')
 
 
 # main coroutine
@@ -29,6 +29,6 @@ async def main():
     # _ = await asyncio.wait(tasks)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # start the asyncio program
     asyncio.run(main())

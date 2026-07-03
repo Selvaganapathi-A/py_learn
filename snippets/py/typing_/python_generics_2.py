@@ -2,8 +2,8 @@ import typing
 from collections.abc import Callable
 from typing import NewType, TypeAlias, TypeVar
 
-Q = NewType("Q", int)
-T = TypeVar("T", str, bytes, bytearray)
+Q = NewType('Q', int)
+T = TypeVar('T', str, bytes, bytearray)
 type m = typing.Annotated[m, str, bytes]
 function: TypeAlias = Callable[[int, str], int]
 
@@ -17,8 +17,8 @@ def main():
     def some_function(x, y):
         return x + len(y)
 
-    func(some_function, 45, "bing")
-    func(some_function, 93, "google")
+    func(some_function, 45, 'bing')
+    func(some_function, 93, 'google')
     func(
         some_function,
         93,
@@ -26,7 +26,7 @@ def main():
     )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
     # #
     # help(TypeGuard)

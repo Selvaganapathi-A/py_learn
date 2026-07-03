@@ -6,8 +6,8 @@ from rich.markdown import Markdown
 from rich.pretty import pprint, pretty_repr
 
 __all__ = [
-    "pprint",
-    "pretty_repr",
+    'pprint',
+    'pretty_repr',
 ]
 pprint(__all__)
 
@@ -17,52 +17,54 @@ def table_output(title: str, headings: Sequence[str], rows: Sequence[Sequence[st
         title=title,
         expand=True,
         *headings,
-        style=style.Style(color="blue"),
+        style=style.Style(color='blue'),
         show_edge=True,
         show_lines=False,
     )
     for row in rows:
-        _t.add_row(*row, style=style.Style(color="black"))
+        _t.add_row(*row, style=style.Style(color='black'))
     return _t
 
 
 def super_print(arg: list[dict[str, str]]):
-    md = ""
-    title = "| " + " | ".join(("name", "country", "email")) + " | "
-    title += "\n| " + " | ".join(("-", "-", "-")) + " | "
+    md = ''
+    title = '| ' + ' | '.join(('name', 'coun \| try', 'email')) + ' | '
+    title += '\n| ' + ' | '.join(('-:', ':-:', ':-')) + ' | '
     md += title.title()
     for item in arg:
-        md += f"\n| {item.get('name')} | {item.get('contact')} | {item.get('country')} | "
-    print(Markdown(md))
+        md += f'\n| {item.get("name")} | {item.get("contact")} | {item.get("country")} | '
+    print((md))
+    print(Markdown(md, code_theme='github dark'))
 
 
 users: list[dict[str, str]] = [
     {
-        "name": "Minerva Watson",
-        "country": "Ireland",
-        "contact": "kujrobte@epasafil.ao",
+        'name': 'Minerva Watson',
+        'country': 'Ireland',
+        'contact': 'kujrobte@epasafil.ao',
     },
     {
-        "name": "Dean Boone",
-        "country": "Botswana",
-        "contact": "elgicdip@micerfir.bo",
+        'name': 'Dean Boone',
+        'country': 'Botswana',
+        'contact': 'elgicdip@micerfir.bo',
     },
     {
-        "name": "Helen Lawson",
-        "country": "St. Vincent & Grenadines",
-        "contact": "hapoowi@favrap.bt",
+        'name': 'Helen Lawson',
+        'country': 'St. Vincent & Grenadines',
+        'contact': 'hapoowi@favrap.bt',
     },
     {
-        "name": "Bertha Reeves",
-        "country": "Grenada",
-        "contact": "bihab@buwiv.dm",
+        'name': 'Bertha Reeves',
+        'country': 'Grenada',
+        'contact': 'bihab@buwiv.dm',
     },
     {
-        "name": "Sam Waters",
-        "country": "Morocco",
-        "contact": "robusat@givo.bz",
+        'name': 'Sam Waters',
+        'country': 'Morocco',
+        'contact': 'robusat@givo.bz',
     },
 ]
+
 print(pretty_repr(users))
 pprint(users)
 print(users)
@@ -89,17 +91,19 @@ contacts = """(744) 312-2153
 (440) 853-2356
 (943) 968-6162"""
 
-print(Markdown("# Contact Details"))
+print(Markdown('# Contact Details'))
 for contact in contacts.splitlines():
-    print("📞", contact)
+    print('📞', contact)
 print()
-super_print(users)
-print("[red]Hello[/red] Mark! [blue]Maintenance mode Initiated.[/blue]")
+
+print('[red]Hello[/] [yellow italic]Mark![/] [blue]Maintenance mode Initiated.[/blue]')
 print()
 print(
     table_output(
-        "Users",
-        headings=("name", "country", "contact"),
-        rows=[cast(Sequence[str], user.values()) for user in users],
+        'Users',
+        headings=('name', 'country', 'contact'),
+        rows=[cast('Sequence[str]', user.values()) for user in users],
     )
 )
+
+super_print(users)

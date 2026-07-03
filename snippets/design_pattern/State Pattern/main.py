@@ -20,5 +20,5 @@ def main():
     # order.pay() # ! raise Exception as Order already shipped.
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

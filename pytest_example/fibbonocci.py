@@ -1,7 +1,7 @@
 from collections.abc import Generator, Sequence
 from functools import lru_cache
 
-__all__: Sequence[str] = ("fibbonocci_number",)
+__all__: Sequence[str] = ('fibbonocci_number',)
 
 
 @lru_cache(maxsize=32)

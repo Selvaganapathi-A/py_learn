@@ -9,7 +9,7 @@ async def _producer(
     for i in range(100):
         priority = (i % 16) + 1
         await out_queue.put((priority, i))
-        console(f"[red]produce {priority: >3d} {i: >3d}[/red]")
+        console(f'[red]produce {priority: >3d} {i: >3d}[/red]')
     out_queue.shutdown()
 
 
@@ -27,7 +27,7 @@ async def _consumer(
         """Only allows n number of tasks are allowed to execute following code despite 100s of consumer running concurrently"""
         async with concurrency_control:
             console(
-                f"[cyan]worker: {worker_name: >3s}[/cyan] [green]priority : {priority: > 3d} & Task : {task}[/green]"
+                f'[cyan]worker: {worker_name: >3s}[/cyan] [green]priority : {priority: > 3d} & Task : {task}[/green]'
             )
             await asyncio.sleep(0.5)
         in_queue.task_done()
@@ -43,10 +43,8 @@ async def main() -> None:
     async with asyncio.TaskGroup() as taskgroup:
         taskgroup.create_task(_producer(queue))
         for i in range(32):
-            taskgroup.create_task(
-                _consumer(queue, concurrency_control, worker_name=f"{i}")
-            )
+            taskgroup.create_task(_consumer(queue, concurrency_control, worker_name=f'{i}'))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     asyncio.run(main())

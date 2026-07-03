@@ -23,26 +23,26 @@ class TestOdometer(TestCase):
     def test__low_speed(self):
         odometer.speed = mock.Mock()
         odometer.speed.return_value = 20
-        assert odometer.alert() == "slow"
-        self.assertEqual(odometer.alert(), "slow")
+        assert odometer.alert() == 'slow'
+        self.assertEqual(odometer.alert(), 'slow')
 
     def test__normal_speed(self):
         odometer.speed = mock.Mock()
         odometer.speed.return_value = 40
-        assert odometer.alert() == "normal"
-        self.assertEqual(odometer.alert(), "normal")
+        assert odometer.alert() == 'normal'
+        self.assertEqual(odometer.alert(), 'normal')
 
     def test__high_speed(self):
         odometer.speed = mock.Mock()
         odometer.speed.return_value = 72
-        assert odometer.alert() == "high"
-        self.assertEqual(odometer.alert(), "high")
+        assert odometer.alert() == 'high'
+        self.assertEqual(odometer.alert(), 'high')
 
     def test__dangerous_speed(self):
         odometer.speed = mock.Mock()
         odometer.speed.return_value = 90
-        assert odometer.alert() == "dangerous"
-        self.assertEqual(odometer.alert(), "dangerous")
+        assert odometer.alert() == 'dangerous'
+        self.assertEqual(odometer.alert(), 'dangerous')
 
 
 class TestBuiltinsSecrets(TestCase):

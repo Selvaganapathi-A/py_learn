@@ -47,18 +47,18 @@ def test_singleton(*args, lock: Lock, **kwargs):
     lock.release()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     lock = Lock()
     t1 = Thread(
         target=test_singleton,
-        args=("speaker", "play songs"),
-        kwargs={"lock": lock, "device_id": 8979, "thrread": 1},
+        args=('speaker', 'play songs'),
+        kwargs={'lock': lock, 'device_id': 8979, 'thrread': 1},
     )
     # t1.daemon = True
     t2 = Thread(
         target=test_singleton,
-        args=("mobile", "blood sucker"),
-        kwargs={"lock": lock, "device_id": 4552, "thrread": 2},
+        args=('mobile', 'blood sucker'),
+        kwargs={'lock': lock, 'device_id': 4552, 'thrread': 2},
     )
     # t2.daemon = True
     t2.start()

@@ -23,7 +23,7 @@ class LogLevel(IntEnum):
 
 
 class CustomLogFilter(logging.Filter):
-    def __init__(self, *loglevels: LogLevel, name: str = "") -> None:
+    def __init__(self, *loglevels: LogLevel, name: str = '') -> None:
         super().__init__(name)
         self.logLevels = set(loglevels)
         self.logLevelCount = len(loglevels)
@@ -46,10 +46,10 @@ def main():
     filter records by
         logging.Filter
     """
-    logger = logging.getLogger("demo.google.hub")
+    logger = logging.getLogger('demo.google.hub')
 
     handler = logging.StreamHandler(sys.stdout)
-    handler.setFormatter(BashFormatter("{name} - {levelno: >2d} - {message}", style="{"))
+    handler.setFormatter(BashFormatter('{name} - {levelno: >2d} - {message}', style='{'))
     handler.addFilter(
         CustomLogFilter(
             LogLevel.INFO,
@@ -57,7 +57,7 @@ def main():
             LogLevel.CRITICAL,
             LogLevel.FATAL,
             LogLevel.ERROR,
-            name="demo.google",
+            name='demo.google',
         )
     )
     handler.setLevel(logging.DEBUG)
@@ -67,5 +67,5 @@ def main():
     test_logger(logger)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

@@ -24,28 +24,28 @@ def register_exporter(format: str) -> Callable[[_Function], _Function]:
 def export_data(data: Any, format: str):
     exporter_function = _REGISTRY.get(format)
     if exporter_function is None:
-        raise ValueError("Exporter Not Registered.")
+        raise ValueError('Exporter Not Registered.')
     return exporter_function(data)
 
 
-@register_exporter("pdf")
+@register_exporter('pdf')
 def export_pdf(data: Any):
-    print(f"PDF : {data}")
+    print(f'PDF : {data}')
 
 
-@register_exporter("csv")
+@register_exporter('csv')
 def export_csv(data: Any):
-    print(f"CSV : {data}")
+    print(f'CSV : {data}')
 
 
-@register_exporter("xml")
+@register_exporter('xml')
 def export_xml(data: Any):
-    print(f"XML : {data}")
+    print(f'XML : {data}')
 
 
-@register_exporter("json")
+@register_exporter('json')
 def export_json(data: Any):
-    print("JSON : ")
+    print('JSON : ')
     pprint(
         data,
         indent=1,
@@ -57,21 +57,21 @@ def export_json(data: Any):
 
 def main():
     data = {
-        "name": "Bob",
-        "age": 42,
-        "place": "scotpit",
-        "zipcode": 35007,
-        "gender": "M",
+        'name': 'Bob',
+        'age': 42,
+        'place': 'scotpit',
+        'zipcode': 35007,
+        'gender': 'M',
     }
-    export_data(data, "pdf")
-    export_data(data, "csv")
-    export_data(data, "json")
-    export_data(data, "xml")
+    export_data(data, 'pdf')
+    export_data(data, 'csv')
+    export_data(data, 'json')
+    export_data(data, 'xml')
 
     # below code raises ValueError
     # No exporter is registered.
-    export_data(data, "text")
+    export_data(data, 'text')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

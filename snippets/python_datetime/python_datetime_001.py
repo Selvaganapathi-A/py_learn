@@ -38,29 +38,29 @@ import pytz
 |%z | +0530                      |   time zone|
 |%Z | India Standard Time        |   time zone name|
 """
-if __name__ == "__main__":
+if __name__ == '__main__':
     regions: tuple[str, ...] = (
-        "UTC",
-        "Asia/Kolkata",
-        "US/Alaska",
-        "America/Los_Angeles",
-        "Australia/Sydney",
+        'UTC',
+        'Asia/Kolkata',
+        'US/Alaska',
+        'America/Los_Angeles',
+        'Australia/Sydney',
     )
     # unix timestamp
     # precision from jan-01, 1970
     # print(2**31)
     # print(2**63)
-    india = pytz.timezone("Asia/Kolkata")
-    utc = pytz.timezone("UTC")
+    india = pytz.timezone('Asia/Kolkata')
+    utc = pytz.timezone('UTC')
     date = datetime.datetime.fromtimestamp(2**31 - 1, india)
     # pprint.pprint(all_timezones)
     # pprint.pprint(common_timezones)
-    some_date = datetime.datetime.fromisoformat("2022-02-05T19:40:00")
-    utc = pytz.timezone("UTC")
-    india = pytz.timezone("Asia/Kolkata")
-    alaska = pytz.timezone("US/Alaska")
-    los_angeles = pytz.timezone("America/Los_Angeles")
-    sydney = pytz.timezone("Australia/Sydney")
+    some_date = datetime.datetime.fromisoformat('2022-02-05T19:40:00')
+    utc = pytz.timezone('UTC')
+    india = pytz.timezone('Asia/Kolkata')
+    alaska = pytz.timezone('US/Alaska')
+    los_angeles = pytz.timezone('America/Los_Angeles')
+    sydney = pytz.timezone('Australia/Sydney')
 
     india_datetime = india.localize(some_date)
     alaska_datetime = alaska.localize(some_date)

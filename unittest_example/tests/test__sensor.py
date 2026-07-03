@@ -28,7 +28,7 @@ class TestAlarm(TestCase):
         self.alarm_normal.check()
         self.assertFalse(self.alarm_normal.is_on)
 
-    @mock.patch("py_learn.unittest_example.sensor.Sensor")
+    @mock.patch('py_learn.unittest_example.sensor.Sensor')
     def test__temperature_is_too_low_002(self, sensor: mock.MagicMock):
         sensor.temperature = 25
         self.alarm.check()

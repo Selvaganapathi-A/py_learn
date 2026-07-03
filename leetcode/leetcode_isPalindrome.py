@@ -17,13 +17,13 @@ class Solution:
 
 
 def main():
-    s = "A man, a plan, a canal: Panama "
+    s = 'A man, a plan, a canal: Panama '
     print(Solution().isPalindrome(s))
-    s = "aa"
+    s = 'aa'
     print(Solution().isPalindrome(s))
-    s = "0P"
+    s = '0P'
     print(Solution().isPalindrome(s))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

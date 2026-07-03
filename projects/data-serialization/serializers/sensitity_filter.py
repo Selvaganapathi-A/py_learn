@@ -4,13 +4,13 @@ if TYPE_CHECKING:
     from collections.abc import Iterable
 
 DEFAULT_EXCLUDED_FIELDS: set[str] = {
-    "password",
-    "token",
-    "apikey",
-    "api_key",
-    "sessionid",
-    "session_id",
-    "secret",
+    'password',
+    'token',
+    'apikey',
+    'api_key',
+    'sessionid',
+    'session_id',
+    'secret',
 }
 
 

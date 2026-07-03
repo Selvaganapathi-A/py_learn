@@ -1,7 +1,7 @@
 from collections.abc import Callable
 from typing import Any, TypeVar, cast
 
-T = TypeVar("T")
+T = TypeVar('T')
 Function = Callable[..., T]
 
 
@@ -13,7 +13,7 @@ def singleton(cls: Function) -> Function:
             instances[cls] = cls(*args, **kwargs)
         return instances[cls]  # type: ignore
 
-    return cast(Function, get_instance)
+    return cast('Function', get_instance)
 
 
 @singleton
@@ -26,12 +26,12 @@ class AppConfig:
 
 
 def main():
-    a = AppConfig("Fish")
-    b = AppConfig("Cat")
+    a = AppConfig('Fish')
+    b = AppConfig('Cat')
     a.display()
     b.display()
     print(a is b)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

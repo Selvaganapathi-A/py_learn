@@ -34,21 +34,19 @@ def luhn_checksum(number: str):
 
 def validate_card(*, card: CardInfo):
     checksum = luhn_checksum(card.number)
-    is_expired = datetime.datetime.now() < datetime.datetime(
-        year=card.expiry_year, month=card.expiry_month, day=1
-    )
+    is_expired = datetime.datetime.now() < datetime.datetime(year=card.expiry_year, month=card.expiry_month, day=1)
     return checksum % 10 == 0 and is_expired
 
 
-if __name__ == "__main__":
-    print("Valid Card")
-    card = DebitCard(r"1234567812345674", 10, 2025)
+if __name__ == '__main__':
+    print('Valid Card')
+    card = DebitCard(r'1234567812345674', 10, 2025)
     print(card)
     if not validate_card(card=card):
-        raise Exception("Card provided is not valid.", card)
-    print("-" * 80)
-    print("Invalid Card")
-    card = CreditCard("JP Morgan", r"1234567812345674", 10, 2023)
+        raise Exception('Card provided is not valid.', card)
+    print('-' * 80)
+    print('Invalid Card')
+    card = CreditCard('JP Morgan', r'1234567812345674', 10, 2023)
     print(card)
     if not validate_card(card=card):
-        raise Exception("Card provided is not valid.", card)
+        raise Exception('Card provided is not valid.', card)

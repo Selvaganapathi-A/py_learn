@@ -2,17 +2,17 @@ from collections.abc import Callable
 from string.templatelib import Interpolation, Template, convert
 
 
-def build_template(text: Template, apply: Callable[[str], str]):
+def build_template(text: Template, apply: Callable[[str], str]) -> str:
     values: list[str] = []
     for var in text:
         if isinstance(var, str):
             values.append(var)
         else:
             values.append(apply(var.value))
-    return "".join(values)
+    return ''.join(values)
 
 
-def render_to_string(text: Template):
+def render_to_string(text: Template) -> str:
     values: list[str] = []
     for var in text:
         match var:
@@ -29,14 +29,14 @@ def render_to_string(text: Template):
                     txt = format(txt, format_specifier)
                 values.append(txt)
             case _:
-                raise ValueError()
-    return "".join(values)
+                raise ValueError
+    return ''.join(values)
 
 
-def main():
-    name: str = "Guava"
+def main() -> None:
+    name: str = 'Guava'
     price: float = 12.54354
-    t_string: Template = t"Product = {name!r}, price = {price: >10.2f}."
+    t_string: Template = t'Product = {name!r}, price = {price: >10.2f}.'
     text = render_to_string(t_string)
     print()
     print(t_string)
@@ -45,5 +45,5 @@ def main():
     print()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

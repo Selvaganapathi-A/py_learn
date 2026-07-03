@@ -21,9 +21,9 @@ def network_failure():
     ),
 )
 def fetch():
-    print("trying...")
+    print('trying...')
     network_failure()
-    return {"status": "ok"}
+    return {'status': 'ok'}
 
 
 print(fetch())

@@ -4,7 +4,7 @@ import pytz
 
 
 def main():
-    zone = pytz.timezone("Asia/Calcutta")
+    zone = pytz.timezone('Asia/Calcutta')
     zone.localize(datetime.datetime(2024, 12, 7, 15, 27, 38, 56789))
     # print(f"%E = {dt:%E}")
     # print(f"%i = {dt:%i}")
@@ -28,5 +28,5 @@ def main():
     #     print(f"print(f\"%{sm} = {{dt:%{sm}}}\")")
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

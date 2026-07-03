@@ -16,25 +16,25 @@ class OrderState(ABC):
 
 class NewOrder(OrderState):
     def pay(self, order: OrderProtocol) -> None:
-        print("Payment accepted")
+        print('Payment accepted')
         order.state = PaidOrder()
 
     def ship(self, order: OrderProtocol) -> NoReturn:
-        raise Exception("Order not paid yet")
+        raise Exception('Order not paid yet')
 
 
 class PaidOrder(OrderState):
     def pay(self, order: OrderProtocol) -> NoReturn:
-        raise Exception("Already paid")
+        raise Exception('Already paid')
 
     def ship(self, order: OrderProtocol) -> None:
-        print("Order shipped")
+        print('Order shipped')
         order.state = ShippedOrder()
 
 
 class ShippedOrder(OrderState):
     def pay(self, order: OrderProtocol) -> NoReturn:
-        raise Exception("Already shipped")
+        raise Exception('Already shipped')
 
     def ship(self, order: OrderProtocol) -> NoReturn:
-        raise Exception("Already shipped")
+        raise Exception('Already shipped')

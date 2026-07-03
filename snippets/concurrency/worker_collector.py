@@ -3,25 +3,25 @@ from multiprocessing import Lock, Process, Queue
 
 
 def worker(q, lock, i):
-    data = f"Task {i} output"
+    data = f'Task {i} output'
 
     # critical section
     with lock:
         q.put(data)
-    print("producer exited.", i)
+    print('producer exited.', i)
 
 
 def consumer(q):
     while True:
         item = q.get()
-        if item == "STOP":
+        if item == 'STOP':
             break
-        print("Consumed:", item)
+        print('Consumed:', item)
         time.sleep(1)
-    print("consumer exited.")
+    print('consumer exited.')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     q = Queue()
     lock = Lock()
 
@@ -38,7 +38,7 @@ if __name__ == "__main__":
         p.join()
 
     for c in cons:
-        q.put("STOP")
+        q.put('STOP')
 
     for c in cons:
         c.join()

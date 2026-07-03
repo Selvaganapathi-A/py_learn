@@ -4,7 +4,7 @@ from typing import Any
 
 def debug(func_: Callable):
     def wrapper(*args, **kwargs):
-        print(func_.__qualname__, "is executing.")
+        print(func_.__qualname__, 'is executing.')
         return func_(*args, **kwargs)
 
     return wrapper
@@ -29,7 +29,7 @@ class Fruit(type):
 
 class Pine(metaclass=Fruit, k=0, m=8):
     id10t: int
-    location: str = "+90.28424"
+    location: str = '+90.28424'
 
     def __init__(self, *args, **kwargs) -> None: ...
 
@@ -37,16 +37,16 @@ class Pine(metaclass=Fruit, k=0, m=8):
         return self.__class__.__name__
 
     def __init_subclass__(cls, *args, **kwargs) -> None:
-        print("Pine __init_subclass__", cls, args, kwargs)
+        print('Pine __init_subclass__', cls, args, kwargs)
 
     def add(self, other: Any):
         return other, id(other), hash(self)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     from subprocess import run
 
-    run(("cls",), shell=True)
+    run(('cls',), shell=True)
     p = Pine()
     print(p.__dict__)
     #

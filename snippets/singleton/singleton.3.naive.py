@@ -25,8 +25,8 @@ class Food(metaclass=NaiveSingleton):
         self.kwargs = kwargs
 
 
-if __name__ == "__main__":
-    idli: Food = Food("idli", "hospital food.")
-    burger: Food = Food("burger", "mc donalds.")
+if __name__ == '__main__':
+    idli: Food = Food('idli', 'hospital food.')
+    burger: Food = Food('burger', 'mc donalds.')
     print(idli.args)
     print(burger.args)

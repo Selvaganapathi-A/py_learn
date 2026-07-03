@@ -33,21 +33,21 @@ def Processfunc():
 
 def fn_name(name: str) -> str:
     time.sleep(1)
-    return name + " 5"
+    return name + ' 5'
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     names = [
-        "alpha",
-        "bravo",
-        "charlie",
-        "delta",
-        "echo",
-        "foxtrot",
-        "golf",
-        "hotel",
-        "india",
-        "juliet",
+        'alpha',
+        'bravo',
+        'charlie',
+        'delta',
+        'echo',
+        'foxtrot',
+        'golf',
+        'hotel',
+        'india',
+        'juliet',
     ]
     with ThreadPoolExecutor(max_workers=os.cpu_count()) as Executor:
         future_object = (
@@ -60,7 +60,7 @@ if __name__ == "__main__":
         for x in as_completed(future_object):
             print(x.result())
     timestamp = datetime.datetime.now()
-    with ThreadPoolExecutor(4, "Miami") as Executor:
+    with ThreadPoolExecutor(4, 'Miami') as Executor:
         r: list[Any] = []
         for x in range(16):
             r.append(Executor.submit(Threadfunc))
@@ -69,7 +69,7 @@ if __name__ == "__main__":
             m, n, o = x.result()
             print(m, n - o)
         print(
-            "Threadpool Completed",
+            'Threadpool Completed',
             datetime.datetime.now() - timestamp,
         )
     timestamp = datetime.datetime.now()
@@ -82,6 +82,6 @@ if __name__ == "__main__":
             m, n, o = x.result()
             print(m, n - o)
         print(
-            "ProcessPool Completed",
+            'ProcessPool Completed',
             datetime.datetime.now() - timestamp,
         )

@@ -10,7 +10,7 @@ def generate_random_password(length: int = 8, /) -> str:
     """
     generate random password of given length.
     """
-    return "".join(secrets.choice(text) for _ in range(length))
+    return ''.join(secrets.choice(text) for _ in range(length))
 
 
 def main():
@@ -18,5 +18,5 @@ def main():
     print(randomPassword)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

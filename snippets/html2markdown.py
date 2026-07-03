@@ -14,12 +14,12 @@ def main():
     """
     markdown_content = html2text.html2text(text)
     print(markdown_content)
-    print("=" * 80)
+    print('=' * 80)
     print(markdown.markdown(markdown_content))
-    print("=" * 80)
+    print('=' * 80)
     print(textwrap.wrap(text))
-    print("=" * 80)
+    print('=' * 80)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

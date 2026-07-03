@@ -13,8 +13,8 @@ async def get_basic_data(browser: Browser):
     RESPONSE_TITLE: str | None = None
     page: Page = await browser.new_page()
     webpage: Response | None = await page.goto(
-        "http://localhost:3000/",
-        wait_until="domcontentloaded",
+        'http://localhost:3000/',
+        wait_until='domcontentloaded',
         timeout=60000,
     )
     if webpage is not None:
@@ -27,13 +27,13 @@ async def get_basic_data(browser: Browser):
 async def main():
     async with async_playwright() as contextManager:
         browser: Browser = await contextManager.chromium.launch(
-            channel="chrome",
+            channel='chrome',
             headless=True,
             timeout=60000,  # wait 60 seconds for the browser instant to start.
             slow_mo=250,  # slowdown playwright operations by 0.25 second.
         )
         context: BrowserContext = await browser.new_context(
-            reduced_motion="reduce",
+            reduced_motion='reduce',
         )
         page: Page = await context.new_page()
         result = await asyncio.gather(
@@ -43,7 +43,7 @@ async def main():
         await page.close()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import asyncio
 
     asyncio.run(main=main())

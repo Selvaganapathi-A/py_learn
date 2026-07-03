@@ -16,7 +16,7 @@ class Car(Vehicle):
         super().__init__(model)
 
     def drive(self: Self):
-        return "Car" + self.model
+        return 'Car' + self.model
 
 
 class Boat(Vehicle):
@@ -24,7 +24,7 @@ class Boat(Vehicle):
         super().__init__(model)
 
     def sail(self: Self):
-        return "Boat" + self.model
+        return 'Boat' + self.model
 
 
 class Registry[T: Vehicle]:
@@ -37,13 +37,13 @@ class Registry[T: Vehicle]:
 
 def main():
     registry: Registry[Car] = Registry[Car]()
-    honda = Car("Honda")
-    registry.add_vehicle(Car("Honda"))
-    registry.add_vehicle(Car("Tesla"))
+    honda = Car('Honda')
+    registry.add_vehicle(Car('Honda'))
+    registry.add_vehicle(Car('Tesla'))
 
     # ! raises type error
     # boat cannot added to vehicle registry
-    registry.add_vehicle(Boat("Toyoto"))
+    registry.add_vehicle(Boat('Toyoto'))
 
     # ! Class Variable should'nt be assigned through class instance.
     # ! below affects only that instance
@@ -55,5 +55,5 @@ def main():
     print(honda.__final__)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

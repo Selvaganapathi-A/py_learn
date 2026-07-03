@@ -2,7 +2,7 @@ from typing import Self
 
 
 class _Node[T]:
-    __slots__: tuple[str, ...] = ("prev", "value")
+    __slots__: tuple[str, ...] = ('prev', 'value')
 
     def __init__(self, value: T, prev: None | Self = None) -> None:
         self.value: T = value
@@ -10,7 +10,7 @@ class _Node[T]:
 
 
 class _StackIterator[T]:
-    __slots__: tuple[str, ...] = ("_current",)
+    __slots__: tuple[str, ...] = ('_current',)
 
     def __init__(self, node: _Node[T] | None):
         self._current = node
@@ -27,7 +27,7 @@ class _StackIterator[T]:
 
 
 class Stack[T]:
-    __slots__: tuple[str, ...] = ("_size", "_top")
+    __slots__: tuple[str, ...] = ('_size', '_top')
 
     def __init__(self) -> None:
         self._size: int = 0
@@ -35,7 +35,7 @@ class Stack[T]:
 
     def peek(self) -> T:
         if self._top is None:
-            raise IndexError("Cannot peek empty stack.")
+            raise IndexError('Cannot peek empty stack.')
         return self._top.value
 
     def push(self, item: T, /) -> None:
@@ -44,7 +44,7 @@ class Stack[T]:
 
     def pop(self) -> T:
         if self._top is None:
-            raise IndexError("Pop from empty stack.")
+            raise IndexError('Pop from empty stack.')
         value: T = self._top.value
         self._top = self._top.prev
         self._size -= 1
@@ -60,4 +60,4 @@ class Stack[T]:
         return self._size
 
     def __repr__(self) -> str:
-        return f"Stack(size={self._size})"
+        return f'Stack(size={self._size})'

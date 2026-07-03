@@ -52,21 +52,20 @@ def main() -> None:
     # set new value
     artifact.x = 'Golden Water.'
 
-    print(artifact.x)
+    print('{artifact.x}', artifact.x)
 
     print(type(artifact).__dict__['x'].__get__(artifact, type(artifact)))
 
     del artifact.x
-
-    print(artifact.x)
-    print(artifact.y)
+    print('{artifact.x}', artifact.x)
+    print('{artifact.x}', artifact.y)
 
     artifact.x = 'Polar beer.'
 
     print(artifact.x)
 
-    print(type(artifact).__dict__)
-    print(artifact.__dict__)
+    print('type(artifact).__dict__', type(artifact).__dict__)
+    print('', artifact.__dict__)
 
 
 if __name__ == '__main__':

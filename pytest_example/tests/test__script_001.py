@@ -4,13 +4,13 @@ from py_learn.pytest_example import script_001
 
 
 def test__greet():
-    assert script_001.greet("Meera") == "Howdy! Meera"
-    assert script_001.greet("Ram") == "Howdy! Ram"
+    assert script_001.greet('Meera') == 'Howdy! Meera'
+    assert script_001.greet('Ram') == 'Howdy! Ram'
 
 
 def test__greet_custom():
-    assert script_001.greet_custom("Meera", "Hi!") == "Hi! Meera"
-    assert script_001.greet_custom("Ram", "Hello!") == "Hello! Ram"
+    assert script_001.greet_custom('Meera', 'Hi!') == 'Hi! Meera'
+    assert script_001.greet_custom('Ram', 'Hello!') == 'Hello! Ram'
 
 
 def test__raises_error():

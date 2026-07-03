@@ -12,4 +12,4 @@ class TestDivision(TestCase):
 
     def test__division_raising_error(self):
         with self.assertRaises(ZeroDivisionError):
-            assert float("inf") == 1 / 0
+            assert float('inf') == 1 / 0

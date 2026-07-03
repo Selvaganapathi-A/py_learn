@@ -12,14 +12,14 @@ class OffState:
     def __new__(cls: type[Self]) -> Self:
         if cls.__instance__ is None:
             cls.__instance__ = super().__new__(cls)
-        return cast(Self, cls.__instance__)
+        return cast('Self', cls.__instance__)
 
     def switch(self, bulb: LightBulb):
         bulb.state = OnState()
-        print("Light is on -> off")
+        print('Light is on -> off')
 
     def show(self):
-        print("Light is Off.")
+        print('Light is Off.')
 
 
 class OnState:
@@ -28,14 +28,14 @@ class OnState:
     def __new__(cls: type[Self]) -> Self:
         if cls.__instance__ is None:
             cls.__instance__ = super().__new__(cls)
-        return cast(Self, cls.__instance__)
+        return cast('Self', cls.__instance__)
 
     def switch(self, bulb: LightBulb):
         bulb.state = OffState()
-        print("Light is off -> on")
+        print('Light is off -> on')
 
     def show(self):
-        print("Light is On.")
+        print('Light is On.')
 
 
 class LightBulb:
@@ -56,5 +56,5 @@ def main():
     bulb.state.show()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

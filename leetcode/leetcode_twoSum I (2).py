@@ -22,6 +22,6 @@ def main():
     print(sol.twoSum(case_3, 6))
 
 
-if __name__ == "__main__":
-    os.system("cls")
+if __name__ == '__main__':
+    os.system('cls')
     main()

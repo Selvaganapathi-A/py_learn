@@ -61,7 +61,7 @@ def main():
     # print("After removing list".center(60, "-"))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print(timeit(main, number=100000))
     print(timeit(main_1, number=100000))
     # main()

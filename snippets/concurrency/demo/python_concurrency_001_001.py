@@ -3,40 +3,40 @@ from time import sleep
 
 
 def func_001():
-    print("func_001 starting")
+    print('func_001 starting')
     sem.acquire()
     for loop in range(1, 5):
-        print(f"func_001 Working {loop}")
+        print(f'func_001 Working {loop}')
         sleep(1)
     sem.release()
-    print("func_001 finished")
+    print('func_001 finished')
 
 
 def func_002():
-    print("fun2 starting")
+    print('fun2 starting')
     while not sem.acquire(blocking=False):
-        print("func_002 No Semaphore available")
+        print('func_002 No Semaphore available')
         sleep(1)
-    print("func_002 got Semphore")
+    print('func_002 got Semphore')
     for loop in range(1, 5):
-        print(f"func_002 Working {loop}")
+        print(f'func_002 Working {loop}')
         sleep(1)
     sem.release()
 
 
 def func_003():
-    print("func_003 starting")
+    print('func_003 starting')
     while not sem.acquire(blocking=False):
-        print("func_003 No Semaphore available")
+        print('func_003 No Semaphore available')
         sleep(1)
-    print("func_003 got Semphore")
+    print('func_003 got Semphore')
     for loop in range(1, 5):
-        print(f"func_003 Working {loop}")
+        print(f'func_003 Working {loop}')
         sleep(1)
     sem.release()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     sem = threading.Semaphore(2)
     t1 = threading.Thread(target=func_001)
     t2 = threading.Thread(target=func_002)
@@ -47,4 +47,4 @@ if __name__ == "__main__":
     t1.join()
     t2.join()
     t3.join()
-    print("All Threads done Exiting")
+    print('All Threads done Exiting')

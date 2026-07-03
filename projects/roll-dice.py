@@ -10,8 +10,8 @@ def main():
     dice_count: int
     user_input: str
     try:
-        user_input = input("Enter Number of Dice:")
-        if user_input.lower() in ("exit", "quit"):
+        user_input = input('Enter Number of Dice:')
+        if user_input.lower() in ('exit', 'quit'):
             return
         dice_count: int = int(user_input)
         values = [get_dice() for _ in range(dice_count)]
@@ -20,5 +20,5 @@ def main():
         logging.exception(e)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

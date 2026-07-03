@@ -10,7 +10,7 @@ def fibbonocci(n: int):
         current = prev1 + prev2
         prev1 = prev2
         prev2 = current
-        print("\t\t", prev2)
+        print('\t\t', prev2)
     return current
 
 
@@ -23,5 +23,5 @@ def main():
     print(fibbonocci(12))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

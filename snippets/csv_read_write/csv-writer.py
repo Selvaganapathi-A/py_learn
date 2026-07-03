@@ -16,7 +16,7 @@ class Record:
     last_name: str
     phone: str
     birth_day: datetime.date
-    sex: Literal["M", "F", "O"]
+    sex: Literal['M', 'F', 'O']
     state: str
     zip_code: str
 
@@ -45,7 +45,7 @@ def funcname(fake: faker.Faker) -> Record:
             last_name=fake.last_name_female(),
             phone=phone,
             birth_day=b_day,
-            sex="F",
+            sex='F',
             state=state,
             zip_code=zip_code,
         )
@@ -54,40 +54,42 @@ def funcname(fake: faker.Faker) -> Record:
         last_name=fake.last_name_male(),
         phone=phone,
         birth_day=b_day,
-        sex="M",
+        sex='M',
         state=state,
         zip_code=zip_code,
     )
 
 
 def main():
-    csv_file = Path(__file__).parent / "data.csv"
+    csv_file = Path(__file__).parent / 'data.csv'
     """
     newline = ""
     to avoid creating blank lines between rows
     """
-    csv_file_descriptor = csv_file.open("w", newline="")
+    csv_file_descriptor = csv_file.open('w', newline='')
     csv_writer = csv.writer(
         csv_file_descriptor,
-        delimiter=",",
+        delimiter=',',
     )
-    fake: faker.Faker = faker.Faker("en-US")
+    fake: faker.Faker = faker.Faker('en-US')
     fake.add_provider(faker_education.SchoolProvider)
-    csv_writer.writerow((
-        "First-Name",
-        "Last-Name",
-        "Phone-Number",
-        "Birth-Day",
-        "Sex",
-        "State",
-        "Zip-Code",
-    ))
+    csv_writer.writerow(
+        (
+            'First-Name',
+            'Last-Name',
+            'Phone-Number',
+            'Birth-Day',
+            'Sex',
+            'State',
+            'Zip-Code',
+        )
+    )
     for x in range(1000):
         csv_writer.writerow(funcname(fake).export())
     csv_file_descriptor.flush()
     csv_file_descriptor.close()
 
 
-if __name__ == "__main__":
-    os.system("cls")
+if __name__ == '__main__':
+    os.system('cls')
     main()

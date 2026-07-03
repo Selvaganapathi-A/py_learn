@@ -20,8 +20,8 @@ def get_samples(frequency: int, amplitude: int = 100) -> list[tuple[float, float
 
 
 def main():
-    my_img = Image.new("RGBA", size=(3000, 2280), color="#ccccccee")
-    imdraw = ImageDraw.Draw(my_img, "RGBA")
+    my_img = Image.new('RGBA', size=(3000, 2280), color='#ccccccee')
+    imdraw = ImageDraw.Draw(my_img, 'RGBA')
     signals = [
         get_samples(1, 400),
     ]
@@ -31,11 +31,11 @@ def main():
         for co_ords in signal:
             x = int(co_ords[0]) + 30
             y = int(co_ords[1]) + 425
-            imdraw.ellipse((x - 1, y - 1, x + 1, y + 1), fill="black")
+            imdraw.ellipse((x - 1, y - 1, x + 1, y + 1), fill='black')
     for j in range(2160):
         x = int(signals[0][j][0]) + 30
         y = int(signals[0][j][1]) + 425
-        imdraw.ellipse((x - 1, y - 1, x + 1, y + 1), fill="black")
+        imdraw.ellipse((x - 1, y - 1, x + 1, y + 1), fill='black')
         ysum: list[float] = []
         for i in range(1, len(signals)):
             ysum.append(signals[i][j][1] / ((i - 1) * 2 + 1))
@@ -46,11 +46,11 @@ def main():
         ysum.append(signals[0][j][1])
         x = int(signals[0][j][0]) + 30
         y = int(sum(ysum) / len(signals)) + 425
-        imdraw.ellipse((x - 2, y - 2, x + 2, y + 2), fill="red")
-    my_img.save("square wave.png")
+        imdraw.ellipse((x - 2, y - 2, x + 2, y + 2), fill='red')
+    my_img.save('square wave.png')
     my_img.close()
 
 
-if __name__ == "__main__":
-    os.system("clear")
+if __name__ == '__main__':
+    os.system('clear')
     main()

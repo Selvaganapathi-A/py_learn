@@ -1,47 +1,47 @@
 class A:
     def __init__(self) -> None:
-        print("A Initialized.")
+        print('A Initialized.')
         super().__init__()
         super().__init_subclass__()
 
     def __init_subclass__(cls) -> None:
-        cls.Creator = "Alpha"
+        cls.Creator = 'Alpha'
         # object.__setattr__(cls, 'Creator', 'Alpha')
 
     def function(self):
-        print("A ouject function called.")
+        print('A ouject function called.')
 
 
 class B(A):
     def __init__(self) -> None:
-        print("B Initialized.")
+        print('B Initialized.')
         super().__init__()
         super().__init_subclass__()
 
     def function(self):
-        print("B ouject function called.", self.Creator)
+        print('B ouject function called.', self.Creator)
         super().function()
 
 
 class BA(B):
     def __init__(self) -> None:
-        print("BA Initialized.")
+        print('BA Initialized.')
         super().__init__()
         super().__init_subclass__()
 
     def function(self):
-        print("BA ouject function called.", self.Creator)
+        print('BA ouject function called.', self.Creator)
         super().function()
 
 
 class BBA(BA, B, A):
     def __init__(self) -> None:
-        print("BA B A Initialized.")
+        print('BA B A Initialized.')
         super().__init__()
         super().__init_subclass__()
 
     def function(self):
-        print("BBA ouject function called.", self.Creator)
+        print('BBA ouject function called.', self.Creator)
         super().function()
 
 
@@ -54,5 +54,5 @@ def main():
     print(bba.Creator)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

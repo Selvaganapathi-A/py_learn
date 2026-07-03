@@ -51,5 +51,5 @@ def main():
     print(result.unwrap_value_or_default(0))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

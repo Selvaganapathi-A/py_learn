@@ -20,11 +20,11 @@ class Result[V, E: BaseException]:
 
     @property
     def result(self) -> V:
-        return cast(V, self._value)
+        return cast('V', self._value)
 
     @property
     def error(self) -> E:
-        return cast(E, self._error)
+        return cast('E', self._error)
 
     def is_ok(self) -> bool:
         return self._is_ok
@@ -41,18 +41,18 @@ class Result[V, E: BaseException]:
         return Result(error=error, is_err=True)
 
 
-T = TypeVar("T", float, str)
+T = TypeVar('T', float, str)
 
 
 def add(a: T | None, b: T | None):
     if a is None:
-        return Result.Err(ValueError("a is none", a))
+        return Result.Err(ValueError('a is none', a))
     if b is None:
-        return Result.Err(ValueError("b is none", b))
+        return Result.Err(ValueError('b is none', b))
     return Result.Ok(a + b)
 
 
-logging.basicConfig(format="{levelname: >10}-{message}", style="{")
+logging.basicConfig(format='{levelname: >10}-{message}', style='{')
 
 c = add(1, None)
 if c.is_ok():
